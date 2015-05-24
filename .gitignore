@@ -1,0 +1,10 @@
+# Not using Shariff or Tipue Search.
+theme/tipuesearch/
+theme/css/shariff/
+theme/js/shariff.min.js
+
+# Ignore Bootstrap and Pygments themes other than the ones used.
+theme/css/bootstrap*.min.css
+!theme/css/bootstrap.cosmo-custom.min.css
+theme/css/pygments/*.css
+!theme/css/pygments/monokai.css
