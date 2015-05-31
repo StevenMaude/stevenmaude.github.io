@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Uses for a Raspberry Pi (part 1) - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/uses-for-a-raspberry-pi-part-1.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="adapter,Pi,Airprint,Raspberry,wireless,wifi" />
+        <meta name="description" content="A few simple, but useful, applications for a Raspberry Pi, including a wireless adapter and AirPrint server." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Uses for a Raspberry Pi (part 1)"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/uses-for-a-raspberry-pi-part-1.html"/>
+        <meta property="og:description" content="A few simple, but useful, applications for a Raspberry Pi, including a wireless adapter and AirPrint server."/>
+        <meta property="article:published_time" content="2013-07-10" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="adapter" />
+            <meta property="article:tag" content="Pi" />
+            <meta property="article:tag" content="Airprint" />
+            <meta property="article:tag" content="Raspberry" />
+            <meta property="article:tag" content="wireless" />
+            <meta property="article:tag" content="wifi" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Uses for a Raspberry Pi (part 1)
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-07-10T21:21:00+01:00"> 2013-07-10</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2013-07-14T13:45:00+01:00"> 2013-07-14</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/adapter.html">adapter</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/pi.html">Pi</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/airprint.html">Airprint</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/raspberry.html">Raspberry</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/wireless.html">wireless</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/wifi.html">wifi</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Raspberry_Pi.jpg" alt="A powered on Raspberry Pi."></p>
+<blockquote>
+  <p>Don’t buy one and put it in the cupboard; buy one and do an
+  interesting thing with it and tell the world what you did.
+  </p>
+  <cite><a href="http://www.dailybrink.com/?p=3304">Eben Upton</a></cite>
+</blockquote>
+
+<p>When I finally got my hands on the low priced Raspberry Pi computer, it
+was autumn. Although it had been released in February, its low price and
+the engagement of the Raspberry Pi Foundation with the user and
+developer community meant that people were clamouring for them and
+supplies were scarce. This explains why it was very difficult to get
+hold of for several months. Since then, I've found several uses for my
+Pi, and I thought it might be useful, in the spirit of the opening
+quote, to briefly discuss them.</p>
+<p>My uses for the Pi are fairly simple, especially in comparison to those
+that frequently adorn the official <a href="http://www.raspberrypi.org/">Raspberry
+Pi</a> site, but I've still found them very
+handy nonetheless. I wouldn't have been particularly unhappy if I'd
+spent £30 on a device that does just one of the tasks that I using the
+Pi for. It's no surprise that a device that does all of these tasks, and
+<em>can still do more</em>, makes the Pi one of my favourite bits of recent
+hardware. I'm certainly not alone in that view: the driving force behind
+the Pi, Eben Upton, was <a href="http://www.zdnet.com/we-thought-wed-sell-1000-the-inside-story-of-the-raspberry-pi-7000009718/">quoted as initially hoping for 1,000
+sales</a>;
+a huge underestimate from the <em>hundreds of thousands</em>it has sold.</p>
+<p>One of the most obvious uses for a Pi is to run <a href="http://xbmc.org">XBMC</a>,
+the fantastic open source media center software. The fact that XBMC was
+shown to run pretty smoothly prior to the Pi's release no doubt played a
+part in the Pi's early popularity, considering the feature set that XBMC
+alone offers. That said, my assumption is that anyone with a Pi already
+knows about XBMC — in the unlikely event that you don't, make sure to
+try <a href="http://www.raspbmc.com/">Raspbmc</a> out — therefore I'll skip over it
+here and leave that discussion to the many pages that discuss XBMC on
+the Pi. Instead, I'll focus on other useful functions.</p>
+<p>For reference, at the time of writing, Raspbian is the <a href="http://www.raspberrypi.org/downloads">officially
+recommended</a> operating system and
+that's what I'm running on my Pi. All of the uses for my Pi use it
+<a href="https://en.wikipedia.org/wiki/Headless_system">headless</a>. I usually
+connect to the Pi via an
+<a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> client, though you
+could attach a keyboard and TV/monitor to it and enter terminal commands
+directly.</p>
+<p>So, what can you use a Pi for?</p>
+<hr />
+<h2>1. Access to useful Linux command line tools</h2>
+<p>Even just installing a Linux distribution like Raspbian, <em>without
+installing anything else</em>, gives you access to <a href="https://en.wikipedia.org/wiki/List_of_Unix_utilities">several powerful
+programs</a>
+(particularly the <a href="https://github.com/nschneid/unix-text-commands">text processing
+commands</a>) that you
+might not have ready access to, if you don't already have another PC
+running Linux available.</p>
+<p>Yes, you can get access to some of these tools within Windows if you
+install something like <a href="http://gnuwin32.sourceforge.net/">GnuWin32</a> or
+<a href="http://www.cygwin.com/">Cygwin</a>, or go to the trouble of installing
+Linux in a <a href="https://www.virtualbox.org/">virtual machine</a>, but it's nice
+to just power on a device and start working with these tools immediately
+and without any further setup.</p>
+<p>Another example is that when I started using
+<a href="https://github.com/StevenMaude">github</a>, I found it easy to just run
+the <a href="http://git-scm.com/">git</a> command line tool from the Pi. <em>It just
+worked.</em> In my case, git had already been installed, so I didn't even
+need to type <code>sudo apt-get install git</code>. This was a lot
+simpler than me trying to decide on the best way to run git on Windows.</p>
+<h2>2. Wireless adapter for a device without onboard wifi</h2>
+<p>I installed a cheap Ralink wifi adapter (around £4 from eBay) to connect
+my Pi to a wireless network. Because of this, the Pi's onboard Ethernet
+port was going unused. It's relatively straightforward to configure the
+Pi to enable a device connected to it by Ethernet to use the Pi's wifi
+connection to access the network</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Wifi_dongle.jpg" alt="Wifi adapter for the Pi."></p>
+<p>Wifi is a common feature of networked devices these days, but the Xbox
+360 is an exception to this rule. Earlier this year, I explained in <a href="http://unix.stackexchange.com/a/64353">a
+Stack Exchange post</a> how to
+configure the Pi such that the Xbox can access the network. There's no
+reason why the same procedure couldn't be used for other networked
+devices without wifi.</p>
+<h2>3. AirPrint server</h2>
+<p>Earlier this year, I was asked, "How can I print something from my
+iPad?"
+My reply was along the lines of, "Not easily: we don't have a printer
+that supports <a href="http://support.apple.com/kb/ht4356">AirPrint</a>."</p>
+<p>That conversation inspired me to have a look around in case it was
+actually possible. After a quick search, I found
+<a href="https://github.com/tjfontaine/airprint-generate">airprint-generate</a>,
+along with a <a href="http://the.taoofmac.com/space/blog/2012/12/16/1730">step-by-step
+guide</a> explaining
+how to install this on the Pi. Even with having to install
+<a href="http://www.cups.org/">CUPS</a> and testing a couple of
+<a href="https://en.wikipedia.org/wiki/IDevice">iDevices</a>, I don't think the
+whole setup took more than thirty minutes or so. With this AirPrint
+solution, printing from an iPad is integrated just as if we used an
+AirPrint-compatible printer; no third party app is necessary to print.</p>
+<hr />
+<p>As its price suggests, the Pi isn't hugely powerful, but that doesn't
+hinder it from being incredibly useful for applications where computing
+power isn't critical, like the AirPrint server. (Here, even if it runs a
+little slow, the response time isn't really an issue: would a user
+really notice the extra few seconds that a document might take to print,
+compared with a much faster PC?) The Pi is also very <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=18043">cheap to
+run</a>, as well
+as being silent, making it ideal for server applications with modest
+computing power requirements.</p>
+<p>Even if you are starting from scratch, and need to run the Pi's
+operating system installer first, it should only take you, at most, a
+couple of hours to get everything here running. In a single evening, you
+can complete a small project that you get something back from almost
+immediately, which is really encouraging.</p>
+<p>On that upbeat tone, that's probably a good place to end this post! When
+I write about the Pi next, I'll cover uses of the Pi as a file server
+(using <a href="http://www.samba.org/">Samba</a>), and how I've found
+<a href="http://www.infradead.org/get_iplayer/html/get_iplayer.html">get_iplayer</a>
+to be a great alternative to the BBC's officially supported service.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

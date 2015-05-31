@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Explaining Python virtualenv (in under two minutes) - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="virtualenv,development,Linux,programming,Python,Ubuntu,coding" />
+        <meta name="description" content="How to setup virtualenvs to simplify Python software development." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Explaining Python virtualenv (in under two minutes)"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under.html"/>
+        <meta property="og:description" content="How to setup virtualenvs to simplify Python software development."/>
+        <meta property="article:published_time" content="2013-08-22" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="virtualenv" />
+            <meta property="article:tag" content="development" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="programming" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:tag" content="coding" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Explaining Python virtualenv (in under two minutes)
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-08-22T20:31:00+01:00"> 2013-08-22</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2013-08-30T22:02:00+01:00"> 2013-08-30</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/virtualenv.html">virtualenv</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/development.html">development</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/linux.html">Linux</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/programming.html">programming</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/python.html">Python</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">Ubuntu</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/coding.html">coding</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I've been busy the last couple of weeks. Recently, I started a late
+summer/early autumn internship at
+<a href="https://scraperwiki.com/">ScraperWiki</a>, who are building a data science
+platform. I should have a blog post (it's drafted!) describing how I've
+found working there so far posted soon on their
+<a href="http://blog.scraperwiki.com/">blog</a>.</p>
+<p>Anyway, I've been
+<a href="https://en.wikipedia.org/wiki/Pair_programming">pairing</a> with the very
+helpful and patient <a href="https://twitter.com/drjtwit">David Jones</a> who has
+been helping me out hugely by sharing some of his knowledge with me. For
+the last two days, I've been learning a lot, and somehow forgetting even
+more, about <a href="http://www.vim.org/">vim</a>. However, David also showed me
+how to use virtualenv today. This was far easier for me to get my head
+round, so I'd figured I'd write up a quick start guide while it was
+fresh in mind.</p>
+<h2>What is virtualenv?</h2>
+<p>As the <a href="http://www.virtualenv.org/">homepage describes it</a>, "virtualenv
+is a tool to create isolated Python environments". These environments
+are also referred to as virtualenvs.</p>
+<h2>Why is this useful for software development?</h2>
+<p>It greatly simplifies dependencies on other modules for different
+software projects you are working on. <em>Each virtualenv can have its own
+installed modules.</em> If projects require different versions of the same
+module, it would be a real pain to manage this at a system level. You
+might need, say, two different versions of the same module for two
+different projects. Using virtualenv, it's simple for every project you
+work on to have its own set of modules independently of any others.</p>
+<p>You can also use this to safely test new versions of modules with your
+software: make a new virtualenv and install the newer version of the
+module there.</p>
+<p>Furthermore, you can also <a href="http://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv">setup virtualenvs that use different Python
+versions</a>,
+particularly handy considering that the change from Python 2 to Python 3
+is a substantial one.</p>
+<p>Another plus is that using virtualenvs stops you polluting your system's
+actual Python installation with lots of packages that you're using only
+to develop certain software.</p>
+<h2>How do you install it?</h2>
+<p>On Debian-based distributions, e.g. Ubuntu, you can use apt-get:
+<code>sudo apt-get install python-virtualenv</code></p>
+<h2>How do you use it?</h2>
+<p>In a terminal, make a directory for the project you're working on (or
+enter an existing directory), e.g. <code>newproject</code>. Creating a new virtualenv
+is as easy as entering <code>virtualenv newproject</code></p>
+<p>When this command is entered, a Python distribution will be setup within
+the specified directory, in this case <code>newproject</code>. The
+current default behaviour of virtualenv is not to copy any system
+installed packages here, so it's like a fresh install.</p>
+<p>To activate a virtualenv, you then change to your project directory
+(e.g. <code>cd newproject</code>), then enter the command: <code>.
+bin/activate</code> (notice the space between the dot and
+bin/activate).</p>
+<p>It's easy to tell you're running a virtualenv: the terminal will show
+(<code>newproject</code>) before the command prompt. While the
+virtualenv is active, any <a href="http://www.pip-installer.org/en/latest/quickstart.html"><code>pip install
+packagename</code></a>
+command will install a Python package into that particular virtualenv.
+This is another nice benefit of virtualenv: you don't need to run <code>*sudo*
+pip install packagename</code> as you will already be working in a
+user-writeable directory.</p>
+<p>To deactivate a virtualenv, simply enter <code>deactivate</code> at the
+terminal. To use in future, just run the activate command again in the
+project directory: <code>. bin/activate</code></p>
+<p>Simple, but incredibly useful.</p>
+<p>(Bonus note: Since creating a
+virtualenv creates directories such as /bin, /include, /lib and /local,
+you may wish to add these to a
+<a href="https://help.github.com/articles/ignoring-files">.gitignore</a> file if
+you're using git so that you don't accidentally commit these files to a
+repository.)</p>
+<p>(Bonus note 2: After initially posting this, <a href="https://twitter.com/morty_uk/status/370653794054320128">it was later pointed out
+to me</a> that
+<a href="http://virtualenvwrapper.readthedocs.org/en/latest/index.html">virtualenvwrapper</a>
+is a handy way to manage virtualenvs.)</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

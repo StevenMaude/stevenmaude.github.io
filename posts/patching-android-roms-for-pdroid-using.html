@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Patching Android ROMs for PDroid using Auto-Patcher - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/patching-android-roms-for-pdroid-using.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Android,PDroid,Auto-Patcher" />
+        <meta name="description" content="How to modify Android ROMs using Auto-Patcher to enable the PDroid privacy controls app." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Patching Android ROMs for PDroid using Auto-Patcher"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/patching-android-roms-for-pdroid-using.html"/>
+        <meta property="og:description" content="How to modify Android ROMs using Auto-Patcher to enable the PDroid privacy controls app."/>
+        <meta property="article:published_time" content="2013-05-11" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="Android" />
+            <meta property="article:tag" content="PDroid" />
+            <meta property="article:tag" content="Auto-Patcher" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Patching Android ROMs for PDroid using Auto-Patcher
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-05-11T14:26:00+01:00"> 2013-05-11</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2014-03-28T22:01:00+00:00"> 2014-03-28</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/android.html">Android</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/pdroid.html">PDroid</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/auto-patcher.html">Auto-Patcher</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="admonition article-edit">
+<p>Edit 2014/03/28: Auto-Patcher is deprecated; see <a href="http://www.stevenmaude.co.uk/2014/03/phone-upgrades-and-privacy-downgrades.html">my more recent
+post</a>.</p>
+</div>
+<p>Over the past six months or so, I've been running the very slick port of
+CyanogenMod 9.1 to Huawei's G300 phone by Dazzozo and collaborators as
+posted at <a href="http://g300.modaco.com/">g300.modaco.com</a>. (It's considerably
+better than the official ICS ROM provided by Huawei and Vodafone.)</p>
+<p>For several of the previous releases, a user had been supplying zip
+patches that could be flashed through recovery which allowed PDroid to
+function. Unfortunately, they seemed to have stopped providing them and
+this was one thing that was holding me back from upgrading my CM9
+install to a newer version.</p>
+<p>If you're unfamiliar with
+<a href="https://play.google.com/store/apps/details?id=com.privacy.pdroid">PDroid</a>,
+it allows granular control of the data that each app on your phone can
+access. For example, you might install an app which requests location
+access permissions that aren't really necessary to the app's function.
+Using PDroid, you can override these permissions, blocking the app's
+access to this data. (I'm not overly paranoid, but neither do I want my
+phone spewing out personal data for no good reason.)</p>
+<p>Other than basics of flashing ROMs, I know very little about Android. I
+assumed that patching a ROM in this way was fairly involved. It's
+actually really simple:</p>
+<ol>
+<li>Download a zipped copy of the latest
+    <a href="https://github.com/mateor/auto-patcher">Auto-Patcher</a> and a copy of
+    the ROM you want to modify.</li>
+<li>Boot into Linux; I used a DVD copy of Ubuntu that I had lying
+    around, an existing Linux install or virtual machine would work
+    equally well. (There is a Windows version of Auto-Patcher, though I
+    didn't test this.)</li>
+<li>Install the Java JDK: <code>sudo apt-get install openjdk-7-jre
+    openjdk-7-jdk</code> (you also require the cpio and patch packages
+    to be installed, I found these were installed already, otherwise you
+    need to <code>sudo apt-get install cpio</code> and <code>sudo apt-get install patch</code>).</li>
+<li>Extract the auto-patcher zip to a folder and copy the (still zipped)
+    ROM to the same folder.</li>
+<li>As the Auto-Patcher instructions state, you need to open a terminal
+    window, navigate to the auto-patcher folder and run <code>./batch.sh</code>.</li>
+<li>Now, run <code>./auto_patcher &lt;ROMNAME&gt;.zip &lt;MODTYPE&gt; &lt;ROMTYPE&gt;</code>.
+    The MODTYPE is pdroid and, in my case, the ROMTYPE was cm9, so I
+    used a command line like: <code>./auto_patcher
+    cm-9-20130428-EXPERIMENTAL-u8815-R10.zip pdroid cm9</code></li>
+</ol>
+<p>This process should result in two new zips in the Auto-Patcher folder:
+an update and a restore.</p>
+<p>All that is left to do is to copy both the zipped ROM and the update zip
+generated by Auto-Patcher to your phone's storage. You can then use an
+Android custom recovery (such as ClockworkMod Recovery) to flash the
+ROM, followed by the update zip through an Android custom recovery. The
+restore zip that <code>auto_patcher</code> generates can be used, as the name
+suggests, to return the ROM to the unpatched state. Finally, you just
+need to install the PDroid app itself from the Play Store, and you're
+finished!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

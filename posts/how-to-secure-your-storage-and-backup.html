@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>How to secure your storage and backup drives on Windows and Linux - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/how-to-secure-your-storage-and-backup.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Bitlocker,backup,encryption,USB,HDD,external,TrueCrypt,drive" />
+        <meta name="description" content="A guide to securing data on external and backup drives by encrypting them." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="How to secure your storage and backup drives on Windows and Linux"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/how-to-secure-your-storage-and-backup.html"/>
+        <meta property="og:description" content="A guide to securing data on external and backup drives by encrypting them."/>
+        <meta property="article:published_time" content="2013-09-28" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="Bitlocker" />
+            <meta property="article:tag" content="backup" />
+            <meta property="article:tag" content="encryption" />
+            <meta property="article:tag" content="USB" />
+            <meta property="article:tag" content="HDD" />
+            <meta property="article:tag" content="external" />
+            <meta property="article:tag" content="TrueCrypt" />
+            <meta property="article:tag" content="drive" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                How to secure your storage and backup drives on Windows and Linux
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-09-28T17:03:00+01:00"> 2013-09-28</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2015-01-09T14:10:00+00:00"> 2015-01-09</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">Bitlocker</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/backup.html">backup</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/encryption.html">encryption</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/usb.html">USB</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/hdd.html">HDD</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/external.html">external</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/truecrypt.html">TrueCrypt</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/drive.html">drive</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>If you use computers even a little, you'll probably have acquired a few
+external USB drives. They're cheap, reasonably quick and small, so it's
+unsurprising that they're so popular. The only issue is that you may
+well be storing personal data on them, meaning that if you lost them and
+they're unencrypted, anyone can read their contents.</p>
+<p>Compared with the painful time <a href="http://www.stevenmaude.co.uk/2013/09/a-beginners-guide-to-os-encryption-dual.html">I previously
+spent</a>
+encrypting operating system drives, it's a relief that encrypting
+non-system drives is far, far simpler.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Bitlocker_context_menu.png" alt="Bitlocker drive context menu."></p>
+<h2>Bitlocker</h2>
+<p>If only using Windows, and provided your copy of Windows is bundled with
+it, you could use Bitlocker. Bitlocker is straightforward to setup with
+self-explanatory instructions.</p>
+<p>Right clicking an external drive in Explorer brings up the Bitlocker
+option (as shown to the right).</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Bitlocker_unlock_menu.png" alt="Bitlocker drive unlock menu."></p>
+<p>Next, you then choose a password to unlock the drive, then save or print
+a recovery key in case you forget your password. All that's left is to
+encrypt the drive by finally choosing to Start Encryption.</p>
+<p>The next time you insert the drive, it will prompt you for the password
+to unlock it. Enter it and the drive functions just as normal.</p>
+<h3>Issues with Bitlocker</h3>
+<p>Note that you'll need to use Microsoft's <a href="http://windows.microsoft.com/en-us/windows7/what-is-the-bitlocker-to-go-reader">Bitlocker To Go
+Reader</a>
+for <strong>read-only access</strong> to Bitlocker-encrypted drives in older Windows
+version (Vista and XP). There are also
+<a href="https://code.google.com/p/libbde/">some</a>
+<a href="http://www.hsc.fr/ressources/outils/dislocker/">unofficial</a> projects
+that support Bitlocker under Linux and OS X.</p>
+<p>Update: Bought a USB 3 drive so that I could backup faster and was told
+by Windows that "a drive attached to the system is not functioning" when
+trying to enable Bitlocker. This is a <a href="http://support.microsoft.com/kb/2704232">known
+issue</a>, but I hadn't read
+anything about it until just now. In my case, my drive wouldn't even
+show up when plugged in the USB 2 port making my shiny new drive
+enclosure fairly useless. This is with the latest USB 3.0 eXtensible
+Host Controller Driver for Intel 7 Series (1.0.9.254, at the time of
+writing).</p>
+<p>Update 2: USB 3 works fine, but there's <a href="http://www.stevenmaude.co.uk/2013/10/odd-behaviour-of-bitlocker-or-maybe-my.html">some weird Bitlocker or drive
+specific issue
+behaviour</a>...</p>
+<h2>TrueCrypt</h2>
+<div class="admonition article-edit">
+<p>Edit: see my <a href="http://127.0.0.1:8000/a-beginners-guide-to-os-encryption-dual.html#fn:2">earlier encryption
+post</a>
+for notes on the current state of TrueCrypt.</p>
+</div>
+<p>The other main option is <a href="http://www.truecrypt.org/">TrueCrypt</a> which is
+freely available, and has good cross-platform support, perhaps making it
+a better choice. Go to Volumes &gt; Create New Volume... and you'll see
+this menu:</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_menu.png" alt="The TrueCrypt volume creation wizard."></p>
+<p>You can optionally use an encrypted drive container, which is a virtual
+disk in a file, should you want to store unencrypted files on your drive
+alongside encrypted ones. My preference is just to encrypt the entire
+thing, so there's no risk of me inadvertently storing something
+containing personal information in the unencrypted part.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_volume_type.png" alt="Specifying TrueCrypt volume type."></p>
+<p>Here, TrueCrypt asks if you want to hide the volume. In my case, a
+standard volume is sufficient.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_volume_location.png" alt="Specifying TrueCrypt volume location."></p>
+<p>Click Select Device, choose the drive you want to encrypt and click
+Next.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_encryption_options.png" alt="The TrueCrypt volume creation window."></p>
+<p>If you've nothing on the drive already, you can format it. Otherwise,
+you'll have to encrypt it in place which will take longer. On the next
+page after this, it allows you to specify the encryption algorithms, I
+leave these as default. It will then tell you the volume size so that
+you can double check you've specified the correct drive.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_format_options.png" alt="The TrueCrypt volume format window."></p>
+<p>After that, you enter a password, choose what kind of filesystem (e.g.
+FAT or NTFS) you want for the drive, move the mouse in the TrueCrypt for
+a while to generate random data and click Format.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt_drive_menu.png" alt="The TrueCrypt window showing a list of drives and drive letters to mount."></p>
+<p>To mount the drive, you launch TrueCrypt, choose Select Device, select
+your TrueCrypt drive, select an empty drive letter and choose Mount.
+You'll be prompted for your password, and then providing you enter the
+correct password, your drive will be mounted and you can access the
+files on it. When you've finished working with the drive, you should
+select it in TrueCrypt and choose Dismount. You can then safely eject
+the drive from Windows as you would normally, and then remove it from
+your PC.</p>
+<h3>Issues with TrueCrypt</h3>
+<p>The only requirement is that you need TrueCrypt to be running on a
+destination PC. This can either be via having it installed to the PC
+directly, or, for Windows PCs at least, having access to an appropriate
+portable version of TrueCrypt.</p>
+<p>The one big tradeoff compared with Bitlocker is that you require
+administrative privileges even when running the
+<a href="https://en.wikipedia.org/wiki/Portable_application">portable</a> version
+on Windows. If TrueCrypt has been previously installed to a Windows PC
+by an administrator, then admin privileges are <strong>not</strong> required to mount
+drives. (On Linux, even with TrueCrypt installs, it asks for admin
+privileges since it requires them to mount a drive.) With Bitlocker,
+non-admins can access drives without any issue (aside from older Windows
+version needing the reader application ), and this might factor into
+your choice of encryption software.</p>
+<h2>Encrypting backup drives</h2>
+<p>If you're encrypting everything else, it probably makes sense to
+considering encrypting your backups too. If your system is already
+encrypted completely, you could simply clone the entire drive with
+<a href="http://clonezilla.org/">Clonezilla</a>. I haven't tested this and I'm not
+sure if there are issues with restoring the drive, particularly when if
+a drive's been encrypted with TrueCrypt, though <a href="http://superuser.com/questions/312166/how-to-properly-image-a-truecrypt-system-partition">some users report this
+is fine</a>.</p>
+<p>Using the backup tools provided by each individual OS is also an
+option.</p>
+<h3>Windows</h3>
+<p>Windows Backup and Restore <a href="http://superuser.com/questions/126111/how-can-you-use-windows-backup-with-a-truecrypt-encrypted-backup-destination">needs slightly awkward
+workarounds</a>
+to function with TrueCrypt drives; however, Bitlocker encrypted external
+drives work seamlessly with this feature. The File History feature in
+Windows 8 should work fine with TrueCrypt drives, on the other hand (it
+doesn't use Volume Shadow Copy that TrueCrypt is incompatible with).</p>
+<h3>Ubuntu</h3>
+<p>For Ubuntu, I'm using the built-in Backup tool (Déjà Dup) which is based
+on <a href="http://duplicity.nongnu.org/">Duplicity</a>. At its core, this backup
+tool is very much end-user focused. It's incredibly simple to set up.
+Although it could benefit from better scheduling and more options, e.g.
+exclusion of files versus simply choosing which directories to include,
+making backups easy for users to do is not a bad thing.</p>
+<p>Despite this, Déjà Dup has two handy features. First, it supports
+encryption natively, so you don't even need to specially format a drive
+or partition to encrypt the backup. You choose an encryption password
+and it encrypts the backup.</p>
+<p>Second, it integrates nicely with Ubuntu. Given a backup, you are able
+to restore deleted files or previous versions directly from
+<a href="https://en.wikipedia.org/wiki/Nautilus_%28file_manager%29">Nautilus</a>.</p>
+<p>There are other backup alternatives like
+<a href="http://www.rsnapshot.org/">rsnapshot</a> (though you'd have to <a href="http://pig-monkey.com/2012/09/24/cryptshot-automated-encrypted-backups-rsnapshot/">handle
+encryption
+yourself</a>),
+but Déjà Dup gave me a fuss-free way to get an encrypted backup running,
+which I really like.</p>
+<h2>Summary</h2>
+<p>If you're carrying around sensitive or personal data on portable drives,
+it's worth taking the time to make sure that the data's secure in case
+you lose the drive. It's simple to setup regardless of whichever OS
+you're using.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

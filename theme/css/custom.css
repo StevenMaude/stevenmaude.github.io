@@ -1,0 +1,209 @@
+/* Override body padding in style.css */
+body {
+    padding-top: 0;
+}
+
+/* Override banner in style.css */
+#banner h1 {
+    font-stretch: normal;
+    text-transform: none;
+    font-family: "Source Sans Pro",Calibri,Candara,Arial,sans-serif;
+}
+
+@media (min-width: 600px) {
+    #banner h1 {
+        font-size: 50px;
+    }
+}
+
+.footnote {
+    font-size: 90%;
+}
+
+/* Fix for Chromium wrapping the dates in archive list */
+.archive-date {
+    white-space: nowrap;
+}
+
+/* Add scroll bars to code snippets */
+.highlight pre {
+    word-wrap: normal;
+    white-space: pre;
+}
+
+.article-figure {
+    margin-bottom: 1em;
+}
+
+.article-figure img,
+.article-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-figure figcaption {
+    text-align: center;
+}
+
+/* Reset any browser padding on lists */
+ul,
+ol {
+    padding-left: 40px;
+    margin: 0;
+}
+
+/* So that we can then break out of a list e.g. to centre images on page */
+.break-out-of-list {
+    margin-left: -40px;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+}
+
+/* Match panel border colour to other lines */
+.entry-content .panel {
+    border-color: #E6E6E6;
+}
+
+/* Match article detail panel background colour to panels on article lists */
+article .panel {
+    background-color: #F5F5F5;
+}
+
+footer.post-info .label {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+/* Too much spacing between bottom hr and copyright details; remove some */
+.content-author-separator {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/* Article paragraph spacing */
+.entry-content p, ul, ol {
+    margin-bottom: 1em;
+}
+
+/* Match header spacing to base font size and paragraph spacing */
+@media (min-width: 600px) {
+    .entry-content h1,
+    .entry-content h2,
+    .entry-content h3 {
+        margin-top: 44px;
+        margin-bottom: 22px;
+    }
+
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6 {
+        margin-top: 22px;
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 599px) {
+    .entry-content h1,
+    .entry-content h2,
+    .entry-content h3 {
+        margin-top: 34px;
+        margin-bottom: 17px;
+    }
+
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6 {
+        margin-top: 17px;
+        margin-bottom: 17px;
+    }
+}
+
+/* Make highlighted code sections have paragraph spacing */
+@media (min-width: 600px) {
+    .highlight pre {
+        margin-bottom: 1.294117647em;
+        font-size: 0.772727273em;
+    }
+}
+
+@media (max-width: 599px) {
+    .highlight pre {
+        margin-bottom: 1.307692308em;
+        font-size: 0.764705882em;
+    }
+}
+
+/* Make site name smaller in navbar; we know which site we're on from address bar */
+.navbar-brand {
+    font-size: 0.8em;
+}
+
+/* Use colour changes to indicate links, not underlines.
+   Underline looks bad when mixing code and normal text in links.
+   (Tags are OK underlined.)
+
+   Cover article tags in article details, article links in archives
+   on index pages, and in text. */
+footer.post-info a,
+footer.post-info a:visited,
+footer.post-info a:hover,
+footer:not(.post-info) a:focus,
+.article-link a:focus,
+.pager a:focus {
+    color: inherit;
+}
+
+table a:not(.btn),
+.article-link a,
+footer.post-info a:focus,
+footer:not(.post-info) a:focus {
+    text-decoration: none;
+}
+
+footer.post-info a:hover,
+footer:not(.post-info) a:hover {
+    text-decoration: underline;
+}
+
+table a:not(.btn):visited,
+table a:not(.btn):visited code,
+.article-link a:visited,
+.article-link a:visited code {
+    color: #777
+}
+
+table a:not(.btn):hover,
+table a:not(.btn):hover code,
+.article-link a:hover,
+.article-link a:hover code {
+    color: black;
+}
+
+.entry-content a,
+.entry-content a code {
+    color: #2780E3;
+    border-bottom: none;
+}
+
+.entry-content a:visited,
+.entry-content a:visited code {
+    color: #4C41B4;
+}
+
+.entry-content a:hover {
+    color: #165BA8;
+    border-bottom: none;
+}
+
+/* Fix uneven line spacing when lines contain code and normal text */
+code {
+    line-height: 1;
+}
+
+.admonition.article-edit {
+    background-color: #FFF3FF;
+}

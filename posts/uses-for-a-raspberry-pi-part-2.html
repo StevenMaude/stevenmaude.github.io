@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Uses for a Raspberry Pi (part 2) - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/uses-for-a-raspberry-pi-part-2.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="server,Samba,radio,Pi,tracklisting,Raspberry,iplayer,Python,get_iplayer" />
+        <meta name="description" content="Running the Raspberry Pi as a file and media server, and as a PVR with get_iplayer." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Uses for a Raspberry Pi (part 2)"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/uses-for-a-raspberry-pi-part-2.html"/>
+        <meta property="og:description" content="Running the Raspberry Pi as a file and media server, and as a PVR with get_iplayer."/>
+        <meta property="article:published_time" content="2013-07-17" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="server" />
+            <meta property="article:tag" content="Samba" />
+            <meta property="article:tag" content="radio" />
+            <meta property="article:tag" content="Pi" />
+            <meta property="article:tag" content="tracklisting" />
+            <meta property="article:tag" content="Raspberry" />
+            <meta property="article:tag" content="iplayer" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="get_iplayer" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Uses for a Raspberry Pi (part 2)
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-07-17T19:32:00+01:00"> 2013-07-17</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2015-01-09T16:59:00+00:00"> 2015-01-09</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/server.html">server</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/samba.html">Samba</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/radio.html">radio</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/pi.html">Pi</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/tracklisting.html">tracklisting</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/raspberry.html">Raspberry</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/iplayer.html">iplayer</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/python.html">Python</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/get_iplayer.html">get_iplayer</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Raspberry_Pi.jpg" alt="A Raspberry Pi working hard!"></p>
+<p>In my <a href="http://www.stevenmaude.co.uk/2013/07/uses-for-a-raspberry-pi-part-1.html">last
+post</a>,
+I described a few simple, but effective uses for a Raspberry Pi. Here
+are two more!</p>
+<hr />
+<h2>4. File server using Samba, and media server using MiniDLNA</h2>
+<p>The Pi makes for a useful low cost file server. I used <a href="http://elinux.org/R-Pi_NAS">this
+guide</a> to install Samba which enables file
+shares to be accessed via Windows (and also OS X). It's pretty easy to
+follow step-by-step. Following that guide, you can also attach a USB
+drive, making for a cheap <a href="https://en.wikipedia.org/wiki/Network-attached_storage">network-attached
+storage</a> (NAS)
+solution.</p>
+<p>Furthermore, you can also <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=16352">install
+MiniDLNA</a> to
+allow networked media devices to easily access video and audio on the
+Pi, though I've not tested this personally.</p>
+<h2>5. <code>get_iplayer</code>: for UK users (or overseas users with e.g. VPN access)</h2>
+<h3>What's <code>get_iplayer</code>?</h3>
+<p>For the benefit of those not in the UK,
+<a href="https://en.wikipedia.org/wiki/BBC_iPlayer">iPlayer</a> is a
+<a href="http://www.bbc.co.uk/">BBC</a> service that allows users to stream
+television and radio programmes for a limited time after they are
+broadcast. It also lets you download them for a limited time, although
+they are then bogged down with
+<a href="https://en.wikipedia.org/wiki/Digital_rights_management">DRM</a>,
+restricting how you can watch or listen.</p>
+<p><a href="http://www.infradead.org/get_iplayer/html/get_iplayer.html"><code>get_iplayer</code></a>
+is a great open source project that really enhances the usefulness of
+iPlayer. First of all, it downloads TV and radio shows in DRM-free
+formats, allowing you to play them back on any device capable of playing
+those formats, without restriction. Second, it has a really useful PVR
+feature: you can queue up future programmes that are already in the
+BBC's current schedule, and you can easily setup PVR searches (e.g. to
+look for a specific programme title) that can be configured to run
+periodically and download on any suitable matches.</p>
+<h3>Installation of <code>get_iplayer</code></h3>
+<p>I installed <code>get_iplayer</code> last year on my Pi running Rapsbian; I followed
+<a href="http://raspi.tv/2012/get_iplayer-installation-on-raspberry-pi-with-raspbian">this
+guide</a>.
+Since then however, it's now much easier to install and maintain<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>,
+apparently you only need to enter this terminal command now:</p>
+<div class="highlight"><pre><span class="go">sudo apt-get install get-iplayer ffmpeg atomicparsley libmp3-info-perl</span>
+</pre></div>
+
+
+<p>For convenience, I changed the default directory that <code>get_iplayer</code> saves
+in so that it was within a directory that was publically shared via
+Samba, using a command like</p>
+<div class="highlight"><pre><span class="go">./get_iplayer –-prefs-add –output=/home/shares/public/iPlayer</span>
+</pre></div>
+
+
+<p>(Note that for all these commands, I'm assuming that you have changed
+directory to whichever one <code>get_iplayer</code> is installed.)</p>
+<p><code>--prefs-add</code>, unsurprisingly, adds settings to the
+<code>get_iplayer</code> defaults. I also used this command:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --prefs-add --modes=best -–subtitles --subdir --nopurge</span>
+</pre></div>
+
+
+<ul>
+<li><code>--modes=best</code> <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/modes">downloads the HD versions of a TV programme if it is
+available</a></li>
+<li><code>--subtitles</code> <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/documentation#wiki-Subtitles">downloads subtitles if available</a></li>
+<li><code>--subdir</code> <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/documentation#wiki-Filenames%20and%20Directories">sorts programmes into subdirectories based on their title</a>, while</li>
+<li><code>--nopurge</code> prevents the deletion of programmes that were
+recorded more than 30 days ago.</li>
+</ul>
+<h3>Basic use</h3>
+<p>There are <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/documentation">plenty of usage
+examples</a>
+in the documentation which is definitely worth a read and explains all
+the available options. A simple usage case would be to download all TV
+programmes that have "Top Gear" in the title or episode info:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --get &quot;Top Gear&quot;</span>
+</pre></div>
+
+
+<p>By default, the type of programme is set to TV. This is equivalent to
+using the command line option <code>--type=tv</code>. If you are looking
+for radio shows instead, you need to specify <code>--type=radio</code>.
+Alternatively, you could use <code>--type=tv,radio</code> and
+<code>get_iplayer</code> will search both the TV and radio programme lists.</p>
+<p>If there are several programmes with the same title (e.g. Newsnight),
+you can search for all programmes first by:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer &quot;Newsnight&quot;</span>
+</pre></div>
+
+
+<p>It shows a list of matching programmes and programme numbers. When I ran
+this just now, it gave me several matches, but say that I wanted the
+broadcast from 01/07/2013. Among the nine matches this command gave me,
+it showed:</p>
+<div class="highlight"><pre>611: Newsnight - 01/07/2013, BBC Two, News, TV, default
+</pre></div>
+
+
+<p>I can then get that specific programme by just <code>--get</code>ting a
+programme number instead of a title:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --get 611</span>
+</pre></div>
+
+
+<h3>Adding searches to the PVR</h3>
+<p>Adding searches to the PVR is very similar to downloading available
+shows. As the documentation shows, instead of the <code>--get</code>
+option, you use <code>--pvr-add</code>:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --pvr-add=Top_Gear &quot;Top Gear&quot;</span>
+</pre></div>
+
+
+<p>This adds a search named <code>Top_Gear</code> which looks for programmes with Top
+Gear in the title or episode info. This doesn't actually do anything
+until the PVR searches are executed by the command:
+<code>./get_iplayer --pvr</code></p>
+<p>Supposing that we grew tired of Clarkson, Hammond and May's shenanigans,
+we can remove the PVR search entirely by <code>--pvr-del</code>:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --pvr-del=Top_Gear</span>
+</pre></div>
+
+
+<p>or if we weren't so sure, we could use <code>--pvr-disable="Top
+Gear"</code> to disable the search and <code>--pvr-enable="Top
+Gear"</code> to re-enable it at a later date.</p>
+<p>Further PVR management options are listed in the
+<a href="https://github.com/dinkypumpkin/get_iplayer/wiki/documentation#wiki-PVR%20Usage">documentation</a>.
+Additionally, there is also a <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/webpvr">web PVR
+interface</a>, if
+you prefer that to using the command line to manage the PVR, although
+it's advised to have it running on trusted networks for security
+reasons.</p>
+<h3>Scheduling the PVR to run</h3>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/get_iplayer_crontab.png" alt="Crontab with get_iplayer scheduled."></p>
+<p>However, it is more convenient to run the PVR regularly rather than have
+to run it manually. You can add the command to run the PVR to the <a href="https://en.wikipedia.org/wiki/Cron">cron
+task scheduler</a>. Scheduling tasks by
+cron is carried out by entering <code>crontab -e</code> and then editing the file
+to start the job.`</p>
+<p>I had a problem where I could run the command</p>
+<div class="highlight"><pre><span class="go">get_iplayer --pvr</span>
+</pre></div>
+
+
+<p>and the PVR would work fine from a terminal window, but it failed
+when running via cron. This was fixed by finding the contents of my
+current PATH variable (by typing <code>echo $PATH</code> into the
+terminal) and then copying this into a line in my crontab that started
+<code>PATH=</code>.</p>
+<h3>Why I think the PVR is great</h3>
+<p>What's awesome about the PVR function is that <em>the search terms are
+persistent</em>. If the PVR is looking out for a particular show, you don't
+even need to keep an eye out for when your favourite shows start a new
+series, in case you forget to record it. The PVR feature will
+automatically catch them for you, without you thinking about it.</p>
+<h3>Custom commands after downloading recordings</h3>
+<p>This is another useful feature of <code>get_iplayer</code>. <code>--command</code>
+runs custom commands after downloading a recording and can pass various
+bits of information to those commands as arguments. Because of this
+feature, it's easy to <em>use your own scripts to process your
+recordings</em>.</p>
+<h3>Example: automatic downloading of radio tracklistings</h3>
+<p>Sometimes I'll hear a track that a DJ plays on a radio show and I'll
+want to make a note of it to look it up later. It's not always that easy
+to do, occasionally they neglect to mention the title and artist, which
+can be frustrating when you've heard something amazing.</p>
+<p>At least these days tracklistings are usually posted online, but if I'm
+listening on my iPod Nano (running <a href="http://www.rockbox.org/">Rockbox</a>),
+this means I still need to dig out my phone, fire up a web browser and
+look it up. It's much easier if the tracklisting is stored together with
+the radio show for quick reference.</p>
+<p>To automate this, I wrote <a href="https://github.com/StevenMaude/bbc_radio_tracklisting_downloader/">a Python script that downloads BBC
+tracklistings</a>
+(bbc_tracklist.py). Once a radio show has been downloaded using
+<code>get_iplayer</code>, the corresponding tracklisting is saved to a text file in
+the same directory.</p>
+<p>All the bbc_tracklist.py script needs to know is the programme id,
+which <code>get_iplayer</code> can pass through to it as <code>&lt;pid&gt;</code>. For
+example:</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --get &quot;Gilles Peterson&quot; --type=radio --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;&quot;</span>
+</pre></div>
+
+
+<p>My script optionally takes arguments of the directory (to store the
+tracklisting with the downloaded show) and a filename (to give the text
+file the same base filename). These are provided by <code>get_iplayer</code> via
+<code>&lt;dir&gt;</code> and <code>&lt;fileprefix&gt;</code>.</p>
+<p>It also works in the same way with PVR searches.</p>
+<div class="highlight"><pre><span class="go">./get_iplayer --pvr-add=Benji_B --type=radio &quot;Benji B&quot; --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;</span>
+</pre></div>
+
+
+<p>Once this has been setup in a radio PVR search, you can forget about the
+script entirely. It should execute automatically everytime a show has
+been downloaded.</p>
+<h3>Conclusion</h3>
+<p><code>get_iplayer</code> does its job superbly well. It has many useful features and
+seems very stable. Comparing <code>get_iplayer</code> to the TV tuner my main PC has
+installed, <code>get_iplayer</code> has been used much more for "recording".</p>
+<p>Why should this be?</p>
+<p>It doesn't matter if you miss a show with
+<code>get_iplayer</code> since you can still download it several days after
+broadcast and, with the PVR feature, you probably won't miss it. This
+isn't possible with a TV card if you missed the only broadcast.
+<code>get_iplayer</code> also circumvents entirely the problems I occasionally have
+with my TV signal. Combined with a Samba or miniDLNA setup described
+above, you can leave the Pi running to periodically save programmes and
+then either playback files across the network or copy them to another
+device. Finally, shows downloaded by <code>get_iplayer</code> are ready to playback
+on many devices immediately; this isn't always the case with TV captures
+which might require some post-record processing.</p>
+<p>Of course, I should mention that, since the video formats are
+unencumbered with DRM, it's possible to play them with, of course,
+<a href="http://www.raspbmc.com/">Raspbmc</a>. :)</p>
+<hr />
+<p>So, there you have it. Five handy uses for a Raspberry Pi. If I find
+further uses for my Pi, I'll definitely be writing about them. In the
+meantime, feel free to let me know via a comment what you're using your
+Pi for!</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>(That should also help keep it up
+to date as it should be upgraded when you run a <code>sudo apt-get
+upgrade</code>; my install is currently manually updated by running
+<code>./get_iplayer --update</code> in the install directory.)`&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

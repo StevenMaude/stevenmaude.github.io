@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>How to use mock in Python to mock methods on objects - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/how-to-use-mock-in-python-to-mock.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="mock,testing,test,unit,Python" />
+        <meta name="description" content="Using mocks in Python to mock methods on objects." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="How to use mock in Python to mock methods on objects"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/how-to-use-mock-in-python-to-mock.html"/>
+        <meta property="og:description" content="Using mocks in Python to mock methods on objects."/>
+        <meta property="article:published_time" content="2014-05-10" />
+            <meta property="article:section" content="2014" />
+            <meta property="article:tag" content="mock" />
+            <meta property="article:tag" content="testing" />
+            <meta property="article:tag" content="test" />
+            <meta property="article:tag" content="unit" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                How to use mock in Python to mock methods on objects
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2014-05-10T11:05:00+01:00"> 2014-05-10</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2014-05-10T11:05:00+01:00"> 2014-05-10</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/mock.html">mock</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/testing.html">testing</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/test.html">test</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/unit.html">unit</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/python.html">Python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>Testing</h2>
+<p>Testing is a useful programming practice which, in all honesty, I'm
+still learning much about. Tests can give you some reassurance as to the
+behaviour of your code, providing you've written your tests such that
+they're testing appropriate things. They can also help you think about
+how you write your code, in a positive way: the process of making unit
+tests can require you to rethink how your code operates in order to make
+it testable.</p>
+<p>If you're unfamiliar and want to know more, probably the single most
+useful resources I've found are two of Ned Batchelder's PyCon talks, one
+from <a href="http://nedbatchelder.com/text/testability.html">Pycon 2010</a>, and
+one he <a href="http://nedbatchelder.com/text/st.html">recently</a> gave. In the
+latter, he covers testing from the ground up. The former is a little
+less introductory, but is a good complimentary talk; he works through a
+few examples where writing tests can give a better organisation to code.</p>
+<h2>Testing and me</h2>
+<p>My problems in creating tests are often two-fold. First, I'm not always
+sure what are good tests to write - for instance, unit tests should be
+isolated, but how much should I be mocking out in unit tests? For some
+functions, if you mock out all other function calls, you may have very
+little left to actually test there.</p>
+<p>Spotting which paths through the code you want to prioritise for
+integration tests is another issue. Ideally, you'd either work bottom
+up, starting with tests that mock out everything, then slowly adding in
+real code, or maybe top down, progressively mocking out units. However
+you approach it, the number of combinations of tests you could write
+will increase rapidly: even for moderately small programs, the number of
+possible combinations of mocked out functions and objects can be huge.
+For example, if A calls B and B calls C, I could write tests that use
+all three actual functions, two of them or just one (and perhaps even
+none of them). To exhaustively test every combination becomes
+unmanageable.</p>
+<p>I'm hoping the more I write tests, the more confident I'll be at
+evaluating whether the tests I'm thinking of aren't going to be that
+useful to implement. Where I know I should improve is the second problem
+I often encounter: how to actually implement tests. Often, I'll find I
+know what I want to achieve but find difficulty in actually articulating
+this in code, usually because I've not found the functions I want in
+<code>mock</code>.</p>
+<h2>Mocking a method of an object with Python <code>mock</code></h2>
+<p>Anyway, here's an example of this which might be useful if you're trying
+to do something similar. In this case, I wanted to test a method of an
+object, but wasn't sure how to do that using a mock.</p>
+<p>This is a really cut-down version of what my code was doing, but
+features the main thing I was testing:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s">&#39;some_table&#39;</span>
+    <span class="n">sqlite_db</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;database.sqlite&#39;</span><span class="p">)</span>
+    <span class="n">sqlite_db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;drop table if exists {};&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">))</span>
+    <span class="c"># next, get some data and then save to db</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>As what the database saves depends on some input that the user supplies
+(fixed here), I wanted to ensure that the table is wiped before we add
+anything to it. Otherwise repeated runs would cause the table to become
+cluttered with data the user no longer wants.)</p>
+<p>What I specifically wanted to check was whether the database was getting
+the correct table name to drop. One way of checking this is using
+Python's <code>mock</code>(a <code>pip</code>-installable package if you're on Python 2, part of
+the standard library from Python 3.3).</p>
+<p>By replacing objects with mocks as stand-ins, we can avoid the need for
+actually connecting to a database in our test (which may be slow or
+unreliable, if it's remote). Mocks aren't just dummy objects though;
+it's possible to inspect them after we execute some statements, allowing
+us to see, for instance, if the mock was called, and what arguments it
+was called with.</p>
+<p>In my case, I got particularly confused with the mocking out of the
+<code>.execute method</code> of the <code>sqlite_db</code> object. I'd tried all combinations
+of accessing the call via the <code>mock_sqlite3_connect</code>. What it took me
+ages to realise is that I had to mock out what <code>sqlite3.connect()</code>
+returns; you can't (unless I'm mistaken) access calls on the object it
+returns otherwise.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">code_to_test</span>
+<span class="kn">import</span> <span class="nn">mock</span>
+
+<span class="k">class</span> <span class="nc">CodeToTestTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@mock.patch</span><span class="p">(</span><span class="s">&#39;code_to_test.sqlite3.connect&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_database_drop_table_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock_sqlite3_connect</span><span class="p">):</span>
+        <span class="n">sqlite_execute_mock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Mock</span><span class="p">()</span>
+        <span class="n">mock_sqlite3_connect</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">sqlite_execute_mock</span>
+        <span class="n">code_to_test</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+        <span class="n">call</span> <span class="o">=</span> <span class="s">&#39;drop table if exists some_table;&#39;</span>
+        <span class="n">sqlite_execute_mock</span><span class="o">.</span><span class="n">execute</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">call</span><span class="p">)</span>
+</pre></div>
+
+
+<p>What's happening here? First, we're using a decorator, <code>@mock.patch</code>
+which replaces <code>sqlite3.connect()</code> in <code>code_to_test</code> with a mock,
+<code>mock_sqlite3_connect</code>. We can then make the return value of the
+<code>mock_sqlite3_connect</code> <em>a mock itself</em>. After that, all we have to do is
+actually call the main function which now will run with our mocks
+inside. Now, we can check that <code>sqlite3.execute()</code> was called correctly.
+If we save this as <code>tests.py</code> and run <code>nosetests</code>
+(<code>pip install python-nose mock</code> if you haven't already), the test will
+pass.</p>
+<p>(What I think happens is that without us supplying a return value, the
+sqlite database is mocked, but there's no easy way to access it within the
+test to check the method's called. If you know I'm wrong and have an
+explanation, I'd love to hear it.)</p>
+<p>Given the solution, you might wonder why I'd been bashing my head
+against the keyboard for an hour or two to figure it out. It's just
+knowing the vocabulary of what you need to do with mocks, whereas I'd
+got sidetracked thinking there <strong>must</strong> be a way to implicitly access
+methods of the object with the initial mock. Seeing and using patterns
+is definitely a good way to develop; next time I do something similar,
+I'll be much quicker to get something going.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

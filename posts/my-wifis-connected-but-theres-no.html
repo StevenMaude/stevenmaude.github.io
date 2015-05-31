@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>My wifi's connected, but there's no internet...? (Intel Centrino versus Ubuntu) - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/my-wifis-connected-but-theres-no.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="connection,Centrino,wifi,Ubuntu,Intel,fix" />
+        <meta name="description" content="Describes how to fix an issue with Intel Centrino wireless adapters using iwlwifi seeing wifi, but not connecting." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="My wifi&#39;s connected, but there&#39;s no internet...? (Intel Centrino versus Ubuntu)"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/my-wifis-connected-but-theres-no.html"/>
+        <meta property="og:description" content="Describes how to fix an issue with Intel Centrino wireless adapters using iwlwifi seeing wifi, but not connecting."/>
+        <meta property="article:published_time" content="2014-07-29" />
+            <meta property="article:section" content="2014" />
+            <meta property="article:tag" content="connection" />
+            <meta property="article:tag" content="Centrino" />
+            <meta property="article:tag" content="wifi" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:tag" content="Intel" />
+            <meta property="article:tag" content="fix" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                My wifi's connected, but there's no internet...? (Intel Centrino versus Ubuntu)
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2014-07-29T23:15:00+01:00"> 2014-07-29</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/connection.html">connection</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/centrino.html">Centrino</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/wifi.html">wifi</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">Ubuntu</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/intel.html">Intel</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/fix.html">fix</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>Intel Outside (of my own office)</h2>
+<p>One thing I've never had too much of a problem with on my Ubuntu 12.04
+LTS install is networking. There's been the odd time when it's refused
+to connect to the network, despite everything else being fine. This has
+always been fixed with a reboot, though.</p>
+<p>The problem I experienced today was a lot more serious. I'd travelled to
+another office to work and tried to connect to their wifi. I knew the
+network should have been OK as no-one else seemed to be having an issue,
+and I'd entered the WPA password correctly.</p>
+<p>What I saw was that the wifi showed as connected, but I couldn't connect
+to anything. Occasionally, I could try and ping a server, and when I
+bothered to wait long enough to see anything, what I saw was connection
+timeouts, horrible packet loss, and ping times of several <strong>seconds</strong>.
+(Pings are normally measured in milliseconds; I was seeing results of
+<strong>thousands</strong> of milliseconds.)</p>
+<p>I'd never seen this problem before. It quickly became apparent that this
+was specific to my hardware and my Ubuntu install. When I booted into
+Windows, it connected immediately without any problem, and a colleague
+was using a later version of Ubuntu on different hardware without a
+problem at all.</p>
+<p>It's certainly difficult to try to fix such a vague problem. Running
+searches like "wifi not connecting on Ubuntu" inevitably brings up much
+noise relating to every wireless problem out there and not anything much
+of relevance, but I didn't have a lot more to go on. Having to do lots
+of searching and skimming through web pages using a phone to search
+isn't ideal either, but it did eventually lead me to the right answer.</p>
+<h2>Fun with <code>iwlwifi</code></h2>
+<p>What worked was searching for issues relating to the wifi driver
+(<code>iwlwifi</code>). A common theme that came up was <code>11n_disable=1</code> which is a
+modprobe option that disables the wireless N feature of the Intel
+wireless adapter. (<code>lshw -C network</code> states the model is "Centrino
+Wireless-N 2230".)</p>
+<p>By running the commands</p>
+<div class="highlight"><pre>sudo rmmod iwldvm
+sudo rmmod iwlwifi
+sudo modprobe iwlwifi <span class="nv">11n_disable</span><span class="o">=</span>1
+sudo modprobe iwldvm
+</pre></div>
+
+
+<p>I got normal wireless access back (minus wireless N speeds, but the
+choice between fast, but no wifi and slow wifi is not a difficult one to
+make).</p>
+<p>The <code>rmmod</code> commands remove the modules from the kernel, while
+<code>modprobe</code> adds them. We need to readd the wifi module with wireless N
+disabled. (The offending module is <code>iwlwifi</code> but I couldn't <code>rmmod</code> it
+until I'd removed <code>iwldvm</code> as trying to do so showed that <code>iwldvm</code> was
+using <code>iwlwifi</code>. There is a force option for <code>rmmod</code> but it didn't seem
+sensible to use it when there was an alternative.)</p>
+<h2>Making this fix stick</h2>
+<p>If you want this fix to apply every time you boot, you can just create a
+new <code>.conf</code> file:</p>
+<p><code>/etc/modprobe.d/wireless-n-fix-iwlwifi.conf</code>, adding just this line to
+the file:</p>
+<div class="highlight"><pre>options iwlwifi <span class="nv">11n_disable</span><span class="o">=</span>1
+</pre></div>
+
+
+<p>(Thanks to this <a href="http://askubuntu.com/questions/119578/how-to-fix-slow-wireless-on-machines-with-intel-wireless-cards">nice
+summary</a>.)</p>
+<p>You can choose any valid filename you like, provided it ends in <code>.conf</code>;
+you'll also need to edit this using <code>sudo</code> and your favourite text
+editor.</p>
+<h2>Why hadn't I seen this problem before?</h2>
+<p>What seems to be the issue is that I think that the office was using a
+wireless N router, and there's some kind of issue with this for the
+Intel Centrino wireless network adapter on my laptop under Ubuntu.</p>
+<p>Nowhere else I've been with this laptop seems to be using wireless N, so
+that explains why it was an issue for the first time today. It's pretty
+poor that this seems to have been a <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1034740">long-running
+problem</a> and
+yet it's still present... but at least there's a workaround.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

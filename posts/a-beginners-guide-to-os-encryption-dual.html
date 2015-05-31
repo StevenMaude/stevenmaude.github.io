@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>A beginner's guide to OS encryption: dual booting and encrypting Windows and Ubuntu - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="disk,Bitlocker,Linux,Windows,encryption,TrueCrypt,drive,Ubuntu" />
+        <meta name="description" content="How to encrypt Windows and Ubuntu in a dual boot system." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="A beginner&#39;s guide to OS encryption: dual booting and encrypting Windows and Ubuntu"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual.html"/>
+        <meta property="og:description" content="How to encrypt Windows and Ubuntu in a dual boot system."/>
+        <meta property="article:published_time" content="2013-09-17" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="disk" />
+            <meta property="article:tag" content="Bitlocker" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="Windows" />
+            <meta property="article:tag" content="encryption" />
+            <meta property="article:tag" content="TrueCrypt" />
+            <meta property="article:tag" content="drive" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                A beginner's guide to OS encryption: dual booting and encrypting Windows and Ubuntu
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-09-17T18:48:00+01:00"> 2013-09-17</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2015-05-22T15:24:00+01:00"> 2015-05-22</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/disk.html">disk</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">Bitlocker</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/linux.html">Linux</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/windows.html">Windows</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/encryption.html">encryption</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/truecrypt.html">TrueCrypt</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/drive.html">drive</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">Ubuntu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Padlock_and_key.jpg" alt="A padlock with a key." width="320"></p>
+<p>The beginner in the title of this post may or may not refer to you. It
+certainly describes me. Since I was about to setup a new PC, I decided
+it was about time to think a little more seriously about how to secure
+my data. If someone got hold of my PC or external drives, without
+encryption, it's trivial for them to read anything from them.</p>
+<p>Data encryption that is difficult to break if currently implemented and
+used with strong passphrases is pretty much cost free these days, both
+financially and in terms of the hit on computer performance (the latter
+particularly so if you have a CPU that supports the <a href="https://en.wikipedia.org/wiki/AES_instruction_set">AES instruction
+set</a>. As Wikipedia
+points out, despite your CPU being one that supports this feature, you
+might find that the manufacturer has neglected to enable it; it's worth
+checking for BIOS updates that deal with this.)</p>
+<p>Getting an encrypted PC running with just one operating system is
+relatively simple to setup. Complicating matters is the fact that I
+wanted to dual boot Windows with a Linux distribution — in my case, I'd
+chosen Ubuntu — and encrypt both. In the process, I ended up undergoing
+a ridiculous number of installs over several days to actually get this
+working as I wanted.</p>
+<p>If you're struggling to do the same, I hope that some of the pointers
+here might save you some time rather than having to learn the hard way.
+There are a few subtle caveats documented here that I hadn't seen
+collated together elsewhere. Also, many blog posts and articles I'd read
+were horribly out of date or didn't have sufficient information for me
+to follow them. (A note to anyone who kindly shares guides:
+<strong>step-by-step guides with screen grabs are invaluable</strong> when a reader is
+way out of their depth.)</p>
+<p>Here's details of the three approaches I tested.</p>
+<hr />
+<h2>Approach 1: Encrypt Windows 8 Pro with Bitlocker; encrypt Ubuntu with <a href="https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup">LUKS</a></h2>
+<p>I followed <a href="http://linuxtutorialscratchpad.blogspot.com/">this guide</a>
+with some success in that I was able to encrypt both systems.</p>
+<p>Instead of the Ubuntu minimal CD in those instructions, I used <a href="http://releases.ubuntu.com/precise/">Ubuntu
+12.04 LTS alternate CD</a>; using the
+long term support version isn't a bad idea if you're not bothered about
+the latest shiny things.</p>
+<p>Why the alternate CD? What Ubuntu's standard installer (as of 13.04)
+seems to offer is either the installation of Ubuntu <em>unencrypted</em> on a
+PC side-by-side with an existing Windows install. Alternatively, you can
+wipe the Windows install and install Ubuntu <em>encrypted</em>, <strong>but you can't
+<em>encrypt</em> Ubuntu when Windows is already installed</strong>.</p>
+<p>However, I found Windows 8 was fairly broken, even ignoring the
+clunkiness of the user interface. All kinds of <a href="https://en.wikipedia.org/wiki/Shadow_Copy">Volume Shadow
+Cop</a>y service errors were
+occurring. This meant that I couldn't backup anything with the built-in
+Windows tools and the System Restore feature presumably wouldn't work
+either. Even when Windows wasn't Bitlocker-encrypted, I was still
+getting these errors. I couldn't find much support for the problems I
+found, so perhaps it was some dual booting issue; if you have any ideas,
+please email or <a href="https://twitter.com/StevenMaude">let me know via Twitter</a>.</p>
+<h2>Approach 2: Encrypt Windows 7 Enterprise/Ultimate with Bitlocker; encrypt Ubuntu with LUKS</h2>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Bitlocker.png" alt="Screengrab of Bitlocker's user interface in Windows 7."></p>
+<p>The first issue here is that the only versions of Windows 7 that support
+Bitlocker are Enterprise and Ultimate. If you have Windows 7 Pro, you're
+out of luck. You may also find issues on trying to boot the Windows 7
+installer on a PC with UEFI, in which case you may have to drop back to
+legacy mode to work round this.</p>
+<p>Here, I never even got to install Ubuntu and stopped at attempting to
+encrypt Windows for one big reason. Unlike Windows 8, if your PC — like
+mine — doesn't have a <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">Trusted Platform
+Module</a>, the only
+way to unlock the Bitlocker drive on boot is to use a USB key.</p>
+<p><strong>Without a TPM, you cannot use a password for Bitlocker in Windows 7</strong>.</p>
+<p>This isn't ideal. If you forget the key, you're locked out of your PC.
+It's also something else to have to carry around (though I suppose it
+might be possible to use a phone as USB storage...). If I was just lazy
+and just left it plugged in the whole time, it could easily be stolen
+with the PC. So, it was best that I didn't spend any more time
+considering this option.</p>
+<h2>Approach 3: Encrypt Windows 7 (any version) with TrueCrypt; encrypt Ubuntu with LUKS</h2>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt.png" alt="TrueCrypt program window showing options to create a new encrypted volume."></p>
+<div class="admonition article-edit">
+<p>Edit January 2015: TrueCrypt's
+source was partly <a href="http://istruecryptauditedyet.com/">audited</a> in 2014
+and there was nothing found to immediately make users abandon it.
+However, the developers unceremoniously ending development shortly after
+that audit and telling people to use alternatives is at best unfortunate
+(no more support) and at worst worrying. That said, there still seems no
+known reason to panic if you're using it yet, and there are a couple of
+potential successors to TrueCrypt (e.g. CipherShed, VeraCrypt). So, the
+easy-to-use, cross-platform disk encryption that TrueCrypt offers should
+live on.</p>
+</div>
+<p>The fact that TrueCrypt has its source available is a plus. I'm nowhere
+near smart enough to start understanding the internals of cryptographic
+software, but there are people out there who are. And I would certainly
+hope that they would raise the alarm if they spot anything
+suspicious.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
+<p>Unlike Bitlocker on Windows 7, TrueCrypt allows you to use a
+user-entered password to unlock the PC. However, at the moment, <a href="http://www.truecrypt.org/future">it
+doesn't work with a PC booting in UEFI
+mode</a>.</p>
+<p>Rather than duplicate information already available, I'll just point you
+to Maarten Mastbroek's <a href="http://techblog.mastbroek.com/all-articles/dualboot-encrypted-windows-and-ubuntu/">excellent
+guide</a>.</p>
+<p>My only comments on that guide are that you don't need to worry too much
+about the 100 MB partition that Windows installs, you can simply leave
+it rather than use it as a /boot partition. Also, when installing
+TrueCrypt, you can tell it you have a single boot machine.</p>
+<p><strong>The only other issue is that you should ensure that both installers
+are run in legacy (non-UEFI mode)</strong>. If your PC supports
+<a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>,
+there should be BIOS options, or options that appear when you booting
+installation media, to select this. During my install, the Ubuntu
+installer never asked me where to install the GRUB bootloader. I suspect
+that having put Ubuntu onto a USB drive, it was booting straight into
+UEFI mode without asking me and this was fouling up the GRUB install.</p>
+<p>My workround was to burn a DVD copy of the Ubuntu installer and this
+gave me the option to select UEFI or legacy mode at boot. Alternatively,
+and maybe more easily, <a href="http://askubuntu.com/questions/338894/how-to-disable-the-efi-check-in-13-04-x64">you can just delete the <code>efi</code> folder
+from the Ubuntu USB stick you
+prepare</a>.</p>
+<h2>Issues</h2>
+<p>In terms of usability, apart from having to enter another password
+before I boot either OS, everything seems pretty much as if the drives
+weren't encrypted. Otherwise, the only issues I have with this setup
+are:</p>
+<ul>
+<li>The only feature I haven't got working yet is hibernate on Ubuntu
+    with drive encryption (it works on Windows), though there's a <a href="http://ubuntuforums.org/showthread.php?p=12062069#post12062069">guide
+    on how to do
+    this</a>
+    which I may try when I have time to investigate it further.</li>
+<li>My setup doesn't use UEFI. This isn't a big deal for me, though.</li>
+<li>The Windows boot/system reserved and the Linux boot partitions
+    remain unencrypted and <a href="https://en.wikipedia.org/wiki/TrueCrypt#Physical_security">this is a potential
+    vulnerability</a>.
+    However, it should be sufficient to ensure my data is kept secure in
+    the event of loss or theft.</li>
+</ul>
+<p>All in all, not too bad.</p>
+<h2>SSD encryption?</h2>
+<p>After all that effort, software encryption might not even be the best
+way to go. Instead, as SSDs have become more affordable, using
+hardware-based SSD encryption might be simpler. With the drive handling
+encryption, it should be completely transparent to the operating system,
+meaning no hit on performance (this might be an issue if you want to use
+encryption on an older PC), with the bonus of eradicating the
+possibility of any install pain.</p>
+<p>Sounds great, doesn't it?</p>
+<p>Unfortunately, it's no panacea. The <a href="http://vxlabs.com/2012/12/22/ssds-with-usable-built-in-hardware-based-full-disk-encryption/">implementation is not always
+clear</a>.
+You are reliant on being able to use a strong ATA drive locking
+password, rather than the eight character one that some BIOSes only
+support. (Incidentally, this isn't information that's necessarily easy
+to discover prior to buying new hardware).</p>
+<p>Additionally, note that some manufacturers might have vendor specific
+workarounds, for example, <a href="http://thaeial.blogspot.com/2013/01/locking-and-unlocking-hdd-with-dell.html">having a standard master password that should
+be
+changed</a>.
+This is all quite messy, but perhaps this will become more transparent
+from an end user perspective in future.</p>
+<hr />
+<p>Next time that I discuss encryption,
+I'll be posting about external storage and backup encryption.
+Thankfully, this is a far, far easier problem to solve than OS
+encryption. If you've got any other approaches or tips for encrypting
+dual boot systems, I'd be interested to hear them.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>At the time of writing, <a href="http://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security">this is a
+particularly relevant
+concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

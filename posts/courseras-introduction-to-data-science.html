@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Coursera's Introduction to Data Science course - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/courseras-introduction-to-data-science.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="data,course,Coursera,analytics,science" />
+        <meta name="description" content="What I made of the recent Coursera Introduction to Data Science course." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Coursera&#39;s Introduction to Data Science course"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/courseras-introduction-to-data-science.html"/>
+        <meta property="og:description" content="What I made of the recent Coursera Introduction to Data Science course."/>
+        <meta property="article:published_time" content="2013-06-24" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="data" />
+            <meta property="article:tag" content="course" />
+            <meta property="article:tag" content="Coursera" />
+            <meta property="article:tag" content="analytics" />
+            <meta property="article:tag" content="science" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Coursera's Introduction to Data Science course
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-06-24T21:05:00+01:00"> 2013-06-24</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2013-07-14T13:13:00+01:00"> 2013-07-14</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/data.html">data</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/course.html">course</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/coursera.html">Coursera</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/analytics.html">analytics</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/science.html">science</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I've recently become a lot more interested in what <a href="http://en.wikipedia.org/wiki/Data_science">data
+science</a> involves — to the
+point of considering careers that use these skills — so when I noticed
+Coursera's <a href="https://www.coursera.org/course/datasci">Introduction to Data
+Science</a> course taught by
+<a href="http://homes.cs.washington.edu/~billhowe/">Prof. Bill Howe</a> at the
+University of Washington, I decided to take it. I finished the last
+assignment this weekend, so it's a good time to write up my thoughts
+while they're still fresh.</p>
+<p>The first week gave a quick overview of what data science is and why
+it's becoming increasingly important. From then on, it covered a lot of
+topics. Starting with traditional
+<a href="https://en.wikipedia.org/wiki/SQL">SQL</a> databases, we moved on to
+covering
+<a href="http://ayende.com/blog/4435/map-reduce-a-visual-explanation">MapReduce</a>
+algorithms, <a href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</a> databases,
+statistical topics relevant to large data sets, unsupervised and
+supervised <a href="https://en.wikipedia.org/wiki/Machine_learning">machine
+learning</a> algorithms,
+<a href="https://en.wikipedia.org/wiki/Graph_theory">graph</a> analytics, and
+looked at data visualisation considerations (particularly features that
+can help make visualisations easy for the viewer to comprehend).</p>
+<p>The lecture style was pretty brisk. Lectures were broken up into short
+5-15 minute segments, but often information dense. This isn't a bad
+thing. The fact the lectures are recorded means that you can repeat
+sections, or go and look something up for more details. Usually, the
+lectures weren't too difficult to follow. There were a few occasions
+where I think a little <em>too</em> much was crammed in. One instance: rule
+learning by sequential covering was discussed in less than five minutes
+which was far too short to explain clearly. It took me another 20
+minutes of reading and working through this
+<a href="http://www.cs.bc.edu/~alvarez/DataMining/Notes/covering.html">explanation</a>
+to actually grasp the concept properly.</p>
+<p>On the other hand, the emphasis on breadth rather than depth in the
+course fits well for an introductory course. It gives you sufficient
+grounding and the vocabulary to start understanding concepts you might
+encounter elsewhere, and points you in the right direction to look
+further. I was impressed at the considerable amount I learnt about
+technologies that I knew nothing about previously.</p>
+<p>The range of assignments was diverse: analysing tweets, using SQL
+databases and implementing some very simple MapReduce algorithms. There
+were also two open ended, assignments: using <a href="http://www.tableausoftware.com/">Tableau
+Desktop</a> to do some data visualisation,
+and entering a <a href="https://www.kaggle.com/">Kaggle</a> competition. In these,
+it was up to the student to choose a question and challenge themselves.
+This approach was a good way of handling the very varied academic
+backgrounds of students on the course.</p>
+<p>Entering a Kaggle competition was interesting. Even with the
+<a href="https://www.kaggle.com/c/titanic-gettingStarted">tutorials</a> Kaggle
+provides, it's a little intimidating if you haven't tackled those kind
+of predictive model problems before. Because it was a part of the
+course, it gave me the motivation to have a go and try using
+<a href="http://scikit-learn.org/">scikit-learn</a>; this is certainly a positive.
+I'm more aware now of the issues in working with other people's data
+sets: often a large part of the problem is deciding how to handle
+missing data.</p>
+<p>(There were also a further two optional assignments, which I skipped due
+to a lack of spare time. One of these was a real world project, so there
+was no shortage of ways in which you could delve in more deeply should
+you wish.)</p>
+<p>Three of the assignments used Python and required some basic language
+knowledge to complete them. However, if you weren't familiar with Python
+prior to the first assignment, being thrown in head first to it was
+probably not the most fun or easiest way to go about learning it. If you
+were going to take this course, it's definitely worth working through a
+few tutorials beforehand to learn the basics in Python (data types,
+expressions, conditionals, loops, functions); these are good
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011">lectures</a>
+and this is a <a href="http://www.greenteapress.com/thinkpython/">good free
+book</a>.</p>
+<p>There were some initial grading issues that meant the course didn't get
+off to the start that was probably hoped. The first assignment was
+autograded but, with having to deal with
+<a href="http://www.joelonsoftware.com/articles/Unicode.html">Unicode</a> strings,
+input data sets likely being unique for everyone, and opaque grading
+feedback, it made for a difficult experience.</p>
+<p>Completing the actual assignment itself didn't require any complicated
+coding. Getting the grader to recognise that you had the right answer
+was something else entirely. I spent more time on the latter than the
+former. It didn't help that the grader became increasingly slow to
+respond as users were subjecting it to repeated attempts, making the
+whole process a little bit frustrating and to the detriment of the
+assignment itself (which was actually an interesting one, analysing mood
+sentiment of tweets).</p>
+<p>This was several weeks ago and a fairly distant memory now. In fairness
+to the staff, they listened to feedback and most of the subsequent
+assignments were handled more smoothly. Over the past week, I have read
+some complaints about having the use of Tableau for the final
+visualisation assignment, but I personally haven't had any problems with
+it.</p>
+<p>There was a post on the course forums suggesting that the course is
+going to be repeated, tentatively next spring. At the moment, I'm not
+aware of any free courses that discuss the subject as a whole (there are
+several that discuss <a href="https://www.coursera.org/course/ml">machine
+learning</a>). With that in mind, one
+strong aspect was how this course linked ideas together. It never seemed
+like topics were thrown in there simply for the sake of it and
+frequently ideas (especially relational algebra) were recurring
+throughout. Overall, I'm glad I completed the course; I learnt a lot
+from it. If you want to take a starter course in data science, I
+wouldn't hesitate to recommend it. Thanks to the staff for providing it!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
