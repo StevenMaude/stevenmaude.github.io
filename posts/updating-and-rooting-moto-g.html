@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Updating and rooting Moto G - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Moto,firmware,upgrade,Android,system,root" />
+        <meta name="description" content="How to restore a Moto G to stock firmware, unlock bootloader and gain root access." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Updating and rooting Moto G"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g.html"/>
+        <meta property="og:description" content="How to restore a Moto G to stock firmware, unlock bootloader and gain root access."/>
+        <meta property="article:published_time" content="2014-08-25" />
+            <meta property="article:section" content="2014" />
+            <meta property="article:tag" content="Moto" />
+            <meta property="article:tag" content="firmware" />
+            <meta property="article:tag" content="upgrade" />
+            <meta property="article:tag" content="Android" />
+            <meta property="article:tag" content="system" />
+            <meta property="article:tag" content="root" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Updating and rooting Moto G
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2014-08-25T15:42:00+01:00"> 2014-08-25</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2014-08-25T18:34:00+01:00"> 2014-08-25</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/moto.html">Moto</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/firmware.html">firmware</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/upgrade.html">upgrade</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/android.html">Android</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/system.html">system</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/root.html">root</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>My Moto G has been nagging me to upgrade firmware</h2>
+<p>So I did today.</p>
+<p>(I was persuaded by the Motorola system updater. Not because it's a
+lovely looking bit of software, but because it makes nagging an art with
+its focus-stealing prompt. If you go for the "no" option, your phone
+kindly reminds you again in an hour <strong>every hour</strong>, just in case you've
+forgotten. This is regardless of what you're doing at the time, even if
+you're say using Google Maps for driving navigation which is quite
+hideous. Even the option to postpone the reminder for a week or a month
+would be nice. A rubbish, rubbish, rubbish user experience.)</p>
+<p>A simple upgrade is as easy as pressing "upgrade". Because my phone was
+rooted and encrypted, the upgrade was likely to fail, so I had to
+restore it to stock firmware first.</p>
+<p>However, I wanted to then reroot it so that I could use
+<a href="https://github.com/M66B/XPrivacy">XPrivacy</a>. This lets you restrict the
+permissions that apps have. Google did have App Ops in Android which did
+a similar thing (without quite as much granularity, I believe) but
+promptly removed it. It would have been good of them to leave it in: it
+would have removed one reason I have for rooting. Android apps are just
+far more intrusive in their permissions than they usually need to be.</p>
+<p>No, I don't want Twitter's app to access my contacts, thanks; I'm more
+than capable of finding people on Twitter directly. No, there's no
+reason for Soundhound to know where I am. No, even if my phone <strong>had</strong>
+NFC, I don't want F-Droid to be able to use it.</p>
+<p>The assessment
+<a href="http://www.cnet.com/news/why-android-wont-be-getting-app-ops-anytime-soon/">here</a>
+is that one big reason for the removal of App Ops is due to it breaking
+apps. I disagree with that though. Using XPrivacy, I restrict almost
+every app and haven't had any trouble.</p>
+<p>I can understand that if app permission controls were enabled by
+default, there's the possibility that it could cause problems for users
+that don't understand the implications of allowing/denying permissions,
+but if it was something like the developer options where you have to
+deliberately enable it, then they wouldn't even know it was present.</p>
+<p>Anyway, here are the reference notes I made while upgrading for (the
+inevitable) next time.</p>
+<h2>Preliminary setup with Ubuntu</h2>
+<p>(or your choice of a Linux that has <code>adb</code> and <code>fastboot</code>)</p>
+<ol>
+<li>Install (to a live USB, or use an existing install on your laptop)</li>
+<li>Enable third party repositories in "Software and Updates".</li>
+<li>Do <code>sudo apt-get update</code>.</li>
+<li><code>sudo apt-get install android-tools-adb android-tools-fastboot</code></li>
+</ol>
+<h2>Backup data from phone</h2>
+<p>Copy off any photos, documents or other files you want to save.</p>
+<p>If you want to backup your call logs and text messages, Call Logs Backup
+and Restore, and SMS Backup and Restore work pretty well for me. That
+said, they do request internet permissions which I block.</p>
+<h2>Restore stock firmware</h2>
+<p>Stock firmwares are available
+<a href="http://sbf.droid-developers.org/phone.php?device=14">here</a> and <a href="http://forum.xda-developers.com/showthread.php?t=2542219">this
+post</a> was a
+useful reference.</p>
+<p>Boot into the bootloader using power on and volume down key (or enable
+USB debugging mode when the phone's on normally and do
+<code>adb reboot-bootloader</code>).</p>
+<div class="highlight"><pre>sudo fastboot flash partition gpt.bin
+sudo fastboot flash motoboot motoboot.img
+sudo fastboot flash logo logo.bin
+sudo fastboot flash boot boot.img
+sudo fastboot flash recovery recovery.img
+sudo fastboot flash system system.img_sparsechunk1
+sudo fastboot flash system system.img_sparsechunk2
+sudo fastboot flash system system.img_sparsechunk3
+sudo fastboot flash modem NON-HLOS.bin
+sudo fastboot erase modemst1
+sudo fastboot erase modemst2
+sudo fastboot flash fsg fsg.mbn
+sudo fastboot erase cache
+sudo fastboot erase userdata
+sudo fastboot reboot
+</pre></div>
+
+
+<p>(sparsechunk files may have numbers 0, 1, 2 - just flash them in
+ascending order.)</p>
+<h2>Upgrade</h2>
+<p>Boot into stock and install update.</p>
+<p><strong>To avoid heartache</strong>, make sure you check for system updates
+<strong>after</strong> you update, and install any further updates before
+proceeding. Repeat until no update is found. Otherwise, like me, you may
+discover after rooting again that there are still updates remaining
+after the first one. In that case, you'll have to restore to stock again
+:( (I was on 4.4.2, but there was a minor update that didn't change the
+version before the latest 4.4.4 update.)</p>
+<h2>Unlock bootloader</h2>
+<p><strong> Only needed if not previously unlocked; while restoring stock
+firmware and upgrading, this didn't get relocked. </strong></p>
+<p>You need a bootloader unlock code from Motorola's
+<a href="https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-a">site</a>.</p>
+<div class="highlight"><pre>fastboot oem unlock
+</pre></div>
+
+
+<p>Boot into fastboot mode: Enable developer mode again in settings:</p>
+<div class="highlight"><pre>adb reboot bootloader
+</pre></div>
+
+
+<p>Optional: get a copy of the original Motorola logo and do:</p>
+<div class="highlight"><pre>sudo fastboot flash logo original_logo.bin
+</pre></div>
+
+
+<p>to remove the annoying "bootloader is unlocked" warning at boot.</p>
+<p>See <a href="http://wiki.cyanogenmod.org/w/Template:Unlock_Bootloader">CyanogenMod's
+site</a> for more
+details.</p>
+<h2>Install custom recovery</h2>
+<p>Get custom recovery; <a href="http://teamw.in/project/twrp2/233">I used TWRP</a>.</p>
+<p>Get a recent fastboot .img; at the time of writing, 2.7.1.1 was the
+latest, but didn't work. 2.7.1.0 worked fine.</p>
+<p>Install through bootloader using fastboot:</p>
+<div class="highlight"><pre>sudo fastboot flash recovery modified_recovery.img
+</pre></div>
+
+
+<h2>Root the phone by installing SuperSU</h2>
+<p>Boot from bootloader into TWRP recovery. Reboot system, say yes to
+install SuperSU.</p>
+<p>Boot up, run SuperSU installer; go to Play Store and choose <strong>update</strong>
+(<strong>not</strong> open).</p>
+<p>This will probably prompt to install a new binary; the normal install
+should work fine.</p>
+<h2>Install XPrivacy</h2>
+<p>Install XPrivacy installer. Follow each of the several instruction steps
+that are shown when you run it.</p>
+<h2>Encrypt and change password again</h2>
+<p>Create a screen lock PIN or password, then fully charge battery and
+encrypt.</p>
+<p>Change the password using <a href="https://play.google.com/store/apps/details?id=org.nick.cryptfs.passwdmanager&amp;hl=en">Cryptfs
+Password</a>
+so that you can have a separate screen unlock code and encryption passphrase.</p>
+<p>(This is another good reason to root your phone. Without this, your
+encryption password is identical to your screen unlock code. Unless you
+want to have either:</p>
+<ul>
+<li>a weak password, or</li>
+<li>a huge password that you have to enter every time you unlock your phone</li>
+</ul>
+<p>you'll need to change it using CryptFS which requires root access.)</p>
+<h2>Disable all the slow animations</h2>
+<p>To make Android snappier, disable the animations by enabling the
+developer options. Go in Settings > About phone, scroll to the bottom
+and keep pressing build number until it tells you the developer options
+are active. Now, in Settings > Developer options, you can set "Window
+animation scale", "Transition animation scale" and "Animator duration
+scale" all to off.</p>
+<h2>Restore data, account, messages, call logs</h2>
+<p>Reinstall SMS Backup and Restore, Call Log Backup and Restore, and
+restore the backups you made. Reinstall any other apps you want,
+including <a href="https://f-droid.org/">F-Droid</a> if you want AdAway and that's
+everything finally done. No more nagging for updates!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

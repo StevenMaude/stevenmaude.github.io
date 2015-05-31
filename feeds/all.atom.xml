@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-05-18T12:00:00+01:00</updated><entry><title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome.html" rel="alternate"></link><updated>2015-05-18T12:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome.html</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit 2015-05-18: The Chromium bug is fixed which should fix the µMatrix
+UI sluggishness, and µMatrix is finally available as a Firefox addon.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit 2015-01-09: HTTP Switchboard development is discontinued and has been
+replaced with &lt;a href="https://github.com/gorhill/uMatrix"&gt;µMatrix&lt;/a&gt;. The
+interface is largely unchanged. One problem at the time of writing is a
+&lt;a href="https://github.com/gorhill/uBlock/issues/419"&gt;Chromium bug&lt;/a&gt; which I
+think is the cause of the UI being really laggy to appear. Hopefully,
+this should be fixed soon.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;After tinkering around with Adblock's filters to block some ads, I
+remembered that I'd read about an alternative to Adblock for
+Chromium-based browsers called &lt;a href="https://github.com/gorhill/httpswitchboard"&gt;HTTP
+Switchboard&lt;/a&gt; a few months ago
+and figured I should actually give it a try.&lt;/p&gt;
+&lt;p&gt;One of the reasons that HTTP Switchboard was notable is that it promised
+to be much more CPU and memory friendly than &lt;a href="https://blog.mozilla.org/nnethercote/2014/05/14/adblock-pluss-effect-on-firefoxs-memory-usage/"&gt;Adblock Plus&lt;/a&gt;
+currently is.&lt;/p&gt;
+&lt;p&gt;In fact, the adblocking part of HTTP Switchboard has now been separated
+out into another project, µblock. Both are still useful. I'll explain
+why below.&lt;/p&gt;
+&lt;h2&gt;Why are you blocking content at all?&lt;/h2&gt;
+&lt;p&gt;Many content-driven websites use advertising as their business model. My
+feeling is that, while sites are welcome to try and send content to my
+browser, I should have the freedom to choose what my browser actually
+loads.&lt;/p&gt;
+&lt;p&gt;There's no contract I've signed that states I must load and display the
+page as the site owner intends. (What if I'm using a text browser like
+links?) And there's no obligation on my part to make their business
+model sustainable.&lt;/p&gt;
+&lt;p&gt;Maybe you still think this seems selfish. Well, to some extent it is.
+But, my privacy and computer security are more important to me than the
+financial success or failure of an external organisation. That I put my
+priorities in this order is kind of obvious though, right?&lt;/p&gt;
+&lt;h2&gt;Why shouldn't sites and advertisers worry so much?&lt;/h2&gt;
+&lt;p&gt;Even with "despicable" users like me, there are two reasons I can think
+of as to why advertisers and sites dependent on them shouldn't feel so
+glum:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Adblocking users have made an active choice to block ads. Those
+    users have done you a favour in removing themselves from your
+    viewership as you don't waste time targeting them; why chase
+    "customers" running in the opposite direction from you?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Browsing is increasingly done from mobile browsers. How many users
+    are going to bother to root their devices or install alternative
+    browsers just for adblocking?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;But why worry about where displayed web content originates from?&lt;/h2&gt;
+&lt;h3&gt;Privacy&lt;/h3&gt;
+&lt;p&gt;One contentious issue with ads and cookies is privacy.&lt;/p&gt;
+&lt;p&gt;As &lt;a href="http://www.economist.com/news/special-report/21615871-everything-people-do-online-avidly-followed-advertisers-and-third-party"&gt;this Economist
+article&lt;/a&gt;
+highlights,
+the depth of what advertisers collect about your browsing habits is
+extensive, and it's handled and passed around by many organisations.
+Unless you're all for being advertised at, this isn't for your benefit.&lt;/p&gt;
+&lt;p&gt;Maybe advertisers are really all benign and just interested in deciding
+who's best to try to sell to. Perhaps just as the executive in that
+article quoted claims, it really is just that,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"We are not trolling for personal information. We are trying to figure
+out if you are a high-value customer and are in the market for a car."&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But, the sheer amount of information being collected is worrying,
+especially when, as a user, I've no idea of what's actually being
+tracked and what the intended end use is.&lt;/p&gt;
+&lt;h3&gt;Malware&lt;/h3&gt;
+&lt;p&gt;As well as that, web advertising has been a conduit for the deployment
+of malware previously and will no doubt continue to be. (It's a nice way
+of distributing it to users who are visiting, what to them, might seem
+like a trustworthy site. If they can get the malicious ad past the
+company providing the advertising, they don't need to go to the trouble
+of hacking the site directly.)&lt;/p&gt;
+&lt;p&gt;There have been
+&lt;a href="http://arstechnica.com/security/2014/09/google-stops-malicious-advertising-campaign-that-could-have-reached-millions/"&gt;one&lt;/a&gt;
+or &lt;a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/01/04/thousands-of-visitors-to-yahoo-com-hit-with-malware-attack-researchers-say/"&gt;two&lt;/a&gt;
+high-profile incidents this year too.&lt;/p&gt;
+&lt;p&gt;In terms of potentially malicious content, it's not only just ad
+providers that I'm concerned with, but allowing large numbers of
+arbitrary sites to run their scripts on your machine unchecked.&lt;/p&gt;
+&lt;p&gt;Look at the recent &lt;a href="http://www.zdnet.com/was-jquery-hacked-7000034009/"&gt;JQuery
+compromise&lt;/a&gt;, for
+instance. Fortunately, only the site itself was affected and &lt;strong&gt;not&lt;/strong&gt; the
+hosted libraries that many sites. It's not inconceivable that an
+attacker may well deliberately go after to poison hosted libraries. It's
+just way too big a jackpot for malware distributors to ignore.&lt;/p&gt;
+&lt;p&gt;Even if such an attack might be spotted quite quickly, how many users
+could be affected in the interim? (I'm not even sure what the solution
+is here; often JQuery's needed for sites to function as intended...)&lt;/p&gt;
+&lt;p&gt;Minimising the number of third-party sites that you allow content to
+load from can't be a bad thing. (There's some risk wherever you go, but
+in some cases, I've seen sites loading in content from more sites than I
+can count on both hands.)&lt;/p&gt;
+&lt;h2&gt;Controlling what your browser displays&lt;/h2&gt;
+&lt;p&gt;So, what can you do? There are browser extensions for Firefox and Chrome
+that give you more control over what your browser loads.&lt;/p&gt;
+&lt;p&gt;Lots of sites are perfectly readable without them storing tracking
+information about you, without arbitrary JavaScript running. For those
+that don't, it's quite simple to whitelist them.&lt;/p&gt;
+&lt;p&gt;The downside of this is that it can be a chore. In Firefox, I need a
+slew of extensions to do this: which sites are allowed to run scripts
+(NoScript), which cross-site requests are allowed (RequestPolicy), and
+which sites can store cookies (CookieMonster).&lt;/p&gt;
+&lt;p&gt;Managing each one in turn, allowing permissions for cookies, scripts and
+third-party scripts, can be tedious. I've run NoScript for a long time,
+but these days with sites often hosting content and scripts somewhere
+other than on the domain you're visiting, it's much more work than it
+was.&lt;/p&gt;
+&lt;p&gt;HTTP Switchboard was a big, all encompassing project for Chromium-based
+browsers that had features comparable to Adblock Plus, and the Firefox
+extensions, NoScript, RequestPolicy. Recently, the &lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;adblocking,
+pattern-based filtering&lt;/a&gt;
+has been split out into another project,
+&lt;a href="https://github.com/gorhill/ublock"&gt;µblock&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;µblock&lt;/h2&gt;
+&lt;p&gt;By virtue of what HTTP Switchboard aims to do — give you full control of
+what is allowed by your browser — this makes its user interface slightly
+more complex, which I'll soon get onto.&lt;/p&gt;
+&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The µblock enable/disable icon." width="174"&gt;&lt;/p&gt;
+&lt;p&gt;Stripping out this sophistication seems like a smart move, since
+µblock's incredibly easy to use. Really, it requires the same amount of
+setup as Adblock Plus does: not much at all.&lt;/p&gt;
+&lt;p&gt;It comes with the most popular Adblock Plus filters accessible on
+install, and you can easily choose which of those filter lists are
+applied.&lt;/p&gt;
+&lt;p&gt;Disabling µblock for a site is also straightforward. Click the red µ
+icon next to the address bar and then click the power icon.&lt;/p&gt;
+&lt;p&gt;It does the same job as Adblock Plus, but with lower CPU and memory
+usage. If you've ditched an ad blocker for this reason, it's worth
+looking at. Even if you're still happy using Adblock Plus (or one of its
+forks), µblock is definitely worth spending the couple of minutes to try
+it out.&lt;/p&gt;
+&lt;h2&gt;HTTP Switchboard&lt;/h2&gt;
+&lt;p&gt;On to HTTP Switchboard, which allows fine grained control of the types
+and locations of content that Chromium-based browser can access.&lt;/p&gt;
+&lt;p&gt;Note that with the current version of HTTP Switchboard, there's a little
+&lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;initial setup&lt;/a&gt; to
+disable the adblocking filtering that µBlock covers.&lt;/p&gt;
+&lt;p&gt;HTTP Switchboard's interface can feel initially overwhelming; more so
+than perhaps the likes of NoScript, RequestPolicy and CookieMonster that
+I use which all have similar menus to allow or deny permission for a
+site to run scripts or store cookies. These have a text explanation of
+what the option does.&lt;/p&gt;
+&lt;figure class="article-figure"&gt;
+  &lt;img src="http://www.stevenmaude.co.uk/images/2014/Firefox_menus.png" alt="Examples of NoScript, CookieMonster and RequestPolicy permission menus."&gt;
+  &lt;figcaption&gt;From left to right, examples of NoScript, CookieMonster and RequestPolicy permission menus when accessing Google Books.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The problem with this menu format is, though it's explicit and clear,
+it's cumbersome when you're dealing with several extensions. For each
+extension, you need to repeat the process of whitelisting every site
+that you're allowing.&lt;/p&gt;
+&lt;p&gt;When you've actually used HTTP Switchboard for a few minutes, its
+simplicity clicks. HTTP Switchboard opts for a table-like interface.
+Each site is represented as a row, and each type of content is shown as
+a column.&lt;/p&gt;
+&lt;figure class="article-figure"&gt;
+  &lt;img src="http://www.stevenmaude.co.uk/images/2014/HTTP_Switchboard.png" alt="Example of HTTP Switchboard's table interface."&gt;
+  &lt;figcaption&gt;Example of HTTP Switchboard's interface when accessing Google Books.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This lets the user approve different permissions for different sites
+quickly. Just read down the list of sites, click on those you want to
+whitelist completely, and for those you don't you can allow specific
+features only (e.g. loading images only). Likewise, if you want to
+enable one type of content for all sites, just click the appropriate
+column. If you want to save the permissions in future, click the padlock
+icon, and you're done.&lt;/p&gt;
+&lt;p&gt;It helps a lot that you can see &lt;strong&gt;all&lt;/strong&gt; the sites that are trying to
+load content or save cookies in one glance, rather than consulting
+separate menus.&lt;/p&gt;
+&lt;p&gt;There's an autoreload option that refreshes the page when you change
+permissions, so once you've approved everything needed, the page should
+then work as expected.&lt;/p&gt;
+&lt;p&gt;Out of the box, (I think) HTTP Switchboard was configured to allow most
+requests through, apart from those blacklisted by filters. What
+initially confused me was at what level the filters apply. (Do they
+apply to this site? To this domain? globally?).&lt;/p&gt;
+&lt;p&gt;What I'd recommend is, like the extension developer, is to
+&lt;a href="https://github.com/gorhill/httpswitchboard/wiki/How-to-use-HTTP-Switchboard:-Two-opposing-views"&gt;block everything&lt;/a&gt;
+by default and then whitelist only what you want to allow.&lt;/p&gt;
+&lt;p&gt;There's an option in the HTTP Switchboard settings under "more security"
+to create a new site-specific scope for every site you visit which is
+really useful. This creates a set of rules for each site you visit.
+Furthermore, the drop down (click the blue top-left box with the site
+name in) lets you select where the rule applies (to the site, to the
+domain or globally).&lt;/p&gt;
+&lt;p&gt;This lets you block content from, say, a site like twitter.com when
+you're visiting a third-party site, but allow it when you're directly
+visiting Twitter.&lt;/p&gt;
+&lt;p&gt;It also has some nice bonus privacy features, like removing HTTP
+referers when visiting non-whitelisted sites and a user-agent
+randomiser.&lt;/p&gt;
+&lt;p&gt;The only thing that's missing for me is guidance on what the sites
+likely are. If you're happy to spend a few seconds researching, it's not
+hard to figure this out. It might save a bit of time if there was a
+database of sites telling you "hey, you might need this, it's a content
+delivery network" or "this is tracking how you're using the site; you
+probably don't need it for the site to function properly". Yes, I can
+search, but it's a bit clunky to do that.&lt;/p&gt;
+&lt;h2&gt;A summary&lt;/h2&gt;
+&lt;p&gt;These are really great browser extensions, and credit to Raymond Hill
+for an awesome job on them. Every time I'm managing permissions with
+multiple extensions in Firefox now, I sigh a little. (Firefox's awesome
+bar is far more useful to me than Chrome/ium's omnibox though, so I tend
+to stick with Firefox.)&lt;/p&gt;
+&lt;p&gt;Longer term, I'd really hope that a Firefox add-on developer &lt;a href="https://github.com/gorhill/uBlock/issues/27"&gt;picks up
+the baton to port these&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;(As a postscript, I should point out that as well as adblocking and
+control over requests, &lt;a href="https://www.eff.org/https-everywhere"&gt;HTTPS Everywhere&lt;/a&gt;
+is another useful privacy-enhancing extension for Firefox and Chromium
+browsers. Where HTTPS browsing is available on sites but not always used,
+HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µblock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category></entry><entry><title>Updating and rooting Moto G</title><link href="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g.html" rel="alternate"></link><updated>2014-08-25T18:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-08-25:posts/updating-and-rooting-moto-g.html</id><summary type="html">&lt;h2&gt;My Moto G has been nagging me to upgrade firmware&lt;/h2&gt;
+&lt;p&gt;So I did today.&lt;/p&gt;
+&lt;p&gt;(I was persuaded by the Motorola system updater. Not because it's a
+lovely looking bit of software, but because it makes nagging an art with
+its focus-stealing prompt. If you go for the "no" option, your phone
+kindly reminds you again in an hour &lt;strong&gt;every hour&lt;/strong&gt;, just in case you've
+forgotten. This is regardless of what you're doing at the time, even if
+you're say using Google Maps for driving navigation which is quite
+hideous. Even the option to postpone the reminder for a week or a month
+would be nice. A rubbish, rubbish, rubbish user experience.)&lt;/p&gt;
+&lt;p&gt;A simple upgrade is as easy as pressing "upgrade". Because my phone was
+rooted and encrypted, the upgrade was likely to fail, so I had to
+restore it to stock firmware first.&lt;/p&gt;
+&lt;p&gt;However, I wanted to then reroot it so that I could use
+&lt;a href="https://github.com/M66B/XPrivacy"&gt;XPrivacy&lt;/a&gt;. This lets you restrict the
+permissions that apps have. Google did have App Ops in Android which did
+a similar thing (without quite as much granularity, I believe) but
+promptly removed it. It would have been good of them to leave it in: it
+would have removed one reason I have for rooting. Android apps are just
+far more intrusive in their permissions than they usually need to be.&lt;/p&gt;
+&lt;p&gt;No, I don't want Twitter's app to access my contacts, thanks; I'm more
+than capable of finding people on Twitter directly. No, there's no
+reason for Soundhound to know where I am. No, even if my phone &lt;strong&gt;had&lt;/strong&gt;
+NFC, I don't want F-Droid to be able to use it.&lt;/p&gt;
+&lt;p&gt;The assessment
+&lt;a href="http://www.cnet.com/news/why-android-wont-be-getting-app-ops-anytime-soon/"&gt;here&lt;/a&gt;
+is that one big reason for the removal of App Ops is due to it breaking
+apps. I disagree with that though. Using XPrivacy, I restrict almost
+every app and haven't had any trouble.&lt;/p&gt;
+&lt;p&gt;I can understand that if app permission controls were enabled by
+default, there's the possibility that it could cause problems for users
+that don't understand the implications of allowing/denying permissions,
+but if it was something like the developer options where you have to
+deliberately enable it, then they wouldn't even know it was present.&lt;/p&gt;
+&lt;p&gt;Anyway, here are the reference notes I made while upgrading for (the
+inevitable) next time.&lt;/p&gt;
+&lt;h2&gt;Preliminary setup with Ubuntu&lt;/h2&gt;
+&lt;p&gt;(or your choice of a Linux that has &lt;code&gt;adb&lt;/code&gt; and &lt;code&gt;fastboot&lt;/code&gt;)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install (to a live USB, or use an existing install on your laptop)&lt;/li&gt;
+&lt;li&gt;Enable third party repositories in "Software and Updates".&lt;/li&gt;
+&lt;li&gt;Do &lt;code&gt;sudo apt-get update&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo apt-get install android-tools-adb android-tools-fastboot&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Backup data from phone&lt;/h2&gt;
+&lt;p&gt;Copy off any photos, documents or other files you want to save.&lt;/p&gt;
+&lt;p&gt;If you want to backup your call logs and text messages, Call Logs Backup
+and Restore, and SMS Backup and Restore work pretty well for me. That
+said, they do request internet permissions which I block.&lt;/p&gt;
+&lt;h2&gt;Restore stock firmware&lt;/h2&gt;
+&lt;p&gt;Stock firmwares are available
+&lt;a href="http://sbf.droid-developers.org/phone.php?device=14"&gt;here&lt;/a&gt; and &lt;a href="http://forum.xda-developers.com/showthread.php?t=2542219"&gt;this
+post&lt;/a&gt; was a
+useful reference.&lt;/p&gt;
+&lt;p&gt;Boot into the bootloader using power on and volume down key (or enable
+USB debugging mode when the phone's on normally and do
+&lt;code&gt;adb reboot-bootloader&lt;/code&gt;).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash partition gpt.bin
+sudo fastboot flash motoboot motoboot.img
+sudo fastboot flash logo logo.bin
+sudo fastboot flash boot boot.img
+sudo fastboot flash recovery recovery.img
+sudo fastboot flash system system.img_sparsechunk1
+sudo fastboot flash system system.img_sparsechunk2
+sudo fastboot flash system system.img_sparsechunk3
+sudo fastboot flash modem NON-HLOS.bin
+sudo fastboot erase modemst1
+sudo fastboot erase modemst2
+sudo fastboot flash fsg fsg.mbn
+sudo fastboot erase cache
+sudo fastboot erase userdata
+sudo fastboot reboot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(sparsechunk files may have numbers 0, 1, 2 - just flash them in
+ascending order.)&lt;/p&gt;
+&lt;h2&gt;Upgrade&lt;/h2&gt;
+&lt;p&gt;Boot into stock and install update.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To avoid heartache&lt;/strong&gt;, make sure you check for system updates
+&lt;strong&gt;after&lt;/strong&gt; you update, and install any further updates before
+proceeding. Repeat until no update is found. Otherwise, like me, you may
+discover after rooting again that there are still updates remaining
+after the first one. In that case, you'll have to restore to stock again
+:( (I was on 4.4.2, but there was a minor update that didn't change the
+version before the latest 4.4.4 update.)&lt;/p&gt;
+&lt;h2&gt;Unlock bootloader&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt; Only needed if not previously unlocked; while restoring stock
+firmware and upgrading, this didn't get relocked. &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You need a bootloader unlock code from Motorola's
+&lt;a href="https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-a"&gt;site&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot oem unlock
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Boot into fastboot mode: Enable developer mode again in settings:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;adb reboot bootloader
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Optional: get a copy of the original Motorola logo and do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash logo original_logo.bin
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to remove the annoying "bootloader is unlocked" warning at boot.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="http://wiki.cyanogenmod.org/w/Template:Unlock_Bootloader"&gt;CyanogenMod's
+site&lt;/a&gt; for more
+details.&lt;/p&gt;
+&lt;h2&gt;Install custom recovery&lt;/h2&gt;
+&lt;p&gt;Get custom recovery; &lt;a href="http://teamw.in/project/twrp2/233"&gt;I used TWRP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Get a recent fastboot .img; at the time of writing, 2.7.1.1 was the
+latest, but didn't work. 2.7.1.0 worked fine.&lt;/p&gt;
+&lt;p&gt;Install through bootloader using fastboot:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash recovery modified_recovery.img
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Root the phone by installing SuperSU&lt;/h2&gt;
+&lt;p&gt;Boot from bootloader into TWRP recovery. Reboot system, say yes to
+install SuperSU.&lt;/p&gt;
+&lt;p&gt;Boot up, run SuperSU installer; go to Play Store and choose &lt;strong&gt;update&lt;/strong&gt;
+(&lt;strong&gt;not&lt;/strong&gt; open).&lt;/p&gt;
+&lt;p&gt;This will probably prompt to install a new binary; the normal install
+should work fine.&lt;/p&gt;
+&lt;h2&gt;Install XPrivacy&lt;/h2&gt;
+&lt;p&gt;Install XPrivacy installer. Follow each of the several instruction steps
+that are shown when you run it.&lt;/p&gt;
+&lt;h2&gt;Encrypt and change password again&lt;/h2&gt;
+&lt;p&gt;Create a screen lock PIN or password, then fully charge battery and
+encrypt.&lt;/p&gt;
+&lt;p&gt;Change the password using &lt;a href="https://play.google.com/store/apps/details?id=org.nick.cryptfs.passwdmanager&amp;amp;hl=en"&gt;Cryptfs
+Password&lt;/a&gt;
+so that you can have a separate screen unlock code and encryption passphrase.&lt;/p&gt;
+&lt;p&gt;(This is another good reason to root your phone. Without this, your
+encryption password is identical to your screen unlock code. Unless you
+want to have either:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a weak password, or&lt;/li&gt;
+&lt;li&gt;a huge password that you have to enter every time you unlock your phone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;you'll need to change it using CryptFS which requires root access.)&lt;/p&gt;
+&lt;h2&gt;Disable all the slow animations&lt;/h2&gt;
+&lt;p&gt;To make Android snappier, disable the animations by enabling the
+developer options. Go in Settings &gt; About phone, scroll to the bottom
+and keep pressing build number until it tells you the developer options
+are active. Now, in Settings &gt; Developer options, you can set "Window
+animation scale", "Transition animation scale" and "Animator duration
+scale" all to off.&lt;/p&gt;
+&lt;h2&gt;Restore data, account, messages, call logs&lt;/h2&gt;
+&lt;p&gt;Reinstall SMS Backup and Restore, Call Log Backup and Restore, and
+restore the backups you made. Reinstall any other apps you want,
+including &lt;a href="https://f-droid.org/"&gt;F-Droid&lt;/a&gt; if you want AdAway and that's
+everything finally done. No more nagging for updates!&lt;/p&gt;</summary><category term="Moto"></category><category term="firmware"></category><category term="upgrade"></category><category term="Android"></category><category term="system"></category><category term="root"></category></entry><entry><title>My wifi's connected, but there's no internet...? (Intel Centrino versus Ubuntu)</title><link href="http://www.stevenmaude.co.uk/posts/my-wifis-connected-but-theres-no.html" rel="alternate"></link><updated>2014-07-29T23:15:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-07-29:posts/my-wifis-connected-but-theres-no.html</id><summary type="html">&lt;h2&gt;Intel Outside (of my own office)&lt;/h2&gt;
+&lt;p&gt;One thing I've never had too much of a problem with on my Ubuntu 12.04
+LTS install is networking. There's been the odd time when it's refused
+to connect to the network, despite everything else being fine. This has
+always been fixed with a reboot, though.&lt;/p&gt;
+&lt;p&gt;The problem I experienced today was a lot more serious. I'd travelled to
+another office to work and tried to connect to their wifi. I knew the
+network should have been OK as no-one else seemed to be having an issue,
+and I'd entered the WPA password correctly.&lt;/p&gt;
+&lt;p&gt;What I saw was that the wifi showed as connected, but I couldn't connect
+to anything. Occasionally, I could try and ping a server, and when I
+bothered to wait long enough to see anything, what I saw was connection
+timeouts, horrible packet loss, and ping times of several &lt;strong&gt;seconds&lt;/strong&gt;.
+(Pings are normally measured in milliseconds; I was seeing results of
+&lt;strong&gt;thousands&lt;/strong&gt; of milliseconds.)&lt;/p&gt;
+&lt;p&gt;I'd never seen this problem before. It quickly became apparent that this
+was specific to my hardware and my Ubuntu install. When I booted into
+Windows, it connected immediately without any problem, and a colleague
+was using a later version of Ubuntu on different hardware without a
+problem at all.&lt;/p&gt;
+&lt;p&gt;It's certainly difficult to try to fix such a vague problem. Running
+searches like "wifi not connecting on Ubuntu" inevitably brings up much
+noise relating to every wireless problem out there and not anything much
+of relevance, but I didn't have a lot more to go on. Having to do lots
+of searching and skimming through web pages using a phone to search
+isn't ideal either, but it did eventually lead me to the right answer.&lt;/p&gt;
+&lt;h2&gt;Fun with &lt;code&gt;iwlwifi&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;What worked was searching for issues relating to the wifi driver
+(&lt;code&gt;iwlwifi&lt;/code&gt;). A common theme that came up was &lt;code&gt;11n_disable=1&lt;/code&gt; which is a
+modprobe option that disables the wireless N feature of the Intel
+wireless adapter. (&lt;code&gt;lshw -C network&lt;/code&gt; states the model is "Centrino
+Wireless-N 2230".)&lt;/p&gt;
+&lt;p&gt;By running the commands&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo rmmod iwldvm
+sudo rmmod iwlwifi
+sudo modprobe iwlwifi &lt;span class="nv"&gt;11n_disable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
+sudo modprobe iwldvm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I got normal wireless access back (minus wireless N speeds, but the
+choice between fast, but no wifi and slow wifi is not a difficult one to
+make).&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;rmmod&lt;/code&gt; commands remove the modules from the kernel, while
+&lt;code&gt;modprobe&lt;/code&gt; adds them. We need to readd the wifi module with wireless N
+disabled. (The offending module is &lt;code&gt;iwlwifi&lt;/code&gt; but I couldn't &lt;code&gt;rmmod&lt;/code&gt; it
+until I'd removed &lt;code&gt;iwldvm&lt;/code&gt; as trying to do so showed that &lt;code&gt;iwldvm&lt;/code&gt; was
+using &lt;code&gt;iwlwifi&lt;/code&gt;. There is a force option for &lt;code&gt;rmmod&lt;/code&gt; but it didn't seem
+sensible to use it when there was an alternative.)&lt;/p&gt;
+&lt;h2&gt;Making this fix stick&lt;/h2&gt;
+&lt;p&gt;If you want this fix to apply every time you boot, you can just create a
+new &lt;code&gt;.conf&lt;/code&gt; file:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/modprobe.d/wireless-n-fix-iwlwifi.conf&lt;/code&gt;, adding just this line to
+the file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;options iwlwifi &lt;span class="nv"&gt;11n_disable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Thanks to this &lt;a href="http://askubuntu.com/questions/119578/how-to-fix-slow-wireless-on-machines-with-intel-wireless-cards"&gt;nice
+summary&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;You can choose any valid filename you like, provided it ends in &lt;code&gt;.conf&lt;/code&gt;;
+you'll also need to edit this using &lt;code&gt;sudo&lt;/code&gt; and your favourite text
+editor.&lt;/p&gt;
+&lt;h2&gt;Why hadn't I seen this problem before?&lt;/h2&gt;
+&lt;p&gt;What seems to be the issue is that I think that the office was using a
+wireless N router, and there's some kind of issue with this for the
+Intel Centrino wireless network adapter on my laptop under Ubuntu.&lt;/p&gt;
+&lt;p&gt;Nowhere else I've been with this laptop seems to be using wireless N, so
+that explains why it was an issue for the first time today. It's pretty
+poor that this seems to have been a &lt;a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1034740"&gt;long-running
+problem&lt;/a&gt; and
+yet it's still present... but at least there's a workaround.&lt;/p&gt;</summary><category term="connection"></category><category term="Centrino"></category><category term="wifi"></category><category term="Ubuntu"></category><category term="Intel"></category><category term="fix"></category></entry><entry><title>Arduous lessons in Python: why main() is useful</title><link href="http://www.stevenmaude.co.uk/posts/arduous-lessons-in-python-why-main-is.html" rel="alternate"></link><updated>2014-07-05T11:42:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-07-05:posts/arduous-lessons-in-python-why-main-is.html</id><summary type="html">&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/python_logo.png" alt="The Python logo."&gt;&lt;/p&gt;
+&lt;p&gt;An ordinary afternoon and I'd wanted to work on some code locally on my
+machine. I knew the tests previously ran without any issue. So, after
+I'd cloned the repository locally, I ran &lt;code&gt;nosetests&lt;/code&gt; to make sure
+everything was OK with my setup before I started.&lt;/p&gt;
+&lt;p&gt;What I expected is the tests to run pretty quickly as before.&lt;/p&gt;
+&lt;p&gt;What happened instead is that Python started hogging a CPU and I saw a
+lonely blinking cursor where I expected my test results.&lt;/p&gt;
+&lt;p&gt;Something was happening, but none of the tests were seemingly running.
+That is, I wasn't seeing any pass/fail indicators, which was strange.&lt;/p&gt;
+&lt;h2&gt;What actually happened&lt;/h2&gt;
+&lt;p&gt;Something was running that evidently wasn't what I intended.&lt;/p&gt;
+&lt;p&gt;On inspection, one of the import statements in the test code had a
+structure somewhat like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;some_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;another_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;really_long_winded_scraping_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;lots&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
+
+&lt;span class="n"&gt;really_long_winded_scraping_function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bear in mind that when you import a module, the statements are actually
+executed. If you've just got function and class definitions in there,
+then this means that they get defined, but they aren't executed until
+you call them.&lt;/p&gt;
+&lt;p&gt;However, if functions are called in the module's flow of execution, then
+they'll be called when you import it too.&lt;/p&gt;
+&lt;p&gt;So, when this module was being imported by the test module, the
+&lt;code&gt;really_long_winded_scraping_function()&lt;/code&gt; was being called. So, yes,
+eventually, the tests would have run, but they'd run &lt;em&gt;after&lt;/em&gt; the code in
+the &lt;code&gt;import&lt;/code&gt; had finished, which would have taken &lt;strong&gt;hours&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Fixing the problem&lt;/h2&gt;
+&lt;p&gt;Normally, I routinely use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;in Python code that I start writing.&lt;/p&gt;
+&lt;p&gt;From the &lt;a href="https://docs.python.org/2/tutorial/modules.html"&gt;official
+documentation&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"Within a module, the module’s name (as a string) is available as the
+value of the global variable &lt;code&gt;__name__&lt;/code&gt;."&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What it also does is assigns &lt;code&gt;'__main__'&lt;/code&gt; to &lt;code&gt;__name__&lt;/code&gt; if the module is
+being executed directly. This gives you a way to specify different
+behaviour depending on whether the module itself is run or just
+imported.&lt;/p&gt;
+&lt;p&gt;If you're importing the module to reuse the code elsewhere, you can then
+just access the relevant functions and classes that you need, rather
+than running code that actually starts doing things.&lt;/p&gt;
+&lt;p&gt;In this case, for some reason, we'd just quickly thrown some functions
+together, then found that the function that actually initiates all of
+the scraping wasn't being called. So, we'd just quickly added a call to
+what was our at the bottom of the module, set the code going to do the
+scraping and not run the tests again.&lt;/p&gt;
+&lt;p&gt;This was fine, until I forgot about this and came to run the tests again
+later! It's a good case for running your tests regularly; the reason it
+took me so long was that we hadn't run the tests since getting the main
+code working. If we had, I think I'd have been more likely to spot the
+connection between our fix to the code and the tests taking an age.&lt;/p&gt;
+&lt;p&gt;(This isn't a test specific problem. You'd notice it whenever you
+imported the code into another module. It just happened to be that the
+tests were the only other module that we'd imported the code into.)&lt;/p&gt;</summary><category term="foolishness"></category><category term="name"></category><category term="main"></category><category term="Python"></category><category term="fix"></category></entry><entry><title>Chatting about data science careers</title><link href="http://www.stevenmaude.co.uk/posts/chatting-about-data-science-careers.html" rel="alternate"></link><updated>2014-06-22T21:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-06-22:posts/chatting-about-data-science-careers.html</id><summary type="html">&lt;h2&gt;Visiting Cambridge&lt;/h2&gt;
+&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/Cambridge_1.jpg" alt="A photo of a street in Cambridge" width=300&gt;&lt;/p&gt;
+&lt;p&gt;I visited Cambridge this week. Though I know Oxford fairly well, somehow
+I'd manage to avoid ever travelling to Cambridge before, so being in a
+lovely city and surrounded by things new to me (though mostly far older
+than me) was a pleasant experience.&lt;/p&gt;
+&lt;p&gt;So, what was I even doing there anyway? The university careers service
+was holding an event for postdoctoral researchers to find out more about
+paths outside of university. I'd been invited to talk about data
+science.&lt;/p&gt;
+&lt;p&gt;The day started with brief talks from the careers staff and one of the
+guests. In a short session, they divulged several ideas that I'd taken
+far longer to collect either from reading around, the careers programme
+I attended last year, or by a slow realisation during my career
+searching process last year.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;After a brief session where I and the other nine invited speakers
+introduced themselves to everyone, the rest of the day was spent talking
+with small groups of postdocs. Much discussion seemed to centre around
+what my work involves, and how I eventually found my job.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;This type of event seems a great way for people to get inspired about
+what kind of careers they could consider a move into, especially if
+they're at a crossroads where all the exits are hazy. I think they can
+also provide a helpful confidence boost at a time when anxiety and
+indecision can easily take hold. If you're chatting with someone who's
+been in your shoes recently and managed to make a successful career
+move, why shouldn't you believe that you can replicate it?&lt;/p&gt;
+&lt;p&gt;A positive for me was that a few of the people I spoke to were already
+looking into data science as a career. And I'm also hoping that I
+managed to encourage those who, on speaking to them, seemed like they
+definitely had relevant skills, but they weren't entirely sure whether
+it was an option for them to explore.&lt;/p&gt;
+&lt;h2&gt;PhDs moving from research to industry&lt;/h2&gt;
+&lt;p&gt;There were two thoughts that I took away from the event. First, contrary
+to my preconceptions, it seemed that from the experiences of some of the
+other speakers that a long stay in university research wasn't perhaps as
+detrimental as I expected. In other words, you're not "trapped" at
+university if you have spent several years as a postdoc. (Though if
+you've already made up your mind to leave, it was mentioned that it's
+advisable to plan your exit as soon as possible.)&lt;/p&gt;
+&lt;p&gt;The other idea that I heard a couple of times is that there seems to be
+a disconnect between employers looking for well qualified PhDs and the
+candidates themselves. The jobs are there. The candidates are there.
+But, for whatever reason, they're missing each other.&lt;/p&gt;
+&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/Cambridge_2.jpg" alt="Another photo taken in Cambridge."&gt;&lt;/p&gt;
+&lt;p&gt;From my experience as a researcher, I'd suggest a part of the problem is
+that PhDs and postdocs may be simply unaware of the range of
+opportunities available to them. For data science at least, there are
+several organisations whose specific goal is to help transition science
+PhDs into employment. This is fine, but that's covers one discipline and
+small groups of fortunate researchers.&lt;/p&gt;
+&lt;p&gt;Maybe it's also a problem of communicating across this gap. Researchers
+are perhaps underequipped to successively sell themselves to employers,
+and maybe industry employers are not making it clear when PhDs with
+strong analytical backgrounds are exactly who they're looking for.&lt;/p&gt;
+&lt;p&gt;All in all, I'm sure the researchers attending took away some good
+ideas. It was definitely a productive and fun day out, and gave me the
+unusual opportunity to take a bit of time out to reflect on where I am
+in my career move. Thanks to Anne Forde of Cambridge University's
+Careers Service and Kim Nilsson of &lt;a href="http://s2ds.org/"&gt;S2DS&lt;/a&gt; for inviting
+me to participate!&lt;/p&gt;
+&lt;p&gt;A great idea that was highlighted is to just look through postings on
+sites which are advertising jobs (maybe Nature Jobs, New Scientist if
+you've a science background and want to stay in science, and further
+afield otherwise) and investigate lots of jobs.&lt;/p&gt;
+&lt;p&gt;And, another point that was emphasised, which is really important, is
+&lt;em&gt;don't dismiss yourself&lt;/em&gt; as being unsuitable for a job based on the
+title alone. You may find that you're already more than capable of
+meeting the candidate requirements.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;More specifically, small bits of wisdom such as
+these. Figuring out what you like in your current work, what your
+strengths are and what your priorities in work are. Having these things
+clear in your mind really does help you filter prospective jobs or
+workplaces to those that you're more likely to be interested in. It's
+easy for the panic of "I need a job" to settle in, and to then focus on
+applying for vacancies, rather than going the perhaps necessary process
+of self-discovery instead.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;One good question that came up a couple of times
+and I didn't have an instinctive answer for was: how do the longer term
+careers of data scientists progress? My excuse was that I'd just started
+out in my career and data science is still relatively new. Kim also
+mentioned that she saw lots of opportunities to specialise and find a
+niche.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Perhaps it shouldn't have surprised me so much.
+Checking over my own notes from last year, those were the main questions
+I was asking the data scientists that I chatted to in informational
+interviews.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="data"></category><category term="careers"></category><category term="university"></category><category term="research"></category><category term="science"></category><category term="Cambridge"></category></entry><entry><title>52 weeks, 52 posts</title><link href="http://www.stevenmaude.co.uk/posts/52-weeks-52-posts.html" rel="alternate"></link><updated>2014-05-10T17:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-10:posts/52-weeks-52-posts.html</id><summary type="html">&lt;p&gt;A year ago, I started writing this blog. I didn't really have any
+expectations of what I wanted to get out of it, but I think it's been
+successful despite my lack of lofty ambitions.&lt;/p&gt;
+&lt;p&gt;Back then, I hadn't written any blog back then. So it's a little strange
+that in the past year, I've had blog posts on another two other blogs
+aside from this one.&lt;/p&gt;
+&lt;p&gt;It's been quite a busy year too, so I've been sporadic in posting.
+Saying 52 posts in 52 weeks might sound well disciplined, but you can
+see that there have been weeks when I've not found time to write
+anything. (Which is a little lazy of me.) Other times I've been more
+inspired and written in bursts.&lt;/p&gt;
+&lt;p&gt;That said, the fact I've still returned to it even after several weeks
+away is certainly auspicious. What I think I've got out of it is that
+I'm much more conscientious about scribbling notes down for my own
+reference, which I seldom did before having a blog. This has proven to
+be a useful reference. If I can't quite remember how I did something,
+but know it's on here, I can find it quickly. If I do write up things on
+here, it's because it was a problem that I didn't see an obvious answer
+to and took more than a cursory internet search or investigation on my
+own part.&lt;/p&gt;
+&lt;p&gt;As well as that more practical side, it's been a good excuse to work on
+my writing (a muscle that I don't often flex at work).&lt;/p&gt;
+&lt;p&gt;What about the coming year then? In this next year, two resolutions that
+I'd like to keep are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;to try and maintain at least some kind of regularity to posting
+    (even if my posts are clustered together sometimes) and&lt;/li&gt;
+&lt;li&gt;migrate this blog to Pelican or something similar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For what it's worth, I started looking into the second. It's just a
+matter of ensuring I put the slight effort into seeing it through.
+Deciding what to do about comments, and actually going about exporting
+my existing content to Markdown or RestructuredText are the obstacles at
+the moment. Really though, it's a question of &lt;strong&gt;just doing it&lt;/strong&gt; rather
+than procrastinating and getting distracted writing blog posts about how
+I'm going to do things.&lt;/p&gt;</summary><category term="self-indulgence"></category><category term="musings"></category></entry><entry><title>How to use mock in Python to mock methods on objects</title><link href="http://www.stevenmaude.co.uk/posts/how-to-use-mock-in-python-to-mock.html" rel="alternate"></link><updated>2014-05-10T11:05:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-10:posts/how-to-use-mock-in-python-to-mock.html</id><summary type="html">&lt;h2&gt;Testing&lt;/h2&gt;
+&lt;p&gt;Testing is a useful programming practice which, in all honesty, I'm
+still learning much about. Tests can give you some reassurance as to the
+behaviour of your code, providing you've written your tests such that
+they're testing appropriate things. They can also help you think about
+how you write your code, in a positive way: the process of making unit
+tests can require you to rethink how your code operates in order to make
+it testable.&lt;/p&gt;
+&lt;p&gt;If you're unfamiliar and want to know more, probably the single most
+useful resources I've found are two of Ned Batchelder's PyCon talks, one
+from &lt;a href="http://nedbatchelder.com/text/testability.html"&gt;Pycon 2010&lt;/a&gt;, and
+one he &lt;a href="http://nedbatchelder.com/text/st.html"&gt;recently&lt;/a&gt; gave. In the
+latter, he covers testing from the ground up. The former is a little
+less introductory, but is a good complimentary talk; he works through a
+few examples where writing tests can give a better organisation to code.&lt;/p&gt;
+&lt;h2&gt;Testing and me&lt;/h2&gt;
+&lt;p&gt;My problems in creating tests are often two-fold. First, I'm not always
+sure what are good tests to write - for instance, unit tests should be
+isolated, but how much should I be mocking out in unit tests? For some
+functions, if you mock out all other function calls, you may have very
+little left to actually test there.&lt;/p&gt;
+&lt;p&gt;Spotting which paths through the code you want to prioritise for
+integration tests is another issue. Ideally, you'd either work bottom
+up, starting with tests that mock out everything, then slowly adding in
+real code, or maybe top down, progressively mocking out units. However
+you approach it, the number of combinations of tests you could write
+will increase rapidly: even for moderately small programs, the number of
+possible combinations of mocked out functions and objects can be huge.
+For example, if A calls B and B calls C, I could write tests that use
+all three actual functions, two of them or just one (and perhaps even
+none of them). To exhaustively test every combination becomes
+unmanageable.&lt;/p&gt;
+&lt;p&gt;I'm hoping the more I write tests, the more confident I'll be at
+evaluating whether the tests I'm thinking of aren't going to be that
+useful to implement. Where I know I should improve is the second problem
+I often encounter: how to actually implement tests. Often, I'll find I
+know what I want to achieve but find difficulty in actually articulating
+this in code, usually because I've not found the functions I want in
+&lt;code&gt;mock&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Mocking a method of an object with Python &lt;code&gt;mock&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Anyway, here's an example of this which might be useful if you're trying
+to do something similar. In this case, I wanted to test a method of an
+object, but wasn't sure how to do that using a mock.&lt;/p&gt;
+&lt;p&gt;This is a really cut-down version of what my code was doing, but
+features the main thing I was testing:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sqlite3&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;table_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;some_table&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;sqlite_db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;database.sqlite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sqlite_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;drop table if exists {};&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="c"&gt;# next, get some data and then save to db&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As what the database saves depends on some input that the user supplies
+(fixed here), I wanted to ensure that the table is wiped before we add
+anything to it. Otherwise repeated runs would cause the table to become
+cluttered with data the user no longer wants.)&lt;/p&gt;
+&lt;p&gt;What I specifically wanted to check was whether the database was getting
+the correct table name to drop. One way of checking this is using
+Python's &lt;code&gt;mock&lt;/code&gt;(a &lt;code&gt;pip&lt;/code&gt;-installable package if you're on Python 2, part of
+the standard library from Python 3.3).&lt;/p&gt;
+&lt;p&gt;By replacing objects with mocks as stand-ins, we can avoid the need for
+actually connecting to a database in our test (which may be slow or
+unreliable, if it's remote). Mocks aren't just dummy objects though;
+it's possible to inspect them after we execute some statements, allowing
+us to see, for instance, if the mock was called, and what arguments it
+was called with.&lt;/p&gt;
+&lt;p&gt;In my case, I got particularly confused with the mocking out of the
+&lt;code&gt;.execute method&lt;/code&gt; of the &lt;code&gt;sqlite_db&lt;/code&gt; object. I'd tried all combinations
+of accessing the call via the &lt;code&gt;mock_sqlite3_connect&lt;/code&gt;. What it took me
+ages to realise is that I had to mock out what &lt;code&gt;sqlite3.connect()&lt;/code&gt;
+returns; you can't (unless I'm mistaken) access calls on the object it
+returns otherwise.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;code_to_test&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mock&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CodeToTestTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nd"&gt;@mock.patch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;code_to_test.sqlite3.connect&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_database_drop_table_call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mock_sqlite3_connect&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;mock_sqlite3_connect&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt;
+        &lt;span class="n"&gt;code_to_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;drop table if exists some_table;&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assert_called_with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What's happening here? First, we're using a decorator, &lt;code&gt;@mock.patch&lt;/code&gt;
+which replaces &lt;code&gt;sqlite3.connect()&lt;/code&gt; in &lt;code&gt;code_to_test&lt;/code&gt; with a mock,
+&lt;code&gt;mock_sqlite3_connect&lt;/code&gt;. We can then make the return value of the
+&lt;code&gt;mock_sqlite3_connect&lt;/code&gt; &lt;em&gt;a mock itself&lt;/em&gt;. After that, all we have to do is
+actually call the main function which now will run with our mocks
+inside. Now, we can check that &lt;code&gt;sqlite3.execute()&lt;/code&gt; was called correctly.
+If we save this as &lt;code&gt;tests.py&lt;/code&gt; and run &lt;code&gt;nosetests&lt;/code&gt;
+(&lt;code&gt;pip install python-nose mock&lt;/code&gt; if you haven't already), the test will
+pass.&lt;/p&gt;
+&lt;p&gt;(What I think happens is that without us supplying a return value, the
+sqlite database is mocked, but there's no easy way to access it within the
+test to check the method's called. If you know I'm wrong and have an
+explanation, I'd love to hear it.)&lt;/p&gt;
+&lt;p&gt;Given the solution, you might wonder why I'd been bashing my head
+against the keyboard for an hour or two to figure it out. It's just
+knowing the vocabulary of what you need to do with mocks, whereas I'd
+got sidetracked thinking there &lt;strong&gt;must&lt;/strong&gt; be a way to implicitly access
+methods of the object with the initial mock. Seeing and using patterns
+is definitely a good way to develop; next time I do something similar,
+I'll be much quicker to get something going.&lt;/p&gt;</summary><category term="mock"></category><category term="testing"></category><category term="test"></category><category term="unit"></category><category term="Python"></category></entry><entry><title>Beware Python's pyc files</title><link href="http://www.stevenmaude.co.uk/posts/beware-pythons-pyc-files.html" rel="alternate"></link><updated>2014-05-09T22:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-09:posts/beware-pythons-pyc-files.html</id><summary type="html">&lt;p&gt;A quick reminder to myself more than anything.&lt;/p&gt;
+&lt;p&gt;Had the issue of a strange &lt;code&gt;ImportError: from itertools import tee&lt;/code&gt;.
+It's a little odd because &lt;code&gt;itertools&lt;/code&gt; is a Python built-in module.&lt;/p&gt;
+&lt;p&gt;Running Python and doing the import from the directory where I was
+running code worked fine. However, running a script in that directory
+that was importing a package, that itself imported itertools gave this
+behaviour.&lt;/p&gt;
+&lt;p&gt;I wasn't really sure what was causing it, but on a whim I deleted the
+existing &lt;code&gt;itertools.pyc&lt;/code&gt; file in that directory. When I looked, it turns
+out that &lt;code&gt;itertools&lt;/code&gt; had a &lt;code&gt;pyc&lt;/code&gt; file in the package directory. If you
+have inexplicable errors like this with no obvious explanation, it's
+worth perhaps deleting the cached &lt;code&gt;.pyc&lt;/code&gt; files. That is, unless
+&lt;a href="https://www.youtube.com/watch?v=wsczq6j3_bA#t=22m15s"&gt;this&lt;/a&gt; applies to
+your coding workflow.&lt;/p&gt;</summary><category term="Python"></category><category term="pyc"></category></entry><entry><title>Heartbleed: ill communication</title><link href="http://www.stevenmaude.co.uk/posts/heartbleed-ill-communication.html" rel="alternate"></link><updated>2014-05-04T16:49:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-04:posts/heartbleed-ill-communication.html</id><summary type="html">&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/heartbleed.png" alt="The Heartbleed logo." width="400"&gt;&lt;/p&gt;
+&lt;p&gt;Even if you're not particularly into technology, you probably wouldn't
+have escaped hearing about Heartbleed last month.&lt;/p&gt;
+&lt;p&gt;Without going into details here — the &lt;a href="http://heartbleed.com/"&gt;site written by researchers who
+disclosed the vulnerability&lt;/a&gt; has a detailed
+technical summary, and &lt;a href="http://xkcd.com/1354/"&gt;XKCD&lt;/a&gt; had a nice
+non-technical summary — it affected servers using OpenSSL and meant that
+it was possible for attackers to retrieve confidential information (for
+example, passwords) or even &lt;a href="http://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed"&gt;the private keys of
+servers&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It's old news now; a month's passed since. What was striking about the
+whole incident is that, despite the initial fuss in both the specialist
+press and more general news sources, the communication of the status of
+web services was conspicuous by its absence.&lt;/p&gt;
+&lt;p&gt;Out of the hundred or so sites that I have accounts on, just &lt;strong&gt;one&lt;/strong&gt; of
+them emailed me to reassure me that they weren't exposed to Heartbleed.
+The only clear indication I saw while visiting a site was on Soundcloud,
+who advised users to change passwords.&lt;/p&gt;
+&lt;p&gt;From some of the lists of popular sites that were being maintained at
+the time, I know there was at least one site that I had an account on
+that were at some point exposed to Heartbleed. Yet, as far as I can
+tell, they didn't bother to inform their users that.&lt;/p&gt;
+&lt;p&gt;I'm not sure what their motivation was; an email or blog post/banner on
+site would have been really helpful. Maybe owners of sites wanted to
+avoid alarm, but I'd personally prefer a clear reassurance that
+everything is OK with them.&lt;/p&gt;
+&lt;p&gt;It's unrealistic to expect that some widespread security issue won't
+happen again. If something does happen though, I do hope that sites do a
+better job in clarifying their position.&lt;/p&gt;</summary><category term="Heartbleed"></category><category term="security"></category><category term="communication"></category></entry><entry><title>Making a MIDI keyboard modulation wheel work with third-party VSTs in FL Studio</title><link href="http://www.stevenmaude.co.uk/posts/making-midi-keyboard-modulation-wheel.html" rel="alternate"></link><updated>2014-04-27T18:21:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-04-27:posts/making-midi-keyboard-modulation-wheel.html</id><summary type="html">&lt;p&gt;Been playing around with third-party VSTs in FL Studio and found I
+couldn't get the modulation wheel to work (though it works fine in the
+bundled plugins).&lt;/p&gt;
+&lt;p&gt;Eventually I found the fix
+&lt;a href="http://music.tutsplus.com/tutorials/quick-tip-how-to-enable-the-mod-wheel-in-fl-studio--audio-10778"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The short version: add a third-party VST to your project. Go to the
+browser menu and go to Current Project &gt; Generators &gt; Fruity Wrapper.
+Next, you should see Modulation Wheel in the list under Fruity Wrapper;
+right click it and choose "Link to controller". Enable Omni, make sure
+Autodetect is enabled (it is by default for me), then move the wheel.&lt;/p&gt;
+&lt;p&gt;That link also suggests starting with an empty project, doing this
+setup, then deleting the VST and saving the project as a template, which
+is handy to avoid repeating this every time you work on a new project.
+Just make a sub-directory in one of the existing FL Studio Templates
+directories and save the .flp file in there.&lt;/p&gt;</summary><category term="MIDI"></category><category term="production"></category><category term="keyboard"></category><category term="FL"></category><category term="VST"></category><category term="Studio"></category><category term="music"></category><category term="audio"></category></entry></feed>

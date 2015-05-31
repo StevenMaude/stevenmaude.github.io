@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="ad,µblock,HTTP Switchboard,blocking,privacy,adblock" />
+        <meta name="description" content="How you can use µblock and HTTP Switchboard to take control of what your browser loads." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome.html"/>
+        <meta property="og:description" content="How you can use µblock and HTTP Switchboard to take control of what your browser loads."/>
+        <meta property="article:published_time" content="2014-09-28" />
+            <meta property="article:section" content="2014" />
+            <meta property="article:tag" content="ad" />
+            <meta property="article:tag" content="µblock" />
+            <meta property="article:tag" content="HTTP Switchboard" />
+            <meta property="article:tag" content="blocking" />
+            <meta property="article:tag" content="privacy" />
+            <meta property="article:tag" content="adblock" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2014-09-28T00:02:00+01:00"> 2014-09-28</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2015-05-18T12:00:00+01:00"> 2015-05-18</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/ad.html">ad</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ublock.html">µblock</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/http-switchboard.html">HTTP Switchboard</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/blocking.html">blocking</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/privacy.html">privacy</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/adblock.html">adblock</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="admonition article-edit">
+<p>Edit 2015-05-18: The Chromium bug is fixed which should fix the µMatrix
+UI sluggishness, and µMatrix is finally available as a Firefox addon.</p>
+</div>
+<div class="admonition article-edit">
+<p>Edit 2015-01-09: HTTP Switchboard development is discontinued and has been
+replaced with <a href="https://github.com/gorhill/uMatrix">µMatrix</a>. The
+interface is largely unchanged. One problem at the time of writing is a
+<a href="https://github.com/gorhill/uBlock/issues/419">Chromium bug</a> which I
+think is the cause of the UI being really laggy to appear. Hopefully,
+this should be fixed soon.</p>
+</div>
+<p>After tinkering around with Adblock's filters to block some ads, I
+remembered that I'd read about an alternative to Adblock for
+Chromium-based browsers called <a href="https://github.com/gorhill/httpswitchboard">HTTP
+Switchboard</a> a few months ago
+and figured I should actually give it a try.</p>
+<p>One of the reasons that HTTP Switchboard was notable is that it promised
+to be much more CPU and memory friendly than <a href="https://blog.mozilla.org/nnethercote/2014/05/14/adblock-pluss-effect-on-firefoxs-memory-usage/">Adblock Plus</a>
+currently is.</p>
+<p>In fact, the adblocking part of HTTP Switchboard has now been separated
+out into another project, µblock. Both are still useful. I'll explain
+why below.</p>
+<h2>Why are you blocking content at all?</h2>
+<p>Many content-driven websites use advertising as their business model. My
+feeling is that, while sites are welcome to try and send content to my
+browser, I should have the freedom to choose what my browser actually
+loads.</p>
+<p>There's no contract I've signed that states I must load and display the
+page as the site owner intends. (What if I'm using a text browser like
+links?) And there's no obligation on my part to make their business
+model sustainable.</p>
+<p>Maybe you still think this seems selfish. Well, to some extent it is.
+But, my privacy and computer security are more important to me than the
+financial success or failure of an external organisation. That I put my
+priorities in this order is kind of obvious though, right?</p>
+<h2>Why shouldn't sites and advertisers worry so much?</h2>
+<p>Even with "despicable" users like me, there are two reasons I can think
+of as to why advertisers and sites dependent on them shouldn't feel so
+glum:</p>
+<ol>
+<li>
+<p>Adblocking users have made an active choice to block ads. Those
+    users have done you a favour in removing themselves from your
+    viewership as you don't waste time targeting them; why chase
+    "customers" running in the opposite direction from you?</p>
+</li>
+<li>
+<p>Browsing is increasingly done from mobile browsers. How many users
+    are going to bother to root their devices or install alternative
+    browsers just for adblocking?</p>
+</li>
+</ol>
+<h2>But why worry about where displayed web content originates from?</h2>
+<h3>Privacy</h3>
+<p>One contentious issue with ads and cookies is privacy.</p>
+<p>As <a href="http://www.economist.com/news/special-report/21615871-everything-people-do-online-avidly-followed-advertisers-and-third-party">this Economist
+article</a>
+highlights,
+the depth of what advertisers collect about your browsing habits is
+extensive, and it's handled and passed around by many organisations.
+Unless you're all for being advertised at, this isn't for your benefit.</p>
+<p>Maybe advertisers are really all benign and just interested in deciding
+who's best to try to sell to. Perhaps just as the executive in that
+article quoted claims, it really is just that,</p>
+<blockquote>
+<p>"We are not trolling for personal information. We are trying to figure
+out if you are a high-value customer and are in the market for a car."</p>
+</blockquote>
+<p>But, the sheer amount of information being collected is worrying,
+especially when, as a user, I've no idea of what's actually being
+tracked and what the intended end use is.</p>
+<h3>Malware</h3>
+<p>As well as that, web advertising has been a conduit for the deployment
+of malware previously and will no doubt continue to be. (It's a nice way
+of distributing it to users who are visiting, what to them, might seem
+like a trustworthy site. If they can get the malicious ad past the
+company providing the advertising, they don't need to go to the trouble
+of hacking the site directly.)</p>
+<p>There have been
+<a href="http://arstechnica.com/security/2014/09/google-stops-malicious-advertising-campaign-that-could-have-reached-millions/">one</a>
+or <a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/01/04/thousands-of-visitors-to-yahoo-com-hit-with-malware-attack-researchers-say/">two</a>
+high-profile incidents this year too.</p>
+<p>In terms of potentially malicious content, it's not only just ad
+providers that I'm concerned with, but allowing large numbers of
+arbitrary sites to run their scripts on your machine unchecked.</p>
+<p>Look at the recent <a href="http://www.zdnet.com/was-jquery-hacked-7000034009/">JQuery
+compromise</a>, for
+instance. Fortunately, only the site itself was affected and <strong>not</strong> the
+hosted libraries that many sites. It's not inconceivable that an
+attacker may well deliberately go after to poison hosted libraries. It's
+just way too big a jackpot for malware distributors to ignore.</p>
+<p>Even if such an attack might be spotted quite quickly, how many users
+could be affected in the interim? (I'm not even sure what the solution
+is here; often JQuery's needed for sites to function as intended...)</p>
+<p>Minimising the number of third-party sites that you allow content to
+load from can't be a bad thing. (There's some risk wherever you go, but
+in some cases, I've seen sites loading in content from more sites than I
+can count on both hands.)</p>
+<h2>Controlling what your browser displays</h2>
+<p>So, what can you do? There are browser extensions for Firefox and Chrome
+that give you more control over what your browser loads.</p>
+<p>Lots of sites are perfectly readable without them storing tracking
+information about you, without arbitrary JavaScript running. For those
+that don't, it's quite simple to whitelist them.</p>
+<p>The downside of this is that it can be a chore. In Firefox, I need a
+slew of extensions to do this: which sites are allowed to run scripts
+(NoScript), which cross-site requests are allowed (RequestPolicy), and
+which sites can store cookies (CookieMonster).</p>
+<p>Managing each one in turn, allowing permissions for cookies, scripts and
+third-party scripts, can be tedious. I've run NoScript for a long time,
+but these days with sites often hosting content and scripts somewhere
+other than on the domain you're visiting, it's much more work than it
+was.</p>
+<p>HTTP Switchboard was a big, all encompassing project for Chromium-based
+browsers that had features comparable to Adblock Plus, and the Firefox
+extensions, NoScript, RequestPolicy. Recently, the <a href="https://github.com/gorhill/httpswitchboard/issues/378">adblocking,
+pattern-based filtering</a>
+has been split out into another project,
+<a href="https://github.com/gorhill/ublock">µblock</a>.</p>
+<h2>µblock</h2>
+<p>By virtue of what HTTP Switchboard aims to do — give you full control of
+what is allowed by your browser — this makes its user interface slightly
+more complex, which I'll soon get onto.</p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The µblock enable/disable icon." width="174"></p>
+<p>Stripping out this sophistication seems like a smart move, since
+µblock's incredibly easy to use. Really, it requires the same amount of
+setup as Adblock Plus does: not much at all.</p>
+<p>It comes with the most popular Adblock Plus filters accessible on
+install, and you can easily choose which of those filter lists are
+applied.</p>
+<p>Disabling µblock for a site is also straightforward. Click the red µ
+icon next to the address bar and then click the power icon.</p>
+<p>It does the same job as Adblock Plus, but with lower CPU and memory
+usage. If you've ditched an ad blocker for this reason, it's worth
+looking at. Even if you're still happy using Adblock Plus (or one of its
+forks), µblock is definitely worth spending the couple of minutes to try
+it out.</p>
+<h2>HTTP Switchboard</h2>
+<p>On to HTTP Switchboard, which allows fine grained control of the types
+and locations of content that Chromium-based browser can access.</p>
+<p>Note that with the current version of HTTP Switchboard, there's a little
+<a href="https://github.com/gorhill/httpswitchboard/issues/378">initial setup</a> to
+disable the adblocking filtering that µBlock covers.</p>
+<p>HTTP Switchboard's interface can feel initially overwhelming; more so
+than perhaps the likes of NoScript, RequestPolicy and CookieMonster that
+I use which all have similar menus to allow or deny permission for a
+site to run scripts or store cookies. These have a text explanation of
+what the option does.</p>
+<figure class="article-figure">
+  <img src="http://www.stevenmaude.co.uk/images/2014/Firefox_menus.png" alt="Examples of NoScript, CookieMonster and RequestPolicy permission menus.">
+  <figcaption>From left to right, examples of NoScript, CookieMonster and RequestPolicy permission menus when accessing Google Books.</figcaption>
+</figure>
+
+<p>The problem with this menu format is, though it's explicit and clear,
+it's cumbersome when you're dealing with several extensions. For each
+extension, you need to repeat the process of whitelisting every site
+that you're allowing.</p>
+<p>When you've actually used HTTP Switchboard for a few minutes, its
+simplicity clicks. HTTP Switchboard opts for a table-like interface.
+Each site is represented as a row, and each type of content is shown as
+a column.</p>
+<figure class="article-figure">
+  <img src="http://www.stevenmaude.co.uk/images/2014/HTTP_Switchboard.png" alt="Example of HTTP Switchboard's table interface.">
+  <figcaption>Example of HTTP Switchboard's interface when accessing Google Books.</figcaption>
+</figure>
+
+<p>This lets the user approve different permissions for different sites
+quickly. Just read down the list of sites, click on those you want to
+whitelist completely, and for those you don't you can allow specific
+features only (e.g. loading images only). Likewise, if you want to
+enable one type of content for all sites, just click the appropriate
+column. If you want to save the permissions in future, click the padlock
+icon, and you're done.</p>
+<p>It helps a lot that you can see <strong>all</strong> the sites that are trying to
+load content or save cookies in one glance, rather than consulting
+separate menus.</p>
+<p>There's an autoreload option that refreshes the page when you change
+permissions, so once you've approved everything needed, the page should
+then work as expected.</p>
+<p>Out of the box, (I think) HTTP Switchboard was configured to allow most
+requests through, apart from those blacklisted by filters. What
+initially confused me was at what level the filters apply. (Do they
+apply to this site? To this domain? globally?).</p>
+<p>What I'd recommend is, like the extension developer, is to
+<a href="https://github.com/gorhill/httpswitchboard/wiki/How-to-use-HTTP-Switchboard:-Two-opposing-views">block everything</a>
+by default and then whitelist only what you want to allow.</p>
+<p>There's an option in the HTTP Switchboard settings under "more security"
+to create a new site-specific scope for every site you visit which is
+really useful. This creates a set of rules for each site you visit.
+Furthermore, the drop down (click the blue top-left box with the site
+name in) lets you select where the rule applies (to the site, to the
+domain or globally).</p>
+<p>This lets you block content from, say, a site like twitter.com when
+you're visiting a third-party site, but allow it when you're directly
+visiting Twitter.</p>
+<p>It also has some nice bonus privacy features, like removing HTTP
+referers when visiting non-whitelisted sites and a user-agent
+randomiser.</p>
+<p>The only thing that's missing for me is guidance on what the sites
+likely are. If you're happy to spend a few seconds researching, it's not
+hard to figure this out. It might save a bit of time if there was a
+database of sites telling you "hey, you might need this, it's a content
+delivery network" or "this is tracking how you're using the site; you
+probably don't need it for the site to function properly". Yes, I can
+search, but it's a bit clunky to do that.</p>
+<h2>A summary</h2>
+<p>These are really great browser extensions, and credit to Raymond Hill
+for an awesome job on them. Every time I'm managing permissions with
+multiple extensions in Firefox now, I sigh a little. (Firefox's awesome
+bar is far more useful to me than Chrome/ium's omnibox though, so I tend
+to stick with Firefox.)</p>
+<p>Longer term, I'd really hope that a Firefox add-on developer <a href="https://github.com/gorhill/uBlock/issues/27">picks up
+the baton to port these</a>.</p>
+<p>(As a postscript, I should point out that as well as adblocking and
+control over requests, <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a>
+is another useful privacy-enhancing extension for Firefox and Chromium
+browsers. Where HTTPS browsing is available on sites but not always used,
+HTTPS Everywhere enables it for you.)</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>

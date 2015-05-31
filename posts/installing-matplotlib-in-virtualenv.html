@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Installing matplotlib in a virtualenv - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/installing-matplotlib-in-virtualenv.html">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="dependency,virtualenv,install,matplotlib,solution,Python,PyGTK" />
+        <meta name="description" content="Solving matplotlib&#39;s plotting backends being inaccessible in virtualenvs." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Installing matplotlib in a virtualenv"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/installing-matplotlib-in-virtualenv.html"/>
+        <meta property="og:description" content="Solving matplotlib&#39;s plotting backends being inaccessible in virtualenvs."/>
+        <meta property="article:published_time" content="2013-09-30" />
+            <meta property="article:section" content="2013" />
+            <meta property="article:tag" content="dependency" />
+            <meta property="article:tag" content="virtualenv" />
+            <meta property="article:tag" content="install" />
+            <meta property="article:tag" content="matplotlib" />
+            <meta property="article:tag" content="solution" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="PyGTK" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Installing matplotlib in a virtualenv
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2013-09-30T18:57:00+01:00"> 2013-09-30</time>
+    </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2013-10-01T19:38:00+01:00"> 2013-10-01</time>
+            </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/dependency.html">dependency</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/virtualenv.html">virtualenv</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/install.html">install</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/matplotlib.html">matplotlib</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/solution.html">solution</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/python.html">Python</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/pygtk.html">PyGTK</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Today I've been spending far too long installing
+<a href="http://matplotlib.org/">matplotlib</a> into a Python virtualenv on Ubuntu
+12.04, but I finally have it working as I want now. matplotlib lets you
+make nice data plots with a few lines of Python, but it has <a href="http://matplotlib.org/users/installing.html#build-requirements">several
+dependencies</a>
+and this makes it trickier than some packages to get going.</p>
+<p>The first obstacle is getting <a href="http://www.numpy.org/">numpy</a> installed.
+I suspect there were some dependencies I had to install to be able to
+successfully
+<code>pip install numpy</code> in my virtualenv. It was only a couple of hours ago, but I
+have forgotten completely if I had to install anything to get numpy
+working. Not very helpful, but if you search for any error messages that
+come up here, you should find the relevant Stack Overflow posts that
+helped me solve that initial problem.</p>
+<p>You also need <code>freetype</code> and <code>libpng</code> installed to be able to <code>pip install
+matplotlib</code>. I had <code>libpng12-0</code> already installed, but needed <code>libpng12-dev</code>;
+likewise, I had <code>libfreetype6</code> installed, but also needed the development
+package, <code>libfreetype6-dev</code>.</p>
+<p>That wasn't too difficult to solve and matplotlib seemed to install
+fine. <a href="http://stackoverflow.com/questions/7534453/matplotlib-does-not-show-my-drawings-although-i-call-pyplot-show">As described
+elsewhere</a>,
+one problem I had was that matplotlib was generating plots with savefig,
+but not showing them when I was trying to <code>show()</code> them. I changed the
+backend to GTK as the solution suggested, but matplotlib then complained
+that with an <code>ImportError</code> that "<code>Gtk* backend requires pygtk to be
+installed</code>".</p>
+<p>So, how to solve this. First of all, you'll need to
+<code>pip uninstall matplotlib</code> in your virtualenv if you've installed
+matplotlib already. You also need to
+<code>sudo apt-get install python-gtk2-dev</code>.</p>
+<p>I found <a href="http://stackoverflow.com/questions/249283/virtualenv-on-ubuntu-with-no-site-packages">this post discussing using PyGTK in a
+virtualenv</a>
+which helped fix this. Activate the virtualenv you want to use
+matplotlib in, then do:</p>
+<div class="highlight"><pre>ln -sf /usr/lib/python2.7/dist-packages/<span class="o">{</span>glib,gobject,cairo,gtk-2.0,pygtk.py,pygtk.pth<span class="o">}</span> <span class="nv">$VIRTUAL_ENV</span>/lib/python2.7/site-packages
+</pre></div>
+
+
+<p>This creates symbolic links
+to the required globally installed Python packages and solves the
+problem of them being inaccessible.
+You have to do this
+<strong>before</strong> you <code>pip install matplotlib</code>. Otherwise it won't detect at
+compile time that you have the backend GTK dependencies in the
+virtualenv. Finally, you need to set the backend to GTKAgg in
+<code>~/.config/matplotlib/matplotlibrc</code> (I had to copy matplotlibrc from
+<code>/lib/python2.7/site-packages/matplotlib/mpl-data</code> in the
+virtualenv.) If you run this <a href="http://matplotlib.org/examples/pylab_examples/simple_plot.html">test
+plot</a>,
+it should now save it and display it in an interactive window.</p>
+<p>Update: Going away and coming back to this problem, I found that using
+the <a href="http://www.virtualenv.org/en/latest/#the-system-site-packages-option"><code>--system-site-packages
+option</code></a>
+when creating a new virtualenv should also allow the GTK backend to
+work. The method I've detailed above has the advantage of copying over
+the minimum of required packages.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android.html">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker.html">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data.html">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption.html">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix.html">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job.html">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science.html">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows.html">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
