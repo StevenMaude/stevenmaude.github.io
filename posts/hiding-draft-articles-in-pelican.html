@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Darik's Boot and Nuke: fixing an "unrecognized device" error - stevenmaude.co.uk</title>
+    <title>Hiding draft articles in Pelican - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,25 +9,22 @@
 
 
 
-<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/dariks-boot-and-nuke-unrecognized.html">
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="device,unrecognized,error,HDD,erase,DBAN" />
-        <meta name="description" content="Fixing unrecognized device errors in Darik&#39;s Boot and Nuke." />
+        <meta name="keywords" content="draft,article,Pelican" />
+        <meta name="description" content="How to hide articles you don&#39;t want to be published yet." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Darik&#39;s Boot and Nuke: fixing an &#34;unrecognized device&#34; error"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/dariks-boot-and-nuke-unrecognized.html"/>
-        <meta property="og:description" content="Fixing unrecognized device errors in Darik&#39;s Boot and Nuke."/>
-        <meta property="article:published_time" content="2013-08-29" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="device" />
-            <meta property="article:tag" content="unrecognized" />
-            <meta property="article:tag" content="error" />
-            <meta property="article:tag" content="HDD" />
-            <meta property="article:tag" content="erase" />
-            <meta property="article:tag" content="DBAN" />
+        <meta property="og:title" content="Hiding draft articles in Pelican"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html"/>
+        <meta property="og:description" content="How to hide articles you don&#39;t want to be published yet."/>
+        <meta property="article:published_time" content="2015-05-31" />
+            <meta property="article:section" content="2015" />
+            <meta property="article:tag" content="draft" />
+            <meta property="article:tag" content="article" />
+            <meta property="article:tag" content="Pelican" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -90,7 +87,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Darik's Boot and Nuke: fixing an "unrecognized device" error
+                Hiding draft articles in Pelican
                 </h1>
             </header>
             <div class="entry-content">
@@ -99,73 +96,75 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-08-29T22:32:00+01:00"> 2013-08-29</time>
+        <time datetime="2015-05-31T20:16:00+01:00"> 2015-05-31</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-01-06T11:21:00+00:00"> 2014-01-06</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/device.html">device</a>
+	<a href="http://www.stevenmaude.co.uk/tag/draft.html">draft</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/unrecognized.html">unrecognized</a>
+	<a href="http://www.stevenmaude.co.uk/tag/article.html">article</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/error.html">error</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/hdd.html">HDD</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/erase.html">erase</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/dban.html">DBAN</a>
+	<a href="http://www.stevenmaude.co.uk/tag/pelican.html">Pelican</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <div class="admonition article-edit">
-<p>Edit 2014/01/04: I've written a <a href="http://www.stevenmaude.co.uk/2014/01/securely-erasing-ssd-drives.html">more recent
-post</a>
-which describes how to use hdparm and ATA Secure Erase to wipe drives,
-which might be of interest if you're thinking of using DBAN, and
-particularly if you're erasing an SSD.</p>
-</div>
-<p>Over last Bank Holiday weekend, I'd been trying to install a dual boot
-system and having lots of fun. Actually, for "lots of", read none,
-though at least it works how I want it to now; maybe a subject for a
-later post. One issue I thought I might be having was remnants of
-<a href="https://en.wikipedia.org/wiki/GUID_Partition_Table">partition tables</a>
-still <a href="http://www.rodsbooks.com/gdisk/wipegpt.html">sticking on the
-drive</a>, despite me doing a
-fresh install. I decided it would be sensible to obliterate everything
-and start from a completely empty drive as installing two operating
-systems can be a fairly lengthy process (and a tedious one, if you've
-done it several times as I had done).</p>
-<p><a href="http://sourceforge.net/projects/dban/">Darik's Boot and Nuke</a> (DBAN) is
-a free, Linux-based boot disk that lets you do just that. It needs to be
-used with great care since it can wipe data from drives irrecoverably.
-In my case, this wasn't an issue as, if anything, I <em>wanted</em> to start
-from scratch.</p>
-<p>Unfortunately, on booting DBAN, I was presented with an "unrecognized
-device" showing up along with my hard disk. I was able to select my hard
-disk to erase it, but then the erase immediately failed.</p>
-<p>As this <a href="http://sourceforge.net/p/dban/discussion/208932/thread/332bf1d2/">support
-thread</a>
-describes, this can be caused by internal media (e.g. SD) card readers.
-So, anyway that you can deactivate the card reader might resolve this
-problem. Disconnecting the reader from the PC (not necessarily so easy
-if you're working with a laptop) or temporarily disabling the reader in
-the BIOS are two options. In my case, the BIOS didn't let me do this and
-I didn't really want to bother getting out screwdrivers unless I
-absolutely had to.</p>
-<p>For me, the solution that worked was also pointed out in the same
-thread, <strong>entering the command <code>dban nousb</code> at the DBAN
-<code>boot:</code> prompt</strong>. Then, only my hard disk showed up and the
-process went smoothly. Using <code>nousb</code> means that you are
-unable to erase any USB devices with DBAN but, if you're only interested
-in wiping the HDD, this isn't an issue.</p>
+                <p>What I thought I'd get done in a week, actually took about four
+months. But I'm finally free of Blogger and have moved to
+<a href="http://docs.getpelican.com">Pelican</a> for creating my blog. I'll be
+writing more about how I migrated soon.</p>
+<p>As I approached the end of that lengthy migration, I found myself
+writing new draft articles that I wanted to ensure didn't actually make
+their way into my publication directory.</p>
+<h2>Writing blog posts</h2>
+<p>The way that I usually approach writing blog posts is that, as
+I reach the end of writing them, I'll start reading in the final display
+format, i.e. as a web page. This helps spot any mistakes that
+I might miss from my eyes glazing over at a text editor, and helps me
+spot formatting problems.</p>
+<p>But, you might be working on multiple articles at once, so you want to
+publish while you still have draft articles in your <code>content</code> directory.</p>
+<p>Here's a few ways to prevent posts from being accidentally published,
+without needing to do file juggling of your drafts in and out of the
+<code>content</code> directory.</p>
+<h2>Marking as draft and <code>.gitignore</code></h2>
+<p>Any articles we stick in the <code>content</code> directory will end up in our
+<code>output</code> directory, right? Not if we do like
+<a href="http://docs.getpelican.com/en/latest/content.html">the documentation says</a>
+and add <code>Status: draft</code> to the metadata.</p>
+<p>Building your site will then place draft articles in a <code>drafts</code>
+directory, and the articles therein aren't linked from anywhere. This
+might be useful if you want to share a link with someone to get feedback
+on a post before you officially publish it.</p>
+<p>Using a <code>.gitignore</code> file in your <code>output</code> directory is also an option
+if you're using <code>git</code> to push new versions of your blog for publication.
+Add <code>drafts/</code> to your <code>.gitignore</code> and you'd have to make a deliberate
+effort to add them for publication.</p>
+<h2>Using Pelican's <code>IGNORE_FILES</code></h2>
+<p>Putting "draft" in the filename of any drafts is another option. Then,
+you can use the <code>IGNORE_FILES</code> setting in <code>pelicanconf.py</code> to
+specifically ignore the drafts.</p>
+<p>Note that if you specify a setting in your Pelican configuration files,
+the defaults get overridden. This means that you'll need to copy over
+the existing settings from the defaults too. Otherwise, you'll
+unintentionally change your configuration.</p>
+<p>For instance, the <a href="http://docs.getpelican.com/en/latest/settings.html">default</a>
+<code>IGNORE_FILES</code> setting is <code>IGNORE_FILES = ['.#*']</code> so we'll need to
+add <code>IGNORE_FILES = ['.#*', '*draft*']</code> to our Pelican settings.</p>
+<h2>Hiding them completely (in Ubuntu, at least)</h2>
+<p>Another option is to just hide draft files from Pelican completely.</p>
+<p>Under Linux, I thought that preceding the filename with a dot would hide
+posts from Pelican, but it doesn't seem to. However, sticking a tilde on
+the end of the filename does seem to prevent Pelican from seeing the
+post.</p>
+<p>One side-effect is that if you use a text editor that creates backup
+files with a tilde on the end, your backup files will actually have
+<strong>another</strong> tilde on the end (e.g. <code>my_draft_post.md~~</code>).</p>
+<p>(Maybe marking files as hidden in Windows would have the same effect?
+Haven't tried this.)</p>
             </div>
             <!-- /.entry-content -->
         </article>
