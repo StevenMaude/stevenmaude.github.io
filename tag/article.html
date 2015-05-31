@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Darik's Boot and Nuke: fixing an "unrecognized device" error - stevenmaude.co.uk</title>
+    <title>article - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,26 +9,16 @@
 
 
 
-<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/dariks-boot-and-nuke-unrecognized.html">
 
-        <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="device,unrecognized,error,HDD,erase,DBAN" />
-        <meta name="description" content="Fixing unrecognized device errors in Darik&#39;s Boot and Nuke." />
+    <meta name="author" content="Steven Maude" />
+    <meta name="keywords" content="article" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Darik&#39;s Boot and Nuke: fixing an &#34;unrecognized device&#34; error"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/dariks-boot-and-nuke-unrecognized.html"/>
-        <meta property="og:description" content="Fixing unrecognized device errors in Darik&#39;s Boot and Nuke."/>
-        <meta property="article:published_time" content="2013-08-29" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="device" />
-            <meta property="article:tag" content="unrecognized" />
-            <meta property="article:tag" content="error" />
-            <meta property="article:tag" content="HDD" />
-            <meta property="article:tag" content="erase" />
-            <meta property="article:tag" content="DBAN" />
-            <meta property="article:author" content="Steven Maude" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="stevenmaude.co.uk"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
+        <meta property="og:description" content="stevenmaude.co.uk"/>
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -36,8 +26,6 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
-            <meta property="twitter:image"
-                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -86,90 +74,31 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                Darik's Boot and Nuke: fixing an "unrecognized device" error
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+            <article>
+                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html">Hiding draft articles in Pelican</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-08-29T22:32:00+01:00"> 2013-08-29</time>
+        <time datetime="2015-05-31T20:16:00+01:00"> 2015-05-31</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-01-06T11:21:00+00:00"> 2014-01-06</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/device.html">device</a>
+	<a href="http://www.stevenmaude.co.uk/tag/draft.html">draft</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/unrecognized.html">unrecognized</a>
+	<a href="http://www.stevenmaude.co.uk/tag/article.html">article</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/error.html">error</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/hdd.html">HDD</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/erase.html">erase</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/dban.html">DBAN</a>
+	<a href="http://www.stevenmaude.co.uk/tag/pelican.html">Pelican</a>
     
 </footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>How to hide articles you don't want to be published yet.</p>
                 </div>
-                <div class="admonition article-edit">
-<p>Edit 2014/01/04: I've written a <a href="http://www.stevenmaude.co.uk/2014/01/securely-erasing-ssd-drives.html">more recent
-post</a>
-which describes how to use hdparm and ATA Secure Erase to wipe drives,
-which might be of interest if you're thinking of using DBAN, and
-particularly if you're erasing an SSD.</p>
-</div>
-<p>Over last Bank Holiday weekend, I'd been trying to install a dual boot
-system and having lots of fun. Actually, for "lots of", read none,
-though at least it works how I want it to now; maybe a subject for a
-later post. One issue I thought I might be having was remnants of
-<a href="https://en.wikipedia.org/wiki/GUID_Partition_Table">partition tables</a>
-still <a href="http://www.rodsbooks.com/gdisk/wipegpt.html">sticking on the
-drive</a>, despite me doing a
-fresh install. I decided it would be sensible to obliterate everything
-and start from a completely empty drive as installing two operating
-systems can be a fairly lengthy process (and a tedious one, if you've
-done it several times as I had done).</p>
-<p><a href="http://sourceforge.net/projects/dban/">Darik's Boot and Nuke</a> (DBAN) is
-a free, Linux-based boot disk that lets you do just that. It needs to be
-used with great care since it can wipe data from drives irrecoverably.
-In my case, this wasn't an issue as, if anything, I <em>wanted</em> to start
-from scratch.</p>
-<p>Unfortunately, on booting DBAN, I was presented with an "unrecognized
-device" showing up along with my hard disk. I was able to select my hard
-disk to erase it, but then the erase immediately failed.</p>
-<p>As this <a href="http://sourceforge.net/p/dban/discussion/208932/thread/332bf1d2/">support
-thread</a>
-describes, this can be caused by internal media (e.g. SD) card readers.
-So, anyway that you can deactivate the card reader might resolve this
-problem. Disconnecting the reader from the PC (not necessarily so easy
-if you're working with a laptop) or temporarily disabling the reader in
-the BIOS are two options. In my case, the BIOS didn't let me do this and
-I didn't really want to bother getting out screwdrivers unless I
-absolutely had to.</p>
-<p>For me, the solution that worked was also pointed out in the same
-thread, <strong>entering the command <code>dban nousb</code> at the DBAN
-<code>boot:</code> prompt</strong>. Then, only my hard disk showed up and the
-process went smoothly. Using <code>nousb</code> means that you are
-unable to erase any USB devices with DBAN but, if you're only interested
-in wiping the HDD, this isn't an issue.</p>
-            </div>
-            <!-- /.entry-content -->
-        </article>
-    </section>
+            </article>
+            <hr/>
 
         </div>
         <div class="col-sm-3" id="sidebar">
