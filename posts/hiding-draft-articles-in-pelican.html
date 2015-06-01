@@ -98,6 +98,10 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2015-05-31T20:16:00+01:00"> 2015-05-31</time>
     </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2015-06-01T13:53:00+01:00"> 2015-06-01</time>
+            </span>
 
 
 
@@ -143,7 +147,12 @@ on a post before you officially publish it.</p>
 if you're using <code>git</code> to push new versions of your blog for publication.
 Add <code>drafts/</code> to your <code>.gitignore</code> and you'd have to make a deliberate
 effort to add them for publication.</p>
-<h2>Using Pelican's <code>IGNORE_FILES</code></h2>
+<h2>Stopping Pelican from seeing the draft posts</h2>
+<p>The other option is to just prevent Pelican from seeing draft posts
+completely.</p>
+<p>This does mean that they won't appear in your local preview of your
+site, not even as an unlinked page.</p>
+<h3>Using Pelican's <code>IGNORE_FILES</code></h3>
 <p>Putting "draft" in the filename of any drafts is another option. Then,
 you can use the <code>IGNORE_FILES</code> setting in <code>pelicanconf.py</code> to
 specifically ignore the drafts.</p>
@@ -154,8 +163,7 @@ unintentionally change your configuration.</p>
 <p>For instance, the <a href="http://docs.getpelican.com/en/latest/settings.html">default</a>
 <code>IGNORE_FILES</code> setting is <code>IGNORE_FILES = ['.#*']</code> so we'll need to
 add <code>IGNORE_FILES = ['.#*', '*draft*']</code> to our Pelican settings.</p>
-<h2>Hiding them completely (in Ubuntu, at least)</h2>
-<p>Another option is to just hide draft files from Pelican completely.</p>
+<h3>Hiding the files completely (in Ubuntu, at least)</h3>
 <p>Under Linux, I thought that preceding the filename with a dot would hide
 posts from Pelican, but it doesn't seem to. However, sticking a tilde on
 the end of the filename does seem to prevent Pelican from seeing the
