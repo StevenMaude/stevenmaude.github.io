@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-05-31T20:16:00+01:00</updated><entry><title>Hiding draft articles in Pelican</title><link href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html" rel="alternate"></link><updated>2015-05-31T20:16:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-05-31:posts/hiding-draft-articles-in-pelican.html</id><summary type="html">&lt;p&gt;What I thought I'd get done in a week, actually took about four
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-06-01T13:53:00+01:00</updated><entry><title>Hiding draft articles in Pelican</title><link href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html" rel="alternate"></link><updated>2015-06-01T13:53:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-05-31:posts/hiding-draft-articles-in-pelican.html</id><summary type="html">&lt;p&gt;What I thought I'd get done in a week, actually took about four
 months. But I'm finally free of Blogger and have moved to
 &lt;a href="http://docs.getpelican.com"&gt;Pelican&lt;/a&gt; for creating my blog. I'll be
 writing more about how I migrated soon.&lt;/p&gt;
@@ -30,7 +30,12 @@ on a post before you officially publish it.&lt;/p&gt;
 if you're using &lt;code&gt;git&lt;/code&gt; to push new versions of your blog for publication.
 Add &lt;code&gt;drafts/&lt;/code&gt; to your &lt;code&gt;.gitignore&lt;/code&gt; and you'd have to make a deliberate
 effort to add them for publication.&lt;/p&gt;
-&lt;h2&gt;Using Pelican's &lt;code&gt;IGNORE_FILES&lt;/code&gt;&lt;/h2&gt;
+&lt;h2&gt;Stopping Pelican from seeing the draft posts&lt;/h2&gt;
+&lt;p&gt;The other option is to just prevent Pelican from seeing draft posts
+completely.&lt;/p&gt;
+&lt;p&gt;This does mean that they won't appear in your local preview of your
+site, not even as an unlinked page.&lt;/p&gt;
+&lt;h3&gt;Using Pelican's &lt;code&gt;IGNORE_FILES&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Putting "draft" in the filename of any drafts is another option. Then,
 you can use the &lt;code&gt;IGNORE_FILES&lt;/code&gt; setting in &lt;code&gt;pelicanconf.py&lt;/code&gt; to
 specifically ignore the drafts.&lt;/p&gt;
@@ -41,8 +46,7 @@ unintentionally change your configuration.&lt;/p&gt;
 &lt;p&gt;For instance, the &lt;a href="http://docs.getpelican.com/en/latest/settings.html"&gt;default&lt;/a&gt;
 &lt;code&gt;IGNORE_FILES&lt;/code&gt; setting is &lt;code&gt;IGNORE_FILES = ['.#*']&lt;/code&gt; so we'll need to
 add &lt;code&gt;IGNORE_FILES = ['.#*', '*draft*']&lt;/code&gt; to our Pelican settings.&lt;/p&gt;
-&lt;h2&gt;Hiding them completely (in Ubuntu, at least)&lt;/h2&gt;
-&lt;p&gt;Another option is to just hide draft files from Pelican completely.&lt;/p&gt;
+&lt;h3&gt;Hiding the files completely (in Ubuntu, at least)&lt;/h3&gt;
 &lt;p&gt;Under Linux, I thought that preceding the filename with a dot would hide
 posts from Pelican, but it doesn't seem to. However, sticking a tilde on
 the end of the filename does seem to prevent Pelican from seeing the
