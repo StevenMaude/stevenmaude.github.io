@@ -1,5 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-06-01T13:53:00+01:00</updated><entry><title>Hiding draft articles in Pelican</title><link href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html" rel="alternate"></link><updated>2015-06-01T13:53:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-05-31:posts/hiding-draft-articles-in-pelican.html</id><summary type="html">&lt;p&gt;What I thought I'd get done in a week, actually took about four
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-06-06T14:46:00+01:00</updated><entry><title>Blogger versus Wordpress revisited</title><link href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress-revisited.html" rel="alternate"></link><updated>2015-06-06T14:46:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-06-06:posts/blogger-versus-wordpress-revisited.html</id><summary type="html">&lt;p&gt;If you look back, the &lt;a href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress.html"&gt;first post&lt;/a&gt;
+on this blog was agonising over what blogging system to use. At the
+time, my reasoning for choosing Blogger was that it was quick to get
+started with.&lt;/p&gt;
+&lt;p&gt;And that was true. Provided you already have a Google account, you can
+make a blog in a few clicks. There's a simple interface for entering
+posts: you can enter raw HTML or use something that looks more like a
+word processor. Even if you know very little about how the web works, it
+makes publishing straightforward. It's cost-free to use too, even if
+you're using your own domain name.&lt;/p&gt;
+&lt;p&gt;However, the limitations of Blogger soon became apparent:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The default templates available look dated. (Though you could well
+  modify them or install one from elsewhere). Furthermore, for the
+  default template I used, which was fairly plain, it wasn't even
+  possible to read the site properly without JavaScript: half of the
+  page content would not be displayed. Code snippets, which I've often
+  used in posts, are also hard to read because there's no syntax
+  highlighting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The mobile template for Blogger interprets swiping left or right
+  across the screen as meaning that you want to move to a different
+  article. This is frustrating enough even when you know about it as
+  it's easy to trigger unintentionally. It's more confusing for someone
+  visiting your site for the first time. As mobile internet browsing
+  increases, the needs of viewers on those devices becomes more
+  important.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Personally, I found writing posts on Blogger to be clumsy. The WYSIWYG
+  editor is quite limited. If you want anything outside of the fairly
+  limited feature set (for example, footnotes, or more control over
+  images), you need to edit the HTML directly. The HTML that the editor
+  creates seems to get polluted with unnecessary tags quite often,
+  especially if you're switching fonts (e.g. between code and non-code
+  sections).&lt;/p&gt;
+&lt;p&gt;I've also accidentally lost work due to having two copies
+of the post creator open, with one overwriting the contents of the
+other unintentionally on save.&lt;/p&gt;
+&lt;p&gt;To work around this, towards the end of my Blogger use, I was
+writing posts in Markdown&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; completely separately, converting them
+from Markdown to HTML, then pasting the HTML into Blogger, fixing
+up things and adding images. Writing posts in Markdown was
+convenient, the subsequent wrangling of the HTML output to Blogger
+was not.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The current, published form of the blog posts is that which is
+  stored in Google's servers. Keeping a local copy and
+  tracking any changes made in posts was a chore, so I never bothered.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blogger isn't software available for you to run on your own computer,
+  so you're at
+  Google's mercy. If Google change something that you find particularly
+  detrimental, or if they ever decided to drop it completely, you'll be
+  forced elsewhere.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, what are the alternatives?&lt;/p&gt;
+&lt;p&gt;The main off the shelf solutions seem to be Wordpress or static site
+generators. Wordpress is &lt;strong&gt;very&lt;/strong&gt; popular for building blogs, and
+actually resolves many of my Blogger complaints.&lt;/p&gt;
+&lt;p&gt;One big plus is that it's open source (see &lt;a href="https://wordpress.org"&gt;wordpress.org&lt;/a&gt;).
+This means you can run it anywhere you like, though you'll have to pay
+to host it somewhere. Alternatively, you can host your blog at
+&lt;a href="https://wordpress.com"&gt;wordpress.com&lt;/a&gt; for free, albeit with possible
+ads and without the use of your own domain name. Resolving these
+problems is simple: just give them money!&lt;/p&gt;
+&lt;p&gt;Wordpress is also a step up from Blogger in terms of customisability,
+with a much larger user community around it. Because of this, there's
+far more in the way of themes and plugins to tweak your blog how you
+want it. Researching just now, I discovered 
+&lt;a href="https://en.support.wordpress.com/markdown/"&gt;Markdown&lt;/a&gt; is supported
+for writing posts, which is great. And some previous history of your
+posts are saved (25 revisions at the time of writing), with the
+ability to &lt;a href="https://en.support.wordpress.com/posts/post-revisions/"&gt;revert and compare
+them&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, having used Wordpress at work, there were still three big reasons
+why Wordpress didn't seem a suitable replacement:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cost of hosting.&lt;/strong&gt; This isn't particularly high, but my blog is just
+  a side project, so I'd rather keep the costs minimal. Blogger is
+  free: any other possible solution is competing with that.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Wordpress uses PHP, which I know nothing about.&lt;/strong&gt; It's unlikely, but
+  if I ever did want to do any low-level customisation, I'd need to
+  learn it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wordpress seems too heavy-handed for what I need: a simple way of
+  presenting text-based articles on the web. This is reflected both in
+  its frequent security updates (though an &lt;a href="https://codex.wordpress.org/Configuring_Automatic_Background_Updates"&gt;automatic update option&lt;/a&gt;
+  is available) and its byzantine menus which ordinarily see me
+  clicking every option exhaustively until I find the setting I want to
+  change.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That's not to say Wordpress is a bad option — lots of sites do use it
+— just that it wasn't the right option for me. For my use case, which is
+sharing things I've written, static site generators seemed a better fit.
+I'll describe the advantages of those in a later post.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Markdown is a simple way to mark up plain text with your intended
+  formatting using annotations that you might already be accustomed
+  to. For example, to indicate bold text you would type
+  &lt;code&gt;**important point**&lt;/code&gt; to give the output &lt;strong&gt;important point&lt;/strong&gt;. Its
+  original use was to create HTML simply, but it can also be
+  converted into many other formats using tools like
+  &lt;a href="http://pandoc.org/"&gt;pandoc&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Blogger"></category><category term="Wordpress"></category></entry><entry><title>Hiding draft articles in Pelican</title><link href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican.html" rel="alternate"></link><updated>2015-06-01T13:53:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-05-31:posts/hiding-draft-articles-in-pelican.html</id><summary type="html">&lt;p&gt;What I thought I'd get done in a week, actually took about four
 months. But I'm finally free of Blogger and have moved to
 &lt;a href="http://docs.getpelican.com"&gt;Pelican&lt;/a&gt; for creating my blog. I'll be
 writing more about how I migrated soon.&lt;/p&gt;
@@ -824,32 +943,4 @@ out that &lt;code&gt;itertools&lt;/code&gt; had a &lt;code&gt;pyc&lt;/code&gt; f
 have inexplicable errors like this with no obvious explanation, it's
 worth perhaps deleting the cached &lt;code&gt;.pyc&lt;/code&gt; files. That is, unless
 &lt;a href="https://www.youtube.com/watch?v=wsczq6j3_bA#t=22m15s"&gt;this&lt;/a&gt; applies to
-your coding workflow.&lt;/p&gt;</summary><category term="Python"></category><category term="pyc"></category></entry><entry><title>Heartbleed: ill communication</title><link href="http://www.stevenmaude.co.uk/posts/heartbleed-ill-communication.html" rel="alternate"></link><updated>2014-05-04T16:49:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-04:posts/heartbleed-ill-communication.html</id><summary type="html">&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/heartbleed.png" alt="The Heartbleed logo." width="400"&gt;&lt;/p&gt;
-&lt;p&gt;Even if you're not particularly into technology, you probably wouldn't
-have escaped hearing about Heartbleed last month.&lt;/p&gt;
-&lt;p&gt;Without going into details here — the &lt;a href="http://heartbleed.com/"&gt;site written by researchers who
-disclosed the vulnerability&lt;/a&gt; has a detailed
-technical summary, and &lt;a href="http://xkcd.com/1354/"&gt;XKCD&lt;/a&gt; had a nice
-non-technical summary — it affected servers using OpenSSL and meant that
-it was possible for attackers to retrieve confidential information (for
-example, passwords) or even &lt;a href="http://blog.cloudflare.com/answering-the-critical-question-can-you-get-private-ssl-keys-using-heartbleed"&gt;the private keys of
-servers&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;It's old news now; a month's passed since. What was striking about the
-whole incident is that, despite the initial fuss in both the specialist
-press and more general news sources, the communication of the status of
-web services was conspicuous by its absence.&lt;/p&gt;
-&lt;p&gt;Out of the hundred or so sites that I have accounts on, just &lt;strong&gt;one&lt;/strong&gt; of
-them emailed me to reassure me that they weren't exposed to Heartbleed.
-The only clear indication I saw while visiting a site was on Soundcloud,
-who advised users to change passwords.&lt;/p&gt;
-&lt;p&gt;From some of the lists of popular sites that were being maintained at
-the time, I know there was at least one site that I had an account on
-that were at some point exposed to Heartbleed. Yet, as far as I can
-tell, they didn't bother to inform their users that.&lt;/p&gt;
-&lt;p&gt;I'm not sure what their motivation was; an email or blog post/banner on
-site would have been really helpful. Maybe owners of sites wanted to
-avoid alarm, but I'd personally prefer a clear reassurance that
-everything is OK with them.&lt;/p&gt;
-&lt;p&gt;It's unrealistic to expect that some widespread security issue won't
-happen again. If something does happen though, I do hope that sites do a
-better job in clarifying their position.&lt;/p&gt;</summary><category term="Heartbleed"></category><category term="security"></category><category term="communication"></category></entry></feed>
+your coding workflow.&lt;/p&gt;</summary><category term="Python"></category><category term="pyc"></category></entry></feed>
