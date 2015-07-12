@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-06-06T14:46:00+01:00</updated><entry><title>Blogger versus Wordpress revisited</title><link href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress-revisited" rel="alternate"></link><updated>2015-06-06T14:46:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-06-06:posts/blogger-versus-wordpress-revisited</id><summary type="html">&lt;p&gt;If you look back, the &lt;a href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress"&gt;first post&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-12T11:51:00+01:00</updated><entry><title>Restoring a tag cloud dispersed by Pelican 3.6.0</title><link href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360" rel="alternate"></link><updated>2015-07-12T11:51:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-12:posts/restoring-a-tag-cloud-dispersed-by-pelican-360</id><summary type="html">&lt;h2&gt;The case of the disappearing tag cloud&lt;/h2&gt;
+&lt;p&gt;As you can probably tell — if not from the posts mentioning Pelican,
+then the giveaway is the footer of each page — my site is currently
+built using &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Noticing there was a new version this week, I eagerly updated and then
+tried building my site. No errors, I thought, so everything must be
+fine.&lt;/p&gt;
+&lt;p&gt;Unfortunately, on loading the site, the tag cloud had vanished&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Over the next twenty minutes or so, I slowly figured out the cause: the
+Pelican code that creates this had been moved out to a separate plugin.
+(If only I'd checked the &lt;a href="http://docs.getpelican.com/en/3.6.0/faq.html#my-tag-cloud-is-missing-broken-since-i-upgraded-pelican"&gt;Pelican
+docs&lt;/a&gt;
+first, I would have saved the time...) From there, it's a simple fix.
+Install the plugin, add it to your &lt;code&gt;PLUGINS&lt;/code&gt; in &lt;code&gt;pelicanconf.py&lt;/code&gt; and the
+tag cloud will be restored.&lt;/p&gt;
+&lt;h2&gt;Installing Pelican plugins&lt;/h2&gt;
+&lt;p&gt;One small frustration is that the official plugin
+&lt;a href="https://github.com/getpelican/pelican-plugins"&gt;repository&lt;/a&gt; is, if maybe
+not monolithic, a substantial size. The appeal of a central repository
+does make some sense. It provides a single location for developers to
+add functionality to Pelican and means users can issue one command to
+get access to everything at once.&lt;/p&gt;
+&lt;p&gt;But my hunch is that users probably only want a few of the numerous
+plugins: seventy at the time of writing. Also, when a plugin is updated
+by its author, they additionally have to put a pull request into the
+plugins repository to keep the submodule or files stored there in sync,
+which is extra work for everyone involved too.&lt;/p&gt;
+&lt;h2&gt;My tag cloud plugin fork&lt;/h2&gt;
+&lt;p&gt;One solution for installing the plugin would be to write a simple shell
+script that does the cloning and just keeps the tag plugin. Instead, I
+felt that it would be both simpler and more sensible — rather than
+retrieving many plugins that I don't need — to install the plugin via
+the existing &lt;code&gt;requirements.txt&lt;/code&gt; in my blog configuration. (The other
+plugin I use, &lt;a href="https://github.com/Nitron/pelican-alias/"&gt;pelican-alias&lt;/a&gt;,
+is installed this way in my setup.) &lt;/p&gt;
+&lt;p&gt;So, I made the plugin  &lt;code&gt;pip&lt;/code&gt; installable (available
+&lt;a href="https://github.com/StevenMaude/pelican-tag-cloud"&gt;here&lt;/a&gt;) and added that
+to my requirements for what seems like a neater solution. The only
+downside is that I have to ensure that this plugin is updated when the
+original code is. For this plugin however, I suspect that updates would
+be irregular.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;If the site's not changed since I wrote this, then it's the one
+that shows up in the upper right sidebar.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Pelican"></category><category term="tag cloud"></category><category term="plugin"></category></entry><entry><title>Blogger versus Wordpress revisited</title><link href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress-revisited" rel="alternate"></link><updated>2015-06-06T14:46:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-06-06:posts/blogger-versus-wordpress-revisited</id><summary type="html">&lt;p&gt;If you look back, the &lt;a href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress"&gt;first post&lt;/a&gt;
 on this blog was agonising over what blogging system to use. At the
 time, my reasoning for choosing Blogger was that it was quick to get
 started with.&lt;/p&gt;
@@ -930,17 +979,4 @@ knowing the vocabulary of what you need to do with mocks, whereas I'd
 got sidetracked thinking there &lt;strong&gt;must&lt;/strong&gt; be a way to implicitly access
 methods of the object with the initial mock. Seeing and using patterns
 is definitely a good way to develop; next time I do something similar,
-I'll be much quicker to get something going.&lt;/p&gt;</summary><category term="mock"></category><category term="testing"></category><category term="test"></category><category term="unit"></category><category term="Python"></category></entry><entry><title>Beware Python's pyc files</title><link href="http://www.stevenmaude.co.uk/posts/beware-pythons-pyc-files" rel="alternate"></link><updated>2014-05-09T22:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-09:posts/beware-pythons-pyc-files</id><summary type="html">&lt;p&gt;A quick reminder to myself more than anything.&lt;/p&gt;
-&lt;p&gt;Had the issue of a strange &lt;code&gt;ImportError: from itertools import tee&lt;/code&gt;.
-It's a little odd because &lt;code&gt;itertools&lt;/code&gt; is a Python built-in module.&lt;/p&gt;
-&lt;p&gt;Running Python and doing the import from the directory where I was
-running code worked fine. However, running a script in that directory
-that was importing a package, that itself imported itertools gave this
-behaviour.&lt;/p&gt;
-&lt;p&gt;I wasn't really sure what was causing it, but on a whim I deleted the
-existing &lt;code&gt;itertools.pyc&lt;/code&gt; file in that directory. When I looked, it turns
-out that &lt;code&gt;itertools&lt;/code&gt; had a &lt;code&gt;pyc&lt;/code&gt; file in the package directory. If you
-have inexplicable errors like this with no obvious explanation, it's
-worth perhaps deleting the cached &lt;code&gt;.pyc&lt;/code&gt; files. That is, unless
-&lt;a href="https://www.youtube.com/watch?v=wsczq6j3_bA#t=22m15s"&gt;this&lt;/a&gt; applies to
-your coding workflow.&lt;/p&gt;</summary><category term="Python"></category><category term="pyc"></category></entry></feed>
+I'll be much quicker to get something going.&lt;/p&gt;</summary><category term="mock"></category><category term="testing"></category><category term="test"></category><category term="unit"></category><category term="Python"></category></entry></feed>
