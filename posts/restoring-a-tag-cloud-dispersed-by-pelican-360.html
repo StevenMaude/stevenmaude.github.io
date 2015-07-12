@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>2015 - stevenmaude.co.uk</title>
+    <title>Restoring a tag cloud dispersed by Pelican 3.6.0 - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,23 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="2015" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Pelican,tag cloud,plugin" />
+        <meta name="description" content="How to fix tag clouds in Pelican 3.6.0." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Restoring a tag cloud dispersed by Pelican 3.6.0"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360"/>
+        <meta property="og:description" content="How to fix tag clouds in Pelican 3.6.0."/>
+        <meta property="article:published_time" content="2015-07-12" />
+            <meta property="article:section" content="2015" />
+            <meta property="article:tag" content="Pelican" />
+            <meta property="article:tag" content="tag cloud" />
+            <meta property="article:tag" content="plugin" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +33,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,9 +83,16 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360">Restoring a tag cloud dispersed by Pelican 3.6.0</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Restoring a tag cloud dispersed by Pelican 3.6.0
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
@@ -95,62 +111,61 @@ stevenmaude.co.uk            </a>
 	<a href="http://www.stevenmaude.co.uk/tag/plugin">plugin</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>How to fix tag clouds in Pelican 3.6.0.</p>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/blogger-versus-wordpress-revisited">Blogger versus Wordpress revisited</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2015-06-06T14:46:00+01:00"> 2015-06-06</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/blogger">Blogger</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/wordpress">Wordpress</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Pros and cons of Blogger and Wordpress, and why neither of these was a good fit for my blog.</p>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican">Hiding draft articles in Pelican</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2015-05-31T20:16:00+01:00"> 2015-05-31</time>
-    </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2015-06-01T13:53:00+01:00"> 2015-06-01</time>
-            </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/draft">draft</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/article">article</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/pelican">Pelican</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>How to hide articles you don't want to be published yet.</p>
-                </div>
-            </article>
-            <hr/>
+                <h2>The case of the disappearing tag cloud</h2>
+<p>As you can probably tell — if not from the posts mentioning Pelican,
+then the giveaway is the footer of each page — my site is currently
+built using <a href="https://github.com/getpelican/pelican">Pelican</a>.</p>
+<p>Noticing there was a new version this week, I eagerly updated and then
+tried building my site. No errors, I thought, so everything must be
+fine.</p>
+<p>Unfortunately, on loading the site, the tag cloud had vanished<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.</p>
+<p>Over the next twenty minutes or so, I slowly figured out the cause: the
+Pelican code that creates this had been moved out to a separate plugin.
+(If only I'd checked the <a href="http://docs.getpelican.com/en/3.6.0/faq.html#my-tag-cloud-is-missing-broken-since-i-upgraded-pelican">Pelican
+docs</a>
+first, I would have saved the time...) From there, it's a simple fix.
+Install the plugin, add it to your <code>PLUGINS</code> in <code>pelicanconf.py</code> and the
+tag cloud will be restored.</p>
+<h2>Installing Pelican plugins</h2>
+<p>One small frustration is that the official plugin
+<a href="https://github.com/getpelican/pelican-plugins">repository</a> is, if maybe
+not monolithic, a substantial size. The appeal of a central repository
+does make some sense. It provides a single location for developers to
+add functionality to Pelican and means users can issue one command to
+get access to everything at once.</p>
+<p>But my hunch is that users probably only want a few of the numerous
+plugins: seventy at the time of writing. Also, when a plugin is updated
+by its author, they additionally have to put a pull request into the
+plugins repository to keep the submodule or files stored there in sync,
+which is extra work for everyone involved too.</p>
+<h2>My tag cloud plugin fork</h2>
+<p>One solution for installing the plugin would be to write a simple shell
+script that does the cloning and just keeps the tag plugin. Instead, I
+felt that it would be both simpler and more sensible — rather than
+retrieving many plugins that I don't need — to install the plugin via
+the existing <code>requirements.txt</code> in my blog configuration. (The other
+plugin I use, <a href="https://github.com/Nitron/pelican-alias/">pelican-alias</a>,
+is installed this way in my setup.) </p>
+<p>So, I made the plugin  <code>pip</code> installable (available
+<a href="https://github.com/StevenMaude/pelican-tag-cloud">here</a>) and added that
+to my requirements for what seems like a neater solution. The only
+downside is that I have to ensure that this plugin is updated when the
+original code is. For this plugin however, I suspect that updates would
+be irregular.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>If the site's not changed since I wrote this, then it's the one
+that shows up in the upper right sidebar.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
