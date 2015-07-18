@@ -1,5 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-12T11:51:00+01:00</updated><entry><title>Restoring a tag cloud dispersed by Pelican 3.6.0</title><link href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360" rel="alternate"></link><updated>2015-07-12T11:51:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-12:posts/restoring-a-tag-cloud-dispersed-by-pelican-360</id><summary type="html">&lt;h2&gt;The case of the disappearing tag cloud&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-18T23:54:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-18T23:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
+because I'd had more than enough of Blogger's drawbacks. What hadn't
+crossed my mind, because I had no experience of using them, were the
+problems that static site generators could have. At the time, my hunch
+was that it wasn't possible for them to be worse than Blogger.&lt;/p&gt;
+&lt;p&gt;As it turns out, that was the case. But, they are not entirely perfect
+and, going through this migration, I better understood what
+what the good and the bad of static site generators are. If you're
+thinking of making a similar migration, these points might give you an
+idea of what you might deal with in shifting.&lt;/p&gt;
+&lt;p&gt;While I'm familiar with Pelican and Blogger, most of the points apply
+generally so could still be informative for you if you're considering a
+move from, say, Wordpress to Jekyll.&lt;/p&gt;
+&lt;h2&gt;Converting and writing content (Markdown)&lt;/h2&gt;
+&lt;h3&gt;Bad&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Depending on what you used to create a blog previously, and how much
+    content you had on your old blog, it may be time consuming to move
+    content. Even armed with a &lt;a href="https://github.com/getpelican/pelican/pull/1390"&gt;fork of Pelican&lt;/a&gt; where
+    someone helpful had added Blogger conversion, the output
+    wasn't perfect and still had plenty of residual cruft that had to be
+    fixed up by hand.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Markdown's quick to write with, but only gives you a small subset of
+    HTML and so doesn't handle every eventuality. There are dialects of
+    Markdown which expand this with more layout options that may be
+    available in your blog software of choice.&lt;/p&gt;
+&lt;p&gt;With Pelican at least, it's possible to use
+&lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; via a
+&lt;a href="https://github.com/liob/pandoc_reader"&gt;plugin&lt;/a&gt;. Pandoc is one of
+the more versatile Markdown converters, but does introduces another
+dependency. Pelican also offers reStructuredText support which has
+support for more formatting options than vanilla Markdown, but just
+isn't as nimble to write.&lt;/p&gt;
+&lt;p&gt;Instead, I opted to occasionally allow fall back to raw HTML in
+posts, mainly for handling images. This isn't ideal, but is a decent
+compromise that's at least compatible with different Markdown
+implementations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Good&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;All my content is in fairly plain Markdown which I love writing in.
+    It also means that I'm far less locked into Pelican than I was ever
+    tied into Blogger. Should I wish to switch to another static site
+    generator, only the metadata and Python-Markdown specific tweaks may
+    need adjusting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Adding content to the site and hosting&lt;/h2&gt;
+&lt;h3&gt;Bad&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;My git repositories are structured in a way that I like: blog HTML,
+    the theme I use, my Pelican configuration, my Markdown posts, and
+    the post images are all separate. However, for making small
+    adjustments to posts, this is a nuisance: you need to edit the post
+    and remember to push that, &lt;em&gt;then&lt;/em&gt; generate the HTML, &lt;em&gt;then&lt;/em&gt; move
+    that into the HTML repository and finally push that to GitHub. I
+    usually do this via branches too, which is more work too (though
+    this is my choice). Improving this workflow is on my to-do list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Good&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;My blog's not trapped within Google's servers. Certainly, I'm wary
+    of how much Google's hands are present in much of what I do on the
+    web, whether through hardware devices I use, their search tools or
+    through websites that use features like Google Analytics and Fonts
+    (including mine). At least the blog's now hosted elsewhere and
+    Analytics and Fonts that the site's using could, in the worst case,
+    be removed entirely, or replaced with alternatives.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In fact, the blog's not really dependent on the whims of any service
+    owner at all. If GitHub stop hosting, I can take the HTML and host
+    it elsewhere. With Blogger, you're at Google's mercy: if they ever
+    decided to drop Blogger, then you'd be forced to switch to a new
+    blog platform.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All the content is tracked within a git repository. This means it's
+    version controlled, and there's no easy way to obliterate posts.
+    With Blogger, at least once, I foolishly attempted to edit multiple
+    posts in separate browser tabs and subsequently lost the content of
+    one of them. Luckily, I had a window open with the web version of
+    the post to recover it. But, having only a single canonical copy of
+    posts stored in Google's servers was clearly not a good thing.
+    (Wordpress is better in that it's possible to store multiple
+    revisions of posts.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You have much more control of the post URLs; Blogger posts always
+    have the year and date in them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blog hosting using my own domain name on GitHub is free of charge.
+    This is also free on Blogger. If you use wordpress.com, you'll need
+    to pay; if you're using your own Wordpress installation, using your
+    own domain is free, but it's likely you'll need to pay for hosting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Appearance and viewer experience&lt;/h2&gt;
+&lt;h3&gt;Bad&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;With Pelican (probably much less so for Jekyll), there's not a huge
+    range of themes. If you're fussy like me, you may need to spend some
+    time tweaking, or creating your own. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Good&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;My site now functions without the viewer needing JavaScript. With
+    Blogger, you used to only see half the page content. If JavaScript
+    is disabled now, the only issue is that the mobile menu doesn't
+    open, which is far less of a problem.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There's no awful separate mobile version of the site. On Blogger,
+    the template I used had an unfriendly feature where swiping would
+    navigate away from the page to the previous or next article. This
+    could be triggered quite unintentionally by trying to pinch to zoom.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Often my posts are on programming. Having code snippets that look
+    nice without me having to do anything is a great bonus. In Blogger,
+    you'd need a JavaScript plugin for syntax highlighting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Running the generator&lt;/h2&gt;
+&lt;h3&gt;Bad&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Static site generators are not for the impatient. For Pelican, being
+    comfortable with Python is a big help, though not essential.
+    Pelican — and I imagine this applies to Jekyll too — isn't difficult
+    to get a basic blog up and running, but to get the result you want
+    may take you considerable work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you have a very large number of posts, the time it takes to build
+    your site may become an issue. With 61 posts and 1 page, my site
+    takes 2 to 3 seconds on my Core i5 PC. If the site starts taking
+    minutes to build, that may become a chore. This would be
+    particularly frustrating if editing posts and wanting to quickly
+    preview how the changes look since, with Pelican, the entire site is
+    rebuilt when running the development server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Good&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Pelican is nice to use, and I had very few problems in doing so.
+    Most of my effort was spent on converting content and amending the
+    theme to my liking. Though the community's relatively small, it does
+    seem like there are more blog posts and activity compared with when
+    I first looked into it last year.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pelican, and many other static site generators, are &lt;a href="http://opensource.org/"&gt;open source&lt;/a&gt; software. This means they are free
+    to use, and free to modify (and share those modifications). The
+    implication is that, as long as there are developers interested in
+    it, it's likely that it will continue to be supported and developed.
+    Even in the unlikely event that everyone else abandons it and you're
+    the only user, you can still continue modifying it. (This also
+    applies to Wordpress' source too incidentally.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Living with a static site&lt;/h2&gt;
+&lt;p&gt;When worrying about the limitations that static sites may have, think
+about the actual minimum you need on a web site to share and present
+written ideas and thoughts you have. It's really not very much; do you
+&lt;em&gt;really&lt;/em&gt; need everything that Wordpress offers?&lt;/p&gt;
+&lt;p&gt;Overall, I'm pleased with the result. When I'd started thinking about
+moving, I'd got fed up of using clunky old Blogger, which feels
+distinctly unloved by Google.&lt;/p&gt;
+&lt;p&gt;Being able to write directly in the format (Markdown) that the blog
+actually uses is a real convenience. (Note that Wordpress offers this
+option too.) Along with that, the blog looking fresher than it did is a
+bonus. These features, more than perhaps anything else, actually makes
+me want to add new content to my blog, which is more than I could say
+that Blogger ever did for my inspiration.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;You can see exactly how much work in the early commits
+&lt;a href="https://github.com/StevenMaude/blog-content/commits/master"&gt;here&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Blogger"></category><category term="Pelican"></category><category term="Wordpress"></category><category term="static site"></category></entry><entry><title>Restoring a tag cloud dispersed by Pelican 3.6.0</title><link href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360" rel="alternate"></link><updated>2015-07-12T11:51:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-12:posts/restoring-a-tag-cloud-dispersed-by-pelican-360</id><summary type="html">&lt;h2&gt;The case of the disappearing tag cloud&lt;/h2&gt;
 &lt;p&gt;As you can probably tell — if not from the posts mentioning Pelican,
 then the giveaway is the footer of each page — my site is currently
 built using &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt;.&lt;/p&gt;
@@ -866,117 +1056,4 @@ Deciding what to do about comments, and actually going about exporting
 my existing content to Markdown or RestructuredText are the obstacles at
 the moment. Really though, it's a question of &lt;strong&gt;just doing it&lt;/strong&gt; rather
 than procrastinating and getting distracted writing blog posts about how
-I'm going to do things.&lt;/p&gt;</summary><category term="self-indulgence"></category><category term="musings"></category></entry><entry><title>How to use mock in Python to mock methods on objects</title><link href="http://www.stevenmaude.co.uk/posts/how-to-use-mock-in-python-to-mock" rel="alternate"></link><updated>2014-05-10T11:05:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-10:posts/how-to-use-mock-in-python-to-mock</id><summary type="html">&lt;h2&gt;Testing&lt;/h2&gt;
-&lt;p&gt;Testing is a useful programming practice which, in all honesty, I'm
-still learning much about. Tests can give you some reassurance as to the
-behaviour of your code, providing you've written your tests such that
-they're testing appropriate things. They can also help you think about
-how you write your code, in a positive way: the process of making unit
-tests can require you to rethink how your code operates in order to make
-it testable.&lt;/p&gt;
-&lt;p&gt;If you're unfamiliar and want to know more, probably the single most
-useful resources I've found are two of Ned Batchelder's PyCon talks, one
-from &lt;a href="http://nedbatchelder.com/text/testability.html"&gt;Pycon 2010&lt;/a&gt;, and
-one he &lt;a href="http://nedbatchelder.com/text/st.html"&gt;recently&lt;/a&gt; gave. In the
-latter, he covers testing from the ground up. The former is a little
-less introductory, but is a good complimentary talk; he works through a
-few examples where writing tests can give a better organisation to code.&lt;/p&gt;
-&lt;h2&gt;Testing and me&lt;/h2&gt;
-&lt;p&gt;My problems in creating tests are often two-fold. First, I'm not always
-sure what are good tests to write - for instance, unit tests should be
-isolated, but how much should I be mocking out in unit tests? For some
-functions, if you mock out all other function calls, you may have very
-little left to actually test there.&lt;/p&gt;
-&lt;p&gt;Spotting which paths through the code you want to prioritise for
-integration tests is another issue. Ideally, you'd either work bottom
-up, starting with tests that mock out everything, then slowly adding in
-real code, or maybe top down, progressively mocking out units. However
-you approach it, the number of combinations of tests you could write
-will increase rapidly: even for moderately small programs, the number of
-possible combinations of mocked out functions and objects can be huge.
-For example, if A calls B and B calls C, I could write tests that use
-all three actual functions, two of them or just one (and perhaps even
-none of them). To exhaustively test every combination becomes
-unmanageable.&lt;/p&gt;
-&lt;p&gt;I'm hoping the more I write tests, the more confident I'll be at
-evaluating whether the tests I'm thinking of aren't going to be that
-useful to implement. Where I know I should improve is the second problem
-I often encounter: how to actually implement tests. Often, I'll find I
-know what I want to achieve but find difficulty in actually articulating
-this in code, usually because I've not found the functions I want in
-&lt;code&gt;mock&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;Mocking a method of an object with Python &lt;code&gt;mock&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Anyway, here's an example of this which might be useful if you're trying
-to do something similar. In this case, I wanted to test a method of an
-object, but wasn't sure how to do that using a mock.&lt;/p&gt;
-&lt;p&gt;This is a really cut-down version of what my code was doing, but
-features the main thing I was testing:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sqlite3&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;table_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;some_table&amp;#39;&lt;/span&gt;
-    &lt;span class="n"&gt;sqlite_db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;database.sqlite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;sqlite_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;drop table if exists {};&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="c"&gt;# next, get some data and then save to db&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;As what the database saves depends on some input that the user supplies
-(fixed here), I wanted to ensure that the table is wiped before we add
-anything to it. Otherwise repeated runs would cause the table to become
-cluttered with data the user no longer wants.)&lt;/p&gt;
-&lt;p&gt;What I specifically wanted to check was whether the database was getting
-the correct table name to drop. One way of checking this is using
-Python's &lt;code&gt;mock&lt;/code&gt;(a &lt;code&gt;pip&lt;/code&gt;-installable package if you're on Python 2, part of
-the standard library from Python 3.3).&lt;/p&gt;
-&lt;p&gt;By replacing objects with mocks as stand-ins, we can avoid the need for
-actually connecting to a database in our test (which may be slow or
-unreliable, if it's remote). Mocks aren't just dummy objects though;
-it's possible to inspect them after we execute some statements, allowing
-us to see, for instance, if the mock was called, and what arguments it
-was called with.&lt;/p&gt;
-&lt;p&gt;In my case, I got particularly confused with the mocking out of the
-&lt;code&gt;.execute method&lt;/code&gt; of the &lt;code&gt;sqlite_db&lt;/code&gt; object. I'd tried all combinations
-of accessing the call via the &lt;code&gt;mock_sqlite3_connect&lt;/code&gt;. What it took me
-ages to realise is that I had to mock out what &lt;code&gt;sqlite3.connect()&lt;/code&gt;
-returns; you can't (unless I'm mistaken) access calls on the object it
-returns otherwise.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;code_to_test&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mock&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CodeToTestTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="nd"&gt;@mock.patch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;code_to_test.sqlite3.connect&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_database_drop_table_call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mock_sqlite3_connect&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="n"&gt;mock_sqlite3_connect&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt;
-        &lt;span class="n"&gt;code_to_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;drop table if exists some_table;&amp;#39;&lt;/span&gt;
-        &lt;span class="n"&gt;sqlite_execute_mock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assert_called_with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;What's happening here? First, we're using a decorator, &lt;code&gt;@mock.patch&lt;/code&gt;
-which replaces &lt;code&gt;sqlite3.connect()&lt;/code&gt; in &lt;code&gt;code_to_test&lt;/code&gt; with a mock,
-&lt;code&gt;mock_sqlite3_connect&lt;/code&gt;. We can then make the return value of the
-&lt;code&gt;mock_sqlite3_connect&lt;/code&gt; &lt;em&gt;a mock itself&lt;/em&gt;. After that, all we have to do is
-actually call the main function which now will run with our mocks
-inside. Now, we can check that &lt;code&gt;sqlite3.execute()&lt;/code&gt; was called correctly.
-If we save this as &lt;code&gt;tests.py&lt;/code&gt; and run &lt;code&gt;nosetests&lt;/code&gt;
-(&lt;code&gt;pip install python-nose mock&lt;/code&gt; if you haven't already), the test will
-pass.&lt;/p&gt;
-&lt;p&gt;(What I think happens is that without us supplying a return value, the
-sqlite database is mocked, but there's no easy way to access it within the
-test to check the method's called. If you know I'm wrong and have an
-explanation, I'd love to hear it.)&lt;/p&gt;
-&lt;p&gt;Given the solution, you might wonder why I'd been bashing my head
-against the keyboard for an hour or two to figure it out. It's just
-knowing the vocabulary of what you need to do with mocks, whereas I'd
-got sidetracked thinking there &lt;strong&gt;must&lt;/strong&gt; be a way to implicitly access
-methods of the object with the initial mock. Seeing and using patterns
-is definitely a good way to develop; next time I do something similar,
-I'll be much quicker to get something going.&lt;/p&gt;</summary><category term="mock"></category><category term="testing"></category><category term="test"></category><category term="unit"></category><category term="Python"></category></entry></feed>
+I'm going to do things.&lt;/p&gt;</summary><category term="self-indulgence"></category><category term="musings"></category></entry></feed>
