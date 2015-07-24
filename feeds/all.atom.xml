@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-19T00:37:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-24T11:37:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
 because I'd had more than enough of Blogger's drawbacks. What hadn't
 crossed my mind, because I had no experience of using them, were the
 problems that static site generators could have. At the time, my hunch
@@ -413,7 +413,14 @@ post.&lt;/p&gt;
 files with a tilde on the end, your backup files will actually have
 &lt;strong&gt;another&lt;/strong&gt; tilde on the end (e.g. &lt;code&gt;my_draft_post.md~~&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;(Maybe marking files as hidden in Windows would have the same effect?
-Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry><entry><title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome" rel="alternate"></link><updated>2015-05-18T12:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry><entry><title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome" rel="alternate"></link><updated>2015-07-24T11:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit 2015-07-24: Slightly involved story aside, the version of
+µBlock linked here, by the original developer, is now µBlock Origin.
+I'd recommend searching for that version if installing as an
+extension.&lt;/p&gt;
+&lt;p&gt;It's available for both Firefox and Chrome/Chromium.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition article-edit"&gt;
 &lt;p&gt;Edit 2015-05-18: The Chromium bug is fixed which should fix the µMatrix
 UI sluggishness, and µMatrix is finally available as a Firefox addon.&lt;/p&gt;
 &lt;/div&gt;
