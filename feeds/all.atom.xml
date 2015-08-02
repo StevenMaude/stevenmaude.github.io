@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-07-24T11:37:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-08-02T17:24:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
 because I'd had more than enough of Blogger's drawbacks. What hadn't
 crossed my mind, because I had no experience of using them, were the
 problems that static site generators could have. At the time, my hunch
@@ -413,20 +413,20 @@ post.&lt;/p&gt;
 files with a tilde on the end, your backup files will actually have
 &lt;strong&gt;another&lt;/strong&gt; tilde on the end (e.g. &lt;code&gt;my_draft_post.md~~&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;(Maybe marking files as hidden in Windows would have the same effect?
-Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry><entry><title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome" rel="alternate"></link><updated>2015-07-24T11:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry><entry><title>Taking control of Chromium (and Chrome) with ublock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome" rel="alternate"></link><updated>2015-08-02T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome</id><summary type="html">&lt;div class="admonition article-edit"&gt;
 &lt;p&gt;Edit 2015-07-24: Slightly involved story aside, the version of
-µBlock linked here, by the original developer, is now µBlock Origin.
+uBlock linked here, by the original developer, is now uBlock Origin.
 I'd recommend searching for that version if installing as an
 extension.&lt;/p&gt;
 &lt;p&gt;It's available for both Firefox and Chrome/Chromium.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit 2015-05-18: The Chromium bug is fixed which should fix the µMatrix
-UI sluggishness, and µMatrix is finally available as a Firefox addon.&lt;/p&gt;
+&lt;p&gt;Edit 2015-05-18: The Chromium bug is fixed which should fix the uMatrix
+UI sluggishness, and uMatrix is finally available as a Firefox addon.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="admonition article-edit"&gt;
 &lt;p&gt;Edit 2015-01-09: HTTP Switchboard development is discontinued and has been
-replaced with &lt;a href="https://github.com/gorhill/uMatrix"&gt;µMatrix&lt;/a&gt;. The
+replaced with &lt;a href="https://github.com/gorhill/uMatrix"&gt;uMatrix&lt;/a&gt;. The
 interface is largely unchanged. One problem at the time of writing is a
 &lt;a href="https://github.com/gorhill/uBlock/issues/419"&gt;Chromium bug&lt;/a&gt; which I
 think is the cause of the UI being really laggy to appear. Hopefully,
@@ -441,7 +441,7 @@ and figured I should actually give it a try.&lt;/p&gt;
 to be much more CPU and memory friendly than &lt;a href="https://blog.mozilla.org/nnethercote/2014/05/14/adblock-pluss-effect-on-firefoxs-memory-usage/"&gt;Adblock Plus&lt;/a&gt;
 currently is.&lt;/p&gt;
 &lt;p&gt;In fact, the adblocking part of HTTP Switchboard has now been separated
-out into another project, µblock. Both are still useful. I'll explain
+out into another project, ublock. Both are still useful. I'll explain
 why below.&lt;/p&gt;
 &lt;h2&gt;Why are you blocking content at all?&lt;/h2&gt;
 &lt;p&gt;Many content-driven websites use advertising as their business model. My
@@ -539,31 +539,31 @@ browsers that had features comparable to Adblock Plus, and the Firefox
 extensions, NoScript, RequestPolicy. Recently, the &lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;adblocking,
 pattern-based filtering&lt;/a&gt;
 has been split out into another project,
-&lt;a href="https://github.com/gorhill/ublock"&gt;µblock&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;µblock&lt;/h2&gt;
+&lt;a href="https://github.com/gorhill/ublock"&gt;ublock&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;ublock&lt;/h2&gt;
 &lt;p&gt;By virtue of what HTTP Switchboard aims to do — give you full control of
 what is allowed by your browser — this makes its user interface slightly
 more complex, which I'll soon get onto.&lt;/p&gt;
-&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The µblock enable/disable icon." width="174"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The ublock enable/disable icon." width="174"&gt;&lt;/p&gt;
 &lt;p&gt;Stripping out this sophistication seems like a smart move, since
-µblock's incredibly easy to use. Really, it requires the same amount of
+ublock's incredibly easy to use. Really, it requires the same amount of
 setup as Adblock Plus does: not much at all.&lt;/p&gt;
 &lt;p&gt;It comes with the most popular Adblock Plus filters accessible on
 install, and you can easily choose which of those filter lists are
 applied.&lt;/p&gt;
-&lt;p&gt;Disabling µblock for a site is also straightforward. Click the red µ
+&lt;p&gt;Disabling ublock for a site is also straightforward. Click the red µ
 icon next to the address bar and then click the power icon.&lt;/p&gt;
 &lt;p&gt;It does the same job as Adblock Plus, but with lower CPU and memory
 usage. If you've ditched an ad blocker for this reason, it's worth
 looking at. Even if you're still happy using Adblock Plus (or one of its
-forks), µblock is definitely worth spending the couple of minutes to try
+forks), ublock is definitely worth spending the couple of minutes to try
 it out.&lt;/p&gt;
 &lt;h2&gt;HTTP Switchboard&lt;/h2&gt;
 &lt;p&gt;On to HTTP Switchboard, which allows fine grained control of the types
 and locations of content that Chromium-based browser can access.&lt;/p&gt;
 &lt;p&gt;Note that with the current version of HTTP Switchboard, there's a little
 &lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;initial setup&lt;/a&gt; to
-disable the adblocking filtering that µBlock covers.&lt;/p&gt;
+disable the adblocking filtering that uBlock covers.&lt;/p&gt;
 &lt;p&gt;HTTP Switchboard's interface can feel initially overwhelming; more so
 than perhaps the likes of NoScript, RequestPolicy and CookieMonster that
 I use which all have similar menus to allow or deny permission for a
@@ -638,7 +638,7 @@ the baton to port these&lt;/a&gt;.&lt;/p&gt;
 control over requests, &lt;a href="https://www.eff.org/https-everywhere"&gt;HTTPS Everywhere&lt;/a&gt;
 is another useful privacy-enhancing extension for Firefox and Chromium
 browsers. Where HTTPS browsing is available on sites but not always used,
-HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µblock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category></entry><entry><title>Updating and rooting Moto G</title><link href="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g" rel="alternate"></link><updated>2014-08-25T18:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-08-25:posts/updating-and-rooting-moto-g</id><summary type="html">&lt;h2&gt;My Moto G has been nagging me to upgrade firmware&lt;/h2&gt;
+HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µBlock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category><category term="ublock"></category></entry><entry><title>Updating and rooting Moto G</title><link href="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g" rel="alternate"></link><updated>2014-08-25T18:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-08-25:posts/updating-and-rooting-moto-g</id><summary type="html">&lt;h2&gt;My Moto G has been nagging me to upgrade firmware&lt;/h2&gt;
 &lt;p&gt;So I did today.&lt;/p&gt;
 &lt;p&gt;(I was persuaded by the Motorola system updater. Not because it's a
 lovely looking bit of software, but because it makes nagging an art with
