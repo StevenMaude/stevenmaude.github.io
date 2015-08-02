@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard - stevenmaude.co.uk</title>
+    <title>Taking control of Chromium (and Chrome) with ublock and HTTP Switchboard - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,22 +12,23 @@
 <link rel="canonical" href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="ad,µblock,HTTP Switchboard,blocking,privacy,adblock" />
-        <meta name="description" content="How you can use µblock and HTTP Switchboard to take control of what your browser loads." />
+        <meta name="keywords" content="ad,µBlock,HTTP Switchboard,blocking,privacy,adblock,ublock" />
+        <meta name="description" content="How you can use ublock and HTTP Switchboard to take control of what your browser loads." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard"/>
+        <meta property="og:title" content="Taking control of Chromium (and Chrome) with ublock and HTTP Switchboard"/>
         <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome"/>
-        <meta property="og:description" content="How you can use µblock and HTTP Switchboard to take control of what your browser loads."/>
+        <meta property="og:description" content="How you can use ublock and HTTP Switchboard to take control of what your browser loads."/>
         <meta property="article:published_time" content="2014-09-28" />
             <meta property="article:section" content="2014" />
             <meta property="article:tag" content="ad" />
-            <meta property="article:tag" content="µblock" />
+            <meta property="article:tag" content="µBlock" />
             <meta property="article:tag" content="HTTP Switchboard" />
             <meta property="article:tag" content="blocking" />
             <meta property="article:tag" content="privacy" />
             <meta property="article:tag" content="adblock" />
+            <meta property="article:tag" content="ublock" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -90,7 +91,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Taking control of Chromium (and Chrome) with µblock and HTTP Switchboard
+                Taking control of Chromium (and Chrome) with ublock and HTTP Switchboard
                 </h1>
             </header>
             <div class="entry-content">
@@ -103,7 +104,7 @@ stevenmaude.co.uk            </a>
     </span>
             <span class="label label-default">Modified</span>
             <span class="modified">
-                <time datetime="2015-07-24T11:37:00+01:00"> 2015-07-24</time>
+                <time datetime="2015-08-02T17:24:00+01:00"> 2015-08-02</time>
             </span>
 
 
@@ -113,7 +114,7 @@ stevenmaude.co.uk            </a>
 <span class="label label-default">Tags</span>
 	<a href="http://www.stevenmaude.co.uk/tag/ad">ad</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/ublock">µblock</a>
+	<a href="http://www.stevenmaude.co.uk/tag/ublock">µBlock</a>
         /
 	<a href="http://www.stevenmaude.co.uk/tag/http-switchboard">HTTP Switchboard</a>
         /
@@ -122,23 +123,25 @@ stevenmaude.co.uk            </a>
 	<a href="http://www.stevenmaude.co.uk/tag/privacy">privacy</a>
         /
 	<a href="http://www.stevenmaude.co.uk/tag/adblock">adblock</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ublock">ublock</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <div class="admonition article-edit">
 <p>Edit 2015-07-24: Slightly involved story aside, the version of
-µBlock linked here, by the original developer, is now µBlock Origin.
+uBlock linked here, by the original developer, is now uBlock Origin.
 I'd recommend searching for that version if installing as an
 extension.</p>
 <p>It's available for both Firefox and Chrome/Chromium.</p>
 </div>
 <div class="admonition article-edit">
-<p>Edit 2015-05-18: The Chromium bug is fixed which should fix the µMatrix
-UI sluggishness, and µMatrix is finally available as a Firefox addon.</p>
+<p>Edit 2015-05-18: The Chromium bug is fixed which should fix the uMatrix
+UI sluggishness, and uMatrix is finally available as a Firefox addon.</p>
 </div>
 <div class="admonition article-edit">
 <p>Edit 2015-01-09: HTTP Switchboard development is discontinued and has been
-replaced with <a href="https://github.com/gorhill/uMatrix">µMatrix</a>. The
+replaced with <a href="https://github.com/gorhill/uMatrix">uMatrix</a>. The
 interface is largely unchanged. One problem at the time of writing is a
 <a href="https://github.com/gorhill/uBlock/issues/419">Chromium bug</a> which I
 think is the cause of the UI being really laggy to appear. Hopefully,
@@ -153,7 +156,7 @@ and figured I should actually give it a try.</p>
 to be much more CPU and memory friendly than <a href="https://blog.mozilla.org/nnethercote/2014/05/14/adblock-pluss-effect-on-firefoxs-memory-usage/">Adblock Plus</a>
 currently is.</p>
 <p>In fact, the adblocking part of HTTP Switchboard has now been separated
-out into another project, µblock. Both are still useful. I'll explain
+out into another project, ublock. Both are still useful. I'll explain
 why below.</p>
 <h2>Why are you blocking content at all?</h2>
 <p>Many content-driven websites use advertising as their business model. My
@@ -251,31 +254,31 @@ browsers that had features comparable to Adblock Plus, and the Firefox
 extensions, NoScript, RequestPolicy. Recently, the <a href="https://github.com/gorhill/httpswitchboard/issues/378">adblocking,
 pattern-based filtering</a>
 has been split out into another project,
-<a href="https://github.com/gorhill/ublock">µblock</a>.</p>
-<h2>µblock</h2>
+<a href="https://github.com/gorhill/ublock">ublock</a>.</p>
+<h2>ublock</h2>
 <p>By virtue of what HTTP Switchboard aims to do — give you full control of
 what is allowed by your browser — this makes its user interface slightly
 more complex, which I'll soon get onto.</p>
-<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The µblock enable/disable icon." width="174"></p>
+<p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The ublock enable/disable icon." width="174"></p>
 <p>Stripping out this sophistication seems like a smart move, since
-µblock's incredibly easy to use. Really, it requires the same amount of
+ublock's incredibly easy to use. Really, it requires the same amount of
 setup as Adblock Plus does: not much at all.</p>
 <p>It comes with the most popular Adblock Plus filters accessible on
 install, and you can easily choose which of those filter lists are
 applied.</p>
-<p>Disabling µblock for a site is also straightforward. Click the red µ
+<p>Disabling ublock for a site is also straightforward. Click the red µ
 icon next to the address bar and then click the power icon.</p>
 <p>It does the same job as Adblock Plus, but with lower CPU and memory
 usage. If you've ditched an ad blocker for this reason, it's worth
 looking at. Even if you're still happy using Adblock Plus (or one of its
-forks), µblock is definitely worth spending the couple of minutes to try
+forks), ublock is definitely worth spending the couple of minutes to try
 it out.</p>
 <h2>HTTP Switchboard</h2>
 <p>On to HTTP Switchboard, which allows fine grained control of the types
 and locations of content that Chromium-based browser can access.</p>
 <p>Note that with the current version of HTTP Switchboard, there's a little
 <a href="https://github.com/gorhill/httpswitchboard/issues/378">initial setup</a> to
-disable the adblocking filtering that µBlock covers.</p>
+disable the adblocking filtering that uBlock covers.</p>
 <p>HTTP Switchboard's interface can feel initially overwhelming; more so
 than perhaps the likes of NoScript, RequestPolicy and CookieMonster that
 I use which all have similar menus to allow or deny permission for a
