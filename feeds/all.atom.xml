@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-08-02T17:24:00+01:00</updated><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-10-26T17:00:00+00:00</updated><entry><title>Getting an official Windows 10 disk image</title><link href="http://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image" rel="alternate"></link><updated>2015-10-26T17:00:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-10-26:posts/getting-an-official-windows-10-disk-image</id><summary type="html">&lt;h2&gt;Getting an official Windows 10 disk image, without a Windows install&lt;/h2&gt;
+&lt;p&gt;Currently looking to test out installing Windows 10 and one stumbling block was
+just getting hold of an official disk image. (I'm cautious these days and want
+to see how setting up a dual boot encrypted Windows 10/Ubuntu goes on a spare
+drive prior to actually committing to an upgrade.)&lt;/p&gt;
+&lt;h3&gt;Start me up&lt;/h3&gt;
+&lt;p&gt;The obvious searches for installing Windows 10 inevitably lead you to &lt;a href="https://www.microsoft.com/en-gb/software-download/windows10"&gt;this
+page&lt;/a&gt; where it
+tells you to install the Media Creation tool and use that.&lt;/p&gt;
+&lt;p&gt;Critically, that's not an option if you don't have access to a current Windows
+install. (Yes, it should be easy enough to find a Windows PC &lt;em&gt;somewhere&lt;/em&gt;
+around, but there might not be one to hand.) The other drawback is that, as far
+as I can see without testing, is that it only creates media for one particular
+version of Windows, so you'd have to run through the process twice for Home and
+Pro.  The actual ISO disk image is buried on the site under &lt;a href="https://www.microsoft.com/en-us/software-download/techbench"&gt;"Tech
+Bench"&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Though the filename differed, the 64-bit download from that page &lt;em&gt;did&lt;/em&gt; match
+the SHA1 as listed on the MSDN site as of 2015-10-23:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;File Name: en_windows_10_multiple_editions_x64_dvd_6846432.iso
+Languages: English
+SHA1: 60CCE9E9C6557335B4F7B18D02CFE2B438A8B3E2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that there's a 90-day Win10 Enterprise
+&lt;a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise"&gt;trial&lt;/a&gt;,
+but there was no checksum at all to verify that download, and you need a
+Microsoft account just to get to the download. It also had the following
+ambiguous information:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In order to use Windows 10 Enterprise, you must sign in to your PC with a
+Microsoft account. The option to create a local account will be made available
+at the time of the final release.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;which was unclear as to whether this still applies or not.&lt;/p&gt;
+&lt;h3&gt;Clean installing Windows 10&lt;/h3&gt;
+&lt;p&gt;The other question I had was which version, Home or Pro, gets installed from
+this single ISO. If it's a clean install, how is the version to install (Home
+or Pro) determined? From what I remember reading, the answer should be that if
+you skip entering a product key on request by the installer (which would
+automatically install the appropriate version if you provide a key), the
+installer prompts you to choose the version to install.&lt;/p&gt;</summary><category term="Windows"></category><category term="ISO"></category><category term="disk"></category></entry><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
 because I'd had more than enough of Blogger's drawbacks. What hadn't
 crossed my mind, because I had no experience of using them, were the
 problems that static site generators could have. At the time, my hunch
@@ -1028,39 +1069,4 @@ I was asking the data scientists that I chatted to in informational
 interviews.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="data"></category><category term="careers"></category><category term="university"></category><category term="research"></category><category term="science"></category><category term="Cambridge"></category></entry><entry><title>52 weeks, 52 posts</title><link href="http://www.stevenmaude.co.uk/posts/52-weeks-52-posts" rel="alternate"></link><updated>2014-05-10T17:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-05-10:posts/52-weeks-52-posts</id><summary type="html">&lt;p&gt;A year ago, I started writing this blog. I didn't really have any
-expectations of what I wanted to get out of it, but I think it's been
-successful despite my lack of lofty ambitions.&lt;/p&gt;
-&lt;p&gt;Back then, I hadn't written any blog back then. So it's a little strange
-that in the past year, I've had blog posts on another two other blogs
-aside from this one.&lt;/p&gt;
-&lt;p&gt;It's been quite a busy year too, so I've been sporadic in posting.
-Saying 52 posts in 52 weeks might sound well disciplined, but you can
-see that there have been weeks when I've not found time to write
-anything. (Which is a little lazy of me.) Other times I've been more
-inspired and written in bursts.&lt;/p&gt;
-&lt;p&gt;That said, the fact I've still returned to it even after several weeks
-away is certainly auspicious. What I think I've got out of it is that
-I'm much more conscientious about scribbling notes down for my own
-reference, which I seldom did before having a blog. This has proven to
-be a useful reference. If I can't quite remember how I did something,
-but know it's on here, I can find it quickly. If I do write up things on
-here, it's because it was a problem that I didn't see an obvious answer
-to and took more than a cursory internet search or investigation on my
-own part.&lt;/p&gt;
-&lt;p&gt;As well as that more practical side, it's been a good excuse to work on
-my writing (a muscle that I don't often flex at work).&lt;/p&gt;
-&lt;p&gt;What about the coming year then? In this next year, two resolutions that
-I'd like to keep are:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;to try and maintain at least some kind of regularity to posting
-    (even if my posts are clustered together sometimes) and&lt;/li&gt;
-&lt;li&gt;migrate this blog to Pelican or something similar.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;For what it's worth, I started looking into the second. It's just a
-matter of ensuring I put the slight effort into seeing it through.
-Deciding what to do about comments, and actually going about exporting
-my existing content to Markdown or RestructuredText are the obstacles at
-the moment. Really though, it's a question of &lt;strong&gt;just doing it&lt;/strong&gt; rather
-than procrastinating and getting distracted writing blog posts about how
-I'm going to do things.&lt;/p&gt;</summary><category term="self-indulgence"></category><category term="musings"></category></entry></feed>
+&lt;/div&gt;</summary><category term="data"></category><category term="careers"></category><category term="university"></category><category term="research"></category><category term="science"></category><category term="Cambridge"></category></entry></feed>
