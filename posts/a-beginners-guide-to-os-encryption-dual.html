@@ -105,7 +105,7 @@ stevenmaude.co.uk            </a>
     </span>
             <span class="label label-default">Modified</span>
             <span class="modified">
-                <time datetime="2015-05-22T15:24:00+01:00"> 2015-05-22</time>
+                <time datetime="2015-10-26T17:17:00+00:00"> 2015-10-26</time>
             </span>
 
 
@@ -204,16 +204,12 @@ considering this option.</p>
 <h2>Approach 3: Encrypt Windows 7 (any version) with TrueCrypt; encrypt Ubuntu with LUKS</h2>
 <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/TrueCrypt.png" alt="TrueCrypt program window showing options to create a new encrypted volume."></p>
 <div class="admonition article-edit">
-<p>Edit January 2015: TrueCrypt's
-source was partly <a href="http://istruecryptauditedyet.com/">audited</a> in 2014
-and there was nothing found to immediately make users abandon it.
-However, the developers unceremoniously ending development shortly after
-that audit and telling people to use alternatives is at best unfortunate
-(no more support) and at worst worrying. That said, there still seems no
-known reason to panic if you're using it yet, and there are a couple of
-potential successors to TrueCrypt (e.g. CipherShed, VeraCrypt). So, the
-easy-to-use, cross-platform disk encryption that TrueCrypt offers should
-live on.</p>
+<p>Edit October 2015: There are vulnerabilities in the Windows
+TrueCrypt driver (<a href="https://code.google.com/p/google-security-research/issues/detail?id=537">here</a>
+and <a href="https://code.google.com/p/google-security-research/issues/detail?id=538">here</a>),
+so it definitely can't be recommended now. There are newer projects
+based on TrueCrypt which may be suitable replacements; I haven't
+looked into them.</p>
 </div>
 <p>The fact that TrueCrypt has its source available is a plus. I'm nowhere
 near smart enough to start understanding the internals of cryptographic
