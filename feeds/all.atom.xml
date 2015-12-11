@@ -1,5 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-10-26T17:00:00+00:00</updated><entry><title>Getting an official Windows 10 disk image</title><link href="http://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image" rel="alternate"></link><updated>2015-10-26T17:00:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-10-26:posts/getting-an-official-windows-10-disk-image</id><summary type="html">&lt;p&gt;Currently looking to test out installing Windows 10 and one stumbling block was
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-12-11T17:04:00+00:00</updated><entry><title>As easy as 123(-reg)</title><link href="http://www.stevenmaude.co.uk/posts/as-easy-as-123-reg" rel="alternate"></link><updated>2015-12-11T17:04:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-11:posts/as-easy-as-123-reg</id><summary type="html">&lt;h2&gt;Two factor or not two factor&lt;/h2&gt;
+&lt;p&gt;We're living in the future right now: it's almost 2016. Almost as unbelievably,
+123-reg &lt;em&gt;still&lt;/em&gt; haven't implemented any kind of two factor authentication for
+their site.&lt;/p&gt;
+&lt;p&gt;From their own &lt;a href="https://www.123-reg.co.uk/blog/security-issues/how-to-create-a-strong-password-and-protect-your-online-life/"&gt;blog&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Two-factor authentication adds another layer of protection and you should use
+it where it is available.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Well, yeah, I would. If I could.&lt;/p&gt;
+&lt;p&gt;It's stupid for me to not being using a registrar that provides two factor
+authentication. Get control of the domain and you could hijack my website or my
+email.&lt;/p&gt;
+&lt;p&gt;It's also stupid on their part not to implement this. It's a security feature I
+expect as standard on important web services these days. And I'm sure that I'm
+not the only person who's decided to leave or not use their service as a
+result. Moreover, the implication of no two factor support does have me
+questioning what else they can't be bothered to do security-wise.&lt;/p&gt;
+&lt;p&gt;Apart from this issue, I wouldn't say I'd be exactly content, but I'd have the
+apathy towards transferring my domain out that many people have towards
+switching bank accounts, rather than any more urgent impetus to leave.&lt;/p&gt;
+&lt;p&gt;As I don't ever really use the 123-reg site itself, I don't really have a
+problem with them not redesigning it in years. The only major outage I've
+knowingly experienced in over 12 years(!) of being with them is that email was
+&lt;a href="http://www.theregister.co.uk/2006/12/18/123_says_sorry/"&gt;hideously delayed&lt;/a&gt; a
+few years back. However, when reading about domain transfer, I also learned of
+some recent &lt;a href="http://www.mayne.net/123reg-domain-name-hostage"&gt;moneygrabbing
+tricks&lt;/a&gt; they've
+tried.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Searching around for other domain registrars, it seems there is no single
+standout provider. You can find complaints about every one, so it's a bit of a
+crapshoot in choosing one. Namecheap were, true to their branding, a name that
+was reasonably cheap. And, they appeared to have no more complaints than any
+other provider.&lt;/p&gt;
+&lt;p&gt;But as a prelude to committing to moving, I figured I'd buy some other domain
+names with Namecheap and see what I made of the site. My first impressions were
+that the initial signup and buying services from Namecheap was pretty easy.
+Their dashboard also simple to navigate and fairly fresh looking. This is a
+marked improvement on the 123-reg control panel that is well overdue for a
+modern, clean redesign.&lt;/p&gt;
+&lt;p&gt;The final thing to give me the confidence to start looking into domain transfer
+was the quick response I received from Namecheap in resolving an issue when
+extending my domain name expiry. So, I started delving into the murky waters of
+domain transfers.&lt;/p&gt;
+&lt;h2&gt;12(free)-reg&lt;/h2&gt;
+&lt;p&gt;When you dive in, you find the depths are actually not as bad as they first
+look. Certainly, the process isn't actually that complicated. The confusing
+part is navigating around help pages that usually tell an incomplete story of
+what you need to do to move your domain. Neither 123-reg nor Namecheap did a
+great job here: I ended up reading several different pages to do something
+that's, I imagine, a reasonably common procedure for their customers.&lt;/p&gt;
+&lt;p&gt;To give you an idea, I probably spent about five to ten minutes actually making
+changes on the old and new domain registrar's sites, and probably spent ten
+times that time reading around, and double and triple checking what I was
+doing. I didn't want to bungle the whole thing and spend hours in dialogue with
+support to resolve it.&lt;/p&gt;
+&lt;h2&gt;Migrating .uk domains&lt;/h2&gt;
+&lt;p&gt;One important note is that .uk domains are handled a bit differently to others.
+The stages you need to carry out and avoid downtime aren't much more than:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;set up new name servers on your new registrar, and copy over whichever
+   existing DNS settings are needed from your current registrar to the new one;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;change name servers on your current registrar to those of the new registrar
+   and wait for this to be updated everywhere;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;maybe&lt;/em&gt; you need to make WHOIS data public (not sure if this is absolutely
+   necessary for UK domains);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;change the Internet Provider Security (IPS) tag on your current registrar to
+   that of the new registrar;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;request a transfer in at your new registrar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Again, all that matters for .uk domains is the IPS tag. Anything you read about
+EPP authorisation code or lock status just doesn't apply at all for them.&lt;/p&gt;
+&lt;p&gt;Also note by .uk domains, this is &lt;em&gt;any&lt;/em&gt; .uk domain, i.e. this applies for
+stevenmaude.co.uk, not just stevenmaude.uk.&lt;/p&gt;
+&lt;h2&gt;How to move from 123-reg to Namecheap&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;First, set up FreeDNS on Namecheap. Add your existing domain as detailed
+   &lt;a href="https://www.namecheap.com/support/knowledgebase/article.aspx/536/51/how-do-i-set-my-domain-to-use-namecheaps-freedns-service"&gt;here&lt;/a&gt;.
+   If you want to potentially activate that more quickly, note that you can
+   prompt for an activation email. This also means you don't need to change
+   name servers before you activate should you wish. You'll receive a link to
+   activate the FreeDNS service in that case.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to Advanced DNS on Namecheap's dashboard and copy over entries from the
+   123-reg Advanced DNS settings. There were a couple of 123-reg IP addresses
+   in there which I didn't move as they were no longer needed. Everything else
+   I just copied over by hand. MX records are added in Namecheap by selecting
+   "Custom MX" in "Mail Settings" which is in the Advanced DNS dashboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Optional&lt;/strong&gt;: if you were using web forwarding and want to preserve it, you
+   can set this up on Namecheap's Manage options for the domain ("Redirect
+   Domain") or go to Advanced DNS and add entries manually. See their
+   &lt;a href="https://www.namecheap.com/support/knowledgebase/article.aspx/385/77/how-do-i-setup-url-forwarding-for-a-domain"&gt;help pages&lt;/a&gt;
+   for more.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to 123-reg's control panel and select the option to add name servers to
+   your domain. I added two of Namecheap's FreeDNS servers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Possibly optional&lt;/strong&gt;: you may need to make the WHOIS contact details public
+   for the domain if they're not already. Go to 123-reg's control panel and do
+   this. You may wish to change the address first to one which you're happy
+   with making publically accessible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check the new name servers have been added and that they work. Windows, Linux
+   and OS X all have a &lt;code&gt;whois&lt;/code&gt; command you can use to see if the name servers
+   are at least visible on the DNS server you're accessing. You may see this
+   change fairly quickly e.g. within a few seconds or minutes.&lt;/p&gt;
+&lt;p&gt;My way of testing that the name servers were working as expected was to add
+a temporary web forwarding rule on the new registrar which didn't exist on
+the old one. Once I could confirm that redirect worked, I could remove the
+rule. As I was confident things were working OK, I then removed the 123-reg
+name servers from my domain, leaving only the FreeDNS ones there.&lt;/p&gt;
+&lt;p&gt;If you can verify that everything is working OK, you should now wait
+sometime for the settings to propagate everywhere. 123-reg currently
+recommend &lt;a href="https://www.123-reg.co.uk/support/answers/Domains-Archive/Domain-Configuration/why-do-people-always-tell-me-that-my-dns-changes-take-24-48-hours-to-propagate-2653/"&gt;48 hours&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As mentioned, make sure you've waited for the name server changes to
+   propagate before continuing. Do something exciting in the meantime.
+   Or just sleep.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change the IPS tag on 123-reg to Namecheap's IPS tag as detailed in the
+   &lt;a href="https://www.123-reg.co.uk/support/answers/Domain-Transfers/Transfers-Out/how-do-i-change-the-ips-tag-on-my-domain-name-1264/"&gt;123-reg help&lt;/a&gt;.
+   Enter Namecheap's IPS tag which you can find
+   &lt;a href="https://www.namecheap.com/support/knowledgebase/article.aspx/260/8/what-is-an-ips-tag"&gt;here&lt;/a&gt;.
+   If they've changed the link, a search for "IPS tag site:namecheap.com" will
+   probably get you to the right place to find it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go through the Namecheap transfer, select your domain in the dashboard and
+   select "Transfer in". You'll probably have to pay them some money. The
+   process should hopefully begin and be complete within an hour or two.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; My
+   transfer only took maybe half an hour or even less. You can see the status
+   of your transfer in the Namecheap dashboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, check that the FreeDNS has changed to the normal DNS, and that
+    all of your DNS records are still present.&lt;/p&gt;
+&lt;p&gt;For some reason, in the advanced DNS, the mail settings had changed from
+"Custom MX" to "No Email Service". Email still appeared to work in the
+meantime, and the records were all still there when I reselected "Custom
+MX" which was odd.&lt;/p&gt;
+&lt;p&gt;While here, you may also wish to set the public WHOIS to private if you're
+domain is for use by a "UK Individual".&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And that's it!&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;I wasn't charged for changing IPS tag; no idea if 123-reg changed their
+  policy for everyone or it's because the domain was registered long ago.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;It's a little disconcerting that all this happens without receiving any
+  email to the domain contact to confirm the move. I'm not sure what
+  procedure's in place to prevent someone else transferring your domain to
+  the same registrar but under their control, once you've changed the IPS
+  tag...&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="domain"></category><category term="Namecheap"></category><category term="registrar"></category><category term="transfer"></category></entry><entry><title>Getting an official Windows 10 disk image</title><link href="http://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image" rel="alternate"></link><updated>2015-10-26T17:00:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-10-26:posts/getting-an-official-windows-10-disk-image</id><summary type="html">&lt;p&gt;Currently looking to test out installing Windows 10 and one stumbling block was
 just getting hold of an official disk image. (I'm cautious these days and want
 to see how setting up a dual boot encrypted Windows 10/Ubuntu goes on a spare
 drive prior to actually committing to an upgrade.)&lt;/p&gt;
@@ -972,100 +1151,4 @@ code working. If we had, I think I'd have been more likely to spot the
 connection between our fix to the code and the tests taking an age.&lt;/p&gt;
 &lt;p&gt;(This isn't a test specific problem. You'd notice it whenever you
 imported the code into another module. It just happened to be that the
-tests were the only other module that we'd imported the code into.)&lt;/p&gt;</summary><category term="foolishness"></category><category term="name"></category><category term="main"></category><category term="Python"></category><category term="fix"></category></entry><entry><title>Chatting about data science careers</title><link href="http://www.stevenmaude.co.uk/posts/chatting-about-data-science-careers" rel="alternate"></link><updated>2014-06-22T21:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-06-22:posts/chatting-about-data-science-careers</id><summary type="html">&lt;h2&gt;Visiting Cambridge&lt;/h2&gt;
-&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/Cambridge_1.jpg" alt="A photo of a street in Cambridge" width=300&gt;&lt;/p&gt;
-&lt;p&gt;I visited Cambridge this week. Though I know Oxford fairly well, somehow
-I'd manage to avoid ever travelling to Cambridge before, so being in a
-lovely city and surrounded by things new to me (though mostly far older
-than me) was a pleasant experience.&lt;/p&gt;
-&lt;p&gt;So, what was I even doing there anyway? The university careers service
-was holding an event for postdoctoral researchers to find out more about
-paths outside of university. I'd been invited to talk about data
-science.&lt;/p&gt;
-&lt;p&gt;The day started with brief talks from the careers staff and one of the
-guests. In a short session, they divulged several ideas that I'd taken
-far longer to collect either from reading around, the careers programme
-I attended last year, or by a slow realisation during my career
-searching process last year.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;After a brief session where I and the other nine invited speakers
-introduced themselves to everyone, the rest of the day was spent talking
-with small groups of postdocs. Much discussion seemed to centre around
-what my work involves, and how I eventually found my job.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;This type of event seems a great way for people to get inspired about
-what kind of careers they could consider a move into, especially if
-they're at a crossroads where all the exits are hazy. I think they can
-also provide a helpful confidence boost at a time when anxiety and
-indecision can easily take hold. If you're chatting with someone who's
-been in your shoes recently and managed to make a successful career
-move, why shouldn't you believe that you can replicate it?&lt;/p&gt;
-&lt;p&gt;A positive for me was that a few of the people I spoke to were already
-looking into data science as a career. And I'm also hoping that I
-managed to encourage those who, on speaking to them, seemed like they
-definitely had relevant skills, but they weren't entirely sure whether
-it was an option for them to explore.&lt;/p&gt;
-&lt;h2&gt;PhDs moving from research to industry&lt;/h2&gt;
-&lt;p&gt;There were two thoughts that I took away from the event. First, contrary
-to my preconceptions, it seemed that from the experiences of some of the
-other speakers that a long stay in university research wasn't perhaps as
-detrimental as I expected. In other words, you're not "trapped" at
-university if you have spent several years as a postdoc. (Though if
-you've already made up your mind to leave, it was mentioned that it's
-advisable to plan your exit as soon as possible.)&lt;/p&gt;
-&lt;p&gt;The other idea that I heard a couple of times is that there seems to be
-a disconnect between employers looking for well qualified PhDs and the
-candidates themselves. The jobs are there. The candidates are there.
-But, for whatever reason, they're missing each other.&lt;/p&gt;
-&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/Cambridge_2.jpg" alt="Another photo taken in Cambridge."&gt;&lt;/p&gt;
-&lt;p&gt;From my experience as a researcher, I'd suggest a part of the problem is
-that PhDs and postdocs may be simply unaware of the range of
-opportunities available to them. For data science at least, there are
-several organisations whose specific goal is to help transition science
-PhDs into employment. This is fine, but that's covers one discipline and
-small groups of fortunate researchers.&lt;/p&gt;
-&lt;p&gt;Maybe it's also a problem of communicating across this gap. Researchers
-are perhaps underequipped to successively sell themselves to employers,
-and maybe industry employers are not making it clear when PhDs with
-strong analytical backgrounds are exactly who they're looking for.&lt;/p&gt;
-&lt;p&gt;All in all, I'm sure the researchers attending took away some good
-ideas. It was definitely a productive and fun day out, and gave me the
-unusual opportunity to take a bit of time out to reflect on where I am
-in my career move. Thanks to Anne Forde of Cambridge University's
-Careers Service and Kim Nilsson of &lt;a href="http://s2ds.org/"&gt;S2DS&lt;/a&gt; for inviting
-me to participate!&lt;/p&gt;
-&lt;p&gt;A great idea that was highlighted is to just look through postings on
-sites which are advertising jobs (maybe Nature Jobs, New Scientist if
-you've a science background and want to stay in science, and further
-afield otherwise) and investigate lots of jobs.&lt;/p&gt;
-&lt;p&gt;And, another point that was emphasised, which is really important, is
-&lt;em&gt;don't dismiss yourself&lt;/em&gt; as being unsuitable for a job based on the
-title alone. You may find that you're already more than capable of
-meeting the candidate requirements.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;More specifically, small bits of wisdom such as
-these. Figuring out what you like in your current work, what your
-strengths are and what your priorities in work are. Having these things
-clear in your mind really does help you filter prospective jobs or
-workplaces to those that you're more likely to be interested in. It's
-easy for the panic of "I need a job" to settle in, and to then focus on
-applying for vacancies, rather than going the perhaps necessary process
-of self-discovery instead.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;One good question that came up a couple of times
-and I didn't have an instinctive answer for was: how do the longer term
-careers of data scientists progress? My excuse was that I'd just started
-out in my career and data science is still relatively new. Kim also
-mentioned that she saw lots of opportunities to specialise and find a
-niche.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:3"&gt;
-&lt;p&gt;Perhaps it shouldn't have surprised me so much.
-Checking over my own notes from last year, those were the main questions
-I was asking the data scientists that I chatted to in informational
-interviews.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="data"></category><category term="careers"></category><category term="university"></category><category term="research"></category><category term="science"></category><category term="Cambridge"></category></entry></feed>
+tests were the only other module that we'd imported the code into.)&lt;/p&gt;</summary><category term="foolishness"></category><category term="name"></category><category term="main"></category><category term="Python"></category><category term="fix"></category></entry></feed>
