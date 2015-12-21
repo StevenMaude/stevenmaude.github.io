@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-12-11T17:04:00+00:00</updated><entry><title>As easy as 123(-reg)</title><link href="http://www.stevenmaude.co.uk/posts/as-easy-as-123-reg" rel="alternate"></link><updated>2015-12-11T17:04:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-11:posts/as-easy-as-123-reg</id><summary type="html">&lt;h2&gt;Two factor or not two factor&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-12-21T13:50:00+00:00</updated><entry><title>Beatmatching to beat grid in Traktor</title><link href="http://www.stevenmaude.co.uk/posts/beatmatching-to-beat-grid-in-traktor" rel="alternate"></link><updated>2015-12-21T13:50:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-21:posts/beatmatching-to-beat-grid-in-traktor</id><summary type="html">&lt;h2&gt;Tracks that beat Traktor's beat detection&lt;/h2&gt;
+&lt;p&gt;Traktor's not always perfect in automatic beat detection. I was trying to set
+the correct beats per minute (bpm) value for a particular track and not having
+a lot of luck with the tap function that Traktor provides. The estimated bpm
+kept jumping around on each click.&lt;/p&gt;
+&lt;p&gt;If you're not familiar, a tap feature is common in music software for beat
+detection: tap a button along to the beat of the music, and after a few clicks,
+you should have a fairly good estimation of what the bpm is.&lt;/p&gt;
+&lt;p&gt;Another option you have is to manually adjust the beat grid to set the bpm; the
+beat grid is a series of line markers that you want to mark the track's beats.
+It acts as a visual guide for the user that shows whether the bpm is set
+correctly.&lt;/p&gt;
+&lt;p&gt;This is a chore as it requires fine adjustment. You'll end up clicking a lot to 
+stretch or compress the grid and correct it. Also, if you're zoomed in to precisely
+align this, you can't see if everything's still OK further along the track
+without going back and forth, like Cameo.&lt;/p&gt;
+&lt;h2&gt;Beatmatching to find the bpm&lt;/h2&gt;
+&lt;p&gt;The last time I was contemplating doing this I realised that if you can
+beatmatch by ear, then to find an unknown track's bpm, you can simply beatmatch
+to a track with a known good bpm. It's more fun too as you're actually
+&lt;em&gt;listening&lt;/em&gt; to the music and DJing, rather than &lt;em&gt;click-click-clicking&lt;/em&gt; like
+you're gold farming in some video game.&lt;/p&gt;
+&lt;p&gt;Once you're happy that the tracks are beatmatched, if you have the current bpm
+for the known good track displayed — you can change what's displayed in each
+deck's heading in Preferences — then that should give you the correct bpm for
+the track with unknown bpm. You can then type this in where the bpm is
+displayed on the "Grid" panel for the deck playing the track.&lt;/p&gt;
+&lt;p&gt;All that's left to do is seek to the first downbeat and add that as a beat grid
+cue point (use the "Cue" panel for the deck) and the track should be ready for
+beatmatching. Traktor usually does a decent job on finding that downbeat
+though.&lt;/p&gt;
+&lt;p&gt;That would be all, except you might only have a correct bpm for the particular
+section you've been listening to: it's possible that the bpm fluctuates. If the
+beat detection fails, this is quite a common problem, particularly for older
+pieces of music which weren't created digitally and may drift slightly due to
+human timing. A fix for this is to just work with a loop in the track which
+does have a sufficiently steady bpm to mix. You can add loops in the "Cue"
+panel.&lt;/p&gt;
+&lt;p&gt;While I'm here, I should wistfully wish that Native Instruments would improve
+the beat matching aspect. Using multiple beat markers, Ableton's capable of
+adjusting — "warping" they call it — the track to fix it such that it has a
+consistent tempo, something that Traktor lacks. So, I'm still saving for
+Ableton.&lt;/p&gt;</summary><category term="Traktor"></category><category term="beatmatching"></category><category term="DJ"></category><category term="beat grid"></category></entry><entry><title>As easy as 123(-reg)</title><link href="http://www.stevenmaude.co.uk/posts/as-easy-as-123-reg" rel="alternate"></link><updated>2015-12-11T17:04:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-11:posts/as-easy-as-123-reg</id><summary type="html">&lt;h2&gt;Two factor or not two factor&lt;/h2&gt;
 &lt;p&gt;We're living in the future right now: it's almost 2016. Almost as unbelievably,
 123-reg &lt;em&gt;still&lt;/em&gt; haven't implemented any kind of two factor authentication for
 their site.&lt;/p&gt;
@@ -1081,74 +1123,4 @@ Intel Centrino wireless network adapter on my laptop under Ubuntu.&lt;/p&gt;
 that explains why it was an issue for the first time today. It's pretty
 poor that this seems to have been a &lt;a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1034740"&gt;long-running
 problem&lt;/a&gt; and
-yet it's still present... but at least there's a workaround.&lt;/p&gt;</summary><category term="connection"></category><category term="Centrino"></category><category term="wifi"></category><category term="Ubuntu"></category><category term="Intel"></category><category term="fix"></category></entry><entry><title>Arduous lessons in Python: why main() is useful</title><link href="http://www.stevenmaude.co.uk/posts/arduous-lessons-in-python-why-main-is" rel="alternate"></link><updated>2014-07-05T11:42:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-07-05:posts/arduous-lessons-in-python-why-main-is</id><summary type="html">&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/python_logo.png" alt="The Python logo."&gt;&lt;/p&gt;
-&lt;p&gt;An ordinary afternoon and I'd wanted to work on some code locally on my
-machine. I knew the tests previously ran without any issue. So, after
-I'd cloned the repository locally, I ran &lt;code&gt;nosetests&lt;/code&gt; to make sure
-everything was OK with my setup before I started.&lt;/p&gt;
-&lt;p&gt;What I expected is the tests to run pretty quickly as before.&lt;/p&gt;
-&lt;p&gt;What happened instead is that Python started hogging a CPU and I saw a
-lonely blinking cursor where I expected my test results.&lt;/p&gt;
-&lt;p&gt;Something was happening, but none of the tests were seemingly running.
-That is, I wasn't seeing any pass/fail indicators, which was strange.&lt;/p&gt;
-&lt;h2&gt;What actually happened&lt;/h2&gt;
-&lt;p&gt;Something was running that evidently wasn't what I intended.&lt;/p&gt;
-&lt;p&gt;On inspection, one of the import statements in the test code had a
-structure somewhat like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;some_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;another_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;really_long_winded_scraping_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;lots&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt;
-
-&lt;span class="n"&gt;really_long_winded_scraping_function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Bear in mind that when you import a module, the statements are actually
-executed. If you've just got function and class definitions in there,
-then this means that they get defined, but they aren't executed until
-you call them.&lt;/p&gt;
-&lt;p&gt;However, if functions are called in the module's flow of execution, then
-they'll be called when you import it too.&lt;/p&gt;
-&lt;p&gt;So, when this module was being imported by the test module, the
-&lt;code&gt;really_long_winded_scraping_function()&lt;/code&gt; was being called. So, yes,
-eventually, the tests would have run, but they'd run &lt;em&gt;after&lt;/em&gt; the code in
-the &lt;code&gt;import&lt;/code&gt; had finished, which would have taken &lt;strong&gt;hours&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2&gt;Fixing the problem&lt;/h2&gt;
-&lt;p&gt;Normally, I routinely use:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;in Python code that I start writing.&lt;/p&gt;
-&lt;p&gt;From the &lt;a href="https://docs.python.org/2/tutorial/modules.html"&gt;official
-documentation&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;"Within a module, the module’s name (as a string) is available as the
-value of the global variable &lt;code&gt;__name__&lt;/code&gt;."&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;What it also does is assigns &lt;code&gt;'__main__'&lt;/code&gt; to &lt;code&gt;__name__&lt;/code&gt; if the module is
-being executed directly. This gives you a way to specify different
-behaviour depending on whether the module itself is run or just
-imported.&lt;/p&gt;
-&lt;p&gt;If you're importing the module to reuse the code elsewhere, you can then
-just access the relevant functions and classes that you need, rather
-than running code that actually starts doing things.&lt;/p&gt;
-&lt;p&gt;In this case, for some reason, we'd just quickly thrown some functions
-together, then found that the function that actually initiates all of
-the scraping wasn't being called. So, we'd just quickly added a call to
-what was our at the bottom of the module, set the code going to do the
-scraping and not run the tests again.&lt;/p&gt;
-&lt;p&gt;This was fine, until I forgot about this and came to run the tests again
-later! It's a good case for running your tests regularly; the reason it
-took me so long was that we hadn't run the tests since getting the main
-code working. If we had, I think I'd have been more likely to spot the
-connection between our fix to the code and the tests taking an age.&lt;/p&gt;
-&lt;p&gt;(This isn't a test specific problem. You'd notice it whenever you
-imported the code into another module. It just happened to be that the
-tests were the only other module that we'd imported the code into.)&lt;/p&gt;</summary><category term="foolishness"></category><category term="name"></category><category term="main"></category><category term="Python"></category><category term="fix"></category></entry></feed>
+yet it's still present... but at least there's a workaround.&lt;/p&gt;</summary><category term="connection"></category><category term="Centrino"></category><category term="wifi"></category><category term="Ubuntu"></category><category term="Intel"></category><category term="fix"></category></entry></feed>
