@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Using Garmin Forerunner watches with Linux - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Garmin,Forerunner,Linux,GPS,running" />
+        <meta name="description" content="A quick look at Garmin&#39;s Forerunner 15 watch and using it with Linux." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Using Garmin Forerunner watches with Linux"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux"/>
+        <meta property="og:description" content="A quick look at Garmin&#39;s Forerunner 15 watch and using it with Linux."/>
+        <meta property="article:published_time" content="2015-12-30" />
+            <meta property="article:section" content="2015" />
+            <meta property="article:tag" content="Garmin" />
+            <meta property="article:tag" content="Forerunner" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="GPS" />
+            <meta property="article:tag" content="running" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Using Garmin Forerunner watches with Linux
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2015-12-30T23:30:00+00:00"> 2015-12-30</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/garmin">Garmin</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/forerunner">Forerunner</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/linux">Linux</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/gps">GPS</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/running">running</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I'm now the owner of a Garmin GPS watch. When I was looking at GPS
+watches, I couldn't find a huge amount of information on using them with
+Linux. This post concerns the Forerunner 15 (FR15) particularly, but
+think may well apply to several others in that range that function as
+USB storage devices, with the usual "your mileage may vary" caveats.</p>
+<h2>Can you use it with Linux?</h2>
+<p>Yes, to some extent. Though you won't be able to use all the fancy
+display features on Garmin's site. That said, I'm not bothered about
+that and would actually prefer to keep my data offline, especially with
+the number of website data breaches there have been recently.</p>
+<p>The FR15 shows up as a normal USB storage device so you can copy over
+.FIT files from the watch directly and work with them on your computer.
+My run data was stored in <code>GARMIN/ACTIVITY</code>.</p>
+<p>Note that, when researching this, you may read older posts about the
+unofficial Garmin Communication web browser plugin that was capable of
+uploading data to Garmin's servers.  This no longer functions and <a href="https://github.com/adiesner/GarminPlugin/issues/14">this
+GitHub issue</a>
+suggests it won't be fixed anytime soon.</p>
+<h3>Installing GPSBabel</h3>
+<p>The next job is to get the FIT files into a format that's more widely
+usable.</p>
+<p><a href="https://www.gpsbabel.org/">GPSBabel</a> is a application for Windows, OS X
+and Linux that lets you convert between GPS data formats, including
+converting Garmin's FIT (Flexible and Interoperable Data Transfer)
+format into .GPX (GPS Exchange Format) which is well supported by
+various free, open source applications.</p>
+<p>Support for FIT was added to GPSBabel in versions 1.4.3 and later,
+judging from the <a href="https://www.gpsbabel.org/changes.html">GPSBabel
+changelog</a>.</p>
+<p>If your distribution's repositories have an older version, you'll need
+to compile it from source. In Ubuntu, it was reasonably straightforward
+to clone it from <a href="https://github.com/gpsbabel/gpsbabel">GitHub</a> and then
+do the following:</p>
+<div class="highlight"><pre>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+make
+make install
+</pre></div>
+
+
+<p>Using <code>prefix</code> in <code>configure</code> allows you to <a href="https://unix.stackexchange.com/a/42569">install to a local
+directory</a> and avoids the need
+for <code>sudo</code> in <code>make install</code>.</p>
+<p>The only hiccup was that the <code>configure</code> step gave the error message:</p>
+<div class="highlight"><pre><span class="go">configure: error: Qt4 or Qt5 is required, but neither was found</span>
+</pre></div>
+
+
+<p><a href="https://stackoverflow.com/questions/16607003/qmake-could-not-find-a-qt-installation-of">The fix</a>
+was to do the following:</p>
+<div class="highlight"><pre>sudo apt-get install qtcreator
+</pre></div>
+
+
+<p>which was probably overkill as it installed a lot of packages, but
+compiling then worked. (I then removed <code>qtcreator</code> via <code>apt-get
+remove</code>.)</p>
+<h3>Converting Garmin's FIT data to GPX</h3>
+<p>An example use of GPSBabel is:</p>
+<div class="highlight"><pre>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
+</pre></div>
+
+
+<p>This gives you a GPX file which can be loaded into far more software. </p>
+<p>As a quick test, I loaded the output GPX file into
+<a href="https://apps.ubuntu.com/cat/applications/viking/">Viking</a> which seems a
+little bit limited, but at least let me visualise speed against time,
+and see where I've been.</p>
+<p>There are web apps out there that will save you this hassle and do the
+conversion for you, but, again, I'd rather keep my location data to
+myself.</p>
+<p>(Some of the high-end watches also have the ability to send the data to
+Garmin via Bluetooth to mobile apps that collect the data, so that's
+another way you could avoid the requirement for Windows or OS X.)</p>
+<h3>Upgrading the watch's firmware</h3>
+<p>My watch came with the latest firmware installed and the watch has been
+out a while, so I doubt there are any major issues remaining. But, there
+may still be further updates as it's still a supported product.</p>
+<p>The official update method is via Garmin's Windows or OS X software. If
+you search their site, you can find that updates exist, but you're told
+to use Garmin Express to install them.</p>
+<p>However, it is possible to find download URLs for firmware updates, if
+you look in the HTML source. For instance, the <a href="http://download.garmin.com/software/Forerunner15_270.rgn">current FR15
+firmware</a> is
+available via direct download using any client you like, albeit via
+insecure http. (I haven't tested the official software, it may well use
+the same links.)</p>
+<p>I haven't needed this information yet, but there are <a href="https://forums.garmin.com/archive/index.php/t-103787.html">more details
+regarding a different
+model</a> on the
+Garmin forums, but may well be relevant here. As a post there states,
+you may need to remove 60 bytes of an extraneous header using <code>tail</code>:</p>
+<blockquote>
+<p>To verify that an original file needs this header-removing, open it
+with <code>hexdump -C [Download FileName] | head</code>. You should see it
+starting with the string KpGrd The main watch firmware has two of
+those KpGrd headers, but we only remove the first one.</p>
+</blockquote>
+<p>Also bear in mind that there may be multiple firmware files to update,
+e.g. the watch firmware itself, as well as language files and the ANT
+firmware. And apparently <em>all</em> these need the header removing. Anyway,
+you can search Garmin's site for e.g. "Forerunner 15 update" and see
+what you find.</p>
+<h2>What's the watch actually like?</h2>
+<p>I've only started using it today, but it seems good at what it does. I
+tracked a run and, at a glance, the data looked consistent with where
+I'd been and how I'd run.</p>
+<p>It's a basic model, but capable. It's got what seems like a decent
+battery, apparently eight hours in active GPS use. Anecdotally, I headed
+out taking it straight from the box without charging and it was flashing
+an empty battery warning for most of the run (an hour or so), but still
+managed to record the entire distance.</p>
+<p>It's also waterproof which was handy since I was caught up in a heavy
+downpour while out. And it didn't feel noticeably less comfortable or
+more cumbersome than the (near-weightless) Casio digital watch that I'm
+usually wearing.</p>
+<p>There are also activity tracker features available to count steps and
+calories, though I'm less concerned about those. Recording a run for
+later inspection, tracking my heart rate, distance travelled and time
+elapsed while running, and keeping my best times are the features I
+really want. And the FR15 does all of these things.</p>
+<p>The FR15 was on offer when I bought it. Would I have paid the full
+retail price? I don't know. At that price and adding on an optional
+heart rate monitor bundled, it's very similar in price to higher-end
+watches like Garmin's 225.</p>
+<p>On the other hand, I did look into more expensive watches and all of
+them, at least the Garmin watches, seemed to have drawbacks. There
+wasn't an obvious candidate that stood out as the one to get.</p>
+<p>As a starter watch, the FR15 seems like a good deal, especially as it
+seems we're in a time where the technology's still improving. (Perhaps
+indicative of that, Garmin, much to the chagrin of unlucky purchasers,
+released a newer version of their FR225 only a few months after they
+launched it.) There's also competition from the likes of Fitbit and
+Jawbone which will probably push improvements to these devices in
+future. Newer, more expensive watches are already switching over to
+wrist monitoring of heart rate instead of using more traditional heart
+rate bands.</p>
+<p>So, if this is technology that I use long term, then the next step would
+be to a watch featuring wrist heart rate monitoring and cadence
+measurement. Nonetheless, the expandability of the FR15 is a bonus: you
+can use a separate ANT heart rate monitor (it optionally is bundled with
+one), as well as a footpod. Excluding these extras keeps the price down,
+but it's still possible to augment the device with these features in
+future; I've already ordered a heart rate monitor.</p>
+<p>The one downside of the design I've seen so far is that I think the
+battery will be a chore to replace when it expires. It's not officially
+user-replaceable. That drawback aside, it seems a decent choice.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/android">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker">
+                            Bitlocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/job">
+                            job
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
