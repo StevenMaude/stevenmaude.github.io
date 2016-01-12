@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2015-12-30T23:30:00+00:00</updated><entry><title>Using Garmin Forerunner watches with Linux</title><link href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux" rel="alternate"></link><updated>2015-12-30T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-30:posts/using-garmin-forerunner-watches-with-linux</id><summary type="html">&lt;p&gt;I'm now the owner of a Garmin GPS watch. When I was looking at GPS
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-01-12T22:23:00+00:00</updated><entry><title>Answers to some Windows 10 activation questions</title><link href="http://www.stevenmaude.co.uk/posts/answers-to-some-windows-10-activation-questions" rel="alternate"></link><updated>2016-01-12T22:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-01-12:posts/answers-to-some-windows-10-activation-questions</id><summary type="html">&lt;p&gt;With a Windows 10 1511 Threshold 2 ISO that I downloaded (using the
+&lt;a href="http://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image"&gt;source I've previously
+described&lt;/a&gt;),
+I was recently testing out Windows 10.&lt;/p&gt;
+&lt;p&gt;The Threshold 2 release was the first major release of Windows 10 since
+launch and was made available in November 2015. Previously, the route to
+claiming the free Windows 10 upgrade from an existing version of Windows
+was to do an in-place upgrade from a current install. The Threshold 2
+release changes this so that you can enter a Windows 7 or 8 product key
+on a clean install of Windows 10 and successfully activate it.&lt;/p&gt;
+&lt;p&gt;But I still had a lot of questions about how the activation process
+worked and, probably because Threshold 2 is still fairly new, I couldn't
+find much to tell me how this was actually going to work out. Here's
+what I learned.&lt;/p&gt;
+&lt;h2&gt;What happens if you clean install Windows 10 on a PC with an embedded Windows licence?&lt;/h2&gt;
+&lt;p&gt;These days, Windows licences for mass produced consumer systems are
+usually included in the BIOS itself, rather than printed on a sticker.&lt;/p&gt;
+&lt;p&gt;What the Windows 10 install does is automatically installs and activates
+the corresponding Windows 10 version if your hardware has an embedded
+licence. (Pro if your laptop had a Win 7 Pro/Ultimate or Win 8 Pro
+licence, or Home if you had a Win 7/8 Home licence.)&lt;/p&gt;
+&lt;p&gt;I suspect that this is still counted as part of the free upgrade
+entitlement rather than offered in perpetuity, so won't be an option
+once Microsoft's free upgrade offer expires in July 2016. You'll
+probably have to pay for an upgrade then.&lt;/p&gt;
+&lt;h2&gt;Can you use a Windows 8/8.1 Pro Pack key to claim a Windows 10 Pro upgrade?&lt;/h2&gt;
+&lt;p&gt;Yes. You can go to "change product key" and try entering your key, but
+you'll probably see the error &lt;code&gt;0xc004f210&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is because you're on Home, not Pro, so the key's not valid for that
+version of Windows.&lt;/p&gt;
+&lt;p&gt;What works instead is to use the &lt;a href="https://answers.microsoft.com/en-us/windows/forum/windows_10-windows_install/windows-10-pro-becomes-home-after-reinstallation/f1d7d4e5-cdf6-4fd7-b0e7-f87084b73df8"&gt;generic Pro
+key&lt;/a&gt;
+which will then install the Pro upgrade. Your Windows install will then
+show as not being activated as it only had a Home licence.&lt;/p&gt;
+&lt;p&gt;Now, entering that Pro Pack key should activate without any problem, I
+think, provided that it was previously used on the same hardware.&lt;/p&gt;
+&lt;p&gt;Clarifying this with how this worked for me might help explain this
+process if it's still somewhat unclear. My laptop had a Windows 8 Home
+licence which got upgraded to Windows 10 Home automatically on install.
+Then, I changed the product key to the generic Pro key. Following the
+Pro upgrade, the Windows 8 Pro Pack key that I'd previously used on the
+same laptop activated Windows 10 Pro.&lt;/p&gt;
+&lt;h2&gt;Can you clean install Windows 10 Pro on a laptop which has an embedded Home licence?&lt;/h2&gt;
+&lt;p&gt;Once you've activated Windows 10, you get a digital entitlement. Any
+product key you first used to activate is no longer needed: in future,
+the Windows activation servers just check your hardware and see that you
+have a valid licence.&lt;/p&gt;
+&lt;p&gt;The issue here is that — &lt;strong&gt;even if your hardware has a entitlement for
+the Pro version&lt;/strong&gt; — if the hardware has a key for a Home version, that
+will be recognised on install and you'll end up with a Home version
+install.  You'd then have to enter the generic Pro key and hopefully
+your PC should activate without a problem then, since it should have the
+digital entitlement.&lt;/p&gt;
+&lt;p&gt;This is inconvenient: it does mean you don't get a clean Pro install,
+but one that's upgraded from Home to Pro (though in practice there's
+probably little difference between these two routes).&lt;/p&gt;
+&lt;p&gt;I haven't tested this, but as far as I can tell, the solution is to
+&lt;a href="https://technet.microsoft.com/en-us/library/hh824952.aspx"&gt;modify the installer disk
+image&lt;/a&gt; with a
+text file that contains a product key. If you use the generic Pro key,
+you should get the Pro version installed.&lt;/p&gt;
+&lt;p&gt;From there, you could enter your Windows 7/8 product key as described
+above or, if reinstalling, the digital entitlement should allow you to
+activate without entering any product key.&lt;/p&gt;
+&lt;h2&gt;First impressions of Windows 10&lt;/h2&gt;
+&lt;p&gt;So far, I've noticed that the start menu is an improvement on Windows 8,
+but not as good as the one in Windows 7, the default theme is awful to
+look at compared with Windows 7's Aero — it's far too white and bright,
+with very little contrast in Explorer and Control Panel windows — and
+that there are lots of telemetry tracking and unwanted bundled software
+(e.g. OneDrive) to remove. There is a &lt;a href="https://technet.microsoft.com/en-us/library/mt577208%28v=vs.85%29.aspx"&gt;Microsoft guide on how to do
+so&lt;/a&gt;.
+Set aside some time. It's a lengthy read.&lt;/p&gt;
+&lt;p&gt;Activation confusion aside, Windows 10 installed without a problem. The
+installation process has been streamlined to require very little
+interaction beyond picking install language. Another pleasant surprise
+was that every piece of built-in laptop hardware had drivers installed
+automatically which saves a lot of delving into badly designed
+manufacturer websites to retrieve them. Even on Windows 7, a clean
+install would usually result in a lot of small pieces of hardware having
+missing drivers. And, in the brief testing I've done running Traktor,
+Windows 10 seemed stable enough.&lt;/p&gt;</summary><category term="Windows"></category><category term="activation"></category></entry><entry><title>Using Garmin Forerunner watches with Linux</title><link href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux" rel="alternate"></link><updated>2015-12-30T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-30:posts/using-garmin-forerunner-watches-with-linux</id><summary type="html">&lt;p&gt;I'm now the owner of a Garmin GPS watch. When I was looking at GPS
 watches, I couldn't find a huge amount of information on using them with
 Linux. This post concerns the Forerunner 15 (FR15) particularly, but
 think may well apply to several others in that range that function as
@@ -1044,157 +1125,4 @@ the baton to port these&lt;/a&gt;.&lt;/p&gt;
 control over requests, &lt;a href="https://www.eff.org/https-everywhere"&gt;HTTPS Everywhere&lt;/a&gt;
 is another useful privacy-enhancing extension for Firefox and Chromium
 browsers. Where HTTPS browsing is available on sites but not always used,
-HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µBlock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category><category term="ublock"></category></entry><entry><title>Updating and rooting Moto G</title><link href="http://www.stevenmaude.co.uk/posts/updating-and-rooting-moto-g" rel="alternate"></link><updated>2014-08-25T18:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-08-25:posts/updating-and-rooting-moto-g</id><summary type="html">&lt;h2&gt;My Moto G has been nagging me to upgrade firmware&lt;/h2&gt;
-&lt;p&gt;So I did today.&lt;/p&gt;
-&lt;p&gt;(I was persuaded by the Motorola system updater. Not because it's a
-lovely looking bit of software, but because it makes nagging an art with
-its focus-stealing prompt. If you go for the "no" option, your phone
-kindly reminds you again in an hour &lt;strong&gt;every hour&lt;/strong&gt;, just in case you've
-forgotten. This is regardless of what you're doing at the time, even if
-you're say using Google Maps for driving navigation which is quite
-hideous. Even the option to postpone the reminder for a week or a month
-would be nice. A rubbish, rubbish, rubbish user experience.)&lt;/p&gt;
-&lt;p&gt;A simple upgrade is as easy as pressing "upgrade". Because my phone was
-rooted and encrypted, the upgrade was likely to fail, so I had to
-restore it to stock firmware first.&lt;/p&gt;
-&lt;p&gt;However, I wanted to then reroot it so that I could use
-&lt;a href="https://github.com/M66B/XPrivacy"&gt;XPrivacy&lt;/a&gt;. This lets you restrict the
-permissions that apps have. Google did have App Ops in Android which did
-a similar thing (without quite as much granularity, I believe) but
-promptly removed it. It would have been good of them to leave it in: it
-would have removed one reason I have for rooting. Android apps are just
-far more intrusive in their permissions than they usually need to be.&lt;/p&gt;
-&lt;p&gt;No, I don't want Twitter's app to access my contacts, thanks; I'm more
-than capable of finding people on Twitter directly. No, there's no
-reason for Soundhound to know where I am. No, even if my phone &lt;strong&gt;had&lt;/strong&gt;
-NFC, I don't want F-Droid to be able to use it.&lt;/p&gt;
-&lt;p&gt;The assessment
-&lt;a href="http://www.cnet.com/news/why-android-wont-be-getting-app-ops-anytime-soon/"&gt;here&lt;/a&gt;
-is that one big reason for the removal of App Ops is due to it breaking
-apps. I disagree with that though. Using XPrivacy, I restrict almost
-every app and haven't had any trouble.&lt;/p&gt;
-&lt;p&gt;I can understand that if app permission controls were enabled by
-default, there's the possibility that it could cause problems for users
-that don't understand the implications of allowing/denying permissions,
-but if it was something like the developer options where you have to
-deliberately enable it, then they wouldn't even know it was present.&lt;/p&gt;
-&lt;p&gt;Anyway, here are the reference notes I made while upgrading for (the
-inevitable) next time.&lt;/p&gt;
-&lt;h2&gt;Preliminary setup with Ubuntu&lt;/h2&gt;
-&lt;p&gt;(or your choice of a Linux that has &lt;code&gt;adb&lt;/code&gt; and &lt;code&gt;fastboot&lt;/code&gt;)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install (to a live USB, or use an existing install on your laptop)&lt;/li&gt;
-&lt;li&gt;Enable third party repositories in "Software and Updates".&lt;/li&gt;
-&lt;li&gt;Do &lt;code&gt;sudo apt-get update&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo apt-get install android-tools-adb android-tools-fastboot&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Backup data from phone&lt;/h2&gt;
-&lt;p&gt;Copy off any photos, documents or other files you want to save.&lt;/p&gt;
-&lt;p&gt;If you want to backup your call logs and text messages, Call Logs Backup
-and Restore, and SMS Backup and Restore work pretty well for me. That
-said, they do request internet permissions which I block.&lt;/p&gt;
-&lt;h2&gt;Restore stock firmware&lt;/h2&gt;
-&lt;p&gt;Stock firmwares are available
-&lt;a href="http://sbf.droid-developers.org/phone.php?device=14"&gt;here&lt;/a&gt; and &lt;a href="http://forum.xda-developers.com/showthread.php?t=2542219"&gt;this
-post&lt;/a&gt; was a
-useful reference.&lt;/p&gt;
-&lt;p&gt;Boot into the bootloader using power on and volume down key (or enable
-USB debugging mode when the phone's on normally and do
-&lt;code&gt;adb reboot-bootloader&lt;/code&gt;).&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash partition gpt.bin
-sudo fastboot flash motoboot motoboot.img
-sudo fastboot flash logo logo.bin
-sudo fastboot flash boot boot.img
-sudo fastboot flash recovery recovery.img
-sudo fastboot flash system system.img_sparsechunk1
-sudo fastboot flash system system.img_sparsechunk2
-sudo fastboot flash system system.img_sparsechunk3
-sudo fastboot flash modem NON-HLOS.bin
-sudo fastboot erase modemst1
-sudo fastboot erase modemst2
-sudo fastboot flash fsg fsg.mbn
-sudo fastboot erase cache
-sudo fastboot erase userdata
-sudo fastboot reboot
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(sparsechunk files may have numbers 0, 1, 2 - just flash them in
-ascending order.)&lt;/p&gt;
-&lt;h2&gt;Upgrade&lt;/h2&gt;
-&lt;p&gt;Boot into stock and install update.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;To avoid heartache&lt;/strong&gt;, make sure you check for system updates
-&lt;strong&gt;after&lt;/strong&gt; you update, and install any further updates before
-proceeding. Repeat until no update is found. Otherwise, like me, you may
-discover after rooting again that there are still updates remaining
-after the first one. In that case, you'll have to restore to stock again
-:( (I was on 4.4.2, but there was a minor update that didn't change the
-version before the latest 4.4.4 update.)&lt;/p&gt;
-&lt;h2&gt;Unlock bootloader&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt; Only needed if not previously unlocked; while restoring stock
-firmware and upgrading, this didn't get relocked. &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You need a bootloader unlock code from Motorola's
-&lt;a href="https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-a"&gt;site&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;fastboot oem unlock
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Boot into fastboot mode: Enable developer mode again in settings:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;adb reboot bootloader
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Optional: get a copy of the original Motorola logo and do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash logo original_logo.bin
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;to remove the annoying "bootloader is unlocked" warning at boot.&lt;/p&gt;
-&lt;p&gt;See &lt;a href="http://wiki.cyanogenmod.org/w/Template:Unlock_Bootloader"&gt;CyanogenMod's
-site&lt;/a&gt; for more
-details.&lt;/p&gt;
-&lt;h2&gt;Install custom recovery&lt;/h2&gt;
-&lt;p&gt;Get custom recovery; &lt;a href="http://teamw.in/project/twrp2/233"&gt;I used TWRP&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Get a recent fastboot .img; at the time of writing, 2.7.1.1 was the
-latest, but didn't work. 2.7.1.0 worked fine.&lt;/p&gt;
-&lt;p&gt;Install through bootloader using fastboot:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo fastboot flash recovery modified_recovery.img
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Root the phone by installing SuperSU&lt;/h2&gt;
-&lt;p&gt;Boot from bootloader into TWRP recovery. Reboot system, say yes to
-install SuperSU.&lt;/p&gt;
-&lt;p&gt;Boot up, run SuperSU installer; go to Play Store and choose &lt;strong&gt;update&lt;/strong&gt;
-(&lt;strong&gt;not&lt;/strong&gt; open).&lt;/p&gt;
-&lt;p&gt;This will probably prompt to install a new binary; the normal install
-should work fine.&lt;/p&gt;
-&lt;h2&gt;Install XPrivacy&lt;/h2&gt;
-&lt;p&gt;Install XPrivacy installer. Follow each of the several instruction steps
-that are shown when you run it.&lt;/p&gt;
-&lt;h2&gt;Encrypt and change password again&lt;/h2&gt;
-&lt;p&gt;Create a screen lock PIN or password, then fully charge battery and
-encrypt.&lt;/p&gt;
-&lt;p&gt;Change the password using &lt;a href="https://play.google.com/store/apps/details?id=org.nick.cryptfs.passwdmanager&amp;amp;hl=en"&gt;Cryptfs
-Password&lt;/a&gt;
-so that you can have a separate screen unlock code and encryption passphrase.&lt;/p&gt;
-&lt;p&gt;(This is another good reason to root your phone. Without this, your
-encryption password is identical to your screen unlock code. Unless you
-want to have either:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a weak password, or&lt;/li&gt;
-&lt;li&gt;a huge password that you have to enter every time you unlock your phone&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;you'll need to change it using CryptFS which requires root access.)&lt;/p&gt;
-&lt;h2&gt;Disable all the slow animations&lt;/h2&gt;
-&lt;p&gt;To make Android snappier, disable the animations by enabling the
-developer options. Go in Settings &gt; About phone, scroll to the bottom
-and keep pressing build number until it tells you the developer options
-are active. Now, in Settings &gt; Developer options, you can set "Window
-animation scale", "Transition animation scale" and "Animator duration
-scale" all to off.&lt;/p&gt;
-&lt;h2&gt;Restore data, account, messages, call logs&lt;/h2&gt;
-&lt;p&gt;Reinstall SMS Backup and Restore, Call Log Backup and Restore, and
-restore the backups you made. Reinstall any other apps you want,
-including &lt;a href="https://f-droid.org/"&gt;F-Droid&lt;/a&gt; if you want AdAway and that's
-everything finally done. No more nagging for updates!&lt;/p&gt;</summary><category term="Moto"></category><category term="firmware"></category><category term="upgrade"></category><category term="Android"></category><category term="system"></category><category term="root"></category></entry></feed>
+HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µBlock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category><category term="ublock"></category></entry></feed>
