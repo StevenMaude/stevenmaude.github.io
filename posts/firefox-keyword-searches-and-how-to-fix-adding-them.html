@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - stevenmaude.co.uk</title>
+    <title>Firefox keyword searches, and how to fix adding them - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,23 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them">
 
         <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Firefox,keyword search,quick search" />
+        <meta name="description" content="How Firefox keyword searches speed up web searching, and how to resolve the situation when you can&#39;t add new ones." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Firefox keyword searches, and how to fix adding them"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them"/>
+        <meta property="og:description" content="How Firefox keyword searches speed up web searching, and how to resolve the situation when you can&#39;t add new ones."/>
+        <meta property="article:published_time" content="2016-04-03" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="Firefox" />
+            <meta property="article:tag" content="keyword search" />
+            <meta property="article:tag" content="quick search" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -25,6 +33,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -73,8 +83,110 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <h1>Authors on stevenmaude.co.uk</h1>
-        <li><a href="http://www.stevenmaude.co.uk/author/steven-maude">Steven Maude</a> (67)</li>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Firefox keyword searches, and how to fix adding them
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-04-03T17:00:00+01:00"> 2016-04-03</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/keyword-search">keyword search</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/quick-search">quick search</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>What are keyword searches?</h2>
+<p>Keyword searches, or quick searches, are really handy when browsing. If
+you think of something that you want to search for, they remove the
+extra step of first navigating to the site and selecting the search box. </p>
+<p>Instead, you can just directly enter your query into your address bar,
+preceded by some keyword. For instance, if I look up "Ubuntu" on
+<a href="https://duckduckgo.com">DuckDuckGo</a>, I can just hit Ctrl+L to access
+the address bar, type <code>d Ubuntu</code> and hit enter, to directly access the
+page of search results.</p>
+<h2>How keyword searches save time</h2>
+<p>This might not seem like a big time saving, but when you consider that
+you have to repeat the same process for every site you search on, it
+soon adds up. It's a feature you can use not only with traditional
+search engines, but with most sites that have a search box. One example
+is YouTube, I'll often — maybe <strong>too</strong> often — type <code>yt Yet another timewasting
+distraction</code>.</p>
+<h2>Creating and using custom keyword searches in Firefox</h2>
+<p>This is really simple to do. You're really just adding a bookmark, but
+one that refers to whatever URL the search box will send you to, not the
+page itself.</p>
+<ol>
+<li>Right click a search box on a webpage.</li>
+<li>Select "Add a Keyword for this Search..."</li>
+<li>In the dialogue that opens, enter a keyword and the search URL is
+   then added to your bookmarks with a placeholder for a query.</li>
+<li>When you next type that keyword followed by a search query into the
+   address bar, the bookmark gets loaded with your query automatically inserted
+   into the URL.</li>
+</ol>
+<p>These keyword searches are normal bookmarks; you can edit them like any
+other bookmark. The only difference is that they contain the <code>%s</code>
+<a href="https://en.wikipedia.org/wiki/Printf_format_string">placeholder</a> in the
+URL. When you carry out a keyword search, the term following the keyword
+replaces the <code>%s</code> in the bookmark.</p>
+<p>If you're browsing through your bookmarks in the Library, you'll only
+see "Name", "Location" and "Tags", but if you click "More", you'll see
+(and can change) the keyword you've set too. </p>
+<p>(This all works because, as you've probably noticed, using a search
+option on a site usually sends you to a URL that contains the search
+term. Hopefully you can see that if you construct the URL without even
+visiting the site first, that this should still work. That said, this
+assumes that the site uses GET requests where the query is contained in
+the URL itself.)</p>
+<h2>But my keyword searches aren't being added?</h2>
+<p>As I find them so useful, I sorely missed it when recently, for whatever
+reason, Firefox decided that it wouldn't add them any more.</p>
+<p>The bookmark would get created, but the keyword I added didn't get
+saved. Even if I manually edited the bookmark, I could enter a keyword
+but on navigating away to another bookmark and back again, the keyword
+would be lost again.</p>
+<p>The simple fix was just to exit Firefox, locate <code>places.sqlite</code> inside
+the Firefox profile directory,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> rename <code>places.sqlite</code>, and let the
+file be rebuilt on the next restart (as documented in <a href="https://support.mozilla.org/en-US/kb/cant-add-change-or-save-bookmarks">Mozilla's support
+pages</a>).</p>
+<p>The documentation states that you lose history, but any bookmarks are
+rebuilt from a backup. Once you're happy everything's OK, you can delete
+the old <code>places.sqlite</code>. After that, new keyword searches were added
+without a problem.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Its location depends on <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data">your operating system</a>.
+For me, on Linux, it was in the hidden <code>~/.mozilla/firefox</code>. On
+Windows, it'll be in <code>%APPDATA%\Mozilla\Firefox\Profiles\</code>. Make sure
+that you're in the correct profile directory, if you have multiple
+Firefox profiles.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
