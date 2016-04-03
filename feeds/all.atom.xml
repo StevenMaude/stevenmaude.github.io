@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-01-12T22:23:00+00:00</updated><entry><title>Answers to some Windows 10 activation questions</title><link href="http://www.stevenmaude.co.uk/posts/answers-to-some-windows-10-activation-questions" rel="alternate"></link><updated>2016-01-12T22:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-01-12:posts/answers-to-some-windows-10-activation-questions</id><summary type="html">&lt;p&gt;With a Windows 10 1511 Threshold 2 ISO that I downloaded (using the
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-03T17:00:00+01:00</updated><entry><title>Firefox keyword searches, and how to fix adding them</title><link href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them" rel="alternate"></link><updated>2016-04-03T17:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-03:posts/firefox-keyword-searches-and-how-to-fix-adding-them</id><summary type="html">&lt;h2&gt;What are keyword searches?&lt;/h2&gt;
+&lt;p&gt;Keyword searches, or quick searches, are really handy when browsing. If
+you think of something that you want to search for, they remove the
+extra step of first navigating to the site and selecting the search box. &lt;/p&gt;
+&lt;p&gt;Instead, you can just directly enter your query into your address bar,
+preceded by some keyword. For instance, if I look up "Ubuntu" on
+&lt;a href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, I can just hit Ctrl+L to access
+the address bar, type &lt;code&gt;d Ubuntu&lt;/code&gt; and hit enter, to directly access the
+page of search results.&lt;/p&gt;
+&lt;h2&gt;How keyword searches save time&lt;/h2&gt;
+&lt;p&gt;This might not seem like a big time saving, but when you consider that
+you have to repeat the same process for every site you search on, it
+soon adds up. It's a feature you can use not only with traditional
+search engines, but with most sites that have a search box. One example
+is YouTube, I'll often — maybe &lt;strong&gt;too&lt;/strong&gt; often — type &lt;code&gt;yt Yet another timewasting
+distraction&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Creating and using custom keyword searches in Firefox&lt;/h2&gt;
+&lt;p&gt;This is really simple to do. You're really just adding a bookmark, but
+one that refers to whatever URL the search box will send you to, not the
+page itself.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Right click a search box on a webpage.&lt;/li&gt;
+&lt;li&gt;Select "Add a Keyword for this Search..."&lt;/li&gt;
+&lt;li&gt;In the dialogue that opens, enter a keyword and the search URL is
+   then added to your bookmarks with a placeholder for a query.&lt;/li&gt;
+&lt;li&gt;When you next type that keyword followed by a search query into the
+   address bar, the bookmark gets loaded with your query automatically inserted
+   into the URL.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These keyword searches are normal bookmarks; you can edit them like any
+other bookmark. The only difference is that they contain the &lt;code&gt;%s&lt;/code&gt;
+&lt;a href="https://en.wikipedia.org/wiki/Printf_format_string"&gt;placeholder&lt;/a&gt; in the
+URL. When you carry out a keyword search, the term following the keyword
+replaces the &lt;code&gt;%s&lt;/code&gt; in the bookmark.&lt;/p&gt;
+&lt;p&gt;If you're browsing through your bookmarks in the Library, you'll only
+see "Name", "Location" and "Tags", but if you click "More", you'll see
+(and can change) the keyword you've set too. &lt;/p&gt;
+&lt;p&gt;(This all works because, as you've probably noticed, using a search
+option on a site usually sends you to a URL that contains the search
+term. Hopefully you can see that if you construct the URL without even
+visiting the site first, that this should still work. That said, this
+assumes that the site uses GET requests where the query is contained in
+the URL itself.)&lt;/p&gt;
+&lt;h2&gt;But my keyword searches aren't being added?&lt;/h2&gt;
+&lt;p&gt;As I find them so useful, I sorely missed it when recently, for whatever
+reason, Firefox decided that it wouldn't add them any more.&lt;/p&gt;
+&lt;p&gt;The bookmark would get created, but the keyword I added didn't get
+saved. Even if I manually edited the bookmark, I could enter a keyword
+but on navigating away to another bookmark and back again, the keyword
+would be lost again.&lt;/p&gt;
+&lt;p&gt;The simple fix was just to exit Firefox, locate &lt;code&gt;places.sqlite&lt;/code&gt; inside
+the Firefox profile directory,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; rename &lt;code&gt;places.sqlite&lt;/code&gt;, and let the
+file be rebuilt on the next restart (as documented in &lt;a href="https://support.mozilla.org/en-US/kb/cant-add-change-or-save-bookmarks"&gt;Mozilla's support
+pages&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The documentation states that you lose history, but any bookmarks are
+rebuilt from a backup. Once you're happy everything's OK, you can delete
+the old &lt;code&gt;places.sqlite&lt;/code&gt;. After that, new keyword searches were added
+without a problem.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Its location depends on &lt;a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data"&gt;your operating system&lt;/a&gt;.
+For me, on Linux, it was in the hidden &lt;code&gt;~/.mozilla/firefox&lt;/code&gt;. On
+Windows, it'll be in &lt;code&gt;%APPDATA%\Mozilla\Firefox\Profiles\&lt;/code&gt;. Make sure
+that you're in the correct profile directory, if you have multiple
+Firefox profiles.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Firefox"></category><category term="keyword search"></category><category term="quick search"></category></entry><entry><title>Answers to some Windows 10 activation questions</title><link href="http://www.stevenmaude.co.uk/posts/answers-to-some-windows-10-activation-questions" rel="alternate"></link><updated>2016-01-12T22:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-01-12:posts/answers-to-some-windows-10-activation-questions</id><summary type="html">&lt;p&gt;With a Windows 10 1511 Threshold 2 ISO that I downloaded (using the
 &lt;a href="http://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image"&gt;source I've previously
 described&lt;/a&gt;),
 I was recently testing out Windows 10.&lt;/p&gt;
@@ -900,229 +969,4 @@ post.&lt;/p&gt;
 files with a tilde on the end, your backup files will actually have
 &lt;strong&gt;another&lt;/strong&gt; tilde on the end (e.g. &lt;code&gt;my_draft_post.md~~&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;(Maybe marking files as hidden in Windows would have the same effect?
-Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry><entry><title>Taking control of Chromium (and Chrome) with ublock and HTTP Switchboard</title><link href="http://www.stevenmaude.co.uk/posts/taking-control-of-chromium-and-chrome" rel="alternate"></link><updated>2015-08-02T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2014-09-28:posts/taking-control-of-chromium-and-chrome</id><summary type="html">&lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit 2015-07-24: Slightly involved story aside, the version of
-uBlock linked here, by the original developer, is now uBlock Origin.
-I'd recommend searching for that version if installing as an
-extension.&lt;/p&gt;
-&lt;p&gt;It's available for both Firefox and Chrome/Chromium.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit 2015-05-18: The Chromium bug is fixed which should fix the uMatrix
-UI sluggishness, and uMatrix is finally available as a Firefox addon.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit 2015-01-09: HTTP Switchboard development is discontinued and has been
-replaced with &lt;a href="https://github.com/gorhill/uMatrix"&gt;uMatrix&lt;/a&gt;. The
-interface is largely unchanged. One problem at the time of writing is a
-&lt;a href="https://github.com/gorhill/uBlock/issues/419"&gt;Chromium bug&lt;/a&gt; which I
-think is the cause of the UI being really laggy to appear. Hopefully,
-this should be fixed soon.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;After tinkering around with Adblock's filters to block some ads, I
-remembered that I'd read about an alternative to Adblock for
-Chromium-based browsers called &lt;a href="https://github.com/gorhill/httpswitchboard"&gt;HTTP
-Switchboard&lt;/a&gt; a few months ago
-and figured I should actually give it a try.&lt;/p&gt;
-&lt;p&gt;One of the reasons that HTTP Switchboard was notable is that it promised
-to be much more CPU and memory friendly than &lt;a href="https://blog.mozilla.org/nnethercote/2014/05/14/adblock-pluss-effect-on-firefoxs-memory-usage/"&gt;Adblock Plus&lt;/a&gt;
-currently is.&lt;/p&gt;
-&lt;p&gt;In fact, the adblocking part of HTTP Switchboard has now been separated
-out into another project, ublock. Both are still useful. I'll explain
-why below.&lt;/p&gt;
-&lt;h2&gt;Why are you blocking content at all?&lt;/h2&gt;
-&lt;p&gt;Many content-driven websites use advertising as their business model. My
-feeling is that, while sites are welcome to try and send content to my
-browser, I should have the freedom to choose what my browser actually
-loads.&lt;/p&gt;
-&lt;p&gt;There's no contract I've signed that states I must load and display the
-page as the site owner intends. (What if I'm using a text browser like
-links?) And there's no obligation on my part to make their business
-model sustainable.&lt;/p&gt;
-&lt;p&gt;Maybe you still think this seems selfish. Well, to some extent it is.
-But, my privacy and computer security are more important to me than the
-financial success or failure of an external organisation. That I put my
-priorities in this order is kind of obvious though, right?&lt;/p&gt;
-&lt;h2&gt;Why shouldn't sites and advertisers worry so much?&lt;/h2&gt;
-&lt;p&gt;Even with "despicable" users like me, there are two reasons I can think
-of as to why advertisers and sites dependent on them shouldn't feel so
-glum:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Adblocking users have made an active choice to block ads. Those
-    users have done you a favour in removing themselves from your
-    viewership as you don't waste time targeting them; why chase
-    "customers" running in the opposite direction from you?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Browsing is increasingly done from mobile browsers. How many users
-    are going to bother to root their devices or install alternative
-    browsers just for adblocking?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;But why worry about where displayed web content originates from?&lt;/h2&gt;
-&lt;h3&gt;Privacy&lt;/h3&gt;
-&lt;p&gt;One contentious issue with ads and cookies is privacy.&lt;/p&gt;
-&lt;p&gt;As &lt;a href="http://www.economist.com/news/special-report/21615871-everything-people-do-online-avidly-followed-advertisers-and-third-party"&gt;this Economist
-article&lt;/a&gt;
-highlights,
-the depth of what advertisers collect about your browsing habits is
-extensive, and it's handled and passed around by many organisations.
-Unless you're all for being advertised at, this isn't for your benefit.&lt;/p&gt;
-&lt;p&gt;Maybe advertisers are really all benign and just interested in deciding
-who's best to try to sell to. Perhaps just as the executive in that
-article quoted claims, it really is just that,&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;"We are not trolling for personal information. We are trying to figure
-out if you are a high-value customer and are in the market for a car."&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;But, the sheer amount of information being collected is worrying,
-especially when, as a user, I've no idea of what's actually being
-tracked and what the intended end use is.&lt;/p&gt;
-&lt;h3&gt;Malware&lt;/h3&gt;
-&lt;p&gt;As well as that, web advertising has been a conduit for the deployment
-of malware previously and will no doubt continue to be. (It's a nice way
-of distributing it to users who are visiting, what to them, might seem
-like a trustworthy site. If they can get the malicious ad past the
-company providing the advertising, they don't need to go to the trouble
-of hacking the site directly.)&lt;/p&gt;
-&lt;p&gt;There have been
-&lt;a href="http://arstechnica.com/security/2014/09/google-stops-malicious-advertising-campaign-that-could-have-reached-millions/"&gt;one&lt;/a&gt;
-or &lt;a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/01/04/thousands-of-visitors-to-yahoo-com-hit-with-malware-attack-researchers-say/"&gt;two&lt;/a&gt;
-high-profile incidents this year too.&lt;/p&gt;
-&lt;p&gt;In terms of potentially malicious content, it's not only just ad
-providers that I'm concerned with, but allowing large numbers of
-arbitrary sites to run their scripts on your machine unchecked.&lt;/p&gt;
-&lt;p&gt;Look at the recent &lt;a href="http://www.zdnet.com/was-jquery-hacked-7000034009/"&gt;JQuery
-compromise&lt;/a&gt;, for
-instance. Fortunately, only the site itself was affected and &lt;strong&gt;not&lt;/strong&gt; the
-hosted libraries that many sites. It's not inconceivable that an
-attacker may well deliberately go after to poison hosted libraries. It's
-just way too big a jackpot for malware distributors to ignore.&lt;/p&gt;
-&lt;p&gt;Even if such an attack might be spotted quite quickly, how many users
-could be affected in the interim? (I'm not even sure what the solution
-is here; often JQuery's needed for sites to function as intended...)&lt;/p&gt;
-&lt;p&gt;Minimising the number of third-party sites that you allow content to
-load from can't be a bad thing. (There's some risk wherever you go, but
-in some cases, I've seen sites loading in content from more sites than I
-can count on both hands.)&lt;/p&gt;
-&lt;h2&gt;Controlling what your browser displays&lt;/h2&gt;
-&lt;p&gt;So, what can you do? There are browser extensions for Firefox and Chrome
-that give you more control over what your browser loads.&lt;/p&gt;
-&lt;p&gt;Lots of sites are perfectly readable without them storing tracking
-information about you, without arbitrary JavaScript running. For those
-that don't, it's quite simple to whitelist them.&lt;/p&gt;
-&lt;p&gt;The downside of this is that it can be a chore. In Firefox, I need a
-slew of extensions to do this: which sites are allowed to run scripts
-(NoScript), which cross-site requests are allowed (RequestPolicy), and
-which sites can store cookies (CookieMonster).&lt;/p&gt;
-&lt;p&gt;Managing each one in turn, allowing permissions for cookies, scripts and
-third-party scripts, can be tedious. I've run NoScript for a long time,
-but these days with sites often hosting content and scripts somewhere
-other than on the domain you're visiting, it's much more work than it
-was.&lt;/p&gt;
-&lt;p&gt;HTTP Switchboard was a big, all encompassing project for Chromium-based
-browsers that had features comparable to Adblock Plus, and the Firefox
-extensions, NoScript, RequestPolicy. Recently, the &lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;adblocking,
-pattern-based filtering&lt;/a&gt;
-has been split out into another project,
-&lt;a href="https://github.com/gorhill/ublock"&gt;ublock&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;ublock&lt;/h2&gt;
-&lt;p&gt;By virtue of what HTTP Switchboard aims to do — give you full control of
-what is allowed by your browser — this makes its user interface slightly
-more complex, which I'll soon get onto.&lt;/p&gt;
-&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2014/ublock.png" alt="The ublock enable/disable icon." width="174"&gt;&lt;/p&gt;
-&lt;p&gt;Stripping out this sophistication seems like a smart move, since
-ublock's incredibly easy to use. Really, it requires the same amount of
-setup as Adblock Plus does: not much at all.&lt;/p&gt;
-&lt;p&gt;It comes with the most popular Adblock Plus filters accessible on
-install, and you can easily choose which of those filter lists are
-applied.&lt;/p&gt;
-&lt;p&gt;Disabling ublock for a site is also straightforward. Click the red µ
-icon next to the address bar and then click the power icon.&lt;/p&gt;
-&lt;p&gt;It does the same job as Adblock Plus, but with lower CPU and memory
-usage. If you've ditched an ad blocker for this reason, it's worth
-looking at. Even if you're still happy using Adblock Plus (or one of its
-forks), ublock is definitely worth spending the couple of minutes to try
-it out.&lt;/p&gt;
-&lt;h2&gt;HTTP Switchboard&lt;/h2&gt;
-&lt;p&gt;On to HTTP Switchboard, which allows fine grained control of the types
-and locations of content that Chromium-based browser can access.&lt;/p&gt;
-&lt;p&gt;Note that with the current version of HTTP Switchboard, there's a little
-&lt;a href="https://github.com/gorhill/httpswitchboard/issues/378"&gt;initial setup&lt;/a&gt; to
-disable the adblocking filtering that uBlock covers.&lt;/p&gt;
-&lt;p&gt;HTTP Switchboard's interface can feel initially overwhelming; more so
-than perhaps the likes of NoScript, RequestPolicy and CookieMonster that
-I use which all have similar menus to allow or deny permission for a
-site to run scripts or store cookies. These have a text explanation of
-what the option does.&lt;/p&gt;
-&lt;figure class="article-figure"&gt;
-  &lt;img src="http://www.stevenmaude.co.uk/images/2014/Firefox_menus.png" alt="Examples of NoScript, CookieMonster and RequestPolicy permission menus."&gt;
-  &lt;figcaption&gt;From left to right, examples of NoScript, CookieMonster and RequestPolicy permission menus when accessing Google Books.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;The problem with this menu format is, though it's explicit and clear,
-it's cumbersome when you're dealing with several extensions. For each
-extension, you need to repeat the process of whitelisting every site
-that you're allowing.&lt;/p&gt;
-&lt;p&gt;When you've actually used HTTP Switchboard for a few minutes, its
-simplicity clicks. HTTP Switchboard opts for a table-like interface.
-Each site is represented as a row, and each type of content is shown as
-a column.&lt;/p&gt;
-&lt;figure class="article-figure"&gt;
-  &lt;img src="http://www.stevenmaude.co.uk/images/2014/HTTP_Switchboard.png" alt="Example of HTTP Switchboard's table interface."&gt;
-  &lt;figcaption&gt;Example of HTTP Switchboard's interface when accessing Google Books.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;This lets the user approve different permissions for different sites
-quickly. Just read down the list of sites, click on those you want to
-whitelist completely, and for those you don't you can allow specific
-features only (e.g. loading images only). Likewise, if you want to
-enable one type of content for all sites, just click the appropriate
-column. If you want to save the permissions in future, click the padlock
-icon, and you're done.&lt;/p&gt;
-&lt;p&gt;It helps a lot that you can see &lt;strong&gt;all&lt;/strong&gt; the sites that are trying to
-load content or save cookies in one glance, rather than consulting
-separate menus.&lt;/p&gt;
-&lt;p&gt;There's an autoreload option that refreshes the page when you change
-permissions, so once you've approved everything needed, the page should
-then work as expected.&lt;/p&gt;
-&lt;p&gt;Out of the box, (I think) HTTP Switchboard was configured to allow most
-requests through, apart from those blacklisted by filters. What
-initially confused me was at what level the filters apply. (Do they
-apply to this site? To this domain? globally?).&lt;/p&gt;
-&lt;p&gt;What I'd recommend is, like the extension developer, is to
-&lt;a href="https://github.com/gorhill/httpswitchboard/wiki/How-to-use-HTTP-Switchboard:-Two-opposing-views"&gt;block everything&lt;/a&gt;
-by default and then whitelist only what you want to allow.&lt;/p&gt;
-&lt;p&gt;There's an option in the HTTP Switchboard settings under "more security"
-to create a new site-specific scope for every site you visit which is
-really useful. This creates a set of rules for each site you visit.
-Furthermore, the drop down (click the blue top-left box with the site
-name in) lets you select where the rule applies (to the site, to the
-domain or globally).&lt;/p&gt;
-&lt;p&gt;This lets you block content from, say, a site like twitter.com when
-you're visiting a third-party site, but allow it when you're directly
-visiting Twitter.&lt;/p&gt;
-&lt;p&gt;It also has some nice bonus privacy features, like removing HTTP
-referers when visiting non-whitelisted sites and a user-agent
-randomiser.&lt;/p&gt;
-&lt;p&gt;The only thing that's missing for me is guidance on what the sites
-likely are. If you're happy to spend a few seconds researching, it's not
-hard to figure this out. It might save a bit of time if there was a
-database of sites telling you "hey, you might need this, it's a content
-delivery network" or "this is tracking how you're using the site; you
-probably don't need it for the site to function properly". Yes, I can
-search, but it's a bit clunky to do that.&lt;/p&gt;
-&lt;h2&gt;A summary&lt;/h2&gt;
-&lt;p&gt;These are really great browser extensions, and credit to Raymond Hill
-for an awesome job on them. Every time I'm managing permissions with
-multiple extensions in Firefox now, I sigh a little. (Firefox's awesome
-bar is far more useful to me than Chrome/ium's omnibox though, so I tend
-to stick with Firefox.)&lt;/p&gt;
-&lt;p&gt;Longer term, I'd really hope that a Firefox add-on developer &lt;a href="https://github.com/gorhill/uBlock/issues/27"&gt;picks up
-the baton to port these&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;(As a postscript, I should point out that as well as adblocking and
-control over requests, &lt;a href="https://www.eff.org/https-everywhere"&gt;HTTPS Everywhere&lt;/a&gt;
-is another useful privacy-enhancing extension for Firefox and Chromium
-browsers. Where HTTPS browsing is available on sites but not always used,
-HTTPS Everywhere enables it for you.)&lt;/p&gt;</summary><category term="ad"></category><category term="µBlock"></category><category term="HTTP Switchboard"></category><category term="blocking"></category><category term="privacy"></category><category term="adblock"></category><category term="ublock"></category></entry></feed>
+Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry></feed>
