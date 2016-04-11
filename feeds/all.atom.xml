@@ -1,5 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-03T17:00:00+01:00</updated><entry><title>Firefox keyword searches, and how to fix adding them</title><link href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them" rel="alternate"></link><updated>2016-04-03T17:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-03:posts/firefox-keyword-searches-and-how-to-fix-adding-them</id><summary type="html">&lt;h2&gt;What are keyword searches?&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-12T00:33:00+01:00</updated><entry><title>The case of a Windows 7 update, Secure Boot and a suspect motherboard</title><link href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard" rel="alternate"></link><updated>2016-04-12T00:33:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-12:posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard</id><summary type="html">&lt;p&gt;Because, obviously, I have nothing I'd rather do than try to fathom how Secure
+Boot works on a Monday evening, I'm writing this up. &lt;/p&gt;
+&lt;p&gt;Maybe you're experiencing this problem right now. Maybe you're not, but you're
+intrigued as to how I go about diagnosing computer problems.&lt;/p&gt;
+&lt;h2&gt;A stubborn PC&lt;/h2&gt;
+&lt;p&gt;I maintain a PC that has Windows 7 installed (due to be upgraded to Windows 10)
+and, yesterday evening, installed several optional updates.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; Nothing unusual
+there.&lt;/p&gt;
+&lt;p&gt;A day later, an owner of the machine restarted it. Except, well, the PC
+refused.&lt;/p&gt;
+&lt;p&gt;Instead it said this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The system found unauthorized changes on the firmware, operating system or
+UEFI drivers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hmm. That's certainly not good since it's related to &lt;a href="https://technet.microsoft.com/en-GB/library/hh824987.aspx"&gt;Secure
+Boot&lt;/a&gt;'s check of
+boot integrity. Warily, I disabled Secure Boot in the BIOS to get the machine
+to boot Windows, and checked the System Event Log.&lt;/p&gt;
+&lt;p&gt;Looking around the log, it turns out that the last time that the machine had
+previously successfully started was just before I installed the updates, which
+is consistent with what had happened. As the PC was fine until that point, it
+ruled out anything malicious, and pointed to the update as being a likely
+candidate.&lt;/p&gt;
+&lt;p&gt;Having looked through the list of recently installed updates, most of them
+seemed fairly routine, except &lt;a href="https://support.microsoft.com/en-gb/kb/3133977"&gt;the KB3133977 update for a Bitlocker
+issue&lt;/a&gt;. What stood out were the
+changes to Windows Boot Manager files &lt;code&gt;Bootmgr.efi&lt;/code&gt; and &lt;code&gt;Bootmgfw.efi&lt;/code&gt;, which
+also suggested the update was at fault.&lt;/p&gt;
+&lt;h2&gt;ASUSpect?&lt;/h2&gt;
+&lt;p&gt;Searching around led me to several recent links, as I mentioned in comments on
+this &lt;a href="https://superuser.com/questions/1054790/system-found-unauthorized-changes-on-the-firmware"&gt;SuperUser
+question&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In those posts, Windows users were reporting the same issue: the BIOS
+complaining that there was an unauthorised change. This being a relatively new
+issue isn't surprising as the update was only released on March 14th, 2016.&lt;/p&gt;
+&lt;p&gt;ASUS being the motherboard manufacturer seems to be common to those
+experiencing the problem. It seems to affect different models; here it's a
+H87-PRO. Even then it's unclear what the root cause is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;maybe ASUS motherboards are the only ones that allow you to enable Secure
+Boot with Windows 7?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;maybe there's something unusual with the signing process of this update that
+only affected ASUS motherboards?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;or maybe it's just a coincidence? (But, it's odd that it's a common link in
+several cases. You'd think if users with other motherboards would have been
+affected, they'd have mentioned it too.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As linked above, Microsoft's site suggests Secure Boot is supported on Windows
+8 and up, and I can't find any documentation to suggest Secure Boot should work
+on Windows 7. It's possible that this is just behaviour out of specification
+that didn't cause any problem until now.&lt;/p&gt;
+&lt;p&gt;(It's a while ago since I installed the PC, but I guess that I originally must
+have tried turning on Secure Boot during installation and, since the PC booted
+without a problem, left it enabled.)&lt;/p&gt;
+&lt;h2&gt;What to do?&lt;/h2&gt;
+&lt;p&gt;Other posts I'd read indicated that removing KB3133977 didn't solve this.
+Perhaps there are EFI changes that don't get reverted when you uninstall the
+update? Who knows?&lt;/p&gt;
+&lt;p&gt;However, restoring a previous system backup fixes the issue. You could then
+leave everything as is, but have to make sure that you don't install this
+update (hiding it would work). This is inconvenient then, but fine provided you
+have regular backups.&lt;/p&gt;
+&lt;p&gt;Oh, but the update might actually fix a problem you're experiencing with
+Bitlocker. In which case, you're going to have to install it regardless then,
+aren't you?&lt;/p&gt;
+&lt;p&gt;Another solution is to disable Secure Boot in the BIOS. That's not a perfect
+solution though, especially if you're booting other operating systems that work
+with Secure Boot.&lt;/p&gt;
+&lt;p&gt;It's always possible, but unlikely, that Microsoft could reissue the update and
+enabling the Secure Boot option might be possible again.&lt;/p&gt;
+&lt;p&gt;None of that explains completely what happened, but that's at least enough to
+hopefully stop you panicking and make your Windows install accessible, if
+you've been affected.&lt;/p&gt;
+&lt;p&gt;What fun will today's later batch of updates brings, I wonder?&lt;/p&gt;
+&lt;h2&gt;One more thing&lt;/h2&gt;
+&lt;p&gt;Incidentally, I wondered what happens if you disable Secure Boot, then do an
+in-place upgrade of Windows in this situation, where we can't enable Secure
+Boot? Can you later enable it?&lt;/p&gt;
+&lt;p&gt;My hunch is that you should be able to, provided your operating system was
+installed when your BIOS was in UEFI mode. With the ASUS motherboard I was
+looking at, if you were doing an in-place upgrade in this particularly strange
+case, I think you'd need to clear the Secure Boot keys to disable Secure Boot
+while allowing UEFI (otherwise you wouldn't be able to boot Windows 7).&lt;/p&gt;
+&lt;p&gt;Once the upgrade's complete, I'd then expect I could go back to the BIOS and
+install the default Secure Boot keys, which should let you set Secure Boot
+again.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Previously, I had recommended updates set to automatically install, but
+unfortunately it's now necessary to make sure you don't &lt;a href="https://blogs.windows.com/windowsexperience/2015/10/29/making-it-easier-to-upgrade-to-windows-10/"&gt;inadvertently install
+Windows 10&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Windows"></category><category term="Secure Boot"></category></entry><entry><title>Firefox keyword searches, and how to fix adding them</title><link href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them" rel="alternate"></link><updated>2016-04-03T17:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-03:posts/firefox-keyword-searches-and-how-to-fix-adding-them</id><summary type="html">&lt;h2&gt;What are keyword searches?&lt;/h2&gt;
 &lt;p&gt;Keyword searches, or quick searches, are really handy when browsing. If
 you think of something that you want to search for, they remove the
 extra step of first navigating to the site and selecting the search box. &lt;/p&gt;
@@ -913,60 +1015,4 @@ I'll describe the advantages of those in a later post.&lt;/p&gt;
   &lt;a href="http://pandoc.org/"&gt;pandoc&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Blogger"></category><category term="Wordpress"></category></entry><entry><title>Hiding draft articles in Pelican</title><link href="http://www.stevenmaude.co.uk/posts/hiding-draft-articles-in-pelican" rel="alternate"></link><updated>2015-06-01T13:53:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-05-31:posts/hiding-draft-articles-in-pelican</id><summary type="html">&lt;p&gt;What I thought I'd get done in a week, actually took about four
-months. But I'm finally free of Blogger and have moved to
-&lt;a href="http://docs.getpelican.com"&gt;Pelican&lt;/a&gt; for creating my blog. I'll be
-writing more about how I migrated soon.&lt;/p&gt;
-&lt;p&gt;As I approached the end of that lengthy migration, I found myself
-writing new draft articles that I wanted to ensure didn't actually make
-their way into my publication directory.&lt;/p&gt;
-&lt;h2&gt;Writing blog posts&lt;/h2&gt;
-&lt;p&gt;The way that I usually approach writing blog posts is that, as
-I reach the end of writing them, I'll start reading in the final display
-format, i.e. as a web page. This helps spot any mistakes that
-I might miss from my eyes glazing over at a text editor, and helps me
-spot formatting problems.&lt;/p&gt;
-&lt;p&gt;But, you might be working on multiple articles at once, so you want to
-publish while you still have draft articles in your &lt;code&gt;content&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;Here's a few ways to prevent posts from being accidentally published,
-without needing to do file juggling of your drafts in and out of the
-&lt;code&gt;content&lt;/code&gt; directory.&lt;/p&gt;
-&lt;h2&gt;Marking as draft and &lt;code&gt;.gitignore&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Any articles we stick in the &lt;code&gt;content&lt;/code&gt; directory will end up in our
-&lt;code&gt;output&lt;/code&gt; directory, right? Not if we do like
-&lt;a href="http://docs.getpelican.com/en/latest/content.html"&gt;the documentation says&lt;/a&gt;
-and add &lt;code&gt;Status: draft&lt;/code&gt; to the metadata.&lt;/p&gt;
-&lt;p&gt;Building your site will then place draft articles in a &lt;code&gt;drafts&lt;/code&gt;
-directory, and the articles therein aren't linked from anywhere. This
-might be useful if you want to share a link with someone to get feedback
-on a post before you officially publish it.&lt;/p&gt;
-&lt;p&gt;Using a &lt;code&gt;.gitignore&lt;/code&gt; file in your &lt;code&gt;output&lt;/code&gt; directory is also an option
-if you're using &lt;code&gt;git&lt;/code&gt; to push new versions of your blog for publication.
-Add &lt;code&gt;drafts/&lt;/code&gt; to your &lt;code&gt;.gitignore&lt;/code&gt; and you'd have to make a deliberate
-effort to add them for publication.&lt;/p&gt;
-&lt;h2&gt;Stopping Pelican from seeing the draft posts&lt;/h2&gt;
-&lt;p&gt;The other option is to just prevent Pelican from seeing draft posts
-completely.&lt;/p&gt;
-&lt;p&gt;This does mean that they won't appear in your local preview of your
-site, not even as an unlinked page.&lt;/p&gt;
-&lt;h3&gt;Using Pelican's &lt;code&gt;IGNORE_FILES&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Putting "draft" in the filename of any drafts is another option. Then,
-you can use the &lt;code&gt;IGNORE_FILES&lt;/code&gt; setting in &lt;code&gt;pelicanconf.py&lt;/code&gt; to
-specifically ignore the drafts.&lt;/p&gt;
-&lt;p&gt;Note that if you specify a setting in your Pelican configuration files,
-the defaults get overridden. This means that you'll need to copy over
-the existing settings from the defaults too. Otherwise, you'll
-unintentionally change your configuration.&lt;/p&gt;
-&lt;p&gt;For instance, the &lt;a href="http://docs.getpelican.com/en/latest/settings.html"&gt;default&lt;/a&gt;
-&lt;code&gt;IGNORE_FILES&lt;/code&gt; setting is &lt;code&gt;IGNORE_FILES = ['.#*']&lt;/code&gt; so we'll need to
-add &lt;code&gt;IGNORE_FILES = ['.#*', '*draft*']&lt;/code&gt; to our Pelican settings.&lt;/p&gt;
-&lt;h3&gt;Hiding the files completely (in Ubuntu, at least)&lt;/h3&gt;
-&lt;p&gt;Under Linux, I thought that preceding the filename with a dot would hide
-posts from Pelican, but it doesn't seem to. However, sticking a tilde on
-the end of the filename does seem to prevent Pelican from seeing the
-post.&lt;/p&gt;
-&lt;p&gt;One side-effect is that if you use a text editor that creates backup
-files with a tilde on the end, your backup files will actually have
-&lt;strong&gt;another&lt;/strong&gt; tilde on the end (e.g. &lt;code&gt;my_draft_post.md~~&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;(Maybe marking files as hidden in Windows would have the same effect?
-Haven't tried this.)&lt;/p&gt;</summary><category term="draft"></category><category term="article"></category><category term="Pelican"></category></entry></feed>
+&lt;/div&gt;</summary><category term="Blogger"></category><category term="Wordpress"></category></entry></feed>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>2016 - stevenmaude.co.uk</title>
+    <title>The case of a Windows 7 update, Secure Boot and a suspect motherboard - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,22 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="2016" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Windows,Secure Boot" />
+        <meta name="description" content="Fixing Secure Boot related issues on Windows 7 following the KB3133977 update." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="The case of a Windows 7 update, Secure Boot and a suspect motherboard"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard"/>
+        <meta property="og:description" content="Fixing Secure Boot related issues on Windows 7 following the KB3133977 update."/>
+        <meta property="article:published_time" content="2016-04-12" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="Windows" />
+            <meta property="article:tag" content="Secure Boot" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +32,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,9 +82,16 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard">The case of a Windows 7 update, Secure Boot and a suspect motherboard</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                The case of a Windows 7 update, Secure Boot and a suspect motherboard
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
@@ -93,58 +108,114 @@ stevenmaude.co.uk            </a>
 	<a href="http://www.stevenmaude.co.uk/tag/secure-boot">Secure Boot</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Fixing Secure Boot related issues on Windows 7 following the KB3133977 update.</p>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them">Firefox keyword searches, and how to fix adding them</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2016-04-03T17:00:00+01:00"> 2016-04-03</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/keyword-search">keyword search</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/quick-search">quick search</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>How Firefox keyword searches speed up web searching, and how to resolve the situation when you can't add new ones.</p>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/answers-to-some-windows-10-activation-questions">Answers to some Windows 10 activation questions</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2016-01-12T22:23:00+00:00"> 2016-01-12</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/windows">Windows</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/activation">activation</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Some details of Windows 10 activation post-Threshold 2 release.</p>
-                </div>
-            </article>
-            <hr/>
+                <p>Because, obviously, I have nothing I'd rather do than try to fathom how Secure
+Boot works on a Monday evening, I'm writing this up. </p>
+<p>Maybe you're experiencing this problem right now. Maybe you're not, but you're
+intrigued as to how I go about diagnosing computer problems.</p>
+<h2>A stubborn PC</h2>
+<p>I maintain a PC that has Windows 7 installed (due to be upgraded to Windows 10)
+and, yesterday evening, installed several optional updates.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> Nothing unusual
+there.</p>
+<p>A day later, an owner of the machine restarted it. Except, well, the PC
+refused.</p>
+<p>Instead it said this:</p>
+<blockquote>
+<p>The system found unauthorized changes on the firmware, operating system or
+UEFI drivers.</p>
+</blockquote>
+<p>Hmm. That's certainly not good since it's related to <a href="https://technet.microsoft.com/en-GB/library/hh824987.aspx">Secure
+Boot</a>'s check of
+boot integrity. Warily, I disabled Secure Boot in the BIOS to get the machine
+to boot Windows, and checked the System Event Log.</p>
+<p>Looking around the log, it turns out that the last time that the machine had
+previously successfully started was just before I installed the updates, which
+is consistent with what had happened. As the PC was fine until that point, it
+ruled out anything malicious, and pointed to the update as being a likely
+candidate.</p>
+<p>Having looked through the list of recently installed updates, most of them
+seemed fairly routine, except <a href="https://support.microsoft.com/en-gb/kb/3133977">the KB3133977 update for a Bitlocker
+issue</a>. What stood out were the
+changes to Windows Boot Manager files <code>Bootmgr.efi</code> and <code>Bootmgfw.efi</code>, which
+also suggested the update was at fault.</p>
+<h2>ASUSpect?</h2>
+<p>Searching around led me to several recent links, as I mentioned in comments on
+this <a href="https://superuser.com/questions/1054790/system-found-unauthorized-changes-on-the-firmware">SuperUser
+question</a>.</p>
+<p>In those posts, Windows users were reporting the same issue: the BIOS
+complaining that there was an unauthorised change. This being a relatively new
+issue isn't surprising as the update was only released on March 14th, 2016.</p>
+<p>ASUS being the motherboard manufacturer seems to be common to those
+experiencing the problem. It seems to affect different models; here it's a
+H87-PRO. Even then it's unclear what the root cause is:</p>
+<ul>
+<li>
+<p>maybe ASUS motherboards are the only ones that allow you to enable Secure
+Boot with Windows 7?</p>
+</li>
+<li>
+<p>maybe there's something unusual with the signing process of this update that
+only affected ASUS motherboards?</p>
+</li>
+<li>
+<p>or maybe it's just a coincidence? (But, it's odd that it's a common link in
+several cases. You'd think if users with other motherboards would have been
+affected, they'd have mentioned it too.)</p>
+</li>
+</ul>
+<p>As linked above, Microsoft's site suggests Secure Boot is supported on Windows
+8 and up, and I can't find any documentation to suggest Secure Boot should work
+on Windows 7. It's possible that this is just behaviour out of specification
+that didn't cause any problem until now.</p>
+<p>(It's a while ago since I installed the PC, but I guess that I originally must
+have tried turning on Secure Boot during installation and, since the PC booted
+without a problem, left it enabled.)</p>
+<h2>What to do?</h2>
+<p>Other posts I'd read indicated that removing KB3133977 didn't solve this.
+Perhaps there are EFI changes that don't get reverted when you uninstall the
+update? Who knows?</p>
+<p>However, restoring a previous system backup fixes the issue. You could then
+leave everything as is, but have to make sure that you don't install this
+update (hiding it would work). This is inconvenient then, but fine provided you
+have regular backups.</p>
+<p>Oh, but the update might actually fix a problem you're experiencing with
+Bitlocker. In which case, you're going to have to install it regardless then,
+aren't you?</p>
+<p>Another solution is to disable Secure Boot in the BIOS. That's not a perfect
+solution though, especially if you're booting other operating systems that work
+with Secure Boot.</p>
+<p>It's always possible, but unlikely, that Microsoft could reissue the update and
+enabling the Secure Boot option might be possible again.</p>
+<p>None of that explains completely what happened, but that's at least enough to
+hopefully stop you panicking and make your Windows install accessible, if
+you've been affected.</p>
+<p>What fun will today's later batch of updates brings, I wonder?</p>
+<h2>One more thing</h2>
+<p>Incidentally, I wondered what happens if you disable Secure Boot, then do an
+in-place upgrade of Windows in this situation, where we can't enable Secure
+Boot? Can you later enable it?</p>
+<p>My hunch is that you should be able to, provided your operating system was
+installed when your BIOS was in UEFI mode. With the ASUS motherboard I was
+looking at, if you were doing an in-place upgrade in this particularly strange
+case, I think you'd need to clear the Secure Boot keys to disable Secure Boot
+while allowing UEFI (otherwise you wouldn't be able to boot Windows 7).</p>
+<p>Once the upgrade's complete, I'd then expect I could go back to the BIOS and
+install the default Secure Boot keys, which should let you set Secure Boot
+again.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Previously, I had recommended updates set to automatically install, but
+unfortunately it's now necessary to make sure you don't <a href="https://blogs.windows.com/windowsexperience/2015/10/29/making-it-easier-to-upgrade-to-windows-10/">inadvertently install
+Windows 10</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
