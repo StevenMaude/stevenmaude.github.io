@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - stevenmaude.co.uk</title>
+    <title>Managing a Bitbucket user's permissions when they've left your team - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,21 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team">
 
         <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Bitbucket" />
+        <meta name="description" content="Removing users entirely from accessing your Bitbucket team&#39;s repositories." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Managing a Bitbucket user&#39;s permissions when they&#39;ve left your team"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team"/>
+        <meta property="og:description" content="Removing users entirely from accessing your Bitbucket team&#39;s repositories."/>
+        <meta property="article:published_time" content="2016-04-16" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="Bitbucket" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -25,6 +31,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -73,8 +81,97 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <h1>Authors on stevenmaude.co.uk</h1>
-        <li><a href="http://www.stevenmaude.co.uk/author/steven-maude">Steven Maude</a> (69)</li>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Managing a Bitbucket user's permissions when they've left your team
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-04-16T01:54:00+01:00"> 2016-04-16</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/bitbucket">Bitbucket</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>Kicking the Bitbucket</h2>
+<p>What I noticed this week is that users who'd left a Bitbucket team<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>
+that I'm currently a member of were still billed as having admin access
+to several repositories. But, this wasn't by virtue of being a team
+member, as we'd removed them.  Instead, this was via their own user
+accounts. This seems like the intended behaviour. It's documented
+<a href="https://bitbucket.org/site/master/issues/5148/repos-transferred-to-a-team-retain-creator#comment-22446820">here</a>:
+a user gets admin access to the repository when they create it.</p>
+<p>I tested this by just creating a new repository that was owned by the
+team. Checking the access management settings showed that the team was
+the owner of the repository, but I had separate admin permissions for
+the repository.</p>
+<p>If you've got the required permissions yourself, you can go and clean up
+user access on a repository basis, via that same repository access
+management settings. A short look around — though short does mean very
+short, admittedly — for suitable bits of the API that would let me purge
+old users without having to manually click through each repository
+didn't reveal anything. Click, click, click seemed the only way to fix
+it. And if you have a lot of repositories, that's a lot of clicking.</p>
+<h2>Stop it (and tidy up)</h2>
+<p>Looking now at this late hour, it seems that I was looking in entirely
+the wrong place previously. A much, much quicker route to cleaning up is
+to browse to your team's page and select "Manage team". From there, look
+at "Plan details". There you can see exactly who has access to your
+team's repositories and what access type they have.</p>
+<p>This might be "group". That is, because they're part of a user group in
+your team — groups are another aspect of access management, you can be
+in the team, but maybe you're in a group that maybe doesn't have access
+to any team repositories at all.</p>
+<p>A user's access type can also be "repository", i.e. they have access
+because their user account has explicitly set permissions on that
+repository.</p>
+<p>Clicking "View access" shows you which team repositories they can
+access. Next to "View access", there's a cross icon that you can click
+to remove <strong>all</strong> the user's permissions from your team. In just one
+click. What happens if you do that for a user that's still on the team?
+I can't answer that; maybe it boots them out of the team too? (I wasn't
+about to try it.)</p>
+<h2>A potentially money saving tip</h2>
+<p>It's sensible to keep access permissions to your repositories to a
+minimum to ensure that only users who need access have it. Of course, it
+may be that you have equally sensible reasons to retain access for
+ex-team members.</p>
+<p>However, it's also worth considering how Bitbucket counts users in your
+team's plan. The definition of users on the Bitbucket plan details page
+is:</p>
+<blockquote>
+<p>The number of users (including you) with any level of access to one or
+more of your private repos.</p>
+</blockquote>
+<p><strong>This is whether they are a formal team member or not</strong>. (Team members
+without repository access don't count here.) So, this spring cleaning
+might allow you to switch to a cheaper Bitbucket plan for your team too.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Organisation in GitHub parlance.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
