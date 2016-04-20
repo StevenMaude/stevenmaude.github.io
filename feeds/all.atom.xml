@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-16T01:54:00+01:00</updated><entry><title>Managing a Bitbucket user's permissions when they've left your team</title><link href="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team" rel="alternate"></link><updated>2016-04-16T01:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-16:posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team</id><summary type="html">&lt;h2&gt;Kicking the Bitbucket&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-20T20:30:00+01:00</updated><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
+&lt;p&gt;Firefox has a buried feature in its Developer Tools, which is potentially
+useful even if you're not a developer. If you've never used the Developer
+Tools, just press F12 and you'll see the tools.&lt;/p&gt;
+&lt;p&gt;You should see a cog icon towards the upper right of the pane that's just
+displayed. The cog is on the same row as the Inspector, Console etc. buttons.&lt;/p&gt;
+&lt;p&gt;Clicking this displays a page of options that you can use to customise the
+Developer Tools. By ticking "Take a fullpage screenshot" under "Available
+Toolbox Buttons", you should see a camera icon appear near the cog icon you
+previously clicked. Selecting this gives you a screenshot of the page where you
+opened the Developer Tools. The resulting PNG file can be found in your Firefox
+Downloads.&lt;/p&gt;
+&lt;p&gt;This is a really handy feature. It means that you can take an image of a
+scrollable page that's &lt;strong&gt;larger&lt;/strong&gt; than your current window. No need for
+screenshotting parts of the page then joining them together by hand.&lt;/p&gt;
+&lt;h2&gt;Solving bigger problems&lt;/h2&gt;
+&lt;p&gt;But what if you want to enlarge the visible area beyond the size of your
+current window, and then take a screenshot?&lt;/p&gt;
+&lt;p&gt;Why would this be even useful?&lt;/p&gt;
+&lt;p&gt;Let's say that you want a screenshot of a web page displaying a map, where the
+map expands to fill your browser window. And let's say that you want the
+screenshot to cover a larger area than fits into the largest browser window you
+can have on your desktop. Just expanding the window isn't going to give you the
+size that you need.  &lt;/p&gt;
+&lt;p&gt;How can you do this? If you hover over the toolbox icons in the Developer Tools
+panel, near to the cog, you should be able to find the Responsive Design mode.
+(It's a very small, dotted rectangle inside a larger, thicker rectangle.) Click
+this. Your display will change to have a border and extra options appear. The
+selected resolution is shown above the display. Clicking on the resolution
+dropdown menu, you can directly type the resolution you want this preview
+display to have and press Enter to have it take effect.&lt;/p&gt;
+&lt;p&gt;All that's left is to take a screenshot again using the "Take a fullpage
+screenshot" option in the Developer Tools toolbox. (Note that Responsive
+Design mode has its own screenshot tool, near to the resolution menu,
+but this only takes an image of the page visible within the display
+window you've just set, i.e.  it's not necessarily the full page if
+there would still be scroll bars at that actual display resolution
+you've selected.)&lt;/p&gt;</summary><category term="Firefox"></category><category term="screenshot"></category></entry><entry><title>Managing a Bitbucket user's permissions when they've left your team</title><link href="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team" rel="alternate"></link><updated>2016-04-16T01:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-16:posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team</id><summary type="html">&lt;h2&gt;Kicking the Bitbucket&lt;/h2&gt;
 &lt;p&gt;What I noticed this week is that users who'd left a Bitbucket team&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;
 that I'm currently a member of were still billed as having admin access
 to several repositories. But, this wasn't by virtue of being a team
@@ -907,53 +944,4 @@ that Blogger ever did for my inspiration.&lt;/p&gt;
 &lt;a href="https://github.com/StevenMaude/blog-content/commits/master"&gt;here&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Blogger"></category><category term="Pelican"></category><category term="Wordpress"></category><category term="static site"></category></entry><entry><title>Restoring a tag cloud dispersed by Pelican 3.6.0</title><link href="http://www.stevenmaude.co.uk/posts/restoring-a-tag-cloud-dispersed-by-pelican-360" rel="alternate"></link><updated>2015-07-12T11:51:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-12:posts/restoring-a-tag-cloud-dispersed-by-pelican-360</id><summary type="html">&lt;h2&gt;The case of the disappearing tag cloud&lt;/h2&gt;
-&lt;p&gt;As you can probably tell — if not from the posts mentioning Pelican,
-then the giveaway is the footer of each page — my site is currently
-built using &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Noticing there was a new version this week, I eagerly updated and then
-tried building my site. No errors, I thought, so everything must be
-fine.&lt;/p&gt;
-&lt;p&gt;Unfortunately, on loading the site, the tag cloud had vanished&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;p&gt;Over the next twenty minutes or so, I slowly figured out the cause: the
-Pelican code that creates this had been moved out to a separate plugin.
-(If only I'd checked the &lt;a href="http://docs.getpelican.com/en/3.6.0/faq.html#my-tag-cloud-is-missing-broken-since-i-upgraded-pelican"&gt;Pelican
-docs&lt;/a&gt;
-first, I would have saved the time...) From there, it's a simple fix.
-Install the plugin, add it to your &lt;code&gt;PLUGINS&lt;/code&gt; in &lt;code&gt;pelicanconf.py&lt;/code&gt; and the
-tag cloud will be restored.&lt;/p&gt;
-&lt;h2&gt;Installing Pelican plugins&lt;/h2&gt;
-&lt;p&gt;One small frustration is that the official plugin
-&lt;a href="https://github.com/getpelican/pelican-plugins"&gt;repository&lt;/a&gt; is, if maybe
-not monolithic, a substantial size. The appeal of a central repository
-does make some sense. It provides a single location for developers to
-add functionality to Pelican and means users can issue one command to
-get access to everything at once.&lt;/p&gt;
-&lt;p&gt;But my hunch is that users probably only want a few of the numerous
-plugins: seventy at the time of writing. Also, when a plugin is updated
-by its author, they additionally have to put a pull request into the
-plugins repository to keep the submodule or files stored there in sync,
-which is extra work for everyone involved too.&lt;/p&gt;
-&lt;h2&gt;My tag cloud plugin fork&lt;/h2&gt;
-&lt;p&gt;One solution for installing the plugin would be to write a simple shell
-script that does the cloning and just keeps the tag plugin. Instead, I
-felt that it would be both simpler and more sensible — rather than
-retrieving many plugins that I don't need — to install the plugin via
-the existing &lt;code&gt;requirements.txt&lt;/code&gt; in my blog configuration. (The other
-plugin I use, &lt;a href="https://github.com/Nitron/pelican-alias/"&gt;pelican-alias&lt;/a&gt;,
-is installed this way in my setup.) &lt;/p&gt;
-&lt;p&gt;So, I made the plugin  &lt;code&gt;pip&lt;/code&gt; installable (available
-&lt;a href="https://github.com/StevenMaude/pelican-tag-cloud"&gt;here&lt;/a&gt;) and added that
-to my requirements for what seems like a neater solution. The only
-downside is that I have to ensure that this plugin is updated when the
-original code is. For this plugin however, I suspect that updates would
-be irregular.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;If the site's not changed since I wrote this, then it's the one
-that shows up in the upper right sidebar.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Pelican"></category><category term="tag cloud"></category><category term="plugin"></category></entry></feed>
+&lt;/div&gt;</summary><category term="Blogger"></category><category term="Pelican"></category><category term="Wordpress"></category><category term="static site"></category></entry></feed>
