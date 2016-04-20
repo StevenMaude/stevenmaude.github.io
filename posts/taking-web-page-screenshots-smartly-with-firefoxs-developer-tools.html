@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Firefox - stevenmaude.co.uk</title>
+    <title>Taking web page screenshots smartly with Firefox's Developer Tools - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,22 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="Firefox" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Firefox,screenshot" />
+        <meta name="description" content="Using Firefox&#39;s Developer Tools to take full page web screenshots without stitching by hand." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Taking web page screenshots smartly with Firefox&#39;s Developer Tools"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools"/>
+        <meta property="og:description" content="Using Firefox&#39;s Developer Tools to take full page web screenshots without stitching by hand."/>
+        <meta property="article:published_time" content="2016-04-20" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="Firefox" />
+            <meta property="article:tag" content="screenshot" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +32,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,9 +82,16 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools">Taking web page screenshots smartly with Firefox's Developer Tools</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Taking web page screenshots smartly with Firefox's Developer Tools
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
@@ -93,64 +108,49 @@ stevenmaude.co.uk            </a>
 	<a href="http://www.stevenmaude.co.uk/tag/screenshot">screenshot</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Using Firefox's Developer Tools to take full page web screenshots without stitching by hand.</p>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them">Firefox keyword searches, and how to fix adding them</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2016-04-03T17:00:00+01:00"> 2016-04-03</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/keyword-search">keyword search</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/quick-search">quick search</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>How Firefox keyword searches speed up web searching, and how to resolve the situation when you can't add new ones.</p>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/firefox-21-annoyances">Firefox 21 annoyances</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2013-05-17T12:10:00+01:00"> 2013-05-17</time>
-    </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2013-07-14T13:10:00+01:00"> 2013-07-14</time>
-            </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/annoyance">annoyance</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/windows">Windows</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>A couple of recent Firefox features that annoyed me.</p>
-                </div>
-            </article>
-            <hr/>
+                <h2>Snap happy</h2>
+<p>Firefox has a buried feature in its Developer Tools, which is potentially
+useful even if you're not a developer. If you've never used the Developer
+Tools, just press F12 and you'll see the tools.</p>
+<p>You should see a cog icon towards the upper right of the pane that's just
+displayed. The cog is on the same row as the Inspector, Console etc. buttons.</p>
+<p>Clicking this displays a page of options that you can use to customise the
+Developer Tools. By ticking "Take a fullpage screenshot" under "Available
+Toolbox Buttons", you should see a camera icon appear near the cog icon you
+previously clicked. Selecting this gives you a screenshot of the page where you
+opened the Developer Tools. The resulting PNG file can be found in your Firefox
+Downloads.</p>
+<p>This is a really handy feature. It means that you can take an image of a
+scrollable page that's <strong>larger</strong> than your current window. No need for
+screenshotting parts of the page then joining them together by hand.</p>
+<h2>Solving bigger problems</h2>
+<p>But what if you want to enlarge the visible area beyond the size of your
+current window, and then take a screenshot?</p>
+<p>Why would this be even useful?</p>
+<p>Let's say that you want a screenshot of a web page displaying a map, where the
+map expands to fill your browser window. And let's say that you want the
+screenshot to cover a larger area than fits into the largest browser window you
+can have on your desktop. Just expanding the window isn't going to give you the
+size that you need.  </p>
+<p>How can you do this? If you hover over the toolbox icons in the Developer Tools
+panel, near to the cog, you should be able to find the Responsive Design mode.
+(It's a very small, dotted rectangle inside a larger, thicker rectangle.) Click
+this. Your display will change to have a border and extra options appear. The
+selected resolution is shown above the display. Clicking on the resolution
+dropdown menu, you can directly type the resolution you want this preview
+display to have and press Enter to have it take effect.</p>
+<p>All that's left is to take a screenshot again using the "Take a fullpage
+screenshot" option in the Developer Tools toolbox. (Note that Responsive
+Design mode has its own screenshot tool, near to the resolution menu,
+but this only takes an image of the page visible within the display
+window you've just set, i.e.  it's not necessarily the full page if
+there would still be scroll bars at that actual display resolution
+you've selected.)</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
