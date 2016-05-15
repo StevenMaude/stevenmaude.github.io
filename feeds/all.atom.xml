@@ -1,5 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-04-20T20:30:00+01:00</updated><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-05-15T12:34:00+01:00</updated><entry><title>PyPI: releasing frustration</title><link href="http://www.stevenmaude.co.uk/posts/pypi-releasing-frustration" rel="alternate"></link><updated>2016-05-15T12:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-05-15:posts/pypi-releasing-frustration</id><summary type="html">&lt;p&gt;A while back I wrote an &lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader"&gt;automatic tracklisting downloader for BBC radio
+shows&lt;/a&gt; in
+Python. It's simple to use and it also hooks well into
+&lt;a href="https://github.com/get-iplayer/get_iplayer"&gt;get_iplayer&lt;/a&gt; to retrieve or tag
+tracklistings when you download a radio show.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader/issues/21"&gt;One of the outstanding
+issues&lt;/a&gt;
+was to actually release it on PyPI — the official source for third party Python
+packages — to make it a bit simpler to install, and to make it easier for
+Python users to find. It was already packaged such that it could be installed
+using &lt;code&gt;pip&lt;/code&gt;, but this was via GitHub rather than PyPI.&lt;/p&gt;
+&lt;p&gt;I remembered I never got round to releasing my package on PyPI and, for some
+reason yesterday, thought it would be a good time to see what the process was
+like. Maybe it'll only take half an hour, I thought, naively. It actually took
+me more like double to triple that time to complete the task.&lt;/p&gt;
+&lt;p&gt;Anyway, perhaps documenting this process, along with the numerous errors I
+encountered, might help save anyone else running up against the same painful
+brick walls that I did, and allow them to share their work with the Python
+community.&lt;/p&gt;
+&lt;h2&gt;Starting out&lt;/h2&gt;
+&lt;p&gt;A good starting point is a
+&lt;a href="https://packaging.python.org/en/latest/distributing/#uploading-your-project-to-pypi"&gt;guide&lt;/a&gt;
+on the official Python site that's fairly comprehensive.&lt;/p&gt;
+&lt;p&gt;The first thing you notice when reading it is that there are lots of options
+that are labelled "not recommended" and instead suggest using the
+&lt;a href="https://github.com/pypa/twine/"&gt;&lt;code&gt;twine&lt;/code&gt;&lt;/a&gt; package instead. This is because
+older versions of Python will happily submit your PyPI credentials in plaintext
+when uploading packages. More recent versions are OK, but you're best to check.&lt;/p&gt;
+&lt;p&gt;It's clearly a good thing to warn people about this. But it would be much nicer
+if they didn't even need such warnings in the first place. (I'm also willing to
+bet there's still a non-zero number of people on affected versions of Python
+who follow instructions elsewhere without even being aware of sending their
+passwords in the clear.)&lt;/p&gt;
+&lt;h2&gt;Testing times&lt;/h2&gt;
+&lt;p&gt;As the Python packaging guide mentions, there's a &lt;a href="https://testpypi.python.org"&gt;PyPI test
+site&lt;/a&gt; that you can use to test out uploading your
+package before you do the same on the live site.&lt;/p&gt;
+&lt;p&gt;Why's this useful? If you make mistakes in your setup and your package doesn't
+install, the only real recourse is to release a new version. Rather than having
+to create new versions, you're really best using the test PyPI site first to
+make sure everything's OK before you begin.&lt;/p&gt;
+&lt;p&gt;The test site looks to be an exact duplicate of the main site albeit with a
+different selection of packages. This also means that you have the same
+restriction as on the live site: that is, you can't replace an existing
+version. You have to bump the version in &lt;code&gt;setup.py&lt;/code&gt; and upload it as a new
+version.&lt;/p&gt;
+&lt;p&gt;I understand why this is in place for the live site. But, it's a little
+frustrating when testing: every change requires you to also increase the
+version number. Or, as I more often did, forget to do so, then see the error
+message telling you that the version already exists and only then increase the
+version number.&lt;/p&gt;
+&lt;p&gt;The details in the guide show the structure of the &lt;code&gt;.pypirc&lt;/code&gt; configuration.
+However, they don't point out that you can also add the PyPI test site too:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[distutils]
+index-servers=
+    pypi
+    testpypi
+
+[testpypi]
+repository = https://testpypi.python.org/pypi
+
+[pypi]
+repository = https://pypi.python.org/pypi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can also add your username and password to each entry too, although you may
+not want it lying around in plain text in a configuration file. If you don't
+already have accounts on the live and test PyPI sites, this point is a
+good time to create them. You won't be able to progress much further otherwise.&lt;/p&gt;
+&lt;h3&gt;Building the project distribution&lt;/h3&gt;
+&lt;p&gt;Provided you've got &lt;code&gt;setup.py&lt;/code&gt; configured correctly, it's not too difficult to
+build for distribution. I used the example from the &lt;a href="https://github.com/pypa/sampleproject"&gt;PyPA sample
+project&lt;/a&gt; as a starting point. It's also
+sensible to have tagged the commit in your repository that marks the version to
+be released.  &lt;/p&gt;
+&lt;p&gt;The Python packaging guide linked above is also really helpful in  determining
+which arguments you should use with &lt;code&gt;setup.py&lt;/code&gt; to build your package.&lt;/p&gt;
+&lt;p&gt;If you're trying to build Python wheels, one hiccup is that you likely need the
+&lt;code&gt;wheel&lt;/code&gt; package installed. Otherwise, you may find with a command like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;python setup.py sdist bdist_wheel
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;you get the error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;error: invalid command &amp;#39;bdist_wheel&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Registering the project&lt;/h3&gt;
+&lt;p&gt;Since &lt;code&gt;twine&lt;/code&gt; is recommended, it seemed sensible to use that. As my
+package is for Python 2 only — since a dependency doesn't support Python
+3 yet — it also seemed sensible to do the distribution upload using
+Python 2.7.&lt;/p&gt;
+&lt;p&gt;The first problem I hit was running &lt;code&gt;twine register dist/* -r testpypi&lt;/code&gt; to
+register the project. Note that you need to specify the repository using &lt;code&gt;-r&lt;/code&gt;
+if you want to use something other than the default, and the name is taken from
+your &lt;code&gt;.pypirc&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
+UnicodeDecodeError: &amp;#39;ascii&amp;#39; codec can&amp;#39;t decode byte 0xc2 in position 27:
+ordinal not in range(128)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That's the entirety of the error message from the &lt;code&gt;register&lt;/code&gt; command. There was
+nothing to indicate where the problem lay at all, making it very difficult to
+start fixing it.&lt;/p&gt;
+&lt;p&gt;Switching to Python 3.4 for the upload avoided the Unicode error, but instead
+gave me:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;HTTPError: 401 Client Error: You must login to access this feature for
+url: https://pypi.python.org/pypi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It still could have been a problem with the way I was inputting my password.
+I'd tried both typing it at the command line &lt;code&gt;-p PASSWORD&lt;/code&gt; and pasting it into
+the prompt which appears if no password is entered. I'd even tried entering it
+directly into &lt;code&gt;.pypirc&lt;/code&gt;. It's possible I was just doing something wrong, but,
+to me, it implies that &lt;code&gt;twine&lt;/code&gt; wasn't correctly handling one of the characters
+in my password.&lt;/p&gt;
+&lt;p&gt;At this stage, I gave up trying at this point and went directly to the test
+site to register the package so I could at least make some progress and feel
+slightly less incompetent. That worked without a hitch.&lt;/p&gt;
+&lt;h3&gt;Adding a description&lt;/h3&gt;
+&lt;p&gt;On to the next problem. Unfortunately, the PyPI site doesn't support the
+display of Markdown READMEs for package descriptions. So, before you actually
+upload a package, you should provide the package description in a form that
+PyPI can use.&lt;/p&gt;
+&lt;p&gt;To me, Markdown always seemed much simpler than reStructuredText (reST), so I
+naturally gravitate to writing documentation in it. My README for this project
+was no different.&lt;/p&gt;
+&lt;p&gt;The main options I was aware of for solving this were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;specifying a &lt;code&gt;long_description&lt;/code&gt; in your &lt;code&gt;setup.py&lt;/code&gt; which uses reST markup,
+whether read in from a file, or included in full in the &lt;code&gt;setup.py&lt;/code&gt; itself, or&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;converting &lt;code&gt;README.md&lt;/code&gt; to a reStructuredText &lt;code&gt;README.rst&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I went for the latter for simplicity.&lt;/p&gt;
+&lt;p&gt;Using &lt;code&gt;pandoc&lt;/code&gt;, it's pretty simple to convert an existing Markdown file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pandoc --from&lt;span class="o"&gt;=&lt;/span&gt;markdown --to&lt;span class="o"&gt;=&lt;/span&gt;rst --output&lt;span class="o"&gt;=&lt;/span&gt;README.rst README.md
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On checking the output from &lt;code&gt;pandoc&lt;/code&gt; in an online viewer, everything
+looked the same as it did when using Markdown. I also edited the README
+slightly to use nicer looking markup for headings than the source Pandoc
+generated. &lt;/p&gt;
+&lt;h3&gt;Uploading&lt;/h3&gt;
+&lt;p&gt;Whew! Back to &lt;code&gt;twine&lt;/code&gt;, and now the project's registered, let's try uploading it
+via:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;twine upload dist/* -r testpypi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I was still having the same problem as before: the 401 error. Systematically
+removing unusual characters from my password until the upload worked fixed
+this.  (Note that the PyPI site itself was OK with me logging in with the same
+password, this seemed a &lt;code&gt;twine&lt;/code&gt; problem, or something I was just doing wrong.)&lt;/p&gt;
+&lt;p&gt;OK. Now it's uploaded, let's check what everything looks like on the test PyPI
+site.&lt;/p&gt;
+&lt;p&gt;What? Where's the description taken from the README? There's &lt;strong&gt;nothing&lt;/strong&gt; there
+at all. The README's not even present as plain text instead of formatted HTML!&lt;/p&gt;
+&lt;p&gt;What I then did first was to replace my &lt;code&gt;README.rst&lt;/code&gt; with one borrowed from
+someone else's package that I knew displayed correctly on PyPI. Then, I
+uploaded a new version of my package to the test site to make sure that I had
+everything configured and uploaded correctly.&lt;/p&gt;
+&lt;p&gt;Once I'd proved that the problem was with the content of my README, I
+somehow instinctively figured that it was the transition markers that
+I'd added that were to blame. Again, this was the second time in this
+entire process that I had little or no indication of where the problem
+actually was.&lt;/p&gt;
+&lt;p&gt;Anyway, removing these transition markers, running &lt;code&gt;setup.py&lt;/code&gt; and uploading yet
+again &lt;strong&gt;finally&lt;/strong&gt; enabled my README to be correctly displayed as the package
+description.&lt;/p&gt;
+&lt;h3&gt;Releasing&lt;/h3&gt;
+&lt;p&gt;Once that worked, all I had to do was revert the change to the version number
+I'd made in &lt;code&gt;setup.py&lt;/code&gt; during testing, and then repeat the whole process on the
+real PyPI site. Having negotiated all the obstacles the first time, I was
+relieved to find this just worked.&lt;/p&gt;
+&lt;p&gt;The end result of all that is that you can finally do &lt;code&gt;pip install
+bbc-radio-tracklisting-downloader&lt;/code&gt; instead of having to install it from GitHub.&lt;/p&gt;
+&lt;p&gt;Obviously in a process like this, there's going to be a couple of configuration
+hoops to jump through, especially the first time you attempt the process. Now
+I've been through it, I could actually probably release a new project in the
+thirty minutes I originally estimated. &lt;/p&gt;
+&lt;p&gt;On the other hand, the number of barriers I faced, along with the cases of
+little or no helpful error information was frustrating. Every stumbling block
+encountered is a point where someone could decide that they've had finally
+enough and just give up. In those cases, it's the community's loss. Developers
+who may well have useful packages to contribute may ultimately decide that it's
+not worth the trouble to release on PyPI.&lt;/p&gt;</summary><category term="Python"></category><category term="PyPI"></category></entry><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
 &lt;p&gt;Firefox has a buried feature in its Developer Tools, which is potentially
 useful even if you're not a developer. If you've never used the Developer
 Tools, just press F12 and you'll see the tools.&lt;/p&gt;
@@ -754,194 +948,4 @@ this single ISO. If it's a clean install, how is the version to install (Home
 or Pro) determined? From what I remember reading, the answer should be that if
 you skip entering a product key on request by the installer (which would
 automatically install the appropriate version if you provide a key), the
-installer prompts you to choose the version to install.&lt;/p&gt;</summary><category term="Windows"></category><category term="ISO"></category><category term="disk"></category></entry><entry><title>Thinking of using a static site generator for your blog?</title><link href="http://www.stevenmaude.co.uk/posts/thinking-of-using-a-static-site-generator-for-your-blog" rel="alternate"></link><updated>2015-07-19T00:37:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-07-18:posts/thinking-of-using-a-static-site-generator-for-your-blog</id><summary type="html">&lt;p&gt;When I first thought about moving from Blogger to Pelican, it was
-because I'd had more than enough of Blogger's drawbacks. What hadn't
-crossed my mind, because I had no experience of using them, were the
-problems that static site generators could have. At the time, my hunch
-was that it wasn't possible for them to be worse than Blogger.&lt;/p&gt;
-&lt;p&gt;As it turns out, that was the case. But, they are not entirely perfect
-and, going through this migration, I better understood what the
-good and the bad of static site generators are. If you're thinking of
-making a similar migration, these points might give you an idea of what
-you might deal with in shifting.&lt;/p&gt;
-&lt;p&gt;While I'm familiar with Pelican and Blogger, most of the points apply
-generally so could still be informative for you if you're considering a
-move from, say, Wordpress to Jekyll.&lt;/p&gt;
-&lt;h2&gt;Converting and writing content (Markdown)&lt;/h2&gt;
-&lt;h3&gt;Bad&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Depending on what you used to create a blog previously, and how much
-    content you had on your old blog, it may be time consuming to move
-    content. Even armed with a &lt;a href="https://github.com/getpelican/pelican/pull/1390"&gt;fork of Pelican&lt;/a&gt; where
-    someone helpful had added Blogger conversion, the output
-    wasn't perfect and still had plenty of residual cruft that had to be
-    fixed up by hand.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Markdown's quick to write with, but only gives you a small subset of
-    HTML and so doesn't handle every eventuality. There are dialects of
-    Markdown which expand this with more layout options that may be
-    available in your blog software of choice.&lt;/p&gt;
-&lt;p&gt;With Pelican at least, it's possible to use
-&lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; via a
-&lt;a href="https://github.com/liob/pandoc_reader"&gt;plugin&lt;/a&gt;. Pandoc is one of
-the more versatile Markdown converters, but does introduces another
-dependency. Pelican also offers reStructuredText support which has
-support for more formatting options than vanilla Markdown, but just
-isn't as nimble to write.&lt;/p&gt;
-&lt;p&gt;Instead, I opted to occasionally allow fall back to raw HTML in
-posts, mainly for handling images. This isn't ideal, but is a decent
-compromise that's at least compatible with different Markdown
-implementations.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Good&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;All my content is in fairly plain Markdown which I love writing in.
-    It also means that I'm far less locked into Pelican than I was ever
-    tied into Blogger. Should I wish to switch to another static site
-    generator, only the metadata and Python-Markdown specific tweaks may
-    need adjusting.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Adding content to the site and hosting&lt;/h2&gt;
-&lt;h3&gt;Bad&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;My git repositories are structured in a way that I like: blog HTML,
-    the theme I use, my Pelican configuration, my Markdown posts, and
-    the post images are all separate. However, for making small
-    adjustments to posts, this is a nuisance: you need to edit the post
-    and remember to push that, &lt;em&gt;then&lt;/em&gt; generate the HTML, &lt;em&gt;then&lt;/em&gt; move
-    that into the HTML repository and finally push that to GitHub. I
-    usually do this via branches too, which is more work too (though
-    this is my choice). Improving this workflow is on my to-do list.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Good&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;My blog's not trapped within Google's servers. Certainly, I'm wary
-    of how much Google's hands are present in much of what I do on the
-    web, whether through hardware devices I use, their search tools or
-    through websites that use features like Google Analytics and Fonts
-    (including mine). At least the blog's now hosted elsewhere and
-    Analytics and Fonts that the site's using could, in the worst case,
-    be removed entirely, or replaced with alternatives.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In fact, the blog's not really dependent on the whims of any service
-    owner at all. If GitHub stop hosting, I can take the HTML and host
-    it elsewhere. With Blogger, you're at Google's mercy: if they ever
-    decided to drop Blogger, then you'd be forced to switch to a new
-    blog platform.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;All the content is tracked within a git repository. This means it's
-    version controlled, and there's no easy way to obliterate posts.
-    With Blogger, at least once, I foolishly attempted to edit multiple
-    posts in separate browser tabs and subsequently lost the content of
-    one of them. Luckily, I had a window open with the web version of
-    the post to recover it. Having only a single canonical copy of
-    posts stored in Google's servers was clearly not a good thing.
-    (Wordpress is better in that it's possible to store multiple
-    revisions of posts.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You have much more control of the post URLs; Blogger posts always
-    have the year and date in them.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Blog hosting using my own domain name on GitHub is free of charge.
-    This is also free on Blogger. If you use wordpress.com, you'll need
-    to pay; if you're using your own Wordpress installation, using your
-    own domain is free, but it's likely you'll need to pay for hosting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Appearance and viewer experience&lt;/h2&gt;
-&lt;h3&gt;Bad&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;With Pelican (probably much less so for Jekyll), there's not a huge
-    range of themes. If you're fussy like me, you may need to spend some
-    time tweaking, or creating your own. &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Good&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;My site now functions without the viewer needing JavaScript. With
-    Blogger, you used to only see half the page content. If JavaScript
-    is disabled now, the only issue is that the mobile menu doesn't
-    open, which is far less of a problem.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;There's no awful separate mobile version of the site. On Blogger,
-    the template I used had an unfriendly feature where swiping would
-    navigate away from the page to the previous or next article. This
-    could be triggered quite unintentionally by trying to pinch to zoom.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Often my posts are on programming. Having code snippets that look
-    nice without me having to do anything is a great bonus. In Blogger,
-    you'd need a JavaScript plugin for syntax highlighting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Running the generator&lt;/h2&gt;
-&lt;h3&gt;Bad&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Static site generators are not for the impatient. For Pelican, being
-    comfortable with Python is a big help, though not essential.
-    Pelican — and I imagine this applies to Jekyll too — isn't difficult
-    to get a basic blog up and running, but to get the result you want
-    may take you considerable work.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If you have a very large number of posts, the time it takes to build
-    your site may become an issue. With 61 posts and 1 page, my site
-    takes 2 to 3 seconds on my Core i5 PC. If the site starts taking
-    minutes to build, that may become a chore. This would be
-    particularly frustrating if editing posts and wanting to quickly
-    preview how the changes look since, with Pelican, the entire site is
-    rebuilt when running the development server.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Good&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Pelican is nice to use, and I had very few problems in doing so.
-    Most of my effort was spent on converting content and amending the
-    theme to my liking. Though the community's relatively small, it does
-    seem like there are more blog posts and activity compared with when
-    I first looked into it last year.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pelican, and many other static site generators, are &lt;a href="http://opensource.org/"&gt;open source&lt;/a&gt; software. This means they are free
-    to use, and free to modify (and share those modifications). The
-    implication is that, as long as there are developers interested in
-    it, it's likely that it will continue to be supported and developed.
-    Even in the unlikely event that everyone else abandons it and you're
-    the only user, you can still continue modifying it. (This also
-    applies to Wordpress' source too incidentally.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Living with a static site&lt;/h2&gt;
-&lt;p&gt;When worrying about the limitations that static sites may have, think
-about the actual minimum you need on a web site to share and present
-written ideas and thoughts you have. It's really not very much; do you
-&lt;em&gt;really&lt;/em&gt; need everything that Wordpress offers?&lt;/p&gt;
-&lt;p&gt;Overall, I'm pleased with the result. When I'd started thinking about
-moving, I'd got fed up of using clunky old Blogger, which feels
-distinctly unloved by Google.&lt;/p&gt;
-&lt;p&gt;Being able to write directly in the format (Markdown) that the blog
-actually uses is a real convenience. (Note that Wordpress offers this
-option too.) Along with that, the blog looking fresher than it did is a
-bonus. These features, more than perhaps anything else, actually makes
-me want to add new content to my blog, which is more than I could say
-that Blogger ever did for my inspiration.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;You can see exactly how much work in the early commits
-&lt;a href="https://github.com/StevenMaude/blog-content/commits/master"&gt;here&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Blogger"></category><category term="Pelican"></category><category term="Wordpress"></category><category term="static site"></category></entry></feed>
+installer prompts you to choose the version to install.&lt;/p&gt;</summary><category term="Windows"></category><category term="ISO"></category><category term="disk"></category></entry></feed>
