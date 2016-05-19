@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-05-15T13:34:00+01:00</updated><entry><title>PyPI: releasing frustration</title><link href="http://www.stevenmaude.co.uk/posts/pypi-releasing-frustration" rel="alternate"></link><updated>2016-05-15T12:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-05-15:posts/pypi-releasing-frustration</id><summary type="html">&lt;p&gt;A while back I wrote an &lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader"&gt;automatic tracklisting downloader for BBC radio
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-05-20T00:12:00+01:00</updated><entry><title>PyPI: releasing frustration</title><link href="http://www.stevenmaude.co.uk/posts/pypi-releasing-frustration" rel="alternate"></link><updated>2016-05-15T12:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-05-15:posts/pypi-releasing-frustration</id><summary type="html">&lt;p&gt;A while back I wrote an &lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader"&gt;automatic tracklisting downloader for BBC radio
 shows&lt;/a&gt; in
 Python. It's simple to use and it also hooks well into
 &lt;a href="https://github.com/get-iplayer/get_iplayer"&gt;get_iplayer&lt;/a&gt; to retrieve or tag
@@ -290,7 +290,7 @@ might allow you to switch to a cheaper Bitbucket plan for your team too.&lt;/p&g
 &lt;p&gt;Organisation in GitHub parlance.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Bitbucket"></category></entry><entry><title>The case of a Windows 7 update, Secure Boot and a suspect motherboard</title><link href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard" rel="alternate"></link><updated>2016-05-15T13:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-12:posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard</id><summary type="html">&lt;p&gt;Because, obviously, I have nothing I'd rather do than try to fathom how Secure
+&lt;/div&gt;</summary><category term="Bitbucket"></category></entry><entry><title>The case of a Windows 7 update, Secure Boot and a suspect motherboard</title><link href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard" rel="alternate"></link><updated>2016-05-20T00:12:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-12:posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard</id><summary type="html">&lt;p&gt;Because, obviously, I have nothing I'd rather do than try to fathom how Secure
 Boot works on a Monday evening, I'm writing this up. &lt;/p&gt;
 &lt;p&gt;Maybe you're experiencing this problem right now. Maybe you're not, but you're
 intrigued as to how I go about diagnosing computer problems.&lt;/p&gt;
@@ -380,6 +380,15 @@ enabling the Secure Boot option might be possible again.&lt;/p&gt;
 hopefully stop you panicking and make your Windows install accessible, if
 you've been affected.&lt;/p&gt;
 &lt;p&gt;What fun will today's later batch of updates brings, I wonder?&lt;/p&gt;
+&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit 2016-05-20: Marc-Andre Renaud kindly emailed me to share his
+experience:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your hunch about deleting keys while booting in UEFI mode possibly
+fixing this was correct. I deleted the keys on my ASUS Sabertooth
+z97 motherboard and was able to boot.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
 &lt;h2&gt;One more thing&lt;/h2&gt;
 &lt;p&gt;Incidentally, I wondered what happens if you disable Secure Boot, then do an
 in-place upgrade of Windows in this situation, where we can't enable Secure
