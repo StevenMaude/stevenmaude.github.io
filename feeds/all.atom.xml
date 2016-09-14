@@ -1,5 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-07-02T23:35:00+01:00</updated><entry><title>Windows 10 installation impressions</title><link href="http://www.stevenmaude.co.uk/posts/windows-10-installation-impressions" rel="alternate"></link><updated>2016-07-02T23:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-07-02:posts/windows-10-installation-impressions</id><summary type="html">&lt;p&gt;Windows 10 is only a free upgrade from Windows 7 or 8.1 until the end of
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-11T23:47:00+01:00</updated><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
+  &lt;p&gt;Human, human, human, human,&lt;br&gt;
+     Human, human, human, human,&lt;br&gt;
+     Human, human, human, human,&lt;br&gt;
+     Human, human, human after all.
+  &lt;/p&gt;
+  &lt;cite&gt;Daft Punk — Human After All&lt;/cite&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I logged into GitHub this week and saw an unusual message:&lt;/p&gt;
+&lt;p&gt;&lt;img class="article-image" src="http://www.stevenmaude.co.uk/images/2016/GitHub_not_human.png" alt="The GitHub message prompting me that I'm possibly not human."&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One of our mostly harmless robots seems to think you are not a human.&lt;/p&gt;
+&lt;p&gt;Because of that, it's hidden your profile from the public. If you really are
+human, please contact support to have your profile reinstated. We promise we
+won't require DNA proof of your humanity.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Putting aside the irony of GitHub detecting bots with their own
+automated systems, one short email later, it was politely resolved in
+ten minutes by GitHub's support team, who decided I was human after
+all.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2&gt;What might have caused it?&lt;/h2&gt;
+&lt;p&gt;Perhaps creating several similar looking repositories (albeit with different
+code) in a relatively short space of time. These contain example code to access
+&lt;a href="https://github.com/pdftables"&gt;the API&lt;/a&gt; that we offer at work. Maybe it's
+because the commits looked similar, maybe because the commit messages or the
+commit content contained a URL. Who can say?&lt;/p&gt;
+&lt;h2&gt;Why is this not ideal?&lt;/h2&gt;
+&lt;p&gt;Despite the quick resolution, the way this situation is handled might be
+flawed.&lt;/p&gt;
+&lt;p&gt;First, though the warning was omnipresent, large and red, it didn't describe
+the full nature of the problem. The phrase "hidden your profile from the
+public" to me just implied that GitHub had hidden my profile page.&lt;/p&gt;
+&lt;p&gt;Seemingly, I could still do and access everything as normal, albeit with a
+warning on every page, so I didn't fully appreciate the consequences.&lt;/p&gt;
+&lt;p&gt;From reading around, what apparently happens is that &lt;strong&gt;any repository
+that's under your profile becomes a nice 404 error&lt;/strong&gt; to anyone who's not
+you. I didn't check this firsthand (because I wasn't under any
+impression that anything had really changed with my account).  If this
+is true, that might create some issues which I'll discuss later in this
+post.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Second, they didn't send me any email warning at all, unless it went into my
+junk mail. I only noticed because I logged into my account and there was a big
+red banner at the top of every screen. What if I didn't log into GitHub at all
+for a while?&lt;/p&gt;
+&lt;p&gt;Finally, I assume that the process happens instantly when their system
+considers you a bot. There's no grace period where you can confirm your
+identity, before they hide your profile publically. It just gets hidden
+and, what I suspect happens is, the first you know of it is when it has
+been hidden.&lt;/p&gt;
+&lt;h2&gt;How might this cause problems?&lt;/h2&gt;
+&lt;p&gt;Let's say that you have a very high profile project under your GitHub account
+that lots of people rely on. Let's also suppose that this is the definitive
+installation source.&lt;/p&gt;
+&lt;p&gt;At least for Go projects, this may be true: Go developers will often host
+projects on GitHub and that's the official source. Now, for whatever reason,
+your account gets labelled as a bot, and perhaps all of a sudden, &lt;em&gt;your&lt;/em&gt;
+software is unavailable to anyone else, potentially breaking &lt;em&gt;their&lt;/em&gt; software.
+If this was a major problem, I'd imagine this would get fixed pretty promptly,
+but still, it would be an inconvenience, and a baffling one for anyone
+encountering it.&lt;/p&gt;
+&lt;p&gt;Again, I'm prepared to be corrected on this. If this isn't how things
+work, that's great. Maybe popular accounts, e.g. those with lots of
+followers, or owning projects with lots of stars, have some protection
+against this before their accounts are tagged in this way?&lt;/p&gt;
+&lt;p&gt;If there is a possibility that this could actually happen though, then
+if there was some kind of short delay and an email warning before
+labelling your account as "not human", at least you'd have a chance to
+fix up your account first, without your account temporarily becoming a
+Ghost of GitHub Past.&lt;/p&gt;
+&lt;h2&gt;What's the relevance to other online services?&lt;/h2&gt;
+&lt;p&gt;This kind of situation isn't restricted specifically to GitHub. It does
+illustrate features of online services that are ever present, but remain
+latent until you encounter them. These are likely some variant of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the site owners can modify your account's privileges, disable your
+  account, or even delete your account and all its content without
+  warning.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;this might happen without any way of you appealing the decision;
+  that's entirely down to the policies of the site.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;even if you behave in line with the site's terms and conditions, you
+  may inadvertently break "rules" that the site owners don't even
+  realise they have in place, but are instead derived by some automated
+  machine learning system. In very much the same way that you might have
+  experienced: has your bank ever suddenly prevented you from making a
+  payment until you confirm the transaction? All of a sudden, you find
+  yourself in the midst of some real life version of
+  &lt;a href="https://en.wikipedia.org/wiki/Mao_(card_game)"&gt;Mao&lt;/a&gt; where you lose
+  out because you don't even know what you did wrong.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;More on GitHub&lt;/h2&gt;
+&lt;p&gt;OK, diversion aside, let's go back to speculating about GitHub accounts.
+Let's go further than hiding my account for a short time. What if my
+GitHub account was disabled entirely either for some period of time, or
+even deleted permanently?&lt;/p&gt;
+&lt;p&gt;A considerable amount of my work is done via GitHub. Using an
+alternative would be a major inconvenience. With my employer, I'd have
+to figure out some solution to resolving it, enabling me to contribute
+again. That might mean moving to a competitor, or some self-hosted
+solution, or that I submit patches instead. But who'd want to deal with
+the overhead of working with patches from one developer when everyone
+else is capable of just pushing straight to GitHub?&lt;/p&gt;
+&lt;p&gt;Even if you're just coding in your free time, this is also a problem if
+you want to assist with any of the numerous open source projects that
+take contributions directly via GitHub.&lt;/p&gt;
+&lt;p&gt;Another side issue if you're not rigorous with backups, you won't have
+access to the repositories that you didn't have locally. However, GitHub
+do state in their terms that they will attempt to "make a reasonable
+effort to provide the affected account owner with a copy of their
+account contents upon request".&lt;/p&gt;
+&lt;p&gt;GitHub's terms do state you can only have one account. It's less clear
+whether having an account disabled precludes you from signing up again.
+Nonetheless, they do say that they can "refuse any and all current or
+future use of the Service, or any other GitHub service, for any reason
+at any time". So it may be that any future accounts you create may well
+be subject to being disabled due to your prior history.&lt;/p&gt;
+&lt;p&gt;The major online services are ubiquitous and have transformed the way
+many people worldwide interact and work. It's worth remembering that
+your continued ability to access them is never guaranteed. If you lose
+access to services you use for leisure, it may well be frustrating. If
+you're relying on them for work, you may find yourself dealing with big
+problems that you very quickly need to solve.&lt;/p&gt;
+&lt;p&gt;With GitHub, I'm still not sure what my solution would be for work if
+GitHub permanently kicked me out from their site. As much as GitHub,
+historically at least, do seem to be on the side of developers, and I've
+very few complaints about the site,&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt; it's still slightly concerning
+that this gives them a position of power.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Incidentally, it's weird thinking that it's more than possible
+  that to some listeners these days, Daft Punk may well only be known as
+  "that robot band that did some songs with Pharrell", despite having
+  been around for more than twenty years.&lt;/p&gt;
+&lt;p&gt;If, for whatever reason, you haven't heard the &lt;a href="https://www.youtube.com/watch?v=PXYeARRyDWk&amp;amp;list=PLSdoVPM5Wnne47ib65gVG206M7qp43us-"&gt;Human After
+All&lt;/a&gt;
+album, I'd go straight to &lt;a href="https://www.youtube.com/watch?v=lVKbF8khsrI&amp;amp;list=PLSdoVPM5WnndV_AXWGXpzUsIw6fN1RQVN"&gt;Alive
+2007&lt;/a&gt;
+where those tracks work a lot better in context, rather than the
+isolation of individually being played out; they're closer to the
+realm of DJ tools that work magnificently live.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Some other thoughts: I have no idea what happens to open pull
+  requests, are they still visible? Can you create new pull requests?
+  What happens to organisations where you're the sole member? What
+  happens to GitHub pages under your profile? Again, no idea.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Out of the main competitors, I've used Bitbucket considerably, and
+  prefer GitHub, although Bitbucket is better in that personal private
+  repositories don't require you to pay. The little use I've had of
+  GitLab I've found very confusing. (Admittedly, that confusion may not
+  have been helped by not being in charge of the GitLab group I was
+  contributing to, so it was awkward trying to get permissions
+  configured.)&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="GitHub"></category></entry><entry><title>Windows 10 installation impressions</title><link href="http://www.stevenmaude.co.uk/posts/windows-10-installation-impressions" rel="alternate"></link><updated>2016-07-02T23:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-07-02:posts/windows-10-installation-impressions</id><summary type="html">&lt;p&gt;Windows 10 is only a free upgrade from Windows 7 or 8.1 until the end of
 this month&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;. If you've hesitated so far, you might be a bit unsure as
 to whether you should switch a system you're satisfied with for a
 potentially less satisfactory one. But, if you want a free upgrade, you
@@ -1082,46 +1247,4 @@ but it's still possible to augment the device with these features in
 future; I've already ordered a heart rate monitor.&lt;/p&gt;
 &lt;p&gt;The one downside of the design I've seen so far is that I think the
 battery will be a chore to replace when it expires. It's not officially
-user-replaceable. That drawback aside, it seems a decent choice.&lt;/p&gt;</summary><category term="Garmin"></category><category term="Forerunner"></category><category term="Linux"></category><category term="GPS"></category><category term="running"></category></entry><entry><title>Beatmatching to beat grid in Traktor</title><link href="http://www.stevenmaude.co.uk/posts/beatmatching-to-beat-grid-in-traktor" rel="alternate"></link><updated>2015-12-21T13:50:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-21:posts/beatmatching-to-beat-grid-in-traktor</id><summary type="html">&lt;h2&gt;Tracks that beat Traktor's beat detection&lt;/h2&gt;
-&lt;p&gt;Traktor's not always perfect in automatic beat detection. I was trying to set
-the correct beats per minute (bpm) value for a particular track and not having
-a lot of luck with the tap function that Traktor provides. The estimated bpm
-kept jumping around on each click.&lt;/p&gt;
-&lt;p&gt;If you're not familiar, a tap feature is common in music software for beat
-detection: tap a button along to the beat of the music, and after a few clicks,
-you should have a fairly good estimation of what the bpm is.&lt;/p&gt;
-&lt;p&gt;Another option you have is to manually adjust the beat grid to set the bpm; the
-beat grid is a series of line markers that you want to mark the track's beats.
-It acts as a visual guide for the user that shows whether the bpm is set
-correctly.&lt;/p&gt;
-&lt;p&gt;This is a chore as it requires fine adjustment. You'll end up clicking a lot to 
-stretch or compress the grid and correct it. Also, if you're zoomed in to precisely
-align this, you can't see if everything's still OK further along the track
-without going back and forth, like Cameo.&lt;/p&gt;
-&lt;h2&gt;Beatmatching to find the bpm&lt;/h2&gt;
-&lt;p&gt;The last time I was contemplating doing this I realised that if you can
-beatmatch by ear, then to find an unknown track's bpm, you can simply beatmatch
-to a track with a known good bpm. It's more fun too as you're actually
-&lt;em&gt;listening&lt;/em&gt; to the music and DJing, rather than &lt;em&gt;click-click-clicking&lt;/em&gt; like
-you're gold farming in some video game.&lt;/p&gt;
-&lt;p&gt;Once you're happy that the tracks are beatmatched, if you have the current bpm
-for the known good track displayed — you can change what's displayed in each
-deck's heading in Preferences — then that should give you the correct bpm for
-the track with unknown bpm. You can then type this in where the bpm is
-displayed on the "Grid" panel for the deck playing the track.&lt;/p&gt;
-&lt;p&gt;All that's left to do is seek to the first downbeat and add that as a beat grid
-cue point (use the "Cue" panel for the deck) and the track should be ready for
-beatmatching. Traktor usually does a decent job on finding that downbeat
-though.&lt;/p&gt;
-&lt;p&gt;That would be all, except you might only have a correct bpm for the particular
-section you've been listening to: it's possible that the bpm fluctuates. If the
-beat detection fails, this is quite a common problem, particularly for older
-pieces of music which weren't created digitally and may drift slightly due to
-human timing. A fix for this is to just work with a loop in the track which
-does have a sufficiently steady bpm to mix. You can add loops in the "Cue"
-panel.&lt;/p&gt;
-&lt;p&gt;While I'm here, I should wistfully wish that Native Instruments would improve
-the beat matching aspect. Using multiple beat markers, Ableton's capable of
-adjusting — "warping" they call it — the track to fix it such that it has a
-consistent tempo, something that Traktor lacks. So, I'm still saving for
-Ableton.&lt;/p&gt;</summary><category term="Traktor"></category><category term="beatmatching"></category><category term="DJ"></category><category term="beat grid"></category></entry></feed>
+user-replaceable. That drawback aside, it seems a decent choice.&lt;/p&gt;</summary><category term="Garmin"></category><category term="Forerunner"></category><category term="Linux"></category><category term="GPS"></category><category term="running"></category></entry></feed>
