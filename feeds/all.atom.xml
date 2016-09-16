@@ -1102,7 +1102,21 @@ automatically which saves a lot of delving into badly designed
 manufacturer websites to retrieve them. Even on Windows 7, a clean
 install would usually result in a lot of small pieces of hardware having
 missing drivers. And, in the brief testing I've done running Traktor,
-Windows 10 seemed stable enough.&lt;/p&gt;</summary><category term="Windows"></category><category term="activation"></category></entry><entry><title>Using Garmin Forerunner watches with Linux</title><link href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux" rel="alternate"></link><updated>2015-12-30T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-30:posts/using-garmin-forerunner-watches-with-linux</id><summary type="html">&lt;p&gt;I'm now the owner of a Garmin GPS watch. When I was looking at GPS
+Windows 10 seemed stable enough.&lt;/p&gt;</summary><category term="Windows"></category><category term="activation"></category></entry><entry><title>Using Garmin Forerunner watches with Linux</title><link href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux" rel="alternate"></link><updated>2015-12-30T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-30:posts/using-garmin-forerunner-watches-with-linux</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit September 2016: What I didn't mention here was how you could
+get EPO data when on Linux. This can help reduce the time it takes
+for your watch to get a GPS signal lock. There's a helpful
+&lt;a href="https://www.kluenter.de/garmin-ephemeris-files-and-linux/"&gt;blog post&lt;/a&gt;
+that gives a lot of the details. There's a
+&lt;a href="https://github.com/scrapper/postrunner/"&gt;Ruby utility&lt;/a&gt; that manages
+FIT files and features an option to collect the EPO data from
+Garmin's servers. Alternatively, I also wrote a &lt;a href="https://github.com/StevenMaude/armstrong"&gt;Go
+program&lt;/a&gt; (which
+just compiles to a single binary rather than needing lots of
+dependencies) to collect this data which I've been using on Linux;
+you should be able to compile it easily to work on OS X or Windows.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm now the owner of a Garmin GPS watch. When I was looking at GPS
 watches, I couldn't find a huge amount of information on using them with
 Linux. This post concerns the Forerunner 15 (FR15) particularly, but
 think may well apply to several others in that range that function as
