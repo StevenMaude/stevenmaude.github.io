@@ -944,11 +944,11 @@ while allowing UEFI (otherwise you wouldn't be able to boot Windows 7).&lt;/p&gt
 install the default Secure Boot keys, which should let you set Secure Boot
 again.&lt;/p&gt;
 &lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Having tested this on a PC with this exact problem, the answer is yes,
-this works fine. This Windows 7 was installed in UEFI mode, had Secure Boot
-enabled until this ASUS problem occurred earlier this year, and was
-then upgraded to Windows 10 with Secure Boot disabled. Enabling
-Secure Boot after the upgrade was successful.&lt;/p&gt;
+&lt;p&gt;Edit September 2016: Having tested this on a PC with this exact problem,
+the answer is yes, this works fine. This Windows 7 was installed in UEFI
+mode, had Secure Boot enabled until this ASUS problem occurred earlier this
+year, and was then upgraded to Windows 10 with Secure Boot disabled.
+Enabling Secure Boot after the upgrade was successful.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="footnote"&gt;
 &lt;hr /&gt;
