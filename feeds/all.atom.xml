@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-17T12:40:00+01:00</updated><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-18T23:52:00+01:00</updated><entry><title>Stopping Windows from rebooting at the BitLocker boot password prompt</title><link href="http://www.stevenmaude.co.uk/posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt" rel="alternate"></link><updated>2016-09-18T23:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-18:posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt</id><summary type="html">&lt;p&gt;Short post, but more noting this for myself more than anything. There
+are several times when I've blogged little fixes and they've proven
+handy to have in the future, e.g. when I'm setting up a new PC. Partly
+because I know they're on my blog, and partly because the posts are
+titled in the way I would search for a solution.&lt;/p&gt;
+&lt;p&gt;If you have a Windows PC (I think 8 upwards; but definitely 10, and 8.1)
+with BitLocker enabled, you may find that it reboots shortly without you
+even doing anything. If you've a long password and aren't a quick
+typist, you may even find that this means you struggle to enter your
+password in time. This is apparently a problem if you have a UEFI install,
+which will be a common configuration these days.&lt;/p&gt;
+&lt;p&gt;Having just tested this simple fix that I saw on &lt;a href="https://social.technet.microsoft.com/Forums/office/en-US/932630c2-ae3d-4cbd-8d79-a492806363ea/windows-81-bitlocker-automatic-shutdown-during-password-prompt?forum=w8itproinstall"&gt;Microsoft's
+forums&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;bcdedit /set {bootmgr} bootshutdowndisabled 1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;it seems to have resolved the problem; the password prompt will remain on
+indefinitely.&lt;/p&gt;</summary><category term="BitLocker"></category></entry><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
   &lt;p&gt;Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
@@ -1109,163 +1127,4 @@ automatically which saves a lot of delving into badly designed
 manufacturer websites to retrieve them. Even on Windows 7, a clean
 install would usually result in a lot of small pieces of hardware having
 missing drivers. And, in the brief testing I've done running Traktor,
-Windows 10 seemed stable enough.&lt;/p&gt;</summary><category term="Windows"></category><category term="activation"></category></entry><entry><title>Using Garmin Forerunner watches with Linux</title><link href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux" rel="alternate"></link><updated>2016-09-16T23:40:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2015-12-30:posts/using-garmin-forerunner-watches-with-linux</id><summary type="html">&lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit September 2016: What I didn't mention here was how you could
-get EPO data when on Linux. This can help reduce the time it takes
-for your watch to get a GPS signal lock. There's a helpful
-&lt;a href="https://www.kluenter.de/garmin-ephemeris-files-and-linux/"&gt;blog post&lt;/a&gt;
-that gives a lot of the details. There's a
-&lt;a href="https://github.com/scrapper/postrunner/"&gt;Ruby utility&lt;/a&gt; that manages
-FIT files and features an option to collect the EPO data from
-Garmin's servers. Alternatively, I also wrote a &lt;a href="https://github.com/StevenMaude/armstrong"&gt;Go
-program&lt;/a&gt; (which
-just compiles to a single binary rather than needing lots of
-dependencies) to collect this data which I've been using on Linux;
-you should be able to compile it easily to work on OS X or Windows.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;I'm now the owner of a Garmin GPS watch. When I was looking at GPS
-watches, I couldn't find a huge amount of information on using them with
-Linux. This post concerns the Forerunner 15 (FR15) particularly, but
-think may well apply to several others in that range that function as
-USB storage devices, with the usual "your mileage may vary" caveats.&lt;/p&gt;
-&lt;h2&gt;Can you use it with Linux?&lt;/h2&gt;
-&lt;p&gt;Yes, to some extent. Though you won't be able to use all the fancy
-display features on Garmin's site. That said, I'm not bothered about
-that and would actually prefer to keep my data offline, especially with
-the number of website data breaches there have been recently.&lt;/p&gt;
-&lt;p&gt;The FR15 shows up as a normal USB storage device so you can copy over
-.FIT files from the watch directly and work with them on your computer.
-My run data was stored in &lt;code&gt;GARMIN/ACTIVITY&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Note that, when researching this, you may read older posts about the
-unofficial Garmin Communication web browser plugin that was capable of
-uploading data to Garmin's servers.  This no longer functions and &lt;a href="https://github.com/adiesner/GarminPlugin/issues/14"&gt;this
-GitHub issue&lt;/a&gt;
-suggests it won't be fixed anytime soon.&lt;/p&gt;
-&lt;h3&gt;Installing GPSBabel&lt;/h3&gt;
-&lt;p&gt;The next job is to get the FIT files into a format that's more widely
-usable.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.gpsbabel.org/"&gt;GPSBabel&lt;/a&gt; is a application for Windows, OS X
-and Linux that lets you convert between GPS data formats, including
-converting Garmin's FIT (Flexible and Interoperable Data Transfer)
-format into .GPX (GPS Exchange Format) which is well supported by
-various free, open source applications.&lt;/p&gt;
-&lt;p&gt;Support for FIT was added to GPSBabel in versions 1.4.3 and later,
-judging from the &lt;a href="https://www.gpsbabel.org/changes.html"&gt;GPSBabel
-changelog&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If your distribution's repositories have an older version, you'll need
-to compile it from source. In Ubuntu, it was reasonably straightforward
-to clone it from &lt;a href="https://github.com/gpsbabel/gpsbabel"&gt;GitHub&lt;/a&gt; and then
-do the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local
-make
-make install
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Using &lt;code&gt;prefix&lt;/code&gt; in &lt;code&gt;configure&lt;/code&gt; allows you to &lt;a href="https://unix.stackexchange.com/a/42569"&gt;install to a local
-directory&lt;/a&gt; and avoids the need
-for &lt;code&gt;sudo&lt;/code&gt; in &lt;code&gt;make install&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The only hiccup was that the &lt;code&gt;configure&lt;/code&gt; step gave the error message:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;configure: error: Qt4 or Qt5 is required, but neither was found&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/16607003/qmake-could-not-find-a-qt-installation-of"&gt;The fix&lt;/a&gt;
-was to do the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install qtcreator
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;which was probably overkill as it installed a lot of packages, but
-compiling then worked. (I then removed &lt;code&gt;qtcreator&lt;/code&gt; via &lt;code&gt;apt-get
-remove&lt;/code&gt;.)&lt;/p&gt;
-&lt;h3&gt;Converting Garmin's FIT data to GPX&lt;/h3&gt;
-&lt;p&gt;An example use of GPSBabel is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This gives you a GPX file which can be loaded into far more software. &lt;/p&gt;
-&lt;p&gt;As a quick test, I loaded the output GPX file into
-&lt;a href="https://apps.ubuntu.com/cat/applications/viking/"&gt;Viking&lt;/a&gt; which seems a
-little bit limited, but at least let me visualise speed against time,
-and see where I've been.&lt;/p&gt;
-&lt;p&gt;There are web apps out there that will save you this hassle and do the
-conversion for you, but, again, I'd rather keep my location data to
-myself.&lt;/p&gt;
-&lt;p&gt;(Some of the high-end watches also have the ability to send the data to
-Garmin via Bluetooth to mobile apps that collect the data, so that's
-another way you could avoid the requirement for Windows or OS X.)&lt;/p&gt;
-&lt;h3&gt;Upgrading the watch's firmware&lt;/h3&gt;
-&lt;p&gt;My watch came with the latest firmware installed and the watch has been
-out a while, so I doubt there are any major issues remaining. But, there
-may still be further updates as it's still a supported product.&lt;/p&gt;
-&lt;p&gt;The official update method is via Garmin's Windows or OS X software. If
-you search their site, you can find that updates exist, but you're told
-to use Garmin Express to install them.&lt;/p&gt;
-&lt;p&gt;However, it is possible to find download URLs for firmware updates, if
-you look in the HTML source. For instance, the &lt;a href="http://download.garmin.com/software/Forerunner15_270.rgn"&gt;current FR15
-firmware&lt;/a&gt; is
-available via direct download using any client you like, albeit via
-insecure http. (I haven't tested the official software, it may well use
-the same links.)&lt;/p&gt;
-&lt;p&gt;I haven't needed this information yet, but there are &lt;a href="https://forums.garmin.com/archive/index.php/t-103787.html"&gt;more details
-regarding a different
-model&lt;/a&gt; on the
-Garmin forums, but may well be relevant here. As a post there states,
-you may need to remove 60 bytes of an extraneous header using &lt;code&gt;tail&lt;/code&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;To verify that an original file needs this header-removing, open it
-with &lt;code&gt;hexdump -C [Download FileName] | head&lt;/code&gt;. You should see it
-starting with the string KpGrd The main watch firmware has two of
-those KpGrd headers, but we only remove the first one.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Also bear in mind that there may be multiple firmware files to update,
-e.g. the watch firmware itself, as well as language files and the ANT
-firmware. And apparently &lt;em&gt;all&lt;/em&gt; these need the header removing. Anyway,
-you can search Garmin's site for e.g. "Forerunner 15 update" and see
-what you find.&lt;/p&gt;
-&lt;h2&gt;What's the watch actually like?&lt;/h2&gt;
-&lt;p&gt;I've only started using it today, but it seems good at what it does. I
-tracked a run and, at a glance, the data looked consistent with where
-I'd been and how I'd run.&lt;/p&gt;
-&lt;p&gt;It's a basic model, but capable. It's got what seems like a decent
-battery, apparently eight hours in active GPS use. Anecdotally, I headed
-out taking it straight from the box without charging and it was flashing
-an empty battery warning for most of the run (an hour or so), but still
-managed to record the entire distance.&lt;/p&gt;
-&lt;p&gt;It's also waterproof which was handy since I was caught up in a heavy
-downpour while out. And it didn't feel noticeably less comfortable or
-more cumbersome than the (near-weightless) Casio digital watch that I'm
-usually wearing.&lt;/p&gt;
-&lt;p&gt;There are also activity tracker features available to count steps and
-calories, though I'm less concerned about those. Recording a run for
-later inspection, tracking my heart rate, distance travelled and time
-elapsed while running, and keeping my best times are the features I
-really want. And the FR15 does all of these things.&lt;/p&gt;
-&lt;p&gt;The FR15 was on offer when I bought it. Would I have paid the full
-retail price? I don't know. At that price and adding on an optional
-heart rate monitor bundled, it's very similar in price to higher-end
-watches like Garmin's 225.&lt;/p&gt;
-&lt;p&gt;On the other hand, I did look into more expensive watches and all of
-them, at least the Garmin watches, seemed to have drawbacks. There
-wasn't an obvious candidate that stood out as the one to get.&lt;/p&gt;
-&lt;p&gt;As a starter watch, the FR15 seems like a good deal, especially as it
-seems we're in a time where the technology's still improving. (Perhaps
-indicative of that, Garmin, much to the chagrin of unlucky purchasers,
-released a newer version of their FR225 only a few months after they
-launched it.) There's also competition from the likes of Fitbit and
-Jawbone which will probably push improvements to these devices in
-future. Newer, more expensive watches are already switching over to
-wrist monitoring of heart rate instead of using more traditional heart
-rate bands.&lt;/p&gt;
-&lt;p&gt;So, if this is technology that I use long term, then the next step would
-be to a watch featuring wrist heart rate monitoring and cadence
-measurement. Nonetheless, the expandability of the FR15 is a bonus: you
-can use a separate ANT heart rate monitor (it optionally is bundled with
-one), as well as a footpod. Excluding these extras keeps the price down,
-but it's still possible to augment the device with these features in
-future; I've already ordered a heart rate monitor.&lt;/p&gt;
-&lt;p&gt;The one downside of the design I've seen so far is that I think the
-battery will be a chore to replace when it expires. It's not officially
-user-replaceable. That drawback aside, it seems a decent choice.&lt;/p&gt;</summary><category term="Garmin"></category><category term="Forerunner"></category><category term="Linux"></category><category term="GPS"></category><category term="running"></category></entry></feed>
+Windows 10 seemed stable enough.&lt;/p&gt;</summary><category term="Windows"></category><category term="activation"></category></entry></feed>
