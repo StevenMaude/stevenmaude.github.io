@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-16T23:40:00+01:00</updated><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-17T12:40:00+01:00</updated><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
   &lt;p&gt;Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
@@ -832,7 +832,7 @@ might allow you to switch to a cheaper Bitbucket plan for your team too.&lt;/p&g
 &lt;p&gt;Organisation in GitHub parlance.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Bitbucket"></category></entry><entry><title>The case of a Windows 7 update, Secure Boot and a suspect motherboard</title><link href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard" rel="alternate"></link><updated>2016-05-20T00:12:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-12:posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard</id><summary type="html">&lt;p&gt;Because, obviously, I have nothing I'd rather do than try to fathom how Secure
+&lt;/div&gt;</summary><category term="Bitbucket"></category></entry><entry><title>The case of a Windows 7 update, Secure Boot and a suspect motherboard</title><link href="http://www.stevenmaude.co.uk/posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard" rel="alternate"></link><updated>2016-09-17T12:40:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-12:posts/the-case-of-a-windows-7-update-secure-boot-and-a-suspect-motherboard</id><summary type="html">&lt;p&gt;Because, obviously, I have nothing I'd rather do than try to fathom how Secure
 Boot works on a Monday evening, I'm writing this up. &lt;/p&gt;
 &lt;p&gt;Maybe you're experiencing this problem right now. Maybe you're not, but you're
 intrigued as to how I go about diagnosing computer problems.&lt;/p&gt;
@@ -943,6 +943,13 @@ while allowing UEFI (otherwise you wouldn't be able to boot Windows 7).&lt;/p&gt
 &lt;p&gt;Once the upgrade's complete, I'd then expect I could go back to the BIOS and
 install the default Secure Boot keys, which should let you set Secure Boot
 again.&lt;/p&gt;
+&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Having tested this on a PC with this exact problem, the answer is yes,
+this works fine. This Windows 7 was installed in UEFI mode, had Secure Boot
+enabled until this ASUS problem occurred earlier this year, and was
+then upgraded to Windows 10 with Secure Boot disabled. Enabling
+Secure Boot after the upgrade was successful.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="footnote"&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
