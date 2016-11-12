@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - stevenmaude.co.uk</title>
+    <title>Collecting disposable email with go-mailin8 - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,23 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8">
 
         <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="golang,Mailinator,email" />
+        <meta name="description" content="go-mailin8 lets you read the latest message from disposable Mailinator inboxes." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Collecting disposable email with go-mailin8"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8"/>
+        <meta property="og:description" content="go-mailin8 lets you read the latest message from disposable Mailinator inboxes."/>
+        <meta property="article:published_time" content="2016-11-12" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="golang" />
+            <meta property="article:tag" content="Mailinator" />
+            <meta property="article:tag" content="email" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -25,6 +33,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -73,8 +83,83 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <h1>Authors on stevenmaude.co.uk</h1>
-        <li><a href="http://www.stevenmaude.co.uk/author/steven-maude">Steven Maude</a> (77)</li>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Collecting disposable email with go-mailin8
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-11-12T21:47:00+00:00"> 2016-11-12</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/golang">golang</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/mailinator">Mailinator</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/email">email</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><a href="https://github.com/StevenMaude/go-mailin8">go-mailin8</a> is a command
+line utility I've created to get the most recent message from a
+Mailinator email inbox.</p>
+<h1>What's Mailinator?</h1>
+<p><a href="https://mailinator.com">Mailinator</a> is one of a number of free services
+that allows you to use a disposable email address. This is handy when
+you're signing up for something but when you know that the account or
+email is only needed ephemerally, as a one-off. My frequent use case is
+for free Bandcamp downloads that require an email address. It can also
+be useful for testing on the web, if you're developing something that
+sends email.</p>
+<p>What using a disposable email address offers is not having to hand out
+your real email address when that's not needed, with the advantage of
+reducing the number of unwanted messages you receive. Yes, of course,
+you can usually unsubscribe from mailing lists, but that's extra work.
+Better to just not let the unwanted messages anywhere near your real
+inbox, where possible.</p>
+<h1>Can't you just visit the site?</h1>
+<p>Yes, you can. But I'm lazy, and this means switching to a new tab,
+visiting the URL and loading their home page, then entering the inbox
+address, loading the inbox page, and clicking the mail to display it and
+then finally copying the activation or download URL I'm looking for.</p>
+<p>Much easier if I can just run a command line program that just takes the
+local-part of the mailbox name (the part before the @):</p>
+<div class="highlight"><pre>./go-mailin8 &lt;<span class="nb">local</span>-part&gt;
+</pre></div>
+
+
+<p>and gives me back the most recent message. Copy-pasting the URL directly
+from the terminal is then simple.</p>
+<h1>Why Go and not Python?</h1>
+<p>It would be probably have been easier to write in Python as I know that
+better than I do Go. But I'm conscious that I spent some time over the
+summer reading up on Go; the more chance to practise, the better.</p>
+<p>In this case, features Go offers like being faster, and easier to write
+concurrent code aren't really important. You could equally well write
+this code in Python and it would be just as useful.</p>
+<p>Where Go excels is that the code has no dependencies to install once it
+is compiled. Much simpler than telling someone to first install Python
+and then the packages that they need. (I realise that the target
+audience of such a tool are probably more than capable of doing so, but
+this reduces the barrier for someone to get the program running on their
+computer nonetheless.)</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
