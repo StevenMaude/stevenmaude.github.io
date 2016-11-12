@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-09-21T23:54:00+01:00</updated><entry><title>Archiving a WordPress site with wget and hosting for free</title><link href="http://www.stevenmaude.co.uk/posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free" rel="alternate"></link><updated>2016-09-21T23:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-21:posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free</id><summary type="html">&lt;p&gt;After what seems quite a long time from when the idea was first mentioned to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-11-12T21:47:00+00:00</updated><entry><title>Collecting disposable email with go-mailin8</title><link href="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8" rel="alternate"></link><updated>2016-11-12T21:47:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-12:posts/collecting-disposable-email-with-go-mailin8</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/StevenMaude/go-mailin8"&gt;go-mailin8&lt;/a&gt; is a command
+line utility I've created to get the most recent message from a
+Mailinator email inbox.&lt;/p&gt;
+&lt;h1&gt;What's Mailinator?&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://mailinator.com"&gt;Mailinator&lt;/a&gt; is one of a number of free services
+that allows you to use a disposable email address. This is handy when
+you're signing up for something but when you know that the account or
+email is only needed ephemerally, as a one-off. My frequent use case is
+for free Bandcamp downloads that require an email address. It can also
+be useful for testing on the web, if you're developing something that
+sends email.&lt;/p&gt;
+&lt;p&gt;What using a disposable email address offers is not having to hand out
+your real email address when that's not needed, with the advantage of
+reducing the number of unwanted messages you receive. Yes, of course,
+you can usually unsubscribe from mailing lists, but that's extra work.
+Better to just not let the unwanted messages anywhere near your real
+inbox, where possible.&lt;/p&gt;
+&lt;h1&gt;Can't you just visit the site?&lt;/h1&gt;
+&lt;p&gt;Yes, you can. But I'm lazy, and this means switching to a new tab,
+visiting the URL and loading their home page, then entering the inbox
+address, loading the inbox page, and clicking the mail to display it and
+then finally copying the activation or download URL I'm looking for.&lt;/p&gt;
+&lt;p&gt;Much easier if I can just run a command line program that just takes the
+local-part of the mailbox name (the part before the @):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./go-mailin8 &amp;lt;&lt;span class="nb"&gt;local&lt;/span&gt;-part&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and gives me back the most recent message. Copy-pasting the URL directly
+from the terminal is then simple.&lt;/p&gt;
+&lt;h1&gt;Why Go and not Python?&lt;/h1&gt;
+&lt;p&gt;It would be probably have been easier to write in Python as I know that
+better than I do Go. But I'm conscious that I spent some time over the
+summer reading up on Go; the more chance to practise, the better.&lt;/p&gt;
+&lt;p&gt;In this case, features Go offers like being faster, and easier to write
+concurrent code aren't really important. You could equally well write
+this code in Python and it would be just as useful.&lt;/p&gt;
+&lt;p&gt;Where Go excels is that the code has no dependencies to install once it
+is compiled. Much simpler than telling someone to first install Python
+and then the packages that they need. (I realise that the target
+audience of such a tool are probably more than capable of doing so, but
+this reduces the barrier for someone to get the program running on their
+computer nonetheless.)&lt;/p&gt;</summary><category term="golang"></category><category term="Mailinator"></category><category term="email"></category></entry><entry><title>Archiving a WordPress site with wget and hosting for free</title><link href="http://www.stevenmaude.co.uk/posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free" rel="alternate"></link><updated>2016-09-21T23:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-21:posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free</id><summary type="html">&lt;p&gt;After what seems quite a long time from when the idea was first mentioned to
 change the name of my employer, it's finally happened, and they've got a &lt;a href="http://sensiblecode.io"&gt;new
 website&lt;/a&gt; and everything. We still have the old company
 mugs, sadly.&lt;/p&gt;
@@ -1196,73 +1238,4 @@ unfortunately it's now necessary to make sure you don't &lt;a href="https://blog
 Windows 10&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Windows"></category><category term="Secure Boot"></category></entry><entry><title>Firefox keyword searches, and how to fix adding them</title><link href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them" rel="alternate"></link><updated>2016-04-03T17:00:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-03:posts/firefox-keyword-searches-and-how-to-fix-adding-them</id><summary type="html">&lt;h2&gt;What are keyword searches?&lt;/h2&gt;
-&lt;p&gt;Keyword searches, or quick searches, are really handy when browsing. If
-you think of something that you want to search for, they remove the
-extra step of first navigating to the site and selecting the search box. &lt;/p&gt;
-&lt;p&gt;Instead, you can just directly enter your query into your address bar,
-preceded by some keyword. For instance, if I look up "Ubuntu" on
-&lt;a href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, I can just hit Ctrl+L to access
-the address bar, type &lt;code&gt;d Ubuntu&lt;/code&gt; and hit enter, to directly access the
-page of search results.&lt;/p&gt;
-&lt;h2&gt;How keyword searches save time&lt;/h2&gt;
-&lt;p&gt;This might not seem like a big time saving, but when you consider that
-you have to repeat the same process for every site you search on, it
-soon adds up. It's a feature you can use not only with traditional
-search engines, but with most sites that have a search box. One example
-is YouTube, I'll often — maybe &lt;strong&gt;too&lt;/strong&gt; often — type &lt;code&gt;yt Yet another timewasting
-distraction&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;Creating and using custom keyword searches in Firefox&lt;/h2&gt;
-&lt;p&gt;This is really simple to do. You're really just adding a bookmark, but
-one that refers to whatever URL the search box will send you to, not the
-page itself.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Right click a search box on a webpage.&lt;/li&gt;
-&lt;li&gt;Select "Add a Keyword for this Search..."&lt;/li&gt;
-&lt;li&gt;In the dialogue that opens, enter a keyword and the search URL is
-   then added to your bookmarks with a placeholder for a query.&lt;/li&gt;
-&lt;li&gt;When you next type that keyword followed by a search query into the
-   address bar, the bookmark gets loaded with your query automatically inserted
-   into the URL.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;These keyword searches are normal bookmarks; you can edit them like any
-other bookmark. The only difference is that they contain the &lt;code&gt;%s&lt;/code&gt;
-&lt;a href="https://en.wikipedia.org/wiki/Printf_format_string"&gt;placeholder&lt;/a&gt; in the
-URL. When you carry out a keyword search, the term following the keyword
-replaces the &lt;code&gt;%s&lt;/code&gt; in the bookmark.&lt;/p&gt;
-&lt;p&gt;If you're browsing through your bookmarks in the Library, you'll only
-see "Name", "Location" and "Tags", but if you click "More", you'll see
-(and can change) the keyword you've set too. &lt;/p&gt;
-&lt;p&gt;(This all works because, as you've probably noticed, using a search
-option on a site usually sends you to a URL that contains the search
-term. Hopefully you can see that if you construct the URL without even
-visiting the site first, that this should still work. That said, this
-assumes that the site uses GET requests where the query is contained in
-the URL itself.)&lt;/p&gt;
-&lt;h2&gt;But my keyword searches aren't being added?&lt;/h2&gt;
-&lt;p&gt;As I find them so useful, I sorely missed it when recently, for whatever
-reason, Firefox decided that it wouldn't add them any more.&lt;/p&gt;
-&lt;p&gt;The bookmark would get created, but the keyword I added didn't get
-saved. Even if I manually edited the bookmark, I could enter a keyword
-but on navigating away to another bookmark and back again, the keyword
-would be lost again.&lt;/p&gt;
-&lt;p&gt;The simple fix was just to exit Firefox, locate &lt;code&gt;places.sqlite&lt;/code&gt; inside
-the Firefox profile directory,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; rename &lt;code&gt;places.sqlite&lt;/code&gt;, and let the
-file be rebuilt on the next restart (as documented in &lt;a href="https://support.mozilla.org/en-US/kb/cant-add-change-or-save-bookmarks"&gt;Mozilla's support
-pages&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;The documentation states that you lose history, but any bookmarks are
-rebuilt from a backup. Once you're happy everything's OK, you can delete
-the old &lt;code&gt;places.sqlite&lt;/code&gt;. After that, new keyword searches were added
-without a problem.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;Its location depends on &lt;a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data"&gt;your operating system&lt;/a&gt;.
-For me, on Linux, it was in the hidden &lt;code&gt;~/.mozilla/firefox&lt;/code&gt;. On
-Windows, it'll be in &lt;code&gt;%APPDATA%\Mozilla\Firefox\Profiles\&lt;/code&gt;. Make sure
-that you're in the correct profile directory, if you have multiple
-Firefox profiles.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Firefox"></category><category term="keyword search"></category><category term="quick search"></category></entry></feed>
+&lt;/div&gt;</summary><category term="Windows"></category><category term="Secure Boot"></category></entry></feed>
