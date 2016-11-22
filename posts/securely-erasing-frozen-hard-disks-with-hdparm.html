@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - stevenmaude.co.uk</title>
+    <title>Securely erasing frozen hard disks with hdparm - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,22 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/securely-erasing-frozen-hard-disks-with-hdparm">
 
         <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="hdparm,erase" />
+        <meta name="description" content="How to use hdparm to erase hard drives, and what to do if the drive is frozen." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Securely erasing frozen hard disks with hdparm"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/securely-erasing-frozen-hard-disks-with-hdparm"/>
+        <meta property="og:description" content="How to use hdparm to erase hard drives, and what to do if the drive is frozen."/>
+        <meta property="article:published_time" content="2016-11-22" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="hdparm" />
+            <meta property="article:tag" content="erase" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -25,6 +32,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -73,8 +82,116 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <h1>Authors on stevenmaude.co.uk</h1>
-        <li><a href="http://www.stevenmaude.co.uk/author/steven-maude">Steven Maude</a> (78)</li>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Securely erasing frozen hard disks with hdparm
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-11-22T13:54:00+00:00"> 2016-11-22</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/hdparm">hdparm</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/erase">erase</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Yesterday I was trying to erase a hard drive before I used it for a new
+install. It may well have never been used, but I couldn't remember and,
+for the sake of a few minutes, it seemed sensible to do so first.</p>
+<p>The best way to erase, especially if the drive is a solid state drive,
+is to use the <a href="https://ata.wiki.kernel.org/index.php/ATA_Secure_Erase">ATA Secure
+Erase</a> command
+which <a href="http://www.stevenmaude.co.uk/posts/securely-erasing-ssd-drives">I've mentioned
+before</a>.
+This command should also work for most magnetic hard drives too, unless
+they're ancient.</p>
+<p>Instead of just mentioning the tool, I've summarised the details from
+the lengthy page where I found them below, and discuss how to deal with
+"frozen" drives.</p>
+<p>You can access hdparm by booting into, for example, an Ubuntu
+installation DVD or USB. Installing Linux isn't required: you can just
+"Try Ubuntu" instead which doesn't install anything at all.</p>
+<h2>Safety first</h2>
+<p>First, the most sensible thing to do when erasing a drive is remove any
+drives other than those you wish to erase. It means even if you
+accidentally type the wrong thing that you won't erase a drive that you
+didn't intend to.</p>
+<p>Next, you need to get the drive's name. Open a terminal by pressing
+Ctrl+Alt+T.</p>
+<div class="highlight"><pre>sudo lshw -class disk
+</pre></div>
+
+
+<p>This will show you details of the disk, including the name. Replace the
+<code>/dev/sdX</code> in the commands below with that name.</p>
+<h2>Setting a password</h2>
+<p>The next task is to set a password. I'm not sure that you really need to
+do this, but the
+<a href="https://ata.wiki.kernel.org/index.php/ATA_Secure_Erase">kernel.org guide</a>
+advises it due to problems with certain PCs, and it only takes one extra
+command. Note that the "foo" password below can be replaced by something
+of your choice, but it doesn't really matter; when the drive is erased,
+the password should be removed.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm --user-master u --security-set-pass foo /dev/sdX
+security_password: <span class="s2">&quot;foo&quot;</span>
+/dev/sdX:
+ Issuing SECURITY_SET_PASS <span class="nb">command</span>, <span class="nv">password</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span>, <span class="nv">user</span><span class="o">=</span>user, <span class="nv">mode</span><span class="o">=</span>high
+SECURITY_SET_PASS: Input/output error
+</pre></div>
+
+
+<p>Well, that error wasn't expected.</p>
+<p>When I've used hdparm in this way previously, I haven't had a problem.
+You might expect it if the drive has a password set already, but in this
+case I couldn't recall doing that. If that's the same for you, it could
+be a simple fix.  First, check the drive's current status via:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -I /dev/sdX
+</pre></div>
+
+
+<p>and you may see "frozen",  as opposed to "not frozen", in the "Security"
+section of the <code>hdparm</code> output. This means you can't change security
+settings, so attempting to set a password fails.</p>
+<h2>Unfreezing</h2>
+<p>In this case, the <a href="https://superuser.com/questions/810867/new-ssd-hdparm-shows-frozen-whether-secure-erase-is-needed-before-installing">actual
+fix</a>
+is simple. Suspending the PC, then powering it back on should then give
+you an unfrozen drive: you can check by running the <code>hdparm -I</code> command
+above again.</p>
+<p>Now, if you retry setting a password, you should be able to run the
+<code>SECURITY_SET_PASS</code> command without error. Also, rerunning the <code>hdparm
+-I</code> command yet another time should show that a password is "enabled" as
+opposed to "not enabled".</p>
+<h2>Erasing</h2>
+<p>You can now proceed with the erase. If your drive's <code>hdparm</code> output
+states <code>supported: enhanced erase</code>, you could replace the
+<code>--security-erase</code> below with <code>--security-erase-enhanced</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo <span class="nb">time </span>hdparm --user-master u --security-erase foo /dev/sdX
+</pre></div>
+
+
+<p>After the erase, the password should be removed, and running the <code>hdparm
+-I</code> command one final time should show that the password is "not
+enabled".</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
