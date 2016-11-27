@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-11-22T13:54:00+00:00</updated><entry><title>Securely erasing frozen hard disks with hdparm</title><link href="http://www.stevenmaude.co.uk/posts/securely-erasing-frozen-hard-disks-with-hdparm" rel="alternate"></link><updated>2016-11-22T13:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-22:posts/securely-erasing-frozen-hard-disks-with-hdparm</id><summary type="html">&lt;p&gt;Yesterday I was trying to erase a hard drive before I used it for a new
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-11-22T13:54:00+00:00</updated><entry><title>Securely erasing frozen hard disks with hdparm</title><link href="http://www.stevenmaude.co.uk/posts/securely-erasing-frozen-hard-disks-with-hdparm" rel="alternate"></link><published>2016-11-22T13:54:00+00:00</published><updated>2016-11-22T13:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-22:posts/securely-erasing-frozen-hard-disks-with-hdparm</id><summary type="html">&lt;p&gt;Yesterday I was trying to erase a hard drive before I used it for a new
 install. It may well have never been used, but I couldn't remember and,
 for the sake of a few minutes, it seemed sensible to do so first.&lt;/p&gt;
 &lt;p&gt;The best way to erase, especially if the drive is a solid state drive,
@@ -22,7 +22,7 @@ accidentally type the wrong thing that you won't erase a drive that you
 didn't intend to.&lt;/p&gt;
 &lt;p&gt;Next, you need to get the drive's name. Open a terminal by pressing
 Ctrl+Alt+T.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo lshw -class disk
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo lshw -class disk
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -36,10 +36,10 @@ advises it due to problems with certain PCs, and it only takes one extra
 command. Note that the "foo" password below can be replaced by something
 of your choice, but it doesn't really matter; when the drive is erased,
 the password should be removed.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm --user-master u --security-set-pass foo /dev/sdX
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm --user-master u --security-set-pass foo /dev/sdX
 security_password: &lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;
 /dev/sdX:
- Issuing SECURITY_SET_PASS &lt;span class="nb"&gt;command&lt;/span&gt;, &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;user, &lt;span class="nv"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;high
+ Issuing SECURITY_SET_PASS command, &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;user, &lt;span class="nv"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;high
 SECURITY_SET_PASS: Input/output error
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -49,7 +49,7 @@ SECURITY_SET_PASS: Input/output error
 You might expect it if the drive has a password set already, but in this
 case I couldn't recall doing that. If that's the same for you, it could
 be a simple fix.  First, check the drive's current status via:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo hdparm -I /dev/sdX
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm -I /dev/sdX
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -70,13 +70,13 @@ opposed to "not enabled".&lt;/p&gt;
 &lt;p&gt;You can now proceed with the erase. If your drive's &lt;code&gt;hdparm&lt;/code&gt; output
 states &lt;code&gt;supported: enhanced erase&lt;/code&gt;, you could replace the
 &lt;code&gt;--security-erase&lt;/code&gt; below with &lt;code&gt;--security-erase-enhanced&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo &lt;span class="nb"&gt;time &lt;/span&gt;hdparm --user-master u --security-erase foo /dev/sdX
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo &lt;span class="nb"&gt;time&lt;/span&gt; hdparm --user-master u --security-erase foo /dev/sdX
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;After the erase, the password should be removed, and running the &lt;code&gt;hdparm
 -I&lt;/code&gt; command one final time should show that the password is "not
-enabled".&lt;/p&gt;</summary><category term="hdparm"></category><category term="erase"></category></entry><entry><title>Collecting disposable email with go-mailin8</title><link href="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8" rel="alternate"></link><updated>2016-11-12T21:47:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-12:posts/collecting-disposable-email-with-go-mailin8</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/StevenMaude/go-mailin8"&gt;go-mailin8&lt;/a&gt; is a command
+enabled".&lt;/p&gt;</summary><category term="hdparm"></category><category term="erase"></category></entry><entry><title>Collecting disposable email with go-mailin8</title><link href="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8" rel="alternate"></link><published>2016-11-12T21:47:00+00:00</published><updated>2016-11-12T21:47:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-12:posts/collecting-disposable-email-with-go-mailin8</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/StevenMaude/go-mailin8"&gt;go-mailin8&lt;/a&gt; is a command
 line utility I've created to get the most recent message from a
 Mailinator email inbox.&lt;/p&gt;
 &lt;h1&gt;What's Mailinator?&lt;/h1&gt;
@@ -100,7 +100,7 @@ address, loading the inbox page, and clicking the mail to display it and
 then finally copying the activation or download URL I'm looking for.&lt;/p&gt;
 &lt;p&gt;Much easier if I can just run a command line program that just takes the
 local-part of the mailbox name (the part before the @):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;./go-mailin8 &amp;lt;&lt;span class="nb"&gt;local&lt;/span&gt;-part&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./go-mailin8 &amp;lt;local-part&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -118,7 +118,7 @@ is compiled. Much simpler than telling someone to first install Python
 and then the packages that they need. (I realise that the target
 audience of such a tool are probably more than capable of doing so, but
 this reduces the barrier for someone to get the program running on their
-computer nonetheless.)&lt;/p&gt;</summary><category term="golang"></category><category term="Mailinator"></category><category term="email"></category></entry><entry><title>Archiving a WordPress site with wget and hosting for free</title><link href="http://www.stevenmaude.co.uk/posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free" rel="alternate"></link><updated>2016-09-21T23:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-21:posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free</id><summary type="html">&lt;p&gt;After what seems quite a long time from when the idea was first mentioned to
+computer nonetheless.)&lt;/p&gt;</summary><category term="golang"></category><category term="Mailinator"></category><category term="email"></category></entry><entry><title>Archiving a WordPress site with wget and hosting for free</title><link href="http://www.stevenmaude.co.uk/posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free" rel="alternate"></link><published>2016-09-21T23:54:00+01:00</published><updated>2016-09-21T23:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-21:posts/archiving-a-wordpress-site-with-wget-and-hosting-for-free</id><summary type="html">&lt;p&gt;After what seems quite a long time from when the idea was first mentioned to
 change the name of my employer, it's finally happened, and they've got a &lt;a href="http://sensiblecode.io"&gt;new
 website&lt;/a&gt; and everything. We still have the old company
 mugs, sadly.&lt;/p&gt;
@@ -151,7 +151,7 @@ site archiving, hit a problem and then discover which &lt;code&gt;wget&lt;/code&
 have used to fix it. The upside is that &lt;code&gt;wget&lt;/code&gt; probably does feature the option
 you require.&lt;/p&gt;
 &lt;p&gt;After lots of trial and error, what I ended up with was (deep breath):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;wget --page-requisites --convert-links --adjust-extension --mirror --span-hosts --domains&lt;span class="o"&gt;=&lt;/span&gt;blog.scraperwiki.com,scraperwiki.com --exclude-domains beta.scraperwiki.com,classic.scraperwiki.com,media.scraperwiki.com,mot.scraperwiki.com,newsreader.scraperwiki.com,premium.scraperwiki.com,status.scraperwiki.com,x.scraperwiki.com scraperwiki.com
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget --page-requisites --convert-links --adjust-extension --mirror --span-hosts --domains&lt;span class="o"&gt;=&lt;/span&gt;blog.scraperwiki.com,scraperwiki.com --exclude-domains beta.scraperwiki.com,classic.scraperwiki.com,media.scraperwiki.com,mot.scraperwiki.com,newsreader.scraperwiki.com,premium.scraperwiki.com,status.scraperwiki.com,x.scraperwiki.com scraperwiki.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -250,7 +250,7 @@ gets correctly requested as a filename with a question mark in it. Not
 particularly clean, but it worked. It may have just been using a recent
 version of &lt;code&gt;wget&lt;/code&gt; that solved this. This was nice as the alternative was
 a horrendous find/replace task using commands like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;find . -type f -exec grep -Iq . &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt; -and -exec sed -i
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;find . -type f -exec grep -Iq . &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt; -and -exec sed -i
 &lt;span class="s1"&gt;&amp;#39;s!wp-content/plugins/jetpack/css/jetpack.css?ver=4.1.1!wp-content/plugins/jetpack/css/jetpack.css!g&amp;#39;&lt;/span&gt;
 &lt;span class="o"&gt;{}&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -337,7 +337,7 @@ issues.&lt;/p&gt;
 installation to run the site and the site's getting hosted
 for free.&lt;/p&gt;
 &lt;p&gt;Good luck if you're tackling the same problem! Hopefully some of the
-tips here might help you with your migration.&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>Stopping Windows from rebooting at the BitLocker boot password prompt</title><link href="http://www.stevenmaude.co.uk/posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt" rel="alternate"></link><updated>2016-09-17T23:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-17:posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt</id><summary type="html">&lt;p&gt;Short post, but more noting this for myself more than anything. There
+tips here might help you with your migration.&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>Stopping Windows from rebooting at the BitLocker boot password prompt</title><link href="http://www.stevenmaude.co.uk/posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt" rel="alternate"></link><published>2016-09-17T23:52:00+01:00</published><updated>2016-09-17T23:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-17:posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt</id><summary type="html">&lt;p&gt;Short post, but more noting this for myself more than anything. There
 are several times when I've blogged little fixes and they've proven
 handy to have in the future, e.g. when I'm setting up a new PC. Partly
 because I know they're on my blog, and partly because the posts are
@@ -350,12 +350,12 @@ password in time. This is apparently a problem if you have a UEFI install,
 which will be a common configuration these days.&lt;/p&gt;
 &lt;p&gt;Having just tested this simple fix that I saw on &lt;a href="https://social.technet.microsoft.com/Forums/office/en-US/932630c2-ae3d-4cbd-8d79-a492806363ea/windows-81-bitlocker-automatic-shutdown-during-password-prompt?forum=w8itproinstall"&gt;Microsoft's
 forums&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;bcdedit /set {bootmgr} bootshutdowndisabled 1
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;bcdedit /set {bootmgr} bootshutdowndisabled 1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;it seems to have resolved the problem; the password prompt will remain on
-indefinitely.&lt;/p&gt;</summary><category term="BitLocker"></category></entry><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
+indefinitely.&lt;/p&gt;</summary><category term="BitLocker"></category></entry><entry><title>What happens when GitHub decides you're not a human</title><link href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human" rel="alternate"></link><published>2016-09-11T23:47:00+01:00</published><updated>2016-09-11T23:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-11:posts/what-happens-when-github-decides-youre-not-a-human</id><summary type="html">&lt;blockquote&gt;
   &lt;p&gt;Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
      Human, human, human, human,&lt;br&gt;
@@ -520,7 +520,7 @@ realm of DJ tools that work magnificently live.&amp;#160;&lt;a class="footnote-b
   configured.)&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="GitHub"></category></entry><entry><title>Windows 10 installation impressions</title><link href="http://www.stevenmaude.co.uk/posts/windows-10-installation-impressions" rel="alternate"></link><updated>2016-07-02T23:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-07-02:posts/windows-10-installation-impressions</id><summary type="html">&lt;p&gt;Windows 10 is only a free upgrade from Windows 7 or 8.1 until the end of
+&lt;/div&gt;</summary><category term="GitHub"></category></entry><entry><title>Windows 10 installation impressions</title><link href="http://www.stevenmaude.co.uk/posts/windows-10-installation-impressions" rel="alternate"></link><published>2016-07-02T23:35:00+01:00</published><updated>2016-07-02T23:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-07-02:posts/windows-10-installation-impressions</id><summary type="html">&lt;p&gt;Windows 10 is only a free upgrade from Windows 7 or 8.1 until the end of
 this month&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;. If you've hesitated so far, you might be a bit unsure as
 to whether you should switch a system you're satisfied with for a
 potentially less satisfactory one. But, if you want a free upgrade, you
@@ -730,7 +730,7 @@ previous upgrade strategy from XP to 7 was to copy everything over, then
 reinstall whichever extras for that game required it.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Windows"></category><category term="installation"></category></entry><entry><title>Book (and talk) review: Making Music. 74 Creative Strategies for Electronic Music Producers.</title><link href="http://www.stevenmaude.co.uk/posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers" rel="alternate"></link><updated>2016-06-26T12:40:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-06-26:posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers</id><summary type="html">&lt;p&gt;Last week, I went to Sónar for a second time, and the sunshine and music
+&lt;/div&gt;</summary><category term="Windows"></category><category term="installation"></category></entry><entry><title>Book (and talk) review: Making Music. 74 Creative Strategies for Electronic Music Producers.</title><link href="http://www.stevenmaude.co.uk/posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers" rel="alternate"></link><published>2016-06-26T12:40:00+01:00</published><updated>2016-06-26T12:40:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-06-26:posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers</id><summary type="html">&lt;p&gt;Last week, I went to Sónar for a second time, and the sunshine and music
 there feels a hazy and distant dream today. Nonetheless, it reminded me
 that I had the bulk of a write-up of one of last year's Sónar+D talks
 sat around for a while. It's still relevant, because of the subject
@@ -897,7 +897,7 @@ reading. It should be stressed that the ideas covered are software,
 hardware and even genre agnostic. There's nothing presented that's
 particularly Ableton specific. It would be a pity if fewer people
 ignored it because of that; it's an enjoyable and enlightening read for
-learners.&lt;/p&gt;</summary><category term="book review"></category><category term="music"></category><category term="production"></category></entry><entry><title>PyPI: releasing frustration</title><link href="http://www.stevenmaude.co.uk/posts/pypi-releasing-frustration" rel="alternate"></link><updated>2016-05-15T12:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-05-15:posts/pypi-releasing-frustration</id><summary type="html">&lt;p&gt;A while back I wrote an &lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader"&gt;automatic tracklisting downloader for BBC radio
+learners.&lt;/p&gt;</summary><category term="book review"></category><category term="music"></category><category term="production"></category></entry><entry><title>PyPI: releasing frustration</title><link href="http://www.stevenmaude.co.uk/posts/pypi-releasing-frustration" rel="alternate"></link><published>2016-05-15T12:34:00+01:00</published><updated>2016-05-15T12:34:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-05-15:posts/pypi-releasing-frustration</id><summary type="html">&lt;p&gt;A while back I wrote an &lt;a href="https://github.com/StevenMaude/bbc-radio-tracklisting-downloader"&gt;automatic tracklisting downloader for BBC radio
 shows&lt;/a&gt; in
 Python. It's simple to use and it also hooks well into
 &lt;a href="https://github.com/get-iplayer/get_iplayer"&gt;get_iplayer&lt;/a&gt; to retrieve or tag
@@ -950,7 +950,7 @@ message telling you that the version already exists and only then increase the
 version number.&lt;/p&gt;
 &lt;p&gt;The details in the guide show the structure of the &lt;code&gt;.pypirc&lt;/code&gt; configuration.
 However, they don't point out that you can also add the PyPI test site too:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;[distutils]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[distutils]
 index-servers=
     pypi
     testpypi
@@ -977,12 +977,12 @@ be released.  &lt;/p&gt;
 which arguments you should use with &lt;code&gt;setup.py&lt;/code&gt; to build your package.&lt;/p&gt;
 &lt;p&gt;If you're trying to build Python wheels, one hiccup is that you likely need the
 &lt;code&gt;wheel&lt;/code&gt; package installed. Otherwise, you may find with a command like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;python setup.py sdist bdist_wheel
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python setup.py sdist bdist_wheel
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;you get the error:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;error: invalid command &amp;#39;bdist_wheel&amp;#39;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;error: invalid command &amp;#39;bdist_wheel&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -995,7 +995,7 @@ Python 2.7.&lt;/p&gt;
 register the project. Note that you need to specify the repository using &lt;code&gt;-r&lt;/code&gt;
 if you want to use something other than the default, and the name is taken from
 your &lt;code&gt;.pypirc&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
 UnicodeDecodeError: &amp;#39;ascii&amp;#39; codec can&amp;#39;t decode byte 0xc2 in position 27:
 ordinal not in range(128)
 &lt;/pre&gt;&lt;/div&gt;
@@ -1006,7 +1006,7 @@ nothing to indicate where the problem lay at all, making it very difficult to
 start fixing it.&lt;/p&gt;
 &lt;p&gt;Switching to Python 3.4 for the upload avoided the Unicode error, but instead
 gave me:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;HTTPError: 401 Client Error: You must login to access this feature for
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;HTTPError: 401 Client Error: You must login to access this feature for
 url: https://pypi.python.org/pypi
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1040,7 +1040,7 @@ whether read in from a file, or included in full in the &lt;code&gt;setup.py&lt;
 &lt;/ul&gt;
 &lt;p&gt;I went for the latter for simplicity.&lt;/p&gt;
 &lt;p&gt;Using &lt;code&gt;pandoc&lt;/code&gt;, it's pretty simple to convert an existing Markdown file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;pandoc --from&lt;span class="o"&gt;=&lt;/span&gt;markdown --to&lt;span class="o"&gt;=&lt;/span&gt;rst --output&lt;span class="o"&gt;=&lt;/span&gt;README.rst README.md
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pandoc --from&lt;span class="o"&gt;=&lt;/span&gt;markdown --to&lt;span class="o"&gt;=&lt;/span&gt;rst --output&lt;span class="o"&gt;=&lt;/span&gt;README.rst README.md
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1051,7 +1051,7 @@ generated. &lt;/p&gt;
 &lt;h3&gt;Uploading&lt;/h3&gt;
 &lt;p&gt;Whew! Back to &lt;code&gt;twine&lt;/code&gt;, and now the project's registered, let's try uploading it
 via:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;twine upload dist/* -r testpypi
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;twine upload dist/* -r testpypi
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1091,7 +1091,7 @@ little or no helpful error information was frustrating. Every stumbling block
 encountered is a point where someone could decide that they've had finally
 enough and just give up. In those cases, it's the community's loss. Developers
 who may well have useful packages to contribute may ultimately decide that it's
-not worth the trouble to release on PyPI.&lt;/p&gt;</summary><category term="Python"></category><category term="PyPI"></category></entry><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
+not worth the trouble to release on PyPI.&lt;/p&gt;</summary><category term="Python"></category><category term="PyPI"></category></entry><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><published>2016-04-20T20:30:00+01:00</published><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
 &lt;p&gt;Firefox has a buried feature in its Developer Tools, which is potentially
 useful even if you're not a developer. If you've never used the Developer
 Tools, just press F12 and you'll see the tools.&lt;/p&gt;
@@ -1128,7 +1128,7 @@ Design mode has its own screenshot tool, near to the resolution menu,
 but this only takes an image of the page visible within the display
 window you've just set, i.e.  it's not necessarily the full page if
 there would still be scroll bars at that actual display resolution
-you've selected.)&lt;/p&gt;</summary><category term="Firefox"></category><category term="screenshot"></category></entry><entry><title>Managing a Bitbucket user's permissions when they've left your team</title><link href="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team" rel="alternate"></link><updated>2016-04-16T01:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-16:posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team</id><summary type="html">&lt;h2&gt;Kicking the Bitbucket&lt;/h2&gt;
+you've selected.)&lt;/p&gt;</summary><category term="Firefox"></category><category term="screenshot"></category></entry><entry><title>Managing a Bitbucket user's permissions when they've left your team</title><link href="http://www.stevenmaude.co.uk/posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team" rel="alternate"></link><published>2016-04-16T01:54:00+01:00</published><updated>2016-04-16T01:54:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-16:posts/managing-a-bitbucket-users-permissions-when-theyve-left-your-team</id><summary type="html">&lt;h2&gt;Kicking the Bitbucket&lt;/h2&gt;
 &lt;p&gt;What I noticed this week is that users who'd left a Bitbucket team&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;
 that I'm currently a member of were still billed as having admin access
 to several repositories. But, this wasn't by virtue of being a team

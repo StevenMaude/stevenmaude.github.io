@@ -169,7 +169,7 @@ changelog</a>.</p>
 to compile it from source. In Ubuntu, it was reasonably straightforward
 to clone it from <a href="https://github.com/gpsbabel/gpsbabel">GitHub</a> and then
 do the following:</p>
-<div class="highlight"><pre>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+<div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
 make
 make install
 </pre></div>
@@ -179,13 +179,13 @@ make install
 directory</a> and avoids the need
 for <code>sudo</code> in <code>make install</code>.</p>
 <p>The only hiccup was that the <code>configure</code> step gave the error message:</p>
-<div class="highlight"><pre><span class="go">configure: error: Qt4 or Qt5 is required, but neither was found</span>
+<div class="highlight"><pre><span></span><span class="go">configure: error: Qt4 or Qt5 is required, but neither was found</span>
 </pre></div>
 
 
 <p><a href="https://stackoverflow.com/questions/16607003/qmake-could-not-find-a-qt-installation-of">The fix</a>
 was to do the following:</p>
-<div class="highlight"><pre>sudo apt-get install qtcreator
+<div class="highlight"><pre><span></span>sudo apt-get install qtcreator
 </pre></div>
 
 
@@ -194,7 +194,7 @@ compiling then worked. (I then removed <code>qtcreator</code> via <code>apt-get
 remove</code>.)</p>
 <h3>Converting Garmin's FIT data to GPX</h3>
 <p>An example use of GPSBabel is:</p>
-<div class="highlight"><pre>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
+<div class="highlight"><pre><span></span>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
 </pre></div>
 
 
@@ -319,18 +319,18 @@ user-replaceable. That drawback aside, it seems a decent choice.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
