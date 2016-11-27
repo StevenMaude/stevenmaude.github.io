@@ -162,7 +162,7 @@ message telling you that the version already exists and only then increase the
 version number.</p>
 <p>The details in the guide show the structure of the <code>.pypirc</code> configuration.
 However, they don't point out that you can also add the PyPI test site too:</p>
-<div class="highlight"><pre>[distutils]
+<div class="highlight"><pre><span></span>[distutils]
 index-servers=
     pypi
     testpypi
@@ -189,12 +189,12 @@ be released.  </p>
 which arguments you should use with <code>setup.py</code> to build your package.</p>
 <p>If you're trying to build Python wheels, one hiccup is that you likely need the
 <code>wheel</code> package installed. Otherwise, you may find with a command like:</p>
-<div class="highlight"><pre>python setup.py sdist bdist_wheel
+<div class="highlight"><pre><span></span>python setup.py sdist bdist_wheel
 </pre></div>
 
 
 <p>you get the error:</p>
-<div class="highlight"><pre>error: invalid command &#39;bdist_wheel&#39;
+<div class="highlight"><pre><span></span>error: invalid command &#39;bdist_wheel&#39;
 </pre></div>
 
 
@@ -207,7 +207,7 @@ Python 2.7.</p>
 register the project. Note that you need to specify the repository using <code>-r</code>
 if you want to use something other than the default, and the name is taken from
 your <code>.pypirc</code>.</p>
-<div class="highlight"><pre>Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
+<div class="highlight"><pre><span></span>Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
 UnicodeDecodeError: &#39;ascii&#39; codec can&#39;t decode byte 0xc2 in position 27:
 ordinal not in range(128)
 </pre></div>
@@ -218,7 +218,7 @@ nothing to indicate where the problem lay at all, making it very difficult to
 start fixing it.</p>
 <p>Switching to Python 3.4 for the upload avoided the Unicode error, but instead
 gave me:</p>
-<div class="highlight"><pre>HTTPError: 401 Client Error: You must login to access this feature for
+<div class="highlight"><pre><span></span>HTTPError: 401 Client Error: You must login to access this feature for
 url: https://pypi.python.org/pypi
 </pre></div>
 
@@ -252,7 +252,7 @@ whether read in from a file, or included in full in the <code>setup.py</code> it
 </ul>
 <p>I went for the latter for simplicity.</p>
 <p>Using <code>pandoc</code>, it's pretty simple to convert an existing Markdown file:</p>
-<div class="highlight"><pre>pandoc --from<span class="o">=</span>markdown --to<span class="o">=</span>rst --output<span class="o">=</span>README.rst README.md
+<div class="highlight"><pre><span></span>pandoc --from<span class="o">=</span>markdown --to<span class="o">=</span>rst --output<span class="o">=</span>README.rst README.md
 </pre></div>
 
 
@@ -263,7 +263,7 @@ generated. </p>
 <h3>Uploading</h3>
 <p>Whew! Back to <code>twine</code>, and now the project's registered, let's try uploading it
 via:</p>
-<div class="highlight"><pre>twine upload dist/* -r testpypi
+<div class="highlight"><pre><span></span>twine upload dist/* -r testpypi
 </pre></div>
 
 
@@ -341,18 +341,18 @@ not worth the trouble to release on PyPI.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

@@ -136,7 +136,7 @@ that although
 <code>man</code>
 was still running perfectly fine, I was getting this
 message:</p>
-<div class="highlight"><pre>man: can&#39;t resolve /usr/share/man/man6/LS.6.gz: No such file or
+<div class="highlight"><pre><span></span>man: can&#39;t resolve /usr/share/man/man6/LS.6.gz: No such file or
 directory
 </pre></div>
 
@@ -147,7 +147,7 @@ one</a>; just run
 database caches. Looking more closely, I found that a <code>mandb</code>
 job was actually in cron.daily which means that it should run daily.
 However, when I checked the syslog with:</p>
-<div class="highlight"><pre>grep cron.daily /var/log/syslog
+<div class="highlight"><pre><span></span>grep cron.daily /var/log/syslog
 </pre></div>
 
 
@@ -161,7 +161,7 @@ once I've finished with it.</p>
 install anacron</code>, you should find an
 <code>/etc/anacrontab</code>
 containing lines like:</p>
-<div class="highlight"><pre><span class="m">1</span> <span class="m">5</span> cron.daily run-parts --report /etc/cron.daily
+<div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">5</span> cron.daily run-parts --report /etc/cron.daily
 <span class="m">7</span> <span class="m">10</span> cron.weekly run-parts --report /etc/cron.weekly
 @monthly <span class="m">15</span> cron.monthly run-parts --report /etc/cron.monthly
 </pre></div>
@@ -174,12 +174,12 @@ There's then a user-specified delay before anacron runs each task; here,
 it's 5 minutes for <code>/etc/cron.daily</code>, 10 minutes for <code>/etc/cron.weekly</code>
 and 15 minutes for <code>/etc/cron.monthly</code>.
 If you then restart and wait five minutes or so, then do:</p>
-<div class="highlight"><pre>grep cron.daily /var/log/syslog
+<div class="highlight"><pre><span></span>grep cron.daily /var/log/syslog
 </pre></div>
 
 
 <p>should show lines like:</p>
-<div class="highlight"><pre>Jan 31 10:28:02 raspberrypi anacron[2105]: Will run job `cron.daily&#39; in
+<div class="highlight"><pre><span></span>Jan 31 10:28:02 raspberrypi anacron[2105]: Will run job `cron.daily&#39; in
 5 min.
 Jan 31 10:33:21 raspberrypi anacron[2105]: Job `cron.daily&#39; started
 Jan 31 10:33:21 raspberrypi anacron[2692]: Updated timestamp for
@@ -231,18 +231,18 @@ gave a very clear and helpful explanation of how the two interoperate.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

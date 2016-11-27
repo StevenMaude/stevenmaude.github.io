@@ -132,7 +132,7 @@ accidentally type the wrong thing that you won't erase a drive that you
 didn't intend to.</p>
 <p>Next, you need to get the drive's name. Open a terminal by pressing
 Ctrl+Alt+T.</p>
-<div class="highlight"><pre>sudo lshw -class disk
+<div class="highlight"><pre><span></span>sudo lshw -class disk
 </pre></div>
 
 
@@ -146,10 +146,10 @@ advises it due to problems with certain PCs, and it only takes one extra
 command. Note that the "foo" password below can be replaced by something
 of your choice, but it doesn't really matter; when the drive is erased,
 the password should be removed.</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm --user-master u --security-set-pass foo /dev/sdX
+<div class="highlight"><pre><span></span>$ sudo hdparm --user-master u --security-set-pass foo /dev/sdX
 security_password: <span class="s2">&quot;foo&quot;</span>
 /dev/sdX:
- Issuing SECURITY_SET_PASS <span class="nb">command</span>, <span class="nv">password</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span>, <span class="nv">user</span><span class="o">=</span>user, <span class="nv">mode</span><span class="o">=</span>high
+ Issuing SECURITY_SET_PASS command, <span class="nv">password</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span>, <span class="nv">user</span><span class="o">=</span>user, <span class="nv">mode</span><span class="o">=</span>high
 SECURITY_SET_PASS: Input/output error
 </pre></div>
 
@@ -159,7 +159,7 @@ SECURITY_SET_PASS: Input/output error
 You might expect it if the drive has a password set already, but in this
 case I couldn't recall doing that. If that's the same for you, it could
 be a simple fix.  First, check the drive's current status via:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo hdparm -I /dev/sdX
+<div class="highlight"><pre><span></span>$ sudo hdparm -I /dev/sdX
 </pre></div>
 
 
@@ -180,7 +180,7 @@ opposed to "not enabled".</p>
 <p>You can now proceed with the erase. If your drive's <code>hdparm</code> output
 states <code>supported: enhanced erase</code>, you could replace the
 <code>--security-erase</code> below with <code>--security-erase-enhanced</code>:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo <span class="nb">time </span>hdparm --user-master u --security-erase foo /dev/sdX
+<div class="highlight"><pre><span></span>$ sudo <span class="nb">time</span> hdparm --user-master u --security-erase foo /dev/sdX
 </pre></div>
 
 
@@ -224,18 +224,18 @@ enabled".</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

@@ -139,7 +139,7 @@ site archiving, hit a problem and then discover which <code>wget</code> option y
 have used to fix it. The upside is that <code>wget</code> probably does feature the option
 you require.</p>
 <p>After lots of trial and error, what I ended up with was (deep breath):</p>
-<div class="highlight"><pre>wget --page-requisites --convert-links --adjust-extension --mirror --span-hosts --domains<span class="o">=</span>blog.scraperwiki.com,scraperwiki.com --exclude-domains beta.scraperwiki.com,classic.scraperwiki.com,media.scraperwiki.com,mot.scraperwiki.com,newsreader.scraperwiki.com,premium.scraperwiki.com,status.scraperwiki.com,x.scraperwiki.com scraperwiki.com
+<div class="highlight"><pre><span></span>wget --page-requisites --convert-links --adjust-extension --mirror --span-hosts --domains<span class="o">=</span>blog.scraperwiki.com,scraperwiki.com --exclude-domains beta.scraperwiki.com,classic.scraperwiki.com,media.scraperwiki.com,mot.scraperwiki.com,newsreader.scraperwiki.com,premium.scraperwiki.com,status.scraperwiki.com,x.scraperwiki.com scraperwiki.com
 </pre></div>
 
 
@@ -238,7 +238,7 @@ gets correctly requested as a filename with a question mark in it. Not
 particularly clean, but it worked. It may have just been using a recent
 version of <code>wget</code> that solved this. This was nice as the alternative was
 a horrendous find/replace task using commands like:</p>
-<div class="highlight"><pre>find . -type f -exec grep -Iq . <span class="o">{}</span> <span class="se">\;</span> -and -exec sed -i
+<div class="highlight"><pre><span></span>find . -type f -exec grep -Iq . <span class="o">{}</span> <span class="se">\;</span> -and -exec sed -i
 <span class="s1">&#39;s!wp-content/plugins/jetpack/css/jetpack.css?ver=4.1.1!wp-content/plugins/jetpack/css/jetpack.css!g&#39;</span>
 <span class="o">{}</span> <span class="se">\;</span>
 </pre></div>
@@ -363,18 +363,18 @@ tips here might help you with your migration.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

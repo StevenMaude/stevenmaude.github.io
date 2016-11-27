@@ -129,7 +129,7 @@ stevenmaude.co.uk            </a>
 Ubuntu as I need to demo some of my work. About two minutes before it
 was due to begin, I noticed that my pings to the home network router
 were ridiculously variable and high:</p>
-<div class="highlight"><pre>PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
+<div class="highlight"><pre><span></span>PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
 64 bytes from 192.168.0.1: icmp_req=1 ttl=64 time=60.3 ms
 64 bytes from 192.168.0.1: icmp_req=2 ttl=64 time=82.9 ms
 64 bytes from 192.168.0.1: icmp_req=3 ttl=64 time=105 ms
@@ -144,12 +144,12 @@ Fortunately, it didn't seem to adversely affect the call.</p>
 ms)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. So, what's the issue under Linux?</p>
 <p>What it turns out to be is wireless power management. You can easily
 test this by trying:</p>
-<div class="highlight"><pre>sudo iwconfig wlan0 power off
+<div class="highlight"><pre><span></span>sudo iwconfig wlan0 power off
 </pre></div>
 
 
 <p>and remeasuring the pings:</p>
-<div class="highlight"><pre>64 bytes from 192.168.0.1: icmp_req=1 ttl=64 time=0.970 ms
+<div class="highlight"><pre><span></span>64 bytes from 192.168.0.1: icmp_req=1 ttl=64 time=0.970 ms
 64 bytes from 192.168.0.1: icmp_req=2 ttl=64 time=1.04 ms
 64 bytes from 192.168.0.1: icmp_req=3 ttl=64 time=0.994 ms
 </pre></div>
@@ -159,19 +159,19 @@ test this by trying:</p>
 <p><a href="http://ubuntuforums.org/showthread.php?t=1686641">Thanks to this forum
 thread</a>, I found an
 easy way to make this fix permanent, you need to do something like:</p>
-<div class="highlight"><pre>sudo nano /etc/pm/power.d/wireless
+<div class="highlight"><pre><span></span>sudo nano /etc/pm/power.d/wireless
 </pre></div>
 
 
 <p>and add the following lines to the newly created file:</p>
-<div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 /sbin/iwconfig wlan0 power off
 </pre></div>
 
 
 <p>Next, do:</p>
-<div class="highlight"><pre>sudo chmod +x /etc/pm/power.d/wireless
+<div class="highlight"><pre><span></span>sudo chmod +x /etc/pm/power.d/wireless
 </pre></div>
 
 
@@ -224,18 +224,18 @@ you'd suffer a similar problem in Windows too otherwise.&#160;<a class="footnote
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
