@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>A beginner's guide to OS encryption: (almost) 2017 edition - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-almost-2017-edition">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="BitLocker,encryption,LUKS,Ubuntu,Windows" />
+        <meta name="description" content="How to dual boot Windows with Ubuntu and encrypt them both." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="A beginner&#39;s guide to OS encryption: (almost) 2017 edition"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-almost-2017-edition"/>
+        <meta property="og:description" content="How to dual boot Windows with Ubuntu and encrypt them both."/>
+        <meta property="article:published_time" content="2016-11-28" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="BitLocker" />
+            <meta property="article:tag" content="encryption" />
+            <meta property="article:tag" content="LUKS" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:tag" content="Windows" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                A beginner's guide to OS encryption: (almost) 2017 edition
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-11-28T00:26:00+00:00"> 2016-11-28</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/luks">LUKS</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Previously I wrote about setting up my laptop to <a href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual">dual boot Windows and
+Ubuntu</a>.
+As the Ubuntu LTS I had installed was now aging badly<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, it really,
+really, <em>really</em> needed upgrading.</p>
+<p>I'd been hesitant to upgrade. The last time I installed this way, it
+took a week of following several guides, many of them out of date or not
+working, and several failed installs.</p>
+<h2>A quick guide</h2>
+<p>Fortunately, thanks to someone really helpful on the internet, I don't
+have to write much this time:</p>
+<ol>
+<li>
+<p>Follow this <a href="https://askubuntu.com/a/293029/623909">guide</a>.</p>
+</li>
+<li>
+<p>That's pretty much it.</p>
+</li>
+</ol>
+<h2>Installing Windows</h2>
+<p>Seeing as I have my text editor open, I'll clarify a little more.</p>
+<p>To start with, I booted Windows 10 with my computer set to boot in UEFI
+mode and with Secure Boot enabled. Starting from a clean hard disk, when
+the Windows installer booted, I was using a clean drive, and instructed
+the installer to create a new partition using a certain proportion of
+space on my drive, leaving the rest of the disk as unformatted space.</p>
+<p>You'll find you don't get one partition but four: a recovery partition,
+the system (or EFI partition), a reserved space partition and the
+primary partition where Windows will actually be installed.</p>
+<p>Another hour or so later, and following running Windows Update,
+hopefully you have a working and updated Windows machine. One big plus
+of the Windows 10 installer versus what I've experienced previously is
+that most computer hardware tends to get detected and installed
+automatically, without you needing to find drivers buried away on a
+manufacturer's website. Another is that, although Windows 10's
+cumulative updates can be problematic if there's an issue with one part
+of them, they do mean that you have only one big update to install, not
+several hundred, as is seriously the case with Windows 7.</p>
+<p>At this point, you can go ahead and encrypt the Windows operating system
+drive with BitLocker, provided you have a version of Windows that offers
+it. If you don't have a Trusted Platform Module in your PC, it's still
+possible to use BitLocker, but you'll need to override this using <a href="https://technet.microsoft.com/en-us/library/jj679890(v=ws.11).aspx">Group
+Policy</a>
+(search for <code>gpedit.msc</code> in the Windows search bar and run it). </p>
+<p>You can find the options in Group Policy under (breathe in): Computer
+Configuration\Administrative Templates\Windows Components\BitLocker
+Drive Encryption\Operating System Drives. The specific option you need
+to change is "Require additional authentication at startup" and you can
+then tick "Allow BitLocker without a compatible TPM".</p>
+<p>You should probably consider enabling "Allow enhanced PINs for startup"
+which is in the same Group Policy section while in there, seeing as this
+lets you use characters, not just numbers.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+<p>Right clicking on the drive in Windows Explorer and selecting "Turn on
+BitLocker" should let you then go through the process of encrypting the
+drive.</p>
+<p>Although I'm discussing Windows and Ubuntu here, note that the guide
+I've linked to may well work for two Linux installations too.</p>
+<h2>Installing Ubuntu</h2>
+<p>The usual advice is to install Linux <em>after</em> Windows, since Windows
+doesn't necessarily play as nicely with Linux. I'm not sure if that
+still holds in the days of UEFI booting, but it seemed sensible to do.</p>
+<p>Going back to the <a href="https://askubuntu.com/a/293029/623909">excellent
+guide</a> that was posted, it's not
+difficult to follow. Pay attention to the comments, as there were three
+steps that were unnecessary in the process, which were pointed out
+there.</p>
+<p>The process has quite a few steps, but even if you don't understand
+fully what's going on, it should Just Work™. Here's an overview of
+what's involved once you've loaded Ubuntu from a DVD or USB:</p>
+<ol>
+<li>
+<p>Use your unpartitioned disk space to create two partitions. One will
+    be the unencrypted /boot partition and the other will be a LUKS
+    container that contains an LVM physical volume. This is then
+    subdivided into two logical volumes, one for the root partition, /,
+    and the other for /swap.</p>
+</li>
+<li>
+<p>Install Ubuntu to the root partition you created with the installer,
+    as normal, although make sure that you choose "Something else" when
+    asked how to install.</p>
+</li>
+<li>
+<p>Don't immediately reboot after installing. Access your new
+    installation by using a
+    <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>. This gives a
+    convenient way of modifying a configuration file in the new install
+    (crypttab) to add details of your drive which need to be available at
+    boot, and updating its
+    <a href="https://en.wikipedia.org/wiki/Initramfs">initramfs</a> with that
+    configuration.</p>
+</li>
+</ol>
+<p>After that, booting up into Ubuntu should work and prompt you to unlock
+the LUKS container. Depending on your UEFI setup and your preference,
+you may need to go into your PC's boot menu at startup and select Ubuntu
+directly (or reorder the default boot order so that it boots by
+default). </p>
+<h3>Some more tips</h3>
+<p>The guide's pretty good, and my install was successful first time with
+no real hiccups, which was a pleasant surprise. There are, however, a
+few points which aren't mentioned:</p>
+<ol>
+<li>
+<p>When you're using GParted to partition your drive, you may wish to
+    use the "cleared" option instead of "unformatted" to avoid any
+    confusion. Otherwise, if your drive has previous partitions present,
+    you may see GParted inform you that the type of partition is
+    whatever used to be there. It shouldn't make a difference however,
+    as you later should format the partitions anyway. </p>
+</li>
+<li>
+<p>Make sure you read what the terminal's telling you. I was really
+    confused when the <code>luksOpen</code> command didn't work as I'd run the
+    <code>luksFormat</code> command before. Where I'd gone wrong is that
+    <code>luksFormat</code> asks you to confirm you want to format the drive.
+    Instead of typing uppercase "YES" as it instructs, I'd typed "yes",
+    and the program just exited instead, without warning it hadn't done
+    anything.</p>
+</li>
+<li>
+<p>When creating the logical volumes where / and /swap will live, you
+    use the <code>lvcreate</code> command. With the <code>-L</code> flag as used in the guide,
+    you directly specify the size it should take. If you want to ensure
+    that the second partition uses the rest of the space, you can use the
+    <code>-l</code> flag as in <code>-l 100%FREE</code> instead of e.g. <code>-L 7.5g</code>.</p>
+<p>You can also check the status of the volumes you've created using
+<code>pvs</code> and <code>lvs</code> to ensure everything is as you like, before
+proceeding.</p>
+</li>
+<li>
+<p>When installing the GRUB bootloader, it belongs in the EFI
+    partition.  If you select the disk where you're installling the
+    operating system, the Ubuntu installer should automatically detect
+    the partition and install GRUB there. It's likely that it's /dev/sda
+    if the only hard disk that's plugged in. Alternatively, you can
+    identify the EFI partition directly and choose that, e.g. /dev/sda2.</p>
+</li>
+<li>
+<p>The guide suggests using <code>mount</code> and <code>swapon</code> to check which volumes
+    are being used in the new installation. Running <code>lsblk</code> in the
+    terminal can do this in a single command. It will show you which
+    block devices are mounted and where: you should see the / and /swap
+    inside your encrypted LUKS container.</p>
+</li>
+</ol>
+<h2>Reinstalling</h2>
+<p>How would reinstalling one of the operating systems work? I haven't
+tried it yet, so can't say for certain. Below is a thought experiment,
+although please heed the warning that it is only a thought experiment.</p>
+<p>My hunch is that an Ubuntu reinstall should be fairly straightforward:
+delete the two partitions you created (/boot and the LUKS/LVM
+partition), create new ones and follow the whole process again. It
+shouldn't impact the Windows installation, as the Windows bootloader
+should still exist in the EFI partition. And reinstalling Ubuntu should
+just overwrite the existing Ubuntu bootloaders.</p>
+<p>Reinstalling Windows might be trickier. If you retain the existing EFI
+partition and install Windows to the same operating system partition
+(i.e. without wiping all four partitions and telling Windows to install
+to the unpartitioned space), that shouldn't break Ubuntu as I'd guess
+that Windows just uses the existing EFI partition, and therefore would
+leave GRUB in place. Otherwise, if you do decide to wipe out all four
+partitions that Windows created, you'll need to reinstall the GRUB
+bootloader to the new EFI partition; see <a href="https://wiki.debian.org/GrubEFIReinstall">Debian's
+wiki</a> and <a href="https://superuser.com/a/376471">this
+guide</a>.
+It still shouldn't otherwise break your Linux installation, apart from
+this though.</p>
+<p>Again, I've not tested any of this has been tested yet. If I ever try
+reinstalling one operating system and not both, I'll no doubt edit this
+post or add a new one describing that process.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>A subject for another post. My brief advice if you're intending to
+use Ubuntu LTS releases is to upgrade every time, and not skip any,
+especially if you're running it as a desktop.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Yes, in this case "PIN" does then become a misnomer.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/android">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker">
+                            BitLocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/wordpress">
+                            WordPress
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
