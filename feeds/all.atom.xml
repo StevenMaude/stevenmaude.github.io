@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-11-28T00:26:00+00:00</updated><entry><title>A beginner's guide to OS encryption: (almost) 2017 edition</title><link href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-almost-2017-edition" rel="alternate"></link><published>2016-11-28T00:26:00+00:00</published><updated>2016-11-28T00:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-28:posts/a-beginners-guide-to-os-encryption-almost-2017-edition</id><summary type="html">&lt;p&gt;Previously I wrote about setting up my laptop to &lt;a href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual"&gt;dual boot Windows and
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-12-01T12:00:00+00:00</updated><entry><title>Conversation conservation: recording audio input and output simultaneously in Linux</title><link href="http://www.stevenmaude.co.uk/posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux" rel="alternate"></link><published>2016-12-01T12:00:00+00:00</published><updated>2016-12-01T12:00:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-01:posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux</id><summary type="html">&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;p&gt;Sometimes you might need to record both the audio playing out on your
+computer as well as an input. Often, this might be if you're recording a
+screencast or podcast, or if you want to record both sides of an online
+voice chat or video call, e.g. with Hangouts, Skype or some WebRTC app,
+for instance.&lt;/p&gt;
+&lt;p&gt;In my case, I wanted to record an interview and, ideally, want to hear
+what both of us were saying, without having to record both sides of the
+conversation separately and later try to combine them into a single
+piece of audio.&lt;/p&gt;
+&lt;h2&gt;How&lt;/h2&gt;
+&lt;p&gt;The solution if you're using Linux and PulseAudio is &lt;a href="https://superuser.com/questions/769249/how-to-record-both-input-and-output-audio-simultaneously"&gt;mentioned
+here&lt;/a&gt;
+but I've clarified this below so I can find it quickly:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;pactl load-module module-loopback&lt;/code&gt; in a terminal. You should
+    start hearing your microphone input; with headphones on at least,
+    you shouldn't get feedback. What you do get is a very slight delay
+    in hearing yourself.  For me, using earphones and removing one
+    seemed to help remove most of the off-putting distraction this delay
+    causes, while still being able to hear the other participant in the
+    conversation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start recording in, say, &lt;a href="http://www.audacityteam.org/"&gt;Audacity&lt;/a&gt; or
+    some other audio recording software.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open the PulseAudio Volume Control. If you don't have it installed,
+    &lt;code&gt;apt install pavucontrol&lt;/code&gt; should get you it in Ubuntu. You may then
+    have a shortcut to it wherever your programs get listed, e.g. in
+    Ubuntu, you can access it via the Unity dash.&lt;/p&gt;
+&lt;p&gt;Alternatively, run &lt;code&gt;pavucontrol&amp;amp;&lt;/code&gt; in a terminal, open the Recording
+tab. to Recording tab, select what should be something like "Monitor
+of Built-in Audio Analogue Stereo" for the selection for Audacity.
+This is one thing that's a little counterintuitive; you don't see
+this unless you've already started recording.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When you've finished, you can run &lt;code&gt;pactl unload-module
+    module-loopback&lt;/code&gt; to stop hearing audio input in the output. You
+    might also want to reset the Audacity recording setting to what it
+    was, so that you don't forget you changed it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="audio"></category><category term="recording"></category><category term="Linux"></category><category term="Ubuntu"></category></entry><entry><title>A beginner's guide to OS encryption: (almost) 2017 edition</title><link href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-almost-2017-edition" rel="alternate"></link><published>2016-11-28T00:26:00+00:00</published><updated>2016-11-28T00:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-28:posts/a-beginners-guide-to-os-encryption-almost-2017-edition</id><summary type="html">&lt;p&gt;Previously I wrote about setting up my laptop to &lt;a href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual"&gt;dual boot Windows and
 Ubuntu&lt;/a&gt;.
 As the Ubuntu LTS I had installed was now aging badly&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;, it really,
 really, &lt;em&gt;really&lt;/em&gt; needed upgrading.&lt;/p&gt;
@@ -1273,41 +1318,4 @@ little or no helpful error information was frustrating. Every stumbling block
 encountered is a point where someone could decide that they've had finally
 enough and just give up. In those cases, it's the community's loss. Developers
 who may well have useful packages to contribute may ultimately decide that it's
-not worth the trouble to release on PyPI.&lt;/p&gt;</summary><category term="Python"></category><category term="PyPI"></category></entry><entry><title>Taking web page screenshots smartly with Firefox's Developer Tools</title><link href="http://www.stevenmaude.co.uk/posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools" rel="alternate"></link><published>2016-04-20T20:30:00+01:00</published><updated>2016-04-20T20:30:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-04-20:posts/taking-web-page-screenshots-smartly-with-firefoxs-developer-tools</id><summary type="html">&lt;h2&gt;Snap happy&lt;/h2&gt;
-&lt;p&gt;Firefox has a buried feature in its Developer Tools, which is potentially
-useful even if you're not a developer. If you've never used the Developer
-Tools, just press F12 and you'll see the tools.&lt;/p&gt;
-&lt;p&gt;You should see a cog icon towards the upper right of the pane that's just
-displayed. The cog is on the same row as the Inspector, Console etc. buttons.&lt;/p&gt;
-&lt;p&gt;Clicking this displays a page of options that you can use to customise the
-Developer Tools. By ticking "Take a fullpage screenshot" under "Available
-Toolbox Buttons", you should see a camera icon appear near the cog icon you
-previously clicked. Selecting this gives you a screenshot of the page where you
-opened the Developer Tools. The resulting PNG file can be found in your Firefox
-Downloads.&lt;/p&gt;
-&lt;p&gt;This is a really handy feature. It means that you can take an image of a
-scrollable page that's &lt;strong&gt;larger&lt;/strong&gt; than your current window. No need for
-screenshotting parts of the page then joining them together by hand.&lt;/p&gt;
-&lt;h2&gt;Solving bigger problems&lt;/h2&gt;
-&lt;p&gt;But what if you want to enlarge the visible area beyond the size of your
-current window, and then take a screenshot?&lt;/p&gt;
-&lt;p&gt;Why would this be even useful?&lt;/p&gt;
-&lt;p&gt;Let's say that you want a screenshot of a web page displaying a map, where the
-map expands to fill your browser window. And let's say that you want the
-screenshot to cover a larger area than fits into the largest browser window you
-can have on your desktop. Just expanding the window isn't going to give you the
-size that you need.  &lt;/p&gt;
-&lt;p&gt;How can you do this? If you hover over the toolbox icons in the Developer Tools
-panel, near to the cog, you should be able to find the Responsive Design mode.
-(It's a very small, dotted rectangle inside a larger, thicker rectangle.) Click
-this. Your display will change to have a border and extra options appear. The
-selected resolution is shown above the display. Clicking on the resolution
-dropdown menu, you can directly type the resolution you want this preview
-display to have and press Enter to have it take effect.&lt;/p&gt;
-&lt;p&gt;All that's left is to take a screenshot again using the "Take a fullpage
-screenshot" option in the Developer Tools toolbox. (Note that Responsive
-Design mode has its own screenshot tool, near to the resolution menu,
-but this only takes an image of the page visible within the display
-window you've just set, i.e.  it's not necessarily the full page if
-there would still be scroll bars at that actual display resolution
-you've selected.)&lt;/p&gt;</summary><category term="Firefox"></category><category term="screenshot"></category></entry></feed>
+not worth the trouble to release on PyPI.&lt;/p&gt;</summary><category term="Python"></category><category term="PyPI"></category></entry></feed>

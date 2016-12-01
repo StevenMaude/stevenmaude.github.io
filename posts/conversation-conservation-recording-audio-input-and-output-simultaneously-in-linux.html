@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>keyword search - stevenmaude.co.uk</title>
+    <title>Conversation conservation: recording audio input and output simultaneously in Linux - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,24 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="keyword search" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="audio,recording,Linux,Ubuntu" />
+        <meta name="description" content="Recording audio input and output in Linux for screencasts, podcasts and interviews." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Conversation conservation: recording audio input and output simultaneously in Linux"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux"/>
+        <meta property="og:description" content="Recording audio input and output in Linux for screencasts, podcasts and interviews."/>
+        <meta property="article:published_time" content="2016-12-01" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="audio" />
+            <meta property="article:tag" content="recording" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +34,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,13 +84,20 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them">Firefox keyword searches, and how to fix adding them</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Conversation conservation: recording audio input and output simultaneously in Linux
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2016-04-03T17:00:00+01:00"> 2016-04-03</time>
+        <time datetime="2016-12-01T12:00:00+00:00"> 2016-12-01</time>
     </span>
 
 
@@ -88,17 +105,66 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
+	<a href="http://www.stevenmaude.co.uk/tag/audio">audio</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/keyword-search">keyword search</a>
+	<a href="http://www.stevenmaude.co.uk/tag/recording">recording</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/quick-search">quick search</a>
+	<a href="http://www.stevenmaude.co.uk/tag/linux">Linux</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>How Firefox keyword searches speed up web searching, and how to resolve the situation when you can't add new ones.</p>
                 </div>
-            </article>
-            <hr/>
+                <h2>Why?</h2>
+<p>Sometimes you might need to record both the audio playing out on your
+computer as well as an input. Often, this might be if you're recording a
+screencast or podcast, or if you want to record both sides of an online
+voice chat or video call, e.g. with Hangouts, Skype or some WebRTC app,
+for instance.</p>
+<p>In my case, I wanted to record an interview and, ideally, want to hear
+what both of us were saying, without having to record both sides of the
+conversation separately and later try to combine them into a single
+piece of audio.</p>
+<h2>How</h2>
+<p>The solution if you're using Linux and PulseAudio is <a href="https://superuser.com/questions/769249/how-to-record-both-input-and-output-audio-simultaneously">mentioned
+here</a>
+but I've clarified this below so I can find it quickly:</p>
+<ol>
+<li>
+<p>Run <code>pactl load-module module-loopback</code> in a terminal. You should
+    start hearing your microphone input; with headphones on at least,
+    you shouldn't get feedback. What you do get is a very slight delay
+    in hearing yourself.  For me, using earphones and removing one
+    seemed to help remove most of the off-putting distraction this delay
+    causes, while still being able to hear the other participant in the
+    conversation.</p>
+</li>
+<li>
+<p>Start recording in, say, <a href="http://www.audacityteam.org/">Audacity</a> or
+    some other audio recording software.</p>
+</li>
+<li>
+<p>Open the PulseAudio Volume Control. If you don't have it installed,
+    <code>apt install pavucontrol</code> should get you it in Ubuntu. You may then
+    have a shortcut to it wherever your programs get listed, e.g. in
+    Ubuntu, you can access it via the Unity dash.</p>
+<p>Alternatively, run <code>pavucontrol&amp;</code> in a terminal, open the Recording
+tab. to Recording tab, select what should be something like "Monitor
+of Built-in Audio Analogue Stereo" for the selection for Audacity.
+This is one thing that's a little counterintuitive; you don't see
+this unless you've already started recording.</p>
+</li>
+<li>
+<p>When you've finished, you can run <code>pactl unload-module
+    module-loopback</code> to stop hearing audio input in the output. You
+    might also want to reset the Audacity recording setting to what it
+    was, so that you don't forget you changed it.</p>
+</li>
+</ol>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
