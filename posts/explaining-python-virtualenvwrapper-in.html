@@ -128,7 +128,7 @@ you work on.</p>
 simplifies the use of virtualenvs! (Thanks
 <a href="https://twitter.com/morty_uk">Morty</a> for pointing it out!) Like my
 previous post, I'll keep any exposition to the minimum.</p>
-<h2>How do you install virtualenvwrapper?</h2>
+<h2 id="how-do-you-install-virtualenvwrapper">How do you install virtualenvwrapper?</h2>
 <p>On my Ubuntu 12.04 LTS system, I installed it via the apt package
 manager. It was a little bit more of a pain since it sticks it in a
 non-standard location:<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> not the expected
@@ -147,7 +147,7 @@ depending on where the virtualenvwrapper script is actually located.)</p>
 <p>Save your newly modified <code>.bashrc</code> and re-source it by entering in your
 bash terminal: <code>source ~/.bashrc</code></p>
 <p>virtualenvwrapper is now ready to go!</p>
-<h2>What does virtualenvwrapper offer?</h2>
+<h2 id="what-does-virtualenvwrapper-offer">What does virtualenvwrapper offer?</h2>
 <p>After using it briefly, the stand out features are:</p>
 <p><strong>List your available virtualenvs (provided they are located in
 <code>$WORKON_HOME</code>):</strong>
@@ -178,20 +178,20 @@ file in there. Add the following two lines to it:</p>
 with the path to your Python virtualenvs.</p>
 <p>Even in my case, where I only have a few projects right now, this
 shortcut saves you a lot of typing <code>cd</code> and <code>activate</code> commands.</p>
-<h3>Make a new virtualenv in $WORKON_HOME (this also activates it):</h3>
+<h3 id="make-a-new-virtualenv-in-workon_home-this-also-activates-it">Make a new virtualenv in $WORKON_HOME (this also activates it):</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#mkvirtualenv"><code>mkvirtualenv newvirtualenvname</code></a></p>
-<h3>Delete a virtualenv:</h3>
+<h3 id="delete-a-virtualenv">Delete a virtualenv:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#rmvirtualenv"><code>rmvirtualenv virtualenvname</code></a></p>
-<h2>Other interesting virtualenv management features I've not used yet:</h2>
-<h3>Show installed packages in currently active virtualenv:</h3>
+<h2 id="other-interesting-virtualenv-management-features-ive-not-used-yet">Other interesting virtualenv management features I've not used yet:</h2>
+<h3 id="show-installed-packages-in-currently-active-virtualenv">Show installed packages in currently active virtualenv:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#lssitepackages"><code>lssitepackages</code></a></p>
-<h3>Wipe third party packages from the current virtualenv:</h3>
+<h3 id="wipe-third-party-packages-from-the-current-virtualenv">Wipe third party packages from the current virtualenv:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#wipeenv"><code>wipeenv</code></a></p>
-<h3>Add directories to the PYTHONPATH of the current virtualenv:</h3>
+<h3 id="add-directories-to-the-pythonpath-of-the-current-virtualenv">Add directories to the PYTHONPATH of the current virtualenv:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#add2virtualenv"><code>add2virtualenv directory1 directory2</code></a></p>
-<h3>Toggle the current virtualenv's access to your globally installed Python packages:</h3>
+<h3 id="toggle-the-current-virtualenvs-access-to-your-globally-installed-python-packages">Toggle the current virtualenv's access to your globally installed Python packages:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#toggleglobalsitepackages"><code>toggleglobalsitepackages</code></a></p>
-<h3>Run a command in all virtualenvs in WORKON_HOME:</h3>
+<h3 id="run-a-command-in-all-virtualenvs-in-workon_home">Run a command in all virtualenvs in WORKON_HOME:</h3>
 <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#allvirtualenv"><code>allvirtualenv command</code></a></p>
 <p>There are further features <a href="http://virtualenvwrapper.readthedocs.org/">detailed in the
 documentation</a>, but these
@@ -252,14 +252,14 @@ standard location and should circumvent this problem entirely.)&#160;<a class="f
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

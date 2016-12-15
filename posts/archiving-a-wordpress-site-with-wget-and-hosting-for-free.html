@@ -117,7 +117,7 @@ website. And as there's now a new website, we don't really need to
 maintain the old one anymore. Just taking everything down would be a
 shame as there's lots of content on there that people have found
 useful in the past.</p>
-<h2>WordPress migration</h2>
+<h2 id="wordpress-migration">WordPress migration</h2>
 <p>Like many sites, it used WordPress. One option for migration away from
 WordPress is to export the content as an XML file, which either various
 other hosts may be able to import for you directly, or you can try
@@ -129,7 +129,7 @@ reuse the old content, which is a different task.</p>
 a static one. However, none of the two I tried were successful; one just froze
 without seemingly doing anything, while the other only pulled a couple of pages
 from the site.</p>
-<h2>Gathering the site content with <code>wget</code></h2>
+<h2 id="gathering-the-site-content-with-wget">Gathering the site content with <code>wget</code></h2>
 <p>In the end, I resorted to <a href="https://www.gnu.org/software/wget/"><code>wget</code></a> which
 did an admirably good job after a few attempts.</p>
 <p><code>wget</code> is more often known as a command-line download tool, but is much more
@@ -177,7 +177,7 @@ you require.</p>
 simplicity. I think you could have done this using <code>--no-host-directories</code>.</p>
 <p>Running this command will then proceed to collect the content from the sites
 you've allowed it to crawl.</p>
-<h2>Hosting for free</h2>
+<h2 id="hosting-for-free">Hosting for free</h2>
 <p>If you have a free GitHub account and are competent enough with the
 basics of <code>git</code>, note that you can host static sites, also for free, on
 GitHub Pages.  Introducing <code>git</code> version control is an entirely other
@@ -189,15 +189,15 @@ to it, make commits and push them to a remote repository.</p>
 controlled repository is that when you encounter things that need
 fixing, you can try them and always be able to restore to an earlier
 version, should you need to.</p>
-<h2>Problems I had to solve</h2>
-<h3>Broken links</h3>
+<h2 id="problems-i-had-to-solve">Problems I had to solve</h2>
+<h3 id="broken-links">Broken links</h3>
 <p>Initially, the links to images or other pages were broken, the
 <code>--convert-links</code> option fixed that.</p>
-<h3>Unrestricted crawling</h3>
+<h3 id="unrestricted-crawling">Unrestricted crawling</h3>
 <p><code>wget</code> was crawling other scraperwiki.com domains than the ones we wanted and
 collecting a lot of unnecessary content. All I needed was the main site, so I
 specified the domains to exclude.</p>
-<h3>Removing dynamic features in the static site version</h3>
+<h3 id="removing-dynamic-features-in-the-static-site-version">Removing dynamic features in the static site version</h3>
 <p>Some features of the site, as expected, no longer functioned after collecting
 the pages. For example, the comment and contact forms we had involve some
 processing on the WordPress server, and therefore were displayed on the static
@@ -219,7 +219,7 @@ a redirect from the old site: bots were presumably attempting to submit
 to a form on our new site, even though they were visiting the archive of
 the old site. (It was flagged by the form provider asking us to approve
 submissions from that URL.)</p>
-<h3>Query strings in filenames</h3>
+<h3 id="query-strings-in-filenames">Query strings in filenames</h3>
 <p>This was caused by WordPress hosting resources with version query
 strings in the URL, e.g.  CSS and JS. </p>
 <p>When <code>wget</code> retrieved the files initially, it retained the <code>?</code> and the
@@ -252,18 +252,18 @@ was much more work to check.</p>
 <p>Searching now, by far the simplest fix would be use a Wordpress plugin
 to remove the query strings before archiving. There are a couple out
 there.</p>
-<h3><code>srcset</code> images</h3>
+<h3 id="srcset-images"><code>srcset</code> images</h3>
 <p>Some of our images were responsive <code>srcset</code> images listed in <code>img</code>
 attributes.  Until recently, <code>wget</code> didn't handle this, but from <code>wget</code>
 1.18, it supports <code>srcset</code> images just as it does images in <code>src</code>
 attributes of <code>img</code> elements. To clarify, it both correctly retrieves
 the images <em>and</em> updates the links. (I assume only when using
 <code>--convert-links</code>.)</p>
-<h3>Links in option values</h3>
+<h3 id="links-in-option-values">Links in option values</h3>
 <p>As part of the site archive navigation, there were links to option
 values.  These weren't updated. I just hid those elements as it didn't
 seem a critical part of the site.</p>
-<h3>WordPress emoji code</h3>
+<h3 id="wordpress-emoji-code">WordPress emoji code</h3>
 <p>Recent versions of WordPress feature code to add emoji support for certain
 browsers. This embedded JavaScript is in the HTML and was still pulling from
 the old WordPress site because it contains an absolute URL within it. Saving
@@ -274,7 +274,7 @@ Emojis"</a> plugin to the
 site, then recrawling.</p>
 <p>It's not essential to fix this, but means the static site is not making
 requests for files that don't exist when you move from WordPress.</p>
-<h3>Fixing up incorrect <code>index.html</code> URLs</h3>
+<h3 id="fixing-up-incorrect-indexhtml-urls">Fixing up incorrect <code>index.html</code> URLs</h3>
 <p>Lots of URLs on the original site ended with <code>/</code>, rather than
 <code>/some_page.html</code>. <code>wget</code> instead saved these pages with a filename of
 <code>index.html</code>. Fixing these up was a pain. In terms of making the site
@@ -306,7 +306,7 @@ for the code I used.</p>
 <p>There are a few other tweaks I did to clean up URL links too. They are
 detailed in the other <a href="https://github.com/scraperwiki/scraperwiki-site-archive/commits/master">commit messages in the
 repository</a>.</p>
-<h3>Some other redirect problems</h3>
+<h3 id="some-other-redirect-problems">Some other redirect problems</h3>
 <p>For us, some redirects we had set up on the old site caused a couple of cases
 where files ended up in the wrong place or with the wrong name compared with
 the original site. We had to be careful to fix up relative URLs here. We also
@@ -314,7 +314,7 @@ had multiple copies of certain files. These weren't difficult to fix by
 hand as there were only a few to modify.</p>
 <p>Finally, we had to correctly set up redirects to the new site in our server
 configuration, and everything was finally done.</p>
-<h2>Moving on</h2>
+<h2 id="moving-on">Moving on</h2>
 <p>After much work, the static version's now working well. Everything's
 pretty much the same on <a href="https://scraperwiki.com/">the site</a> aside from
 the interactive forms. It was much more of a task to get done than I'd
@@ -367,14 +367,14 @@ tips here might help you with your migration.</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

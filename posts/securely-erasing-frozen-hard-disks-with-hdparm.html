@@ -125,7 +125,7 @@ the lengthy page where I found them below, and discuss how to deal with
 <p>You can access hdparm by booting into, for example, an Ubuntu
 installation DVD or USB. Installing Linux isn't required: you can just
 "Try Ubuntu" instead which doesn't install anything at all.</p>
-<h2>Safety first</h2>
+<h2 id="safety-first">Safety first</h2>
 <p>First, the most sensible thing to do when erasing a drive is remove any
 drives other than those you wish to erase. It means even if you
 accidentally type the wrong thing that you won't erase a drive that you
@@ -138,7 +138,7 @@ Ctrl+Alt+T.</p>
 
 <p>This will show you details of the disk, including the name. Replace the
 <code>/dev/sdX</code> in the commands below with that name.</p>
-<h2>Setting a password</h2>
+<h2 id="setting-a-password">Setting a password</h2>
 <p>The next task is to set a password. I'm not sure that you really need to
 do this, but the
 <a href="https://ata.wiki.kernel.org/index.php/ATA_Secure_Erase">kernel.org guide</a>
@@ -166,7 +166,7 @@ be a simple fix.  First, check the drive's current status via:</p>
 <p>and you may see "frozen",  as opposed to "not frozen", in the "Security"
 section of the <code>hdparm</code> output. This means you can't change security
 settings, so attempting to set a password fails.</p>
-<h2>Unfreezing</h2>
+<h2 id="unfreezing">Unfreezing</h2>
 <p>In this case, the <a href="https://superuser.com/questions/810867/new-ssd-hdparm-shows-frozen-whether-secure-erase-is-needed-before-installing">actual
 fix</a>
 is simple. Suspending the PC, then powering it back on should then give
@@ -176,7 +176,7 @@ above again.</p>
 <code>SECURITY_SET_PASS</code> command without error. Also, rerunning the <code>hdparm
 -I</code> command yet another time should show that a password is "enabled" as
 opposed to "not enabled".</p>
-<h2>Erasing</h2>
+<h2 id="erasing">Erasing</h2>
 <p>You can now proceed with the erase. If your drive's <code>hdparm</code> output
 states <code>supported: enhanced erase</code>, you could replace the
 <code>--security-erase</code> below with <code>--security-erase-enhanced</code>:</p>
@@ -228,14 +228,14 @@ enabled".</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
