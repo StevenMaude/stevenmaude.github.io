@@ -128,7 +128,7 @@ me more like double to triple that time to complete the task.</p>
 encountered, might help save anyone else running up against the same painful
 brick walls that I did, and allow them to share their work with the Python
 community.</p>
-<h2>Starting out</h2>
+<h2 id="starting-out">Starting out</h2>
 <p>A good starting point is a
 <a href="https://packaging.python.org/en/latest/distributing/#uploading-your-project-to-pypi">guide</a>
 on the official Python site that's fairly comprehensive.</p>
@@ -142,7 +142,7 @@ if they didn't even need such warnings in the first place. (I'm also willing to
 bet there's still a non-zero number of people on affected versions of Python
 who follow instructions elsewhere without even being aware of sending their
 passwords in the clear.)</p>
-<h2>Testing times</h2>
+<h2 id="testing-times">Testing times</h2>
 <p>As the Python packaging guide mentions, there's a <a href="https://testpypi.python.org">PyPI test
 site</a> that you can use to test out uploading your
 package before you do the same on the live site.</p>
@@ -179,7 +179,7 @@ repository = https://pypi.python.org/pypi
 not want it lying around in plain text in a configuration file. If you don't
 already have accounts on the live and test PyPI sites, this point is a
 good time to create them. You won't be able to progress much further otherwise.</p>
-<h3>Building the project distribution</h3>
+<h3 id="building-the-project-distribution">Building the project distribution</h3>
 <p>Provided you've got <code>setup.py</code> configured correctly, it's not too difficult to
 build for distribution. I used the example from the <a href="https://github.com/pypa/sampleproject">PyPA sample
 project</a> as a starting point. It's also
@@ -198,7 +198,7 @@ which arguments you should use with <code>setup.py</code> to build your package.
 </pre></div>
 
 
-<h3>Registering the project</h3>
+<h3 id="registering-the-project">Registering the project</h3>
 <p>Since <code>twine</code> is recommended, it seemed sensible to use that. As my
 package is for Python 2 only — since a dependency doesn't support Python
 3 yet — it also seemed sensible to do the distribution upload using
@@ -232,7 +232,7 @@ in my password.</p>
 <p>At this stage, I gave up trying at this point and went directly to the test
 site to register the package so I could at least make some progress and feel
 slightly less incompetent. That worked without a hitch.</p>
-<h3>Adding a description</h3>
+<h3 id="adding-a-description">Adding a description</h3>
 <p>On to the next problem. Unfortunately, the PyPI site doesn't support the
 display of Markdown READMEs for package descriptions. So, before you actually
 upload a package, you should provide the package description in a form that
@@ -260,7 +260,7 @@ whether read in from a file, or included in full in the <code>setup.py</code> it
 looked the same as it did when using Markdown. I also edited the README
 slightly to use nicer looking markup for headings than the source Pandoc
 generated. </p>
-<h3>Uploading</h3>
+<h3 id="uploading">Uploading</h3>
 <p>Whew! Back to <code>twine</code>, and now the project's registered, let's try uploading it
 via:</p>
 <div class="highlight"><pre><span></span>twine upload dist/* -r testpypi
@@ -287,7 +287,7 @@ actually was.</p>
 <p>Anyway, removing these transition markers, running <code>setup.py</code> and uploading yet
 again <strong>finally</strong> enabled my README to be correctly displayed as the package
 description.</p>
-<h3>Releasing</h3>
+<h3 id="releasing">Releasing</h3>
 <p>Once that worked, all I had to do was revert the change to the version number
 I'd made in <code>setup.py</code> during testing, and then repeat the whole process on the
 real PyPI site. Having negotiated all the obstacles the first time, I was
@@ -345,14 +345,14 @@ not worth the trouble to release on PyPI.</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

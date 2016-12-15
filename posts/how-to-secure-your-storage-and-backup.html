@@ -141,7 +141,7 @@ spent</a>
 encrypting operating system drives, it's a relief that encrypting
 non-system drives is far, far simpler.</p>
 <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/Bitlocker_context_menu.png" alt="Bitlocker drive context menu."></p>
-<h2>Bitlocker</h2>
+<h2 id="bitlocker">Bitlocker</h2>
 <p>If only using Windows, and provided your copy of Windows is bundled with
 it, you could use Bitlocker. Bitlocker is straightforward to setup with
 self-explanatory instructions.</p>
@@ -153,7 +153,7 @@ a recovery key in case you forget your password. All that's left is to
 encrypt the drive by finally choosing to Start Encryption.</p>
 <p>The next time you insert the drive, it will prompt you for the password
 to unlock it. Enter it and the drive functions just as normal.</p>
-<h3>Issues with Bitlocker</h3>
+<h3 id="issues-with-bitlocker">Issues with Bitlocker</h3>
 <p>Note that you'll need to use Microsoft's <a href="http://windows.microsoft.com/en-us/windows7/what-is-the-bitlocker-to-go-reader">Bitlocker To Go
 Reader</a>
 for <strong>read-only access</strong> to Bitlocker-encrypted drives in older Windows
@@ -173,7 +173,7 @@ writing).</p>
 <p>Update 2: USB 3 works fine, but there's <a href="http://www.stevenmaude.co.uk/2013/10/odd-behaviour-of-bitlocker-or-maybe-my">some weird Bitlocker or drive
 specific issue
 behaviour</a>...</p>
-<h2>TrueCrypt</h2>
+<h2 id="truecrypt">TrueCrypt</h2>
 <div class="admonition article-edit">
 <p>Edit: see my <a href="http://www.stevenmaude.co.uk/a-beginners-guide-to-os-encryption-dual.html#fn:2">earlier encryption
 post</a>
@@ -216,7 +216,7 @@ files on it. When you've finished working with the drive, you should
 select it in TrueCrypt and choose Dismount. You can then safely eject
 the drive from Windows as you would normally, and then remove it from
 your PC.</p>
-<h3>Issues with TrueCrypt</h3>
+<h3 id="issues-with-truecrypt">Issues with TrueCrypt</h3>
 <p>The only requirement is that you need TrueCrypt to be running on a
 destination PC. This can either be via having it installed to the PC
 directly, or, for Windows PCs at least, having access to an appropriate
@@ -231,7 +231,7 @@ privileges since it requires them to mount a drive.) With Bitlocker,
 non-admins can access drives without any issue (aside from older Windows
 version needing the reader application ), and this might factor into
 your choice of encryption software.</p>
-<h2>Encrypting backup drives</h2>
+<h2 id="encrypting-backup-drives">Encrypting backup drives</h2>
 <p>If you're encrypting everything else, it probably makes sense to
 considering encrypting your backups too. If your system is already
 encrypted completely, you could simply clone the entire drive with
@@ -241,14 +241,14 @@ a drive's been encrypted with TrueCrypt, though <a href="http://superuser.com/qu
 is fine</a>.</p>
 <p>Using the backup tools provided by each individual OS is also an
 option.</p>
-<h3>Windows</h3>
+<h3 id="windows">Windows</h3>
 <p>Windows Backup and Restore <a href="http://superuser.com/questions/126111/how-can-you-use-windows-backup-with-a-truecrypt-encrypted-backup-destination">needs slightly awkward
 workarounds</a>
 to function with TrueCrypt drives; however, Bitlocker encrypted external
 drives work seamlessly with this feature. The File History feature in
 Windows 8 should work fine with TrueCrypt drives, on the other hand (it
 doesn't use Volume Shadow Copy that TrueCrypt is incompatible with).</p>
-<h3>Ubuntu</h3>
+<h3 id="ubuntu">Ubuntu</h3>
 <p>For Ubuntu, I'm using the built-in Backup tool (Déjà Dup) which is based
 on <a href="http://duplicity.nongnu.org/">Duplicity</a>. At its core, this backup
 tool is very much end-user focused. It's incredibly simple to set up.
@@ -268,7 +268,7 @@ encryption
 yourself</a>),
 but Déjà Dup gave me a fuss-free way to get an encrypted backup running,
 which I really like.</p>
-<h2>Summary</h2>
+<h2 id="summary">Summary</h2>
 <p>If you're carrying around sensitive or personal data on portable drives,
 it's worth taking the time to make sure that the data's secure in case
 you lose the drive. It's simple to setup regardless of whichever OS
@@ -314,14 +314,14 @@ you're using.</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

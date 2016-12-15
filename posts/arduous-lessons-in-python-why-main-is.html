@@ -132,7 +132,7 @@ everything was OK with my setup before I started.</p>
 lonely blinking cursor where I expected my test results.</p>
 <p>Something was happening, but none of the tests were seemingly running.
 That is, I wasn't seeing any pass/fail indicators, which was strange.</p>
-<h2>What actually happened</h2>
+<h2 id="what-actually-happened">What actually happened</h2>
 <p>Something was running that evidently wasn't what I intended.</p>
 <p>On inspection, one of the import statements in the test code had a
 structure somewhat like:</p>
@@ -159,7 +159,7 @@ they'll be called when you import it too.</p>
 <code>really_long_winded_scraping_function()</code> was being called. So, yes,
 eventually, the tests would have run, but they'd run <em>after</em> the code in
 the <code>import</code> had finished, which would have taken <strong>hours</strong>.</p>
-<h2>Fixing the problem</h2>
+<h2 id="fixing-the-problem">Fixing the problem</h2>
 <p>Normally, I routinely use:</p>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
@@ -234,14 +234,14 @@ tests were the only other module that we'd imported the code into.)</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

@@ -121,7 +121,7 @@ stevenmaude.co.uk            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>Intel Outside (of my own office)</h2>
+                <h2 id="intel-outside-of-my-own-office">Intel Outside (of my own office)</h2>
 <p>One thing I've never had too much of a problem with on my Ubuntu 12.04
 LTS install is networking. There's been the odd time when it's refused
 to connect to the network, despite everything else being fine. This has
@@ -147,7 +147,7 @@ noise relating to every wireless problem out there and not anything much
 of relevance, but I didn't have a lot more to go on. Having to do lots
 of searching and skimming through web pages using a phone to search
 isn't ideal either, but it did eventually lead me to the right answer.</p>
-<h2>Fun with <code>iwlwifi</code></h2>
+<h2 id="fun-with-iwlwifi">Fun with <code>iwlwifi</code></h2>
 <p>What worked was searching for issues relating to the wifi driver
 (<code>iwlwifi</code>). A common theme that came up was <code>11n_disable=1</code> which is a
 modprobe option that disables the wireless N feature of the Intel
@@ -170,7 +170,7 @@ disabled. (The offending module is <code>iwlwifi</code> but I couldn't <code>rmm
 until I'd removed <code>iwldvm</code> as trying to do so showed that <code>iwldvm</code> was
 using <code>iwlwifi</code>. There is a force option for <code>rmmod</code> but it didn't seem
 sensible to use it when there was an alternative.)</p>
-<h2>Making this fix stick</h2>
+<h2 id="making-this-fix-stick">Making this fix stick</h2>
 <p>If you want this fix to apply every time you boot, you can just create a
 new <code>.conf</code> file:</p>
 <p><code>/etc/modprobe.d/wireless-n-fix-iwlwifi.conf</code>, adding just this line to
@@ -184,7 +184,7 @@ summary</a>.)</p>
 <p>You can choose any valid filename you like, provided it ends in <code>.conf</code>;
 you'll also need to edit this using <code>sudo</code> and your favourite text
 editor.</p>
-<h2>Why hadn't I seen this problem before?</h2>
+<h2 id="why-hadnt-i-seen-this-problem-before">Why hadn't I seen this problem before?</h2>
 <p>What seems to be the issue is that I think that the office was using a
 wireless N router, and there's some kind of issue with this for the
 Intel Centrino wireless network adapter on my laptop under Ubuntu.</p>
@@ -234,14 +234,14 @@ yet it's still present... but at least there's a workaround.</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">

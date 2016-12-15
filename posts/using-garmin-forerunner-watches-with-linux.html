@@ -141,7 +141,7 @@ watches, I couldn't find a huge amount of information on using them with
 Linux. This post concerns the Forerunner 15 (FR15) particularly, but
 think may well apply to several others in that range that function as
 USB storage devices, with the usual "your mileage may vary" caveats.</p>
-<h2>Can you use it with Linux?</h2>
+<h2 id="can-you-use-it-with-linux">Can you use it with Linux?</h2>
 <p>Yes, to some extent. Though you won't be able to use all the fancy
 display features on Garmin's site. That said, I'm not bothered about
 that and would actually prefer to keep my data offline, especially with
@@ -154,7 +154,7 @@ unofficial Garmin Communication web browser plugin that was capable of
 uploading data to Garmin's servers.  This no longer functions and <a href="https://github.com/adiesner/GarminPlugin/issues/14">this
 GitHub issue</a>
 suggests it won't be fixed anytime soon.</p>
-<h3>Installing GPSBabel</h3>
+<h3 id="installing-gpsbabel">Installing GPSBabel</h3>
 <p>The next job is to get the FIT files into a format that's more widely
 usable.</p>
 <p><a href="https://www.gpsbabel.org/">GPSBabel</a> is a application for Windows, OS X
@@ -192,7 +192,7 @@ was to do the following:</p>
 <p>which was probably overkill as it installed a lot of packages, but
 compiling then worked. (I then removed <code>qtcreator</code> via <code>apt-get
 remove</code>.)</p>
-<h3>Converting Garmin's FIT data to GPX</h3>
+<h3 id="converting-garmins-fit-data-to-gpx">Converting Garmin's FIT data to GPX</h3>
 <p>An example use of GPSBabel is:</p>
 <div class="highlight"><pre><span></span>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
 </pre></div>
@@ -209,7 +209,7 @@ myself.</p>
 <p>(Some of the high-end watches also have the ability to send the data to
 Garmin via Bluetooth to mobile apps that collect the data, so that's
 another way you could avoid the requirement for Windows or OS X.)</p>
-<h3>Upgrading the watch's firmware</h3>
+<h3 id="upgrading-the-watchs-firmware">Upgrading the watch's firmware</h3>
 <p>My watch came with the latest firmware installed and the watch has been
 out a while, so I doubt there are any major issues remaining. But, there
 may still be further updates as it's still a supported product.</p>
@@ -238,7 +238,7 @@ e.g. the watch firmware itself, as well as language files and the ANT
 firmware. And apparently <em>all</em> these need the header removing. Anyway,
 you can search Garmin's site for e.g. "Forerunner 15 update" and see
 what you find.</p>
-<h2>What's the watch actually like?</h2>
+<h2 id="whats-the-watch-actually-like">What's the watch actually like?</h2>
 <p>I've only started using it today, but it seems good at what it does. I
 tracked a run and, at a glance, the data looked consistent with where
 I'd been and how I'd run.</p>
@@ -323,14 +323,14 @@ user-replaceable. That drawback aside, it seems a decent choice.</p>
                             Linux
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/python">
                             Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/science">
-                            science
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
