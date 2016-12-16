@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>UEFaIeeee - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/uefaieeee">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="EFI,UEFI,boot entry,efibootmgr" />
+        <meta name="description" content="Recovering a non-booting system when EFI boot entries are broken using efibootmgr." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="UEFaIeeee"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/uefaieeee"/>
+        <meta property="og:description" content="Recovering a non-booting system when EFI boot entries are broken using efibootmgr."/>
+        <meta property="article:published_time" content="2016-12-16" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="EFI" />
+            <meta property="article:tag" content="UEFI" />
+            <meta property="article:tag" content="boot entry" />
+            <meta property="article:tag" content="efibootmgr" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                UEFaIeeee
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-12-16T00:11:00+00:00"> 2016-12-16</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/efi">EFI</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/uefi">UEFI</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/boot-entry">boot entry</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/efibootmgr">efibootmgr</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>In writing this, I checked the <a href="https://en.oxforddictionaries.com/definition/aie">valid spelling of
+"aieeee"</a> and it is
+apparently with four e letters at the end.</p>
+<p>If you're currently panicking how to fix a system where the UEFI boot
+entry for your operating system has disappeared (i.e. from what you
+might think of as the "BIOS" boot entries), you may be yelling a much
+more extended form of that exclamation than that correct spelling could
+ever suggest.</p>
+<p>In that case, go straight to <a href="#fixing-the-problem">"Fixing the problem"</a>
+— go directly to that section and do not collect £200 — for advice.</p>
+<h2 id="background">Background</h2>
+<p>Recently I've been undergoing the arduous process of getting a recent
+version of Ubuntu on my laptop and dual booting with Windows. While I
+was experimenting, I'd got everything working reasonably, when I'd
+installed some updates and then, on shutting down that time, to let them
+take effect, the laptop decide to lock up with the blinking
+boot/shutdown dots illuminating but nothing happening.</p>
+<p>I figured I'd check if everything was OK. I found that you can use
+debsums to check if installed packages are as expected. Running it
+(<code>sudo debsums -s</code> to ignore OK files) gave a few warnings. Since one of
+them referred to a kernel image, it was a little concerning.</p>
+<p>Since I hadn't done much with the laptop except install from a DVD for
+which I'd verified the SHA256SUM (and verified the signature of the sum
+file too), I didn't think anything untoward could have happened. And,
+looking around, it seems that this has happened in previous releases
+too: the mismatch was likely a genuine error in the release, not
+indicative of anything wrong with my install. Of course, my rigorous
+side stupidly got the better of me and I figured I might as well
+investigate further.</p>
+<p>Simple. I can just install Ubuntu again to a USB stick, not touching my
+existing installation and then rerun debsums there. That thought there 
+turned out to be anything but simple.</p>
+<p>But I wasn't to know that at the time. An hour and a USB installation
+later, yes, I'd demonstrated that the same warnings from running debsums
+came up on this install too.</p>
+<p>Satisfied with that explanation, I'd removed the USB stick, plugged my
+hard disk back in and decided to boot, and saw:</p>
+<blockquote>
+<p>Boot failure</p>
+</blockquote>
+<p>uh, OK.</p>
+<h2 id="installing-ubuntu-to-a-usb-stick-broke-my-existing-ubuntu-install">Installing Ubuntu to a USB stick broke my existing Ubuntu install</h2>
+<p>My guess as to what had happened is as follows. When I'd installed
+Ubuntu to the USB stick, it installed to /dev/sdb, not /dev/sda. The
+previous "ubuntu" boot entry that worked fine for my hard disk was
+referencing /dev/sda and looked for a bootloader on the EFI partition of
+my hard disk.</p>
+<p>The USB install had been to /dev/sdb and the currently existing "ubuntu"
+boot entry had been overwritten by one with the same name. Now that boot
+entry was referencing /dev/sdb and looking for a bootloader on the EFI
+partition of my USB install, couldn't find it, and therefore no longer
+booted. The USB install could be booted without a hitch since the EFI
+entry was pointing correctly to it.</p>
+<p>Incidentally, the Windows install on the same hard disk was still
+booting fine, again as expected, because the Windows EFI entry hadn't
+changed.</p>
+<h2 id="fixing-the-problem">Fixing the problem</h2>
+<p>Some PCs give you UEFI setup options to add a boot entry, so you can
+resolve the problem directly there. You'll need to know the path to the
+bootloader for whatever operating system you want to boot, but that
+should be relatively easy to locate.</p>
+<p>However, my laptop is sparse in its configuration options and does not
+offer this option. In that case — and even if your PC does have an
+option to add boot entries directly) — you can use efibootmgr to add the
+entry back. See <a href="https://superuser.com/a/697012">the answer here</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> which
+shows that you'll want something along the lines of:</p>
+<div class="highlight"><pre><span></span>efibootmgr -c -d /dev/sda -p 1 -l &#39;\EFI\ubuntu\shimx64.efi&#39; -L &quot;Ubuntu&quot;
+</pre></div>
+
+
+<p>As the post says, you can equally use Microsoft's <code>bcdedit</code> to do the
+same, but that requires you to have Windows. You can always run
+<code>efibootmgr</code> from a bootable Linux DVD or USB. And, you'll need to
+change the disk (<code>/dev/sda</code>) and partition number (the <code>-p 1</code>) to
+reflect which one is the EFI System Partition, which you can find by
+doing <code>fdisk -l</code> in a terminal.</p>
+<p>Then the entry will be readded and your install should be bootable
+again.</p>
+<p>That answer was exactly what I needed. Unfortunately, it took me far
+longer to find than it should have, probably because it's talking about
+"repairing GRUB". Hopefully, the keywords I've used here might help
+others find this a bit more easily.</p>
+<h2 id="what-are-the-failures-here">What are the failures here?</h2>
+<p>This was unexpected. Yes, installing to a hard disk, then USB is
+probably not a common use case, but you certainly wouldn't expect it to
+break an existing installation. Maybe it's possible that it was because
+I had a slightly unusual dual boot setup, but I don't see that should
+make a difference. I'd expect this to happen even if you're single
+booting. (Feel free to correct me if you've tested and found otherwise.)</p>
+<h3 id="hardware-side">Hardware side</h3>
+<p>For my laptop in particular, you can't add EFI boot entries at all.
+Auto detection would be ideal, but you can't even add entries manually.</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<p>Why does the installer not check for or warn of the possible issue of
+clobbering an existing valid boot entry? Wouldn't it be preferable for
+this to be far more explicit, check for an existing boot entry and ask
+the user whether they want to leave the boot entries intact (and abandon
+the install), add a new entry or replace the existing entry (with the
+warning that this will probably break the existing installation)?</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The author of the answer maintains <a href="https://en.wikipedia.org/wiki/REFInd">an EFI boot
+manager</a>, so he definitely knows
+his stuff here.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/android">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker">
+                            BitLocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/fix">
+                            fix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/wordpress">
+                            WordPress
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
