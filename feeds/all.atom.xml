@@ -1,5 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-12-24T19:59:00+00:00</updated><entry><title>The Novelist: a haunting experience</title><link href="http://www.stevenmaude.co.uk/posts/the-novelist-a-haunting-experience" rel="alternate"></link><published>2016-12-24T19:59:00+00:00</published><updated>2016-12-24T19:59:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-24:posts/the-novelist-a-haunting-experience</id><summary type="html">&lt;p&gt;Despite "game" being in the official site's domain name, I think
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2016-12-30T00:10:00+00:00</updated><entry><title>Installing pip, virtualenv and virtualenvwrapper tidily in Linux</title><link href="http://www.stevenmaude.co.uk/posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux" rel="alternate"></link><published>2016-12-30T00:10:00+00:00</published><updated>2016-12-30T00:10:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-30:posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux</id><summary type="html">&lt;p&gt;When I reinstalled my PC, I was thinking about the "cleanest" way that I
+could get the Python tools I needed on there. Previously, I'd used the
+pip bundled in the Ubuntu repositories, then found it was left to
+languish, and was hideously out of date. (I think it is possible to
+update if you've installed that way, but involves using &lt;code&gt;sudo pip
+install -U&lt;/code&gt; all the time, which didn't seem sensible.)&lt;/p&gt;
+&lt;p&gt;A better option might be to install pip directly from the installer
+that's provided by the pip developers, using pip to install virtualenv
+and virtualenvwrapper, and then using the virtualenv tools to create
+virtualenvs to actually install Python packages for development. This
+way should create the minimum level of clutter you're adding to your
+system's Python installation.&lt;/p&gt;
+&lt;p&gt;But, reading around, the suggestions here on &lt;a href="https://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python"&gt;doing a clean
+installation&lt;/a&gt;
+seemed an even better idea. You download the virtualenv package from
+PyPI yourself, use Python to run the &lt;code&gt;virtualenv&lt;/code&gt; Python code directly
+and use that to create a "bootstrap" virtualenv that you can then create
+new virtualenvs from.  Note that these virtualenvs all include pip; no
+need for extra work to get it installed.&lt;/p&gt;
+&lt;p&gt;All of this is possible without doing any installation into the system's
+Python at all, not even requiring any &lt;code&gt;pip install --user&lt;/code&gt; commands.
+It's pretty simple to do. If you want to follow this along further and
+add virtualenvwrapper too, see the Stack Overflow post for more details
+(essentially, you need to get a copy of virtualenv via downloading it,
+e.g. from PyPI, using curl or a web browser and then run &lt;code&gt;python
+virtualenv.py $YOUR_CHOSEN_VIRTUALENV_DIRECTORY&lt;/code&gt;), then continue here.&lt;/p&gt;
+&lt;h2 id="getting-virtualenvwrapper-working"&gt;Getting virtualenvwrapper working&lt;/h2&gt;
+&lt;p&gt;Though &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation"&gt;it's not recommended in the
+documentation&lt;/a&gt;,
+someone in the Stack Overflow comments said they'd got it working, so I
+thought worth trying.&lt;/p&gt;
+&lt;p&gt;What I did was create a Python virtualenv purely for virtualenvwrapper
+using the method in the Stack Overflow answer. I called the virtualenv
+"virtualenvwrapper" and created it inside &lt;code&gt;$HOME/.virtualenvs&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I then activated this new virtualenv using &lt;code&gt;source
+$HOME/.virtualenvs/virtualenvwrapper/bin/activate&lt;/code&gt; and did &lt;code&gt;pip install
+virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you modify your shell startup files as suggested in the
+virtualenvwrapper documentation, you'll find you get an error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;virtualenvwrapper.sh: There was a problem running the initialization
+hooks.     
+
+If Python could not import the module virtualenvwrapper.hook_loader,
+check that virtualenvwrapper has been installed for
+VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON and that PATH is
+set properly.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As virtualenvwrapper isn't installed in the default Python, the script
+looks for it and understandably can't find it. It's a simple fix: just
+activate the virtualenvwrapper virtualenv before this shell script is
+sourced.&lt;/p&gt;
+&lt;p&gt;Even if you immediately deactivate the virtualenvwrapper virtualenv
+again, you'll still have commands like &lt;code&gt;workon&lt;/code&gt; that function correctly
+in your shell environment.&lt;/p&gt;
+&lt;p&gt;So what I first tried was doing what the virtualenvwrapper documentation
+suggests, and modifying shell startup files, but with extra activate and
+deactivate steps:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local/src 
+&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/activate
+&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
+deactivate                                                          
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will need to switch to some virtualenv first with the virtualenv
+package installed, before commands that require the Python virtualenv
+package to be installed will work (e.g. to create new virtualenvs). It's
+simple enough to do &lt;code&gt;workon py3venv&lt;/code&gt; and then e.g. &lt;code&gt;mkvirtualenv
+virtualenv_name&lt;/code&gt; when you want to create one. However, &lt;code&gt;workon&lt;/code&gt; to
+switch virtualenvs should always work.&lt;/p&gt;
+&lt;h2 id="limitations-with-this-clean-solution"&gt;Limitations with this clean solution&lt;/h2&gt;
+&lt;p&gt;This works pretty well, but:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The bootstrap environments are the ones you base your other
+   virtualenvs on.  If, for some reason, you suddenly need some system
+   site package installed for some particular Python package, then
+   you'll need to create a new bootstrap virtualenv first, with the
+   &lt;code&gt;--system-site-packages&lt;/code&gt; option. (Even if you've already got a
+   "system site packages" virtualenv, if you subsequently updated the
+   system packages and want a virtualenv to reflect this, you'll have to
+   go back to the bootstrapping stage.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You'll likely need to recreate the bootstrap environments in addition
+   to any actual in-use virtualenvs if you want to move to a new Python
+   version. I've read in places things that suggest the Python binary is
+   a symlink to the system one; on my current virtualenvs, there are
+   only symlinks to the local virtualenv copy of the python binary.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="fixing-virtualenvwrapper-slowing-terminal-startup"&gt;Fixing virtualenvwrapper slowing terminal startup&lt;/h2&gt;
+&lt;p&gt;virtualenvwrapper does slightly delay bash starting up. On
+investigation, this is principally due to virtualenvwrapper.sh itself,
+not the activate/deactivate step. You can check this by running &lt;code&gt;time&lt;/code&gt;
+on each of the commands, &lt;code&gt;source bin/activate&lt;/code&gt; and &lt;code&gt;deactivate&lt;/code&gt; are
+basically instant, whereas this script slows things down considerably.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;time&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
+
+real    0m0.304s
+user    0m0.248s
+sys     0m0.032s
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A 0.3 s delay isn't particularly long. But, for me, it makes bash feel
+slightly less snappy on opening a new terminal.&lt;/p&gt;
+&lt;p&gt;To solve this, you can use the &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#lazy-loading"&gt;"lazy
+loading"&lt;/a&gt;
+script provided with virtualenvwrapper. For my setup, this means I would
+need to hack that lazy loading script to add the activate and deactivate
+command there.&lt;/p&gt;
+&lt;p&gt;I tried this and it did work. But, it didn't seem like a good solution.
+In part, it just felt hacky and, more importantly, these commands would
+be removed if you upgrade virtualenvwrapper, breaking it until you again
+hacked the script.&lt;/p&gt;
+&lt;p&gt;Instead, my preferred option to work around the slightly slow loading
+was to create another script that I can &lt;code&gt;source&lt;/code&gt; whenever wanting to
+work with Python virtualenvs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh -e&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local/src
+&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/venvwrapper/bin/activate
+&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/venvwrapper/bin/virtualenvwrapper.sh
+deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is less direct. You can't just directly access virtualenvs.
+Insteaad, you must source this script first so that you can then
+&lt;code&gt;workon&lt;/code&gt; a virtualenv to &lt;code&gt;workon&lt;/code&gt;. However, it keeps the clean install
+we have made, doesn't slow bash from loading at all, and isn't a hack of
+the existing virtualenvwrapper. Provided we keep it installed in the
+same place, it'll work.&lt;/p&gt;
+&lt;h2 id="keeping-clean"&gt;Keeping clean&lt;/h2&gt;
+&lt;p&gt;Despite the few drawbacks, I do like the idea of this approach overall.
+You don't even need to install any Python packages, even as a user, into
+Python outside of a virtualenv.&lt;/p&gt;
+&lt;p&gt;Bear in mind if you're intent on being particularly rigorous in keeping
+your system Python clean: installing software that is built on Python
+via your package manager (e.g. apt) may well end up pulling in the
+package manager's version of dependencies that the software may use. A
+way around this is to install whatever software you want to use in a
+virtualenv instead manually, although this may be awkward if that
+software uses system packages.&lt;/p&gt;</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Python"></category><category term="pip"></category><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry><entry><title>The Novelist: a haunting experience</title><link href="http://www.stevenmaude.co.uk/posts/the-novelist-a-haunting-experience" rel="alternate"></link><published>2016-12-24T19:59:00+00:00</published><updated>2016-12-24T19:59:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-24:posts/the-novelist-a-haunting-experience</id><summary type="html">&lt;p&gt;Despite "game" being in the official site's domain name, I think
 recommending &lt;a href="http://www.thenovelistgame.com/"&gt;The Novelist&lt;/a&gt; as &lt;em&gt;a game&lt;/em&gt;
 would be difficult. There are lots of games whose gameplay I don't get
 on with which others adore, but the gameplay here seems a bit too simple
@@ -948,22 +1095,4 @@ issues.&lt;/p&gt;
 installation to run the site and the site's getting hosted
 for free.&lt;/p&gt;
 &lt;p&gt;Good luck if you're tackling the same problem! Hopefully some of the
-tips here might help you with your migration.&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>Stopping Windows from rebooting at the BitLocker boot password prompt</title><link href="http://www.stevenmaude.co.uk/posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt" rel="alternate"></link><published>2016-09-17T23:52:00+01:00</published><updated>2016-09-17T23:52:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-09-17:posts/stopping-windows-from-rebooting-at-the-bitlocker-boot-password-prompt</id><summary type="html">&lt;p&gt;Short post, but more noting this for myself more than anything. There
-are several times when I've blogged little fixes and they've proven
-handy to have in the future, e.g. when I'm setting up a new PC. Partly
-because I know they're on my blog, and partly because the posts are
-titled in the way I would search for a solution.&lt;/p&gt;
-&lt;p&gt;If you have a Windows PC (I think 8 upwards; but definitely 10, and 8.1)
-with BitLocker enabled, you may find that it reboots shortly without you
-even doing anything. If you've a long password and aren't a quick
-typist, you may even find that this means you struggle to enter your
-password in time. This is apparently a problem if you have a UEFI install,
-which will be a common configuration these days.&lt;/p&gt;
-&lt;p&gt;Having just tested this simple fix that I saw on &lt;a href="https://social.technet.microsoft.com/Forums/office/en-US/932630c2-ae3d-4cbd-8d79-a492806363ea/windows-81-bitlocker-automatic-shutdown-during-password-prompt?forum=w8itproinstall"&gt;Microsoft's
-forums&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;bcdedit /set {bootmgr} bootshutdowndisabled 1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;it seems to have resolved the problem; the password prompt will remain on
-indefinitely.&lt;/p&gt;</summary><category term="BitLocker"></category></entry></feed>
+tips here might help you with your migration.&lt;/p&gt;</summary><category term="WordPress"></category></entry></feed>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Installing pip, virtualenv and virtualenvwrapper tidily in Linux - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Linux,Ubuntu,Python,pip,virtualenv,virtualenvwrapper" />
+        <meta name="description" content="Don&#39;t want to clutter up your system&#39;s Python install? Install what you need for Python development cleanly." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Installing pip, virtualenv and virtualenvwrapper tidily in Linux"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux"/>
+        <meta property="og:description" content="Don&#39;t want to clutter up your system&#39;s Python install? Install what you need for Python development cleanly."/>
+        <meta property="article:published_time" content="2016-12-30" />
+            <meta property="article:section" content="2016" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="pip" />
+            <meta property="article:tag" content="virtualenv" />
+            <meta property="article:tag" content="virtualenvwrapper" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Installing pip, virtualenv and virtualenvwrapper tidily in Linux
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2016-12-30T00:10:00+00:00"> 2016-12-30</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/linux">Linux</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/python">Python</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/pip">pip</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/virtualenv">virtualenv</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/virtualenvwrapper">virtualenvwrapper</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>When I reinstalled my PC, I was thinking about the "cleanest" way that I
+could get the Python tools I needed on there. Previously, I'd used the
+pip bundled in the Ubuntu repositories, then found it was left to
+languish, and was hideously out of date. (I think it is possible to
+update if you've installed that way, but involves using <code>sudo pip
+install -U</code> all the time, which didn't seem sensible.)</p>
+<p>A better option might be to install pip directly from the installer
+that's provided by the pip developers, using pip to install virtualenv
+and virtualenvwrapper, and then using the virtualenv tools to create
+virtualenvs to actually install Python packages for development. This
+way should create the minimum level of clutter you're adding to your
+system's Python installation.</p>
+<p>But, reading around, the suggestions here on <a href="https://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python">doing a clean
+installation</a>
+seemed an even better idea. You download the virtualenv package from
+PyPI yourself, use Python to run the <code>virtualenv</code> Python code directly
+and use that to create a "bootstrap" virtualenv that you can then create
+new virtualenvs from.  Note that these virtualenvs all include pip; no
+need for extra work to get it installed.</p>
+<p>All of this is possible without doing any installation into the system's
+Python at all, not even requiring any <code>pip install --user</code> commands.
+It's pretty simple to do. If you want to follow this along further and
+add virtualenvwrapper too, see the Stack Overflow post for more details
+(essentially, you need to get a copy of virtualenv via downloading it,
+e.g. from PyPI, using curl or a web browser and then run <code>python
+virtualenv.py $YOUR_CHOSEN_VIRTUALENV_DIRECTORY</code>), then continue here.</p>
+<h2 id="getting-virtualenvwrapper-working">Getting virtualenvwrapper working</h2>
+<p>Though <a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation">it's not recommended in the
+documentation</a>,
+someone in the Stack Overflow comments said they'd got it working, so I
+thought worth trying.</p>
+<p>What I did was create a Python virtualenv purely for virtualenvwrapper
+using the method in the Stack Overflow answer. I called the virtualenv
+"virtualenvwrapper" and created it inside <code>$HOME/.virtualenvs</code>.</p>
+<p>Next, I then activated this new virtualenv using <code>source
+$HOME/.virtualenvs/virtualenvwrapper/bin/activate</code> and did <code>pip install
+virtualenvwrapper</code>.</p>
+<p>If you modify your shell startup files as suggested in the
+virtualenvwrapper documentation, you'll find you get an error:</p>
+<div class="highlight"><pre><span></span>virtualenvwrapper.sh: There was a problem running the initialization
+hooks.     
+
+If Python could not import the module virtualenvwrapper.hook_loader,
+check that virtualenvwrapper has been installed for
+VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON and that PATH is
+set properly.
+</pre></div>
+
+
+<p>As virtualenvwrapper isn't installed in the default Python, the script
+looks for it and understandably can't find it. It's a simple fix: just
+activate the virtualenvwrapper virtualenv before this shell script is
+sourced.</p>
+<p>Even if you immediately deactivate the virtualenvwrapper virtualenv
+again, you'll still have commands like <code>workon</code> that function correctly
+in your shell environment.</p>
+<p>So what I first tried was doing what the virtualenvwrapper documentation
+suggests, and modifying shell startup files, but with extra activate and
+deactivate steps:</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.local/src 
+<span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/activate
+<span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
+deactivate                                                          
+</pre></div>
+
+
+<p>You will need to switch to some virtualenv first with the virtualenv
+package installed, before commands that require the Python virtualenv
+package to be installed will work (e.g. to create new virtualenvs). It's
+simple enough to do <code>workon py3venv</code> and then e.g. <code>mkvirtualenv
+virtualenv_name</code> when you want to create one. However, <code>workon</code> to
+switch virtualenvs should always work.</p>
+<h2 id="limitations-with-this-clean-solution">Limitations with this clean solution</h2>
+<p>This works pretty well, but:</p>
+<ol>
+<li>
+<p>The bootstrap environments are the ones you base your other
+   virtualenvs on.  If, for some reason, you suddenly need some system
+   site package installed for some particular Python package, then
+   you'll need to create a new bootstrap virtualenv first, with the
+   <code>--system-site-packages</code> option. (Even if you've already got a
+   "system site packages" virtualenv, if you subsequently updated the
+   system packages and want a virtualenv to reflect this, you'll have to
+   go back to the bootstrapping stage.)</p>
+</li>
+<li>
+<p>You'll likely need to recreate the bootstrap environments in addition
+   to any actual in-use virtualenvs if you want to move to a new Python
+   version. I've read in places things that suggest the Python binary is
+   a symlink to the system one; on my current virtualenvs, there are
+   only symlinks to the local virtualenv copy of the python binary.</p>
+</li>
+</ol>
+<h2 id="fixing-virtualenvwrapper-slowing-terminal-startup">Fixing virtualenvwrapper slowing terminal startup</h2>
+<p>virtualenvwrapper does slightly delay bash starting up. On
+investigation, this is principally due to virtualenvwrapper.sh itself,
+not the activate/deactivate step. You can check this by running <code>time</code>
+on each of the commands, <code>source bin/activate</code> and <code>deactivate</code> are
+basically instant, whereas this script slows things down considerably.</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">time</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
+
+real    0m0.304s
+user    0m0.248s
+sys     0m0.032s
+</pre></div>
+
+
+<p>A 0.3 s delay isn't particularly long. But, for me, it makes bash feel
+slightly less snappy on opening a new terminal.</p>
+<p>To solve this, you can use the <a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#lazy-loading">"lazy
+loading"</a>
+script provided with virtualenvwrapper. For my setup, this means I would
+need to hack that lazy loading script to add the activate and deactivate
+command there.</p>
+<p>I tried this and it did work. But, it didn't seem like a good solution.
+In part, it just felt hacky and, more importantly, these commands would
+be removed if you upgrade virtualenvwrapper, breaking it until you again
+hacked the script.</p>
+<p>Instead, my preferred option to work around the slightly slow loading
+was to create another script that I can <code>source</code> whenever wanting to
+work with Python virtualenvs:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -e</span>
+<span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.local/src
+<span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/venvwrapper/bin/activate
+<span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/venvwrapper/bin/virtualenvwrapper.sh
+deactivate
+</pre></div>
+
+
+<p>This is less direct. You can't just directly access virtualenvs.
+Insteaad, you must source this script first so that you can then
+<code>workon</code> a virtualenv to <code>workon</code>. However, it keeps the clean install
+we have made, doesn't slow bash from loading at all, and isn't a hack of
+the existing virtualenvwrapper. Provided we keep it installed in the
+same place, it'll work.</p>
+<h2 id="keeping-clean">Keeping clean</h2>
+<p>Despite the few drawbacks, I do like the idea of this approach overall.
+You don't even need to install any Python packages, even as a user, into
+Python outside of a virtualenv.</p>
+<p>Bear in mind if you're intent on being particularly rigorous in keeping
+your system Python clean: installing software that is built on Python
+via your package manager (e.g. apt) may well end up pulling in the
+package manager's version of dependencies that the software may use. A
+way around this is to install whatever software you want to use in a
+virtualenv instead manually, although this may be awkward if that
+software uses system packages.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/android">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker">
+                            BitLocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/pelican">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/wordpress">
+                            WordPress
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
