@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-01-21T18:41:00+00:00</updated><entry><title>The buzz (and hum) of learning a new instrument</title><link href="http://www.stevenmaude.co.uk/posts/the-buzz-and-hum-of-learning-a-new-instrument" rel="alternate"></link><published>2017-01-21T18:41:00+00:00</published><updated>2017-01-21T18:41:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-21:posts/the-buzz-and-hum-of-learning-a-new-instrument</id><summary type="html">&lt;p&gt;Because I want to improve my skills in producing music, I've started taking
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-01-29T14:40:00+00:00</updated><entry><title>Blocking URLs in emails from being opened in Thunderbird</title><link href="http://www.stevenmaude.co.uk/posts/blocking-urls-in-emails-from-being-opened-in-thunderbird" rel="alternate"></link><published>2017-01-29T14:40:00+00:00</published><updated>2017-01-29T14:40:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-29:posts/blocking-urls-in-emails-from-being-opened-in-thunderbird</id><summary type="html">&lt;p&gt;I'd got some unwanted spam message and wondered if it was possible to
+stop accidental clicking on any URLs that are displayed in those cases.&lt;/p&gt;
+&lt;p&gt;Turns out you can easily.&lt;/p&gt;
+&lt;p&gt;Go to the Edit menu &amp;gt; Preferences &amp;gt; Advanced &amp;gt; Config Editor. Skip past
+the warning about changing advanced settings if it's displayed (you must
+have already disabled it previously, if you don't see this).&lt;/p&gt;
+&lt;p&gt;Search for network.protocol-handler.external-default, right click the
+option of that name that appears under Preference Name and select Toggle
+to change it from the default (true) to false.&lt;/p&gt;
+&lt;p&gt;Now, if you try to click on a URL now that's displayed in an email,
+nothing will happen; your web browser won't open. However, you can
+always copy the URL and paste into a browser yourself.&lt;/p&gt;</summary><category term="Thunderbird"></category></entry><entry><title>The buzz (and hum) of learning a new instrument</title><link href="http://www.stevenmaude.co.uk/posts/the-buzz-and-hum-of-learning-a-new-instrument" rel="alternate"></link><published>2017-01-21T18:41:00+00:00</published><updated>2017-01-21T18:41:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-21:posts/the-buzz-and-hum-of-learning-a-new-instrument</id><summary type="html">&lt;p&gt;Because I want to improve my skills in producing music, I've started taking
 piano lessons. To start out with, I'm using a borrowed 61 key, touch sensitive
 keyboard. I'd read around about this. Some people suggest you should always
 learn on a piano, but my teacher suggested that's not necessary when first
@@ -893,46 +904,4 @@ states &lt;code&gt;supported: enhanced erase&lt;/code&gt;, you could replace the
 
 &lt;p&gt;After the erase, the password should be removed, and running the &lt;code&gt;hdparm
 -I&lt;/code&gt; command one final time should show that the password is "not
-enabled".&lt;/p&gt;</summary><category term="hdparm"></category><category term="erase"></category></entry><entry><title>Collecting disposable email with go-mailin8</title><link href="http://www.stevenmaude.co.uk/posts/collecting-disposable-email-with-go-mailin8" rel="alternate"></link><published>2016-11-12T21:47:00+00:00</published><updated>2016-11-12T21:47:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-12:posts/collecting-disposable-email-with-go-mailin8</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/StevenMaude/go-mailin8"&gt;go-mailin8&lt;/a&gt; is a command
-line utility I've created to get the most recent message from a
-Mailinator email inbox.&lt;/p&gt;
-&lt;h1 id="whats-mailinator"&gt;What's Mailinator?&lt;/h1&gt;
-&lt;p&gt;&lt;a href="https://mailinator.com"&gt;Mailinator&lt;/a&gt; is one of a number of free services
-that allows you to use a disposable email address. This is handy when
-you're signing up for something but when you know that the account or
-email is only needed ephemerally, as a one-off. My frequent use case is
-for free Bandcamp downloads that require an email address. It can also
-be useful for testing on the web, if you're developing something that
-sends email.&lt;/p&gt;
-&lt;p&gt;What using a disposable email address offers is not having to hand out
-your real email address when that's not needed, with the advantage of
-reducing the number of unwanted messages you receive. Yes, of course,
-you can usually unsubscribe from mailing lists, but that's extra work.
-Better to just not let the unwanted messages anywhere near your real
-inbox, where possible.&lt;/p&gt;
-&lt;h1 id="cant-you-just-visit-the-site"&gt;Can't you just visit the site?&lt;/h1&gt;
-&lt;p&gt;Yes, you can. But I'm lazy, and this means switching to a new tab,
-visiting the URL and loading their home page, then entering the inbox
-address, loading the inbox page, and clicking the mail to display it and
-then finally copying the activation or download URL I'm looking for.&lt;/p&gt;
-&lt;p&gt;Much easier if I can just run a command line program that just takes the
-local-part of the mailbox name (the part before the @):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./go-mailin8 &amp;lt;local-part&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;and gives me back the most recent message. Copy-pasting the URL directly
-from the terminal is then simple.&lt;/p&gt;
-&lt;h1 id="why-go-and-not-python"&gt;Why Go and not Python?&lt;/h1&gt;
-&lt;p&gt;It would be probably have been easier to write in Python as I know that
-better than I do Go. But I'm conscious that I spent some time over the
-summer reading up on Go; the more chance to practise, the better.&lt;/p&gt;
-&lt;p&gt;In this case, features Go offers like being faster, and easier to write
-concurrent code aren't really important. You could equally well write
-this code in Python and it would be just as useful.&lt;/p&gt;
-&lt;p&gt;Where Go excels is that the code has no dependencies to install once it
-is compiled. Much simpler than telling someone to first install Python
-and then the packages that they need. (I realise that the target
-audience of such a tool are probably more than capable of doing so, but
-this reduces the barrier for someone to get the program running on their
-computer nonetheless.)&lt;/p&gt;</summary><category term="golang"></category><category term="Mailinator"></category><category term="email"></category></entry></feed>
+enabled".&lt;/p&gt;</summary><category term="hdparm"></category><category term="erase"></category></entry></feed>

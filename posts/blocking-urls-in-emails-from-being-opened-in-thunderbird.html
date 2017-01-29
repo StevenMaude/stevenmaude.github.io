@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Jekyll - stevenmaude.co.uk</title>
+    <title>Blocking URLs in emails from being opened in Thunderbird - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,21 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/blocking-urls-in-emails-from-being-opened-in-thunderbird">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="Jekyll" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Thunderbird" />
+        <meta name="description" content="Preventing links from emails displayed in Thunderbird from being opened in a browser." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Blocking URLs in emails from being opened in Thunderbird"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/blocking-urls-in-emails-from-being-opened-in-thunderbird"/>
+        <meta property="og:description" content="Preventing links from emails displayed in Thunderbird from being opened in a browser."/>
+        <meta property="article:published_time" content="2017-01-29" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="Thunderbird" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +31,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,43 +81,47 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/full-circle">Full circle</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Blocking URLs in emails from being opened in Thunderbird
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2014-03-22T14:55:00+00:00"> 2014-03-22</time>
+        <time datetime="2017-01-29T14:40:00+00:00"> 2017-01-29</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-03-22T14:59:00+00:00"> 2014-03-22</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/wordpress">Wordpress</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/blog">blog</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/static">static</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/jekyll">Jekyll</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/blogging">blogging</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/site">site</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/pelican">Pelican</a>
+	<a href="http://www.stevenmaude.co.uk/tag/thunderbird">Thunderbird</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Thoughts on moving away from Blogger to a static site.</p>
                 </div>
-            </article>
-            <hr/>
+                <p>I'd got some unwanted spam message and wondered if it was possible to
+stop accidental clicking on any URLs that are displayed in those cases.</p>
+<p>Turns out you can easily.</p>
+<p>Go to the Edit menu &gt; Preferences &gt; Advanced &gt; Config Editor. Skip past
+the warning about changing advanced settings if it's displayed (you must
+have already disabled it previously, if you don't see this).</p>
+<p>Search for network.protocol-handler.external-default, right click the
+option of that name that appears under Preference Name and select Toggle
+to change it from the default (true) to false.</p>
+<p>Now, if you try to click on a URL now that's displayed in an email,
+nothing will happen; your web browser won't open. However, you can
+always copy the URL and paste into a browser yourself.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -187,7 +198,7 @@ stevenmaude.co.uk            </a>
    <div class="container">
       <hr class="content-author-separator">
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 Steven Maude
+         <div class="col-xs-10">&copy; 2017 Steven Maude
             <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
