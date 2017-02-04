@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-01-29T14:40:00+00:00</updated><entry><title>Blocking URLs in emails from being opened in Thunderbird</title><link href="http://www.stevenmaude.co.uk/posts/blocking-urls-in-emails-from-being-opened-in-thunderbird" rel="alternate"></link><published>2017-01-29T14:40:00+00:00</published><updated>2017-01-29T14:40:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-29:posts/blocking-urls-in-emails-from-being-opened-in-thunderbird</id><summary type="html">&lt;p&gt;I'd got some unwanted spam message and wondered if it was possible to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-02-04T17:54:00+00:00</updated><entry><title>Switching BitLocker protection methods without re-encrypting</title><link href="http://www.stevenmaude.co.uk/posts/switching-bitlocker-protection-methods-without-re-encrypting" rel="alternate"></link><published>2017-02-04T17:54:00+00:00</published><updated>2017-02-04T17:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/switching-bitlocker-protection-methods-without-re-encrypting</id><summary type="html">&lt;h2 id="overzealous-tpm-protection"&gt;Overzealous TPM protection&lt;/h2&gt;
+&lt;p&gt;I'd set up BitLocker for someone using the Trusted Platform Module (TPM)
+in their laptop with a PIN&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; to decrypt the drive. Unfortunately, they
+found that, after some time, the system tended to lock the PIN out,
+unless they used a recovery key to bypass the TPM and PIN access
+altogether.&lt;/p&gt;
+&lt;p&gt;As far as I can tell, this is some feature of the TPM in this particular
+laptop where too many incorrectly entered passwords results in the TPM
+locking out for some lengthy and possibly indefinite amount of time.
+Perhaps even permanently. I don't think this is the case where incorrect
+passwords are continually entered in a short time period, but where
+incorrect attempts over a longer period are cumulatively logged.&lt;/p&gt;
+&lt;p&gt;In this case, this state doesn't seem to get reset even if you
+subsequently re-enter the correct password, or unlock with another
+method. (It seems reasonable that the TPM's unaware of whether
+BitLocker's been unlocked or not by other means.)&lt;/p&gt;
+&lt;h2 id="fixing-the-tpm"&gt;Fixing the TPM&lt;/h2&gt;
+&lt;p&gt;You can rectify this by &lt;a href="https://technet.microsoft.com/en-us/library/dd851452(v=ws.11).aspx"&gt;resetting the TPM
+lockout&lt;/a&gt;
+but this is only a temporary fix. Again, after some number of password
+failures the lockout may happen again. My conclusion in this case is
+that, although disabling the TPM makes the system slightly less secure,
+the greatest threat here is not an unauthorised user accessing the data,
+but an authorised user being unable to access the data. Switching to
+just a password unlock then seems more sensible. I wouldn't recommend
+this downgrade in security otherwise.&lt;/p&gt;
+&lt;p&gt;At first look, you might think that this is a chore to switch. There's
+no obvious way of doing this in the BitLocker options for the drive, or
+under Control Panel, and your instinct might be to decrypt the drive and
+encrypt again. That can be time consuming, especially with large drives.&lt;/p&gt;
+&lt;h2 id="using-manage-bde-to-change-key-protection-methods"&gt;Using manage-bde to change key protection methods&lt;/h2&gt;
+&lt;p&gt;Instead, you can run the command line utility:
+&lt;a href="https://technet.microsoft.com/en-us/library/ff829848(v=ws.10).aspx"&gt;manage-bde&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Since TPM plus PIN, or recovery key (or some other method of securing
+your BitLocker encryption key) are key protection methods, Microsoft
+terms them "protectors". Also, here we are looking at removing a TPM and
+PIN protector, but you can use manage-bde to handle any BitLocker
+protector.&lt;/p&gt;
+&lt;p&gt;Specifically, you want to remove the existing TPM and PIN protector:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;manage-bde -protectors -delete &amp;lt;Drive&amp;gt; -tpmandpin
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You have to do this first, as it's not possible to have both TPM and PIN
+protector, and a password protector.&lt;/p&gt;
+&lt;p&gt;(A caution that &lt;code&gt;-delete&lt;/code&gt; without specifying &lt;code&gt;-type&lt;/code&gt; removes all
+protectors and then will disable protection, so that you can still
+access your drive in future. If you do that, you'll need to add new
+protectors, as below, and you'll need to add new recovery protectors,
+should you wish. You can do by specifying &lt;code&gt;-recoverypassword&lt;/code&gt; for a
+numerical recovery code, or &lt;code&gt;-recoverykey&lt;/code&gt; for an external key in the
+&lt;code&gt;-add&lt;/code&gt; command below. And then you must enable the protectors again with
+&lt;code&gt;manage-bde -protectors -enable&lt;/code&gt;, including new recovery keys should you
+wish to have them.)&lt;/p&gt;
+&lt;p&gt;Next, add a new protector, e.g. a password:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;manage-bde -protectors -add &amp;lt;Drive&amp;gt; -password
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(&lt;code&gt;C:&lt;/code&gt; is the most likely &lt;code&gt;&amp;lt;Drive&amp;gt;&lt;/code&gt; value here.)&lt;/p&gt;
+&lt;p&gt;You'll be prompted to enter, and then confirm, the new password. Now,
+you'll have a password protector, which won't be subject to a TPM
+lockout, as we wanted.&lt;/p&gt;
+&lt;p&gt;Finally, you can also check BitLocker status:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;manage-bde -protectors -status
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to confirm that the drive is encrypted, and which key protectors are
+active.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Well, password. You can configure Group Policy to allow passwords
+with TPM, instead of just numerical PINs. Microsoft's documentation
+always refers to this option as "TPM and PIN" regardless. This doesn't
+change the BitLocker prompt: it still asks for a PIN.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="BitLocker"></category><category term="manage-bde"></category></entry><entry><title>Blocking URLs in emails from being opened in Thunderbird</title><link href="http://www.stevenmaude.co.uk/posts/blocking-urls-in-emails-from-being-opened-in-thunderbird" rel="alternate"></link><published>2017-01-29T14:40:00+00:00</published><updated>2017-01-29T14:40:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-29:posts/blocking-urls-in-emails-from-being-opened-in-thunderbird</id><summary type="html">&lt;p&gt;I'd got some unwanted spam message and wondered if it was possible to
 stop accidental clicking on any URLs that are displayed in those cases.&lt;/p&gt;
 &lt;p&gt;Turns out you can easily.&lt;/p&gt;
 &lt;p&gt;Go to the Edit menu &amp;gt; Preferences &amp;gt; Advanced &amp;gt; Config Editor. Skip past
@@ -827,81 +907,4 @@ especially if you're running it as a desktop.&amp;#160;&lt;a class="footnote-bac
 &lt;p&gt;Yes, in this case "PIN" does then become a misnomer.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="BitLocker"></category><category term="encryption"></category><category term="LUKS"></category><category term="Ubuntu"></category><category term="Windows"></category></entry><entry><title>Securely erasing frozen hard disks with hdparm</title><link href="http://www.stevenmaude.co.uk/posts/securely-erasing-frozen-hard-disks-with-hdparm" rel="alternate"></link><published>2016-11-22T13:54:00+00:00</published><updated>2016-11-22T13:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-22:posts/securely-erasing-frozen-hard-disks-with-hdparm</id><summary type="html">&lt;p&gt;Yesterday I was trying to erase a hard drive before I used it for a new
-install. It may well have never been used, but I couldn't remember and,
-for the sake of a few minutes, it seemed sensible to do so first.&lt;/p&gt;
-&lt;p&gt;The best way to erase, especially if the drive is a solid state drive,
-is to use the &lt;a href="https://ata.wiki.kernel.org/index.php/ATA_Secure_Erase"&gt;ATA Secure
-Erase&lt;/a&gt; command
-which &lt;a href="http://www.stevenmaude.co.uk/posts/securely-erasing-ssd-drives"&gt;I've mentioned
-before&lt;/a&gt;.
-This command should also work for most magnetic hard drives too, unless
-they're ancient.&lt;/p&gt;
-&lt;p&gt;Instead of just mentioning the tool, I've summarised the details from
-the lengthy page where I found them below, and discuss how to deal with
-"frozen" drives.&lt;/p&gt;
-&lt;p&gt;You can access hdparm by booting into, for example, an Ubuntu
-installation DVD or USB. Installing Linux isn't required: you can just
-"Try Ubuntu" instead which doesn't install anything at all.&lt;/p&gt;
-&lt;h2 id="safety-first"&gt;Safety first&lt;/h2&gt;
-&lt;p&gt;First, the most sensible thing to do when erasing a drive is remove any
-drives other than those you wish to erase. It means even if you
-accidentally type the wrong thing that you won't erase a drive that you
-didn't intend to.&lt;/p&gt;
-&lt;p&gt;Next, you need to get the drive's name. Open a terminal by pressing
-Ctrl+Alt+T.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo lshw -class disk
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This will show you details of the disk, including the name. Replace the
-&lt;code&gt;/dev/sdX&lt;/code&gt; in the commands below with that name.&lt;/p&gt;
-&lt;h2 id="setting-a-password"&gt;Setting a password&lt;/h2&gt;
-&lt;p&gt;The next task is to set a password. I'm not sure that you really need to
-do this, but the
-&lt;a href="https://ata.wiki.kernel.org/index.php/ATA_Secure_Erase"&gt;kernel.org guide&lt;/a&gt;
-advises it due to problems with certain PCs, and it only takes one extra
-command. Note that the "foo" password below can be replaced by something
-of your choice, but it doesn't really matter; when the drive is erased,
-the password should be removed.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm --user-master u --security-set-pass foo /dev/sdX
-security_password: &lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;
-/dev/sdX:
- Issuing SECURITY_SET_PASS command, &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;user, &lt;span class="nv"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;high
-SECURITY_SET_PASS: Input/output error
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Well, that error wasn't expected.&lt;/p&gt;
-&lt;p&gt;When I've used hdparm in this way previously, I haven't had a problem.
-You might expect it if the drive has a password set already, but in this
-case I couldn't recall doing that. If that's the same for you, it could
-be a simple fix.  First, check the drive's current status via:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm -I /dev/sdX
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;and you may see "frozen",  as opposed to "not frozen", in the "Security"
-section of the &lt;code&gt;hdparm&lt;/code&gt; output. This means you can't change security
-settings, so attempting to set a password fails.&lt;/p&gt;
-&lt;h2 id="unfreezing"&gt;Unfreezing&lt;/h2&gt;
-&lt;p&gt;In this case, the &lt;a href="https://superuser.com/questions/810867/new-ssd-hdparm-shows-frozen-whether-secure-erase-is-needed-before-installing"&gt;actual
-fix&lt;/a&gt;
-is simple. Suspending the PC, then powering it back on should then give
-you an unfrozen drive: you can check by running the &lt;code&gt;hdparm -I&lt;/code&gt; command
-above again.&lt;/p&gt;
-&lt;p&gt;Now, if you retry setting a password, you should be able to run the
-&lt;code&gt;SECURITY_SET_PASS&lt;/code&gt; command without error. Also, rerunning the &lt;code&gt;hdparm
--I&lt;/code&gt; command yet another time should show that a password is "enabled" as
-opposed to "not enabled".&lt;/p&gt;
-&lt;h2 id="erasing"&gt;Erasing&lt;/h2&gt;
-&lt;p&gt;You can now proceed with the erase. If your drive's &lt;code&gt;hdparm&lt;/code&gt; output
-states &lt;code&gt;supported: enhanced erase&lt;/code&gt;, you could replace the
-&lt;code&gt;--security-erase&lt;/code&gt; below with &lt;code&gt;--security-erase-enhanced&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo &lt;span class="nb"&gt;time&lt;/span&gt; hdparm --user-master u --security-erase foo /dev/sdX
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After the erase, the password should be removed, and running the &lt;code&gt;hdparm
--I&lt;/code&gt; command one final time should show that the password is "not
-enabled".&lt;/p&gt;</summary><category term="hdparm"></category><category term="erase"></category></entry></feed>
+&lt;/div&gt;</summary><category term="BitLocker"></category><category term="encryption"></category><category term="LUKS"></category><category term="Ubuntu"></category><category term="Windows"></category></entry></feed>

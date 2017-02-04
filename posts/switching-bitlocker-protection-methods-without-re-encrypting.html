@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>main - stevenmaude.co.uk</title>
+    <title>Switching BitLocker protection methods without re-encrypting - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,22 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/switching-bitlocker-protection-methods-without-re-encrypting">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="main" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="BitLocker,manage-bde" />
+        <meta name="description" content="How to change BitLocker key protectors without having to decrypt and re-encrypt a drive." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Switching BitLocker protection methods without re-encrypting"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/switching-bitlocker-protection-methods-without-re-encrypting"/>
+        <meta property="og:description" content="How to change BitLocker key protectors without having to decrypt and re-encrypt a drive."/>
+        <meta property="article:published_time" content="2017-02-04" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="BitLocker" />
+            <meta property="article:tag" content="manage-bde" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +32,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,39 +82,118 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/arduous-lessons-in-python-why-main-is">Arduous lessons in Python: why main() is useful</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Switching BitLocker protection methods without re-encrypting
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2014-07-05T11:34:00+01:00"> 2014-07-05</time>
+        <time datetime="2017-02-04T17:54:00+00:00"> 2017-02-04</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-07-05T11:42:00+01:00"> 2014-07-05</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/foolishness">foolishness</a>
+	<a href="http://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/name">name</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/main">main</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/python">Python</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/fix">fix</a>
+	<a href="http://www.stevenmaude.co.uk/tag/manage-bde">manage-bde</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Why if <code>__name__ == '__main__'</code> is a sensible check in code you're reusing.</p>
                 </div>
-            </article>
-            <hr/>
+                <h2 id="overzealous-tpm-protection">Overzealous TPM protection</h2>
+<p>I'd set up BitLocker for someone using the Trusted Platform Module (TPM)
+in their laptop with a PIN<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> to decrypt the drive. Unfortunately, they
+found that, after some time, the system tended to lock the PIN out,
+unless they used a recovery key to bypass the TPM and PIN access
+altogether.</p>
+<p>As far as I can tell, this is some feature of the TPM in this particular
+laptop where too many incorrectly entered passwords results in the TPM
+locking out for some lengthy and possibly indefinite amount of time.
+Perhaps even permanently. I don't think this is the case where incorrect
+passwords are continually entered in a short time period, but where
+incorrect attempts over a longer period are cumulatively logged.</p>
+<p>In this case, this state doesn't seem to get reset even if you
+subsequently re-enter the correct password, or unlock with another
+method. (It seems reasonable that the TPM's unaware of whether
+BitLocker's been unlocked or not by other means.)</p>
+<h2 id="fixing-the-tpm">Fixing the TPM</h2>
+<p>You can rectify this by <a href="https://technet.microsoft.com/en-us/library/dd851452(v=ws.11).aspx">resetting the TPM
+lockout</a>
+but this is only a temporary fix. Again, after some number of password
+failures the lockout may happen again. My conclusion in this case is
+that, although disabling the TPM makes the system slightly less secure,
+the greatest threat here is not an unauthorised user accessing the data,
+but an authorised user being unable to access the data. Switching to
+just a password unlock then seems more sensible. I wouldn't recommend
+this downgrade in security otherwise.</p>
+<p>At first look, you might think that this is a chore to switch. There's
+no obvious way of doing this in the BitLocker options for the drive, or
+under Control Panel, and your instinct might be to decrypt the drive and
+encrypt again. That can be time consuming, especially with large drives.</p>
+<h2 id="using-manage-bde-to-change-key-protection-methods">Using manage-bde to change key protection methods</h2>
+<p>Instead, you can run the command line utility:
+<a href="https://technet.microsoft.com/en-us/library/ff829848(v=ws.10).aspx">manage-bde</a>.</p>
+<p>Since TPM plus PIN, or recovery key (or some other method of securing
+your BitLocker encryption key) are key protection methods, Microsoft
+terms them "protectors". Also, here we are looking at removing a TPM and
+PIN protector, but you can use manage-bde to handle any BitLocker
+protector.</p>
+<p>Specifically, you want to remove the existing TPM and PIN protector:</p>
+<div class="highlight"><pre><span></span>manage-bde -protectors -delete &lt;Drive&gt; -tpmandpin
+</pre></div>
+
+
+<p>You have to do this first, as it's not possible to have both TPM and PIN
+protector, and a password protector.</p>
+<p>(A caution that <code>-delete</code> without specifying <code>-type</code> removes all
+protectors and then will disable protection, so that you can still
+access your drive in future. If you do that, you'll need to add new
+protectors, as below, and you'll need to add new recovery protectors,
+should you wish. You can do by specifying <code>-recoverypassword</code> for a
+numerical recovery code, or <code>-recoverykey</code> for an external key in the
+<code>-add</code> command below. And then you must enable the protectors again with
+<code>manage-bde -protectors -enable</code>, including new recovery keys should you
+wish to have them.)</p>
+<p>Next, add a new protector, e.g. a password:</p>
+<div class="highlight"><pre><span></span>manage-bde -protectors -add &lt;Drive&gt; -password
+</pre></div>
+
+
+<p>(<code>C:</code> is the most likely <code>&lt;Drive&gt;</code> value here.)</p>
+<p>You'll be prompted to enter, and then confirm, the new password. Now,
+you'll have a password protector, which won't be subject to a TPM
+lockout, as we wanted.</p>
+<p>Finally, you can also check BitLocker status:</p>
+<div class="highlight"><pre><span></span>manage-bde -protectors -status
+</pre></div>
+
+
+<p>to confirm that the drive is encrypted, and which key protectors are
+active.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Well, password. You can configure Group Policy to allow passwords
+with TPM, instead of just numerical PINs. Microsoft's documentation
+always refers to this option as "TPM and PIN" regardless. This doesn't
+change the BitLocker prompt: it still asks for a PIN.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -183,7 +270,7 @@ stevenmaude.co.uk            </a>
    <div class="container">
       <hr class="content-author-separator">
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 Steven Maude
+         <div class="col-xs-10">&copy; 2017 Steven Maude
             <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
