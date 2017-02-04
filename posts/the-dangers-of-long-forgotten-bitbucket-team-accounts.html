@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>How to access GitHub over SSH on Ubuntu - stevenmaude.co.uk</title>
+    <title>The dangers of long forgotten Bitbucket team accounts - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,24 +9,21 @@
 
 
 
-<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/how-to-access-github-over-ssh-on-ubuntu">
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/the-dangers-of-long-forgotten-bitbucket-team-accounts">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="GitHub,SSH,remote,shell,Ubuntu" />
-        <meta name="description" content="How to use GitHub over SSH in Ubuntu, and forward SSH keys to other shell accounts." />
+        <meta name="keywords" content="Bitbucket,security" />
+        <meta name="description" content="The security issues of having a legacy Bitbucket team account still active." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="How to access GitHub over SSH on Ubuntu"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/how-to-access-github-over-ssh-on-ubuntu"/>
-        <meta property="og:description" content="How to use GitHub over SSH in Ubuntu, and forward SSH keys to other shell accounts."/>
-        <meta property="article:published_time" content="2013-09-07" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="GitHub" />
-            <meta property="article:tag" content="SSH" />
-            <meta property="article:tag" content="remote" />
-            <meta property="article:tag" content="shell" />
-            <meta property="article:tag" content="Ubuntu" />
+        <meta property="og:title" content="The dangers of long forgotten Bitbucket team accounts"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/the-dangers-of-long-forgotten-bitbucket-team-accounts"/>
+        <meta property="og:description" content="The security issues of having a legacy Bitbucket team account still active."/>
+        <meta property="article:published_time" content="2017-02-04" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="Bitbucket" />
+            <meta property="article:tag" content="security" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -89,7 +86,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                How to access GitHub over SSH on Ubuntu
+                The dangers of long forgotten Bitbucket team accounts
                 </h1>
             </header>
             <div class="entry-content">
@@ -98,101 +95,71 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-09-07T11:48:00+01:00"> 2013-09-07</time>
+        <time datetime="2017-02-04T21:30:00+00:00"> 2017-02-04</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2013-09-07T12:07:00+01:00"> 2013-09-07</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/github">GitHub</a>
+	<a href="http://www.stevenmaude.co.uk/tag/bitbucket">Bitbucket</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/ssh">SSH</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/remote">remote</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/shell">shell</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+	<a href="http://www.stevenmaude.co.uk/tag/security">security</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/GitHub_logo.png" alt="GitHub logo"></p>
-<p><a href="http://blog.scraperwiki.com/2013/09/02/hi-im-steve/">Since starting working at
-ScraperWiki</a>, I've
-been using <a href="http://git-scm.com/">Git version control</a> and
-<a href="https://github.com/">GitHub</a> a lot to collaborate on projects I'm
-working on. Out of the box, connecting to GitHub via HTTPS is simple to
-get going and works perfectly fine. One problem is that you have to
-enter a username and password every time you do anything with the remote
-repository, such as pushing code to it.</p>
-<p>For me, this gets in the way of workflow. It's a small, but distracting,
-obstacle that snaps me out of whatever thought process I was in. Over a
-full day's work, this can happen several times.</p>
-<p>Instead, I prefer to connect to GitHub using an
-<a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> connection. All I do
-now is enter a passphrase once per login session and then forget about
-it<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. Another advantage is that you can <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">forward access to your local
-SSH credentials</a>
-even when developing in remote shell accounts.</p>
-<p>GitHub's help section has several well written pages that detail clearly
-how to get this setup running. The only issue with those guides is that
-the individual steps are actually split over a few individual help
-pages. Here's a combined summary of what you need to do.</p>
-<ol>
-<li>
-<p><a href="https://help.github.com/articles/generating-ssh-keys">Generate an SSH key locally (not on a remote shell account), with a
-passphrase, add it to your GitHub account and test
-it.</a></p>
-<p>You should now change the clone URLs GitHub displays to SSH (see the
-image; where it says clone with HTTPS, SSH..., click on SSH).</p>
-<p><div class="break-out-of-list">
-  <img class="article-image" src="http://www.stevenmaude.co.uk/images/2013/GitHub_clone.png" alt="GitHub sidebar showing the position of the clone URL display.">
-</div></p>
-<p>Now, the first time you try to perform some action on GitHub via ssh
-(e.g. <code>git clone</code>), you should only get asked for the passphrase once and
-subsequent connections will proceed without prompting. This worked out
-of the box for me on Ubuntu 12.04 LTS. If you have issues, you'll need
-to look into how to configure
-<a href="http://mah.everybody.org/docs/ssh">ssh-agent</a> on your system.</p>
-<p>Bear in mind that if you already have repositories that you have cloned
-via HTTPS using GitHub, <a href="https://help.github.com/articles/changing-a-remote-s-url">you'll likely want to update the git remotes to
-use the appropriate SSH URLs
-instead</a>.
-These won't be automatically changed. Otherwise you'll still get asked
-for your username and password credentials: these local repositories
-will still be connecting via HTTPS URLs!</p>
-</li>
-<li>
-<p>(Optional; handy if you're developing or git cloning on remote boxes)
-<a href="https://help.github.com/articles/using-ssh-agent-forwarding">With everything now working locally, you need to setup ssh-agent so
-that your remote account can access your SSH
-key</a>.</p>
-</li>
-</ol>
-<p>When you now carry out an operation with GitHub on the remote machine
-you connected to via SSH, <strong>you shouldn't get asked for your password on
-that machine either<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></strong>.</p>
+                <p>Last month, I'd been reviewing some of the shared accounts for online
+services we have at work. Often, users have an individual login for
+online services. Some services don't offer that feature and there's a
+single account that's shared by everyone. While digging around, I found
+details for a shared Bitbucket account. If everyone has their own
+Bitbucket account, then what's this one?</p>
+<p>Logging in worked, and allowed me access to an account for the team
+itself; there was no user, as such. Not only could this team account
+access the team, but with full permissions. Furthermore, this account
+had no settings of its own. If you accessed the settings page, you got
+the team's settings, not that of this team account, so it wasn't
+possible to change any security settings for the account.</p>
+<p>With one of these "legacy" accounts lying around, it's possible that it
+is sat there with only password authentication — Bitbucket <a href="https://blog.bitbucket.org/2015/09/10/two-step-verification-is-here/">introduced
+two-factor
+authentication</a>
+late, in 2015 — an unchangeable (and maybe weak, depending on your
+policies) password, and with full team access.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
+<p>What makes this particularly insidious is that if you're not aware of
+this account, you'll be blissfully unaware if you look at the list of
+users on your team. Even if you manage the team as an administrator,
+<strong>this team account didn't appear as an admin user</strong>. I don't even think
+it counts as a billed user. Someone who gains access presumably could
+maintain that silently without you being able to do anything about it,
+at least if they just sat there cloning your code. Mitigating that is
+the audit log which would be a giveaway if anything noisy happened. By
+that point though, someone malicious could still cause a lot of problems
+for you by, let's say, booting out all other team members, or deleting
+all your repositories.</p>
+<p>In the end, I had to contact support and request them to remove this
+account, since there was no way I could fix this as a team
+administrator. Therefore, this is definitely something worth auditing if
+you think you might have such dormant accounts, even though, according
+to Atlassian, this shouldn't be the case at all. They <a href="https://blog.bitbucket.org/2014/01/14/important-changes-are-coming-to-teams/">earlier
+stated</a>:</p>
+<blockquote>
+<p>Starting February 18, 2014, Bitbucket will remove the ability for
+individuals to log into a team with a username/email and password.</p>
+</blockquote>
+<p>Insert your own <a href="http://www.unicode.org/emoji/charts/emoji-list.html#1f937">Unicode shrug
+character</a>
+here.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>I am aware that you do have the
-option of using credential helper to <a href="https://help.github.com/articles/set-up-git#password-caching">cache your HTTPS
-password</a>,
-but you would need to do this both locally and remotely if you are
-working on different machines. Also, the default setting, though it can
-be changed, is to cache the password for just 15 minutes.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Again, the caveat regarding
-changing repository remote settings from HTTPS to SSH applies on remote
-machines too.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Creating new repositories failed, but, for instance, creating a
+repo using my account (as a team administrator), then logging in as the
+"team account" and using the team account to delete the test repo was
+successful. I didn't test removing team members, but don't see why this
+would have failed.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
