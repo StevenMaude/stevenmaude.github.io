@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-02-04T17:54:00+00:00</updated><entry><title>Switching BitLocker protection methods without re-encrypting</title><link href="http://www.stevenmaude.co.uk/posts/switching-bitlocker-protection-methods-without-re-encrypting" rel="alternate"></link><published>2017-02-04T17:54:00+00:00</published><updated>2017-02-04T17:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/switching-bitlocker-protection-methods-without-re-encrypting</id><summary type="html">&lt;h2 id="overzealous-tpm-protection"&gt;Overzealous TPM protection&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-02-04T21:30:00+00:00</updated><entry><title>The dangers of long forgotten Bitbucket team accounts</title><link href="http://www.stevenmaude.co.uk/posts/the-dangers-of-long-forgotten-bitbucket-team-accounts" rel="alternate"></link><published>2017-02-04T21:30:00+00:00</published><updated>2017-02-04T21:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/the-dangers-of-long-forgotten-bitbucket-team-accounts</id><summary type="html">&lt;p&gt;Last month, I'd been reviewing some of the shared accounts for online
+services we have at work. Often, users have an individual login for
+online services. Some services don't offer that feature and there's a
+single account that's shared by everyone. While digging around, I found
+details for a shared Bitbucket account. If everyone has their own
+Bitbucket account, then what's this one?&lt;/p&gt;
+&lt;p&gt;Logging in worked, and allowed me access to an account for the team
+itself; there was no user, as such. Not only could this team account
+access the team, but with full permissions. Furthermore, this account
+had no settings of its own. If you accessed the settings page, you got
+the team's settings, not that of this team account, so it wasn't
+possible to change any security settings for the account.&lt;/p&gt;
+&lt;p&gt;With one of these "legacy" accounts lying around, it's possible that it
+is sat there with only password authentication — Bitbucket &lt;a href="https://blog.bitbucket.org/2015/09/10/two-step-verification-is-here/"&gt;introduced
+two-factor
+authentication&lt;/a&gt;
+late, in 2015 — an unchangeable (and maybe weak, depending on your
+policies) password, and with full team access.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;What makes this particularly insidious is that if you're not aware of
+this account, you'll be blissfully unaware if you look at the list of
+users on your team. Even if you manage the team as an administrator,
+&lt;strong&gt;this team account didn't appear as an admin user&lt;/strong&gt;. I don't even think
+it counts as a billed user. Someone who gains access presumably could
+maintain that silently without you being able to do anything about it,
+at least if they just sat there cloning your code. Mitigating that is
+the audit log which would be a giveaway if anything noisy happened. By
+that point though, someone malicious could still cause a lot of problems
+for you by, let's say, booting out all other team members, or deleting
+all your repositories.&lt;/p&gt;
+&lt;p&gt;In the end, I had to contact support and request them to remove this
+account, since there was no way I could fix this as a team
+administrator. Therefore, this is definitely something worth auditing if
+you think you might have such dormant accounts, even though, according
+to Atlassian, this shouldn't be the case at all. They &lt;a href="https://blog.bitbucket.org/2014/01/14/important-changes-are-coming-to-teams/"&gt;earlier
+stated&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Starting February 18, 2014, Bitbucket will remove the ability for
+individuals to log into a team with a username/email and password.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Insert your own &lt;a href="http://www.unicode.org/emoji/charts/emoji-list.html#1f937"&gt;Unicode shrug
+character&lt;/a&gt;
+here.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Creating new repositories failed, but, for instance, creating a
+repo using my account (as a team administrator), then logging in as the
+"team account" and using the team account to delete the test repo was
+successful. I didn't test removing team members, but don't see why this
+would have failed.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Bitbucket"></category><category term="security"></category></entry><entry><title>Switching BitLocker protection methods without re-encrypting</title><link href="http://www.stevenmaude.co.uk/posts/switching-bitlocker-protection-methods-without-re-encrypting" rel="alternate"></link><published>2017-02-04T17:54:00+00:00</published><updated>2017-02-04T17:54:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/switching-bitlocker-protection-methods-without-re-encrypting</id><summary type="html">&lt;h2 id="overzealous-tpm-protection"&gt;Overzealous TPM protection&lt;/h2&gt;
 &lt;p&gt;I'd set up BitLocker for someone using the Trusted Platform Module (TPM)
 in their laptop with a PIN&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; to decrypt the drive. Unfortunately, they
 found that, after some time, the system tended to lock the PIN out,
@@ -725,186 +778,4 @@ this unless you've already started recording.&lt;/p&gt;
     might also want to reset the Audacity recording setting to what it
     was, so that you don't forget you changed it.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="audio"></category><category term="recording"></category><category term="Linux"></category><category term="Ubuntu"></category></entry><entry><title>A beginner's guide to OS encryption: (almost) 2017 edition</title><link href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-almost-2017-edition" rel="alternate"></link><published>2016-11-28T00:26:00+00:00</published><updated>2016-11-28T00:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-11-28:posts/a-beginners-guide-to-os-encryption-almost-2017-edition</id><summary type="html">&lt;p&gt;Previously I wrote about setting up my laptop to &lt;a href="http://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual"&gt;dual boot Windows and
-Ubuntu&lt;/a&gt;.
-As the Ubuntu LTS I had installed was now aging badly&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;, it really,
-really, &lt;em&gt;really&lt;/em&gt; needed upgrading.&lt;/p&gt;
-&lt;p&gt;I'd been hesitant to upgrade. The last time I installed this way, it
-took a week of following several guides, many of them out of date or not
-working, and several failed installs.&lt;/p&gt;
-&lt;h2 id="a-quick-guide"&gt;A quick guide&lt;/h2&gt;
-&lt;p&gt;Fortunately, thanks to someone really helpful on the internet, I don't
-have to write much this time:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Follow this &lt;a href="https://askubuntu.com/a/293029/623909"&gt;guide&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;That's pretty much it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="installing-windows"&gt;Installing Windows&lt;/h2&gt;
-&lt;p&gt;Seeing as I have my text editor open, I'll clarify a little more.&lt;/p&gt;
-&lt;p&gt;To start with, I booted Windows 10 with my computer set to boot in UEFI
-mode and with Secure Boot enabled. Starting from a clean hard disk, when
-the Windows installer booted, I was using a clean drive, and instructed
-the installer to create a new partition using a certain proportion of
-space on my drive, leaving the rest of the disk as unformatted space.&lt;/p&gt;
-&lt;p&gt;You'll find you don't get one partition but four: a recovery partition,
-the system (or EFI partition), a reserved space partition and the
-primary partition where Windows will actually be installed.&lt;/p&gt;
-&lt;p&gt;Another hour or so later, and following running Windows Update,
-hopefully you have a working and updated Windows machine. One big plus
-of the Windows 10 installer versus what I've experienced previously is
-that most computer hardware tends to get detected and installed
-automatically, without you needing to find drivers buried away on a
-manufacturer's website. Another is that, although Windows 10's
-cumulative updates can be problematic if there's an issue with one part
-of them, they do mean that you have only one big update to install, not
-several hundred, as is seriously the case with Windows 7.&lt;/p&gt;
-&lt;p&gt;At this point, you can go ahead and encrypt the Windows operating system
-drive with BitLocker, provided you have a version of Windows that offers
-it. If you don't have a Trusted Platform Module in your PC, it's still
-possible to use BitLocker, but you'll need to override this using &lt;a href="https://technet.microsoft.com/en-us/library/jj679890(v=ws.11).aspx"&gt;Group
-Policy&lt;/a&gt;
-(search for &lt;code&gt;gpedit.msc&lt;/code&gt; in the Windows search bar and run it). &lt;/p&gt;
-&lt;p&gt;You can find the options in Group Policy under (breathe in): Computer
-Configuration\Administrative Templates\Windows Components\BitLocker
-Drive Encryption\Operating System Drives. The specific option you need
-to change is "Require additional authentication at startup" and you can
-then tick "Allow BitLocker without a compatible TPM".&lt;/p&gt;
-&lt;p&gt;You should probably consider enabling "Allow enhanced PINs for startup"
-which is in the same Group Policy section while in there, seeing as this
-lets you use characters, not just numbers.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;Right clicking on the drive in Windows Explorer and selecting "Turn on
-BitLocker" should let you then go through the process of encrypting the
-drive.&lt;/p&gt;
-&lt;p&gt;Although I'm discussing Windows and Ubuntu here, note that the guide
-I've linked to may well work for two Linux installations too.&lt;/p&gt;
-&lt;h2 id="installing-ubuntu"&gt;Installing Ubuntu&lt;/h2&gt;
-&lt;p&gt;The usual advice is to install Linux &lt;em&gt;after&lt;/em&gt; Windows, since Windows
-doesn't necessarily play as nicely with Linux. I'm not sure if that
-still holds in the days of UEFI booting, but it seemed sensible to do.&lt;/p&gt;
-&lt;p&gt;Going back to the &lt;a href="https://askubuntu.com/a/293029/623909"&gt;excellent
-guide&lt;/a&gt; that was posted, it's not
-difficult to follow. Pay attention to the comments, as there were three
-steps that were unnecessary in the process, which were pointed out
-there.&lt;/p&gt;
-&lt;p&gt;The process has quite a few steps, but even if you don't understand
-fully what's going on, it should Just Work™. Here's an overview of
-what's involved once you've loaded Ubuntu from a DVD or USB:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Use your unpartitioned disk space to create two partitions. One will
-    be the unencrypted /boot partition and the other will be a LUKS
-    container that contains an LVM physical volume. This is then
-    subdivided into two logical volumes, one for the root partition, /,
-    and the other for /swap.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Install Ubuntu to the root partition you created with the installer,
-    as normal, although make sure that you choose "Something else" when
-    asked how to install.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Don't immediately reboot after installing. Access your new
-    installation by using a
-    &lt;a href="https://en.wikipedia.org/wiki/Chroot"&gt;chroot&lt;/a&gt;. This gives a
-    convenient way of modifying a configuration file in the new install
-    (crypttab) to add details of your drive which need to be available at
-    boot, and updating its
-    &lt;a href="https://en.wikipedia.org/wiki/Initramfs"&gt;initramfs&lt;/a&gt; with that
-    configuration.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;After that, booting up into Ubuntu should work and prompt you to unlock
-the LUKS container. Depending on your UEFI setup and your preference,
-you may need to go into your PC's boot menu at startup and select Ubuntu
-directly (or reorder the default boot order so that it boots by
-default). &lt;/p&gt;
-&lt;h3 id="some-more-tips"&gt;Some more tips&lt;/h3&gt;
-&lt;p&gt;The guide's pretty good, and my install was successful first time with
-no real hiccups, which was a pleasant surprise. There are, however, a
-few points which aren't mentioned:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;When you're using GParted to partition your drive, you may wish to
-    use the "cleared" option instead of "unformatted" to avoid any
-    confusion. Otherwise, if your drive has previous partitions present,
-    you may see GParted inform you that the type of partition is
-    whatever used to be there. It shouldn't make a difference however,
-    as you later should format the partitions anyway. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Make sure you read what the terminal's telling you. I was really
-    confused when the &lt;code&gt;luksOpen&lt;/code&gt; command didn't work as I'd run the
-    &lt;code&gt;luksFormat&lt;/code&gt; command before. Where I'd gone wrong is that
-    &lt;code&gt;luksFormat&lt;/code&gt; asks you to confirm you want to format the drive.
-    Instead of typing uppercase "YES" as it instructs, I'd typed "yes",
-    and the program just exited instead, without warning it hadn't done
-    anything.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When creating the logical volumes where / and /swap will live, you
-    use the &lt;code&gt;lvcreate&lt;/code&gt; command. With the &lt;code&gt;-L&lt;/code&gt; flag as used in the guide,
-    you directly specify the size it should take. If you want to ensure
-    that the second partition uses the rest of the space, you can use the
-    &lt;code&gt;-l&lt;/code&gt; flag as in &lt;code&gt;-l 100%FREE&lt;/code&gt; instead of e.g. &lt;code&gt;-L 7.5g&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can also check the status of the volumes you've created using
-&lt;code&gt;pvs&lt;/code&gt; and &lt;code&gt;lvs&lt;/code&gt; to ensure everything is as you like, before
-proceeding.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When installing the GRUB bootloader, it belongs in the EFI
-    partition.  If you select the disk where you're installling the
-    operating system, the Ubuntu installer should automatically detect
-    the partition and install GRUB there. It's likely that it's /dev/sda
-    if the only hard disk that's plugged in. Alternatively, you can
-    identify the EFI partition directly and choose that, e.g. /dev/sda2.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The guide suggests using &lt;code&gt;mount&lt;/code&gt; and &lt;code&gt;swapon&lt;/code&gt; to check which volumes
-    are being used in the new installation. Running &lt;code&gt;lsblk&lt;/code&gt; in the
-    terminal can do this in a single command. It will show you which
-    block devices are mounted and where: you should see the / and /swap
-    inside your encrypted LUKS container.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="reinstalling"&gt;Reinstalling&lt;/h2&gt;
-&lt;p&gt;How would reinstalling one of the operating systems work? I haven't
-tried it yet, so can't say for certain. Below is a thought experiment,
-although please heed the warning that it is only a thought experiment.&lt;/p&gt;
-&lt;p&gt;My hunch is that an Ubuntu reinstall should be fairly straightforward:
-delete the two partitions you created (/boot and the LUKS/LVM
-partition), create new ones and follow the whole process again. It
-shouldn't impact the Windows installation, as the Windows bootloader
-should still exist in the EFI partition. And reinstalling Ubuntu should
-just overwrite the existing Ubuntu bootloaders.&lt;/p&gt;
-&lt;p&gt;Reinstalling Windows might be trickier. If you retain the existing EFI
-partition and install Windows to the same operating system partition
-(i.e. without wiping all four partitions and telling Windows to install
-to the unpartitioned space), that shouldn't break Ubuntu as I'd guess
-that Windows just uses the existing EFI partition, and therefore would
-leave GRUB in place. Otherwise, if you do decide to wipe out all four
-partitions that Windows created, you'll need to reinstall the GRUB
-bootloader to the new EFI partition; see &lt;a href="https://wiki.debian.org/GrubEFIReinstall"&gt;Debian's
-wiki&lt;/a&gt; and &lt;a href="https://superuser.com/a/376471"&gt;this
-guide&lt;/a&gt;.
-It still shouldn't otherwise break your Linux installation, apart from
-this though.&lt;/p&gt;
-&lt;p&gt;Again, I've not tested any of this has been tested yet. If I ever try
-reinstalling one operating system and not both, I'll no doubt edit this
-post or add a new one describing that process.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;A subject for another post. My brief advice if you're intending to
-use Ubuntu LTS releases is to upgrade every time, and not skip any,
-especially if you're running it as a desktop.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;Yes, in this case "PIN" does then become a misnomer.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="BitLocker"></category><category term="encryption"></category><category term="LUKS"></category><category term="Ubuntu"></category><category term="Windows"></category></entry></feed>
+&lt;/ol&gt;</summary><category term="audio"></category><category term="recording"></category><category term="Linux"></category><category term="Ubuntu"></category></entry></feed>
