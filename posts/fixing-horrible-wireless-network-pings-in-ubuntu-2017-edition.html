@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>transfer - stevenmaude.co.uk</title>
+    <title>Fixing horrible wireless network pings in Ubuntu (2017 edition) - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,26 @@
 
 
 
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/fixing-horrible-wireless-network-pings-in-ubuntu-2017-edition">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="transfer" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="high,ping,latency,wireless,wifi,Ubuntu" />
+        <meta name="description" content="How to disable wifi power management in Ubuntu. Again." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Fixing horrible wireless network pings in Ubuntu (2017 edition)"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/fixing-horrible-wireless-network-pings-in-ubuntu-2017-edition"/>
+        <meta property="og:description" content="How to disable wifi power management in Ubuntu. Again."/>
+        <meta property="article:published_time" content="2017-03-03" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="high" />
+            <meta property="article:tag" content="ping" />
+            <meta property="article:tag" content="latency" />
+            <meta property="article:tag" content="wireless" />
+            <meta property="article:tag" content="wifi" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +36,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,13 +86,20 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="http://www.stevenmaude.co.uk/posts/as-easy-as-123-reg">As easy as 123(-reg)</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Fixing horrible wireless network pings in Ubuntu (2017 edition)
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2015-12-11T17:04:00+00:00"> 2015-12-11</time>
+        <time datetime="2017-03-03T16:44:00+00:00"> 2017-03-03</time>
     </span>
 
 
@@ -88,19 +107,76 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/domain">domain</a>
+	<a href="http://www.stevenmaude.co.uk/tag/high">high</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/namecheap">Namecheap</a>
+	<a href="http://www.stevenmaude.co.uk/tag/ping">ping</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/registrar">registrar</a>
+	<a href="http://www.stevenmaude.co.uk/tag/latency">latency</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/transfer">transfer</a>
+	<a href="http://www.stevenmaude.co.uk/tag/wireless">wireless</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/wifi">wifi</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Transferring a .co.uk domain from 123-reg to Namecheap with no downtime.</p>
                 </div>
-            </article>
-            <hr/>
+                <p>Today I was using my laptop on battery power and I remembered that I
+hadn't disabled wifi power management since I reinstalled Ubuntu in
+late 2016. With power management enabled for wifi, I find I get laggy
+internet on battery power, and pings are noticeably higher.</p>
+<p>If you suspect this is affecting you, it's easy to check:</p>
+<div class="highlight"><pre><span></span>$ iwconfig 2&gt; /dev/null <span class="p">|</span> grep <span class="s2">&quot;Power Management&quot;</span>
+Power Management:on
+</pre></div>
+
+
+<p>Unfortunately, the <a href="http://www.stevenmaude.co.uk/posts/horrible-wireless-network-pings-in">method I wrote about
+previously to disable wifi power
+management</a> no
+longer works. My guess is that this is due to Ubuntu switching to
+systemd in 2015.</p>
+<p>Instead, you need to use an alternative approach as <a href="https://gist.github.com/jcberthon/ea8cfe278998968ba7c5a95344bc8b55">suggested in this
+post</a>.</p>
+<p>First, look at your existing configuration:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /etc/NetworkManager/conf.d/
+$ ls
+default-wifi-powersave-on.conf
+$ sudo cp default-wifi-powersave-on.conf wifi-powersave-off.conf
+</pre></div>
+
+
+<p>The new .conf filename must follow any other files alphabetically, in
+this case the filename must be one that's alphabetically later than
+<code>default-wifi-powersave-on</code>, so that it gets applied last, and your
+modified setting overrides the default. If we named this file, e.g.
+<code>a-wifi-powersave-off-config.conf</code>, our new settings wouldn't apply
+since the filename would then be ahead of
+<code>default-wifi-powersave-on.conf</code> alphabetically.</p>
+<p>Now, edit the new file:</p>
+<div class="highlight"><pre><span></span>$ sudoedit wifi-powersave-off.conf
+</pre></div>
+
+
+<p>Change what is likely a 3 in the <code>wifi.powersave</code> line to 2. This
+disables wireless power management.</p>
+<p>It likely will look like this when you've edited it:</p>
+<div class="highlight"><pre><span></span>[connection]
+wifi.powersave = 2
+</pre></div>
+
+
+<p>Now, restart NetworkManager and you should see that this change is now
+in effect. It should also persist across reboots. You can confirm this
+again with <code>iwconfig</code>:</p>
+<div class="highlight"><pre><span></span>$ sudo systemctl restart NetworkManager
+$ iwconfig 2&gt; /dev/null <span class="p">|</span> grep <span class="s2">&quot;Power Management&quot;</span>
+Power Management:off
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -177,7 +253,7 @@ stevenmaude.co.uk            </a>
    <div class="container">
       <hr class="content-author-separator">
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Steven Maude
+         <div class="col-xs-10">&copy; 2017 Steven Maude
             <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>

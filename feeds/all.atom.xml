@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-02-04T21:30:00+00:00</updated><entry><title>The dangers of long forgotten Bitbucket team accounts</title><link href="http://www.stevenmaude.co.uk/posts/the-dangers-of-long-forgotten-bitbucket-team-accounts" rel="alternate"></link><published>2017-02-04T21:30:00+00:00</published><updated>2017-02-04T21:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/the-dangers-of-long-forgotten-bitbucket-team-accounts</id><summary type="html">&lt;p&gt;Last month, I'd been reviewing some of the shared accounts for online
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-03-03T16:44:00+00:00</updated><entry><title>Fixing horrible wireless network pings in Ubuntu (2017 edition)</title><link href="http://www.stevenmaude.co.uk/posts/fixing-horrible-wireless-network-pings-in-ubuntu-2017-edition" rel="alternate"></link><published>2017-03-03T16:44:00+00:00</published><updated>2017-03-03T16:44:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-03-03:posts/fixing-horrible-wireless-network-pings-in-ubuntu-2017-edition</id><summary type="html">&lt;p&gt;Today I was using my laptop on battery power and I remembered that I
+hadn't disabled wifi power management since I reinstalled Ubuntu in
+late 2016. With power management enabled for wifi, I find I get laggy
+internet on battery power, and pings are noticeably higher.&lt;/p&gt;
+&lt;p&gt;If you suspect this is affecting you, it's easy to check:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ iwconfig 2&amp;gt; /dev/null &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;Power Management&amp;quot;&lt;/span&gt;
+Power Management:on
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unfortunately, the &lt;a href="http://www.stevenmaude.co.uk/posts/horrible-wireless-network-pings-in"&gt;method I wrote about
+previously to disable wifi power
+management&lt;/a&gt; no
+longer works. My guess is that this is due to Ubuntu switching to
+systemd in 2015.&lt;/p&gt;
+&lt;p&gt;Instead, you need to use an alternative approach as &lt;a href="https://gist.github.com/jcberthon/ea8cfe278998968ba7c5a95344bc8b55"&gt;suggested in this
+post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First, look at your existing configuration:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /etc/NetworkManager/conf.d/
+$ ls
+default-wifi-powersave-on.conf
+$ sudo cp default-wifi-powersave-on.conf wifi-powersave-off.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The new .conf filename must follow any other files alphabetically, in
+this case the filename must be one that's alphabetically later than
+&lt;code&gt;default-wifi-powersave-on&lt;/code&gt;, so that it gets applied last, and your
+modified setting overrides the default. If we named this file, e.g.
+&lt;code&gt;a-wifi-powersave-off-config.conf&lt;/code&gt;, our new settings wouldn't apply
+since the filename would then be ahead of
+&lt;code&gt;default-wifi-powersave-on.conf&lt;/code&gt; alphabetically.&lt;/p&gt;
+&lt;p&gt;Now, edit the new file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudoedit wifi-powersave-off.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Change what is likely a 3 in the &lt;code&gt;wifi.powersave&lt;/code&gt; line to 2. This
+disables wireless power management.&lt;/p&gt;
+&lt;p&gt;It likely will look like this when you've edited it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[connection]
+wifi.powersave = 2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, restart NetworkManager and you should see that this change is now
+in effect. It should also persist across reboots. You can confirm this
+again with &lt;code&gt;iwconfig&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo systemctl restart NetworkManager
+$ iwconfig 2&amp;gt; /dev/null &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;Power Management&amp;quot;&lt;/span&gt;
+Power Management:off
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="high"></category><category term="ping"></category><category term="latency"></category><category term="wireless"></category><category term="wifi"></category><category term="Ubuntu"></category></entry><entry><title>The dangers of long forgotten Bitbucket team accounts</title><link href="http://www.stevenmaude.co.uk/posts/the-dangers-of-long-forgotten-bitbucket-team-accounts" rel="alternate"></link><published>2017-02-04T21:30:00+00:00</published><updated>2017-02-04T21:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-02-04:posts/the-dangers-of-long-forgotten-bitbucket-team-accounts</id><summary type="html">&lt;p&gt;Last month, I'd been reviewing some of the shared accounts for online
 services we have at work. Often, users have an individual login for
 online services. Some services don't offer that feature and there's a
 single account that's shared by everyone. While digging around, I found
@@ -733,49 +784,4 @@ hardware becomes scarce and fewer new devices are designed and
 manufactured. In the meantime, it's nice to have software that does one
 thing and does it particularly well. As nothing better seems to have
 come along to usurp Rockbox's place, it's quite possible that I'll be
-using it over the next ten years as I have for the last ten.&lt;/p&gt;</summary><category term="open source"></category><category term="Rockbox"></category></entry><entry><title>Conversation conservation: recording audio input and output simultaneously in Linux</title><link href="http://www.stevenmaude.co.uk/posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux" rel="alternate"></link><published>2016-12-01T12:00:00+00:00</published><updated>2016-12-01T12:00:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-01:posts/conversation-conservation-recording-audio-input-and-output-simultaneously-in-linux</id><summary type="html">&lt;h2 id="why"&gt;Why?&lt;/h2&gt;
-&lt;p&gt;Sometimes you might need to record both the audio playing out on your
-computer as well as an input. Often, this might be if you're recording a
-screencast or podcast, or if you want to record both sides of an online
-voice chat or video call, e.g. with Hangouts, Skype or some WebRTC app,
-for instance.&lt;/p&gt;
-&lt;p&gt;In my case, I wanted to record an interview and, ideally, want to hear
-what both of us were saying, without having to record both sides of the
-conversation separately and later try to combine them into a single
-piece of audio.&lt;/p&gt;
-&lt;h2 id="how"&gt;How&lt;/h2&gt;
-&lt;p&gt;The solution if you're using Linux and PulseAudio is &lt;a href="https://superuser.com/questions/769249/how-to-record-both-input-and-output-audio-simultaneously"&gt;mentioned
-here&lt;/a&gt;
-but I've clarified this below so I can find it quickly:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Run &lt;code&gt;pactl load-module module-loopback&lt;/code&gt; in a terminal. You should
-    start hearing your microphone input; with headphones on at least,
-    you shouldn't get feedback. What you do get is a very slight delay
-    in hearing yourself.  For me, using earphones and removing one
-    seemed to help remove most of the off-putting distraction this delay
-    causes, while still being able to hear the other participant in the
-    conversation.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start recording in, say, &lt;a href="http://www.audacityteam.org/"&gt;Audacity&lt;/a&gt; or
-    some other audio recording software.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Open the PulseAudio Volume Control. If you don't have it installed,
-    &lt;code&gt;apt install pavucontrol&lt;/code&gt; should get you it in Ubuntu. You may then
-    have a shortcut to it wherever your programs get listed, e.g. in
-    Ubuntu, you can access it via the Unity dash.&lt;/p&gt;
-&lt;p&gt;Alternatively, run &lt;code&gt;pavucontrol&amp;amp;&lt;/code&gt; in a terminal, open the Recording
-tab. to Recording tab, select what should be something like "Monitor
-of Built-in Audio Analogue Stereo" for the selection for Audacity.
-This is one thing that's a little counterintuitive; you don't see
-this unless you've already started recording.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When you've finished, you can run &lt;code&gt;pactl unload-module
-    module-loopback&lt;/code&gt; to stop hearing audio input in the output. You
-    might also want to reset the Audacity recording setting to what it
-    was, so that you don't forget you changed it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="audio"></category><category term="recording"></category><category term="Linux"></category><category term="Ubuntu"></category></entry></feed>
+using it over the next ten years as I have for the last ten.&lt;/p&gt;</summary><category term="open source"></category><category term="Rockbox"></category></entry></feed>
