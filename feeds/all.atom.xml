@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-03-06T23:30:00+00:00</updated><entry><title>If you want my money, please state your payment processor clearly</title><link href="http://www.stevenmaude.co.uk/posts/if-you-want-my-money-please-state-your-payment-processor-clearly" rel="alternate"></link><published>2017-03-06T23:30:00+00:00</published><updated>2017-03-06T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-03-06:posts/if-you-want-my-money-please-state-your-payment-processor-clearly</id><summary type="html">&lt;p&gt;Today I got a nice letter in the post informing me that my vehicle tax
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-03-29T00:31:00+01:00</updated><entry><title>Type:Rider: A Re:view</title><link href="http://www.stevenmaude.co.uk/posts/typerider-a-review" rel="alternate"></link><published>2017-03-29T00:31:00+01:00</published><updated>2017-03-29T00:31:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-03-29:posts/typerider-a-review</id><summary type="html">&lt;h2 id="a-journey-through-history"&gt;A journey through history&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Typography is ubiquitous and present in our daily lives, often without even
+noticing it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That's a quote from &lt;a href="http://typerider.arte.tv/"&gt;Type:Rider&lt;/a&gt;, what the
+developers call a "game documentary" and what I'd call a slightly frustrating,
+albeit compelling museum-style whistle stop tour through fonts and typography
+across human civilisation.&lt;/p&gt;
+&lt;p&gt;But the quote is spot on. Typography is everywhere, and though that's difficult
+to imagine for us today — just take a look around — it wasn't always like that.&lt;/p&gt;
+&lt;p&gt;Type:Rider goes on a journey from cave paintings, through to early writing
+systems, such as cuneiform and hieroglyphics, then onwards to the spread of
+printing across late medieval Europe, and the continued development of fonts,
+typography, all the way to the current age where words being marked on media
+has made way for being displayed on screen instead. So then, this is as much a
+study of the spread of information.&lt;/p&gt;
+&lt;p&gt;Not only is it a journey through history for the player, but for the two dots
+comprising a colon that the player controls. They roll along the level and can,
+somewhat inexplicably, jump and wall jump.&lt;/p&gt;
+&lt;h2 id="typerider-is-no-nightsky"&gt;Type:Rider is no NightSky&lt;/h2&gt;
+&lt;p&gt;Why two dots when, say, a full stop could have sufficed? Perhaps that's to
+avoid accusations of being a clone of Nifflas' relaxing
+&lt;a href="http://nifflas.ni2.se/?page=NightSky"&gt;NightSky&lt;/a&gt;. If anything, the extra dot is
+a hindrance; it makes the clumsy platforming even clumsier, and doesn't really
+add anything to the gameplay.&lt;/p&gt;
+&lt;p&gt;Extra dot aside, it is reminiscent of NightSky (itself a game you should check
+out) and I think the difficulty and the slightly sparse, often monochrome
+foreground level layouts are why comparisons are drawn to Playdead's
+&lt;a href="http://www.playdead.com/games/limbo/"&gt;Limbo&lt;/a&gt;. That, as well as the difficulty.
+The difficulty is another reason that Type:Rider seems to get compared to
+Trials, but this is a more loose association only. The Trials games are finely
+balanced and tuned, so as to allow for mastery of very delicate, precise
+controls. Type:Rider, unfortunately, is not. Quite often you'll end up bouncing
+off uselessly from walls, or find your &lt;a href="https://www.youtube.com/watch?v=xfKhDiUNOG0"&gt;pitiful leaps are insufficient to jump
+the chasms&lt;/a&gt; that you need to.&lt;/p&gt;
+&lt;p&gt;OK. It's not actually that glitchy — it's definitely no &lt;a href="https://www.youtube.com/watch?v=3MWEHwvcnyM"&gt;Sonic the Hedgehog
+2006&lt;/a&gt; — but the floatiness of how
+the dots "jump" and move, mean that there are some sections that are
+frustrating where you'll repeatedly bounce to your doom. With the addition of a
+couple of cheap instant death sections which seem like they were thrown in as
+attempts to add tension, it would have been just nicer to have a relaxing, easy
+to progress through, game.&lt;/p&gt;
+&lt;p&gt;On the plus side, restarts are quick and the checkpoints frequent, so it's rare
+that you find yourself repeating familiar ground. It does still break the flow
+of what would be an otherwise relaxing experience, but this at least tempers
+player frustration. &lt;/p&gt;
+&lt;h2 id="but-typeriders-still-worth-a-look"&gt;But Type:Rider's still worth a look&lt;/h2&gt;
+&lt;p&gt;That's all a pity, because the actual atmosphere, that of something like a very
+immersive museum exhibit is a pleasant one. The graphic designs of the levels,
+and the integration of fonts into them, are well thought out, and thematically
+cohesive in the ideas they're trying to portray and show imagination. The
+historical background is provided via brief, but informative, texts that are
+collected throughout the levels.&lt;/p&gt;
+&lt;p&gt;There are some peculiar issues, likely due to a quickly thrown together English
+localisation. There is one notably particularly bad translation that recurs
+throughout: the term &lt;em&gt;wheelbase&lt;/em&gt; peculiarly gets mentioned in the text several
+times. The Steam discussion forum for the game actually answered this: it's a
+&lt;a href="https://www.collinsdictionary.com/dictionary/french-english/empattement"&gt;badly proofread
+translation&lt;/a&gt;:
+it should be &lt;em&gt;serif&lt;/em&gt;. Likewise, there are some weird text kerning issues in the
+history text too, and it's likely that these too don't occur in the French
+original. But that's an oversight considering that the game is dealing with
+typography.&lt;/p&gt;
+&lt;p&gt;The scope of the game means that it is limited to telling a few stories, but as
+an introduction to some of the big names in history and the technological
+advances made, it does a good job. It is interesting just how important the
+onset of widespread dissemination of information has been, and the impact that
+has had since. We take the immediacy of that for granted now — you could well
+be reading this text that I wrote seconds after I published it on this site,
+wherever you are in the world — but the distribution of printed works on any
+useful scale wasn't even a concept until the late medieval period, just a few
+hundred years ago. It's difficult to comprehend that when information is so
+central to society now.&lt;/p&gt;
+&lt;p&gt;It's also interesting where Type:Rider leaves off, which is the development of
+&lt;a href="https://en.wikipedia.org/wiki/Generalized_Markup_Language"&gt;markup languages&lt;/a&gt;,
+and computer bitmap and vector fonts. A really big omission, perhaps because it
+was made a few years ago, back in 2013, is emoji. (However, emoji were big
+enough in 2013 to make it into the &lt;a href="http://public.oed.com/the-oed-today/recent-updates-to-the-oed/previous-updates/december-2013-update/new-words-katherine-martin/"&gt;Oxford English
+Dictionary&lt;/a&gt;.)
+Electronic communication saw the incorporation of emoticons, constructed from
+text to hint at tone where plain text may be ambiguous. That's been followed by
+the widespread use of emoji, where characters visually represent concepts or
+objects, and so that nicely brings us full circle: modern day communication
+harking back to how writing systems first began.&lt;/p&gt;
+&lt;p&gt;If the idea of spending a couple of hours learning about typography is
+something that sounds appealing, Type:Rider's worth spending the time with.
+Just take the gameplay for what it is, which is occasionally relaxing,
+sometimes frustrating, be prepared to work through the trickier sections. It's
+certainly hard to dislike a work that even manages to make a valiant attempt of
+painting &lt;a href="https://www.theguardian.com/artanddesign/2017/mar/28/how-we-made-font-comic-sans-typography"&gt;Comic Sans
+MS&lt;/a&gt;
+in a somewhat sympathetic light.&lt;/p&gt;</summary><category term="game"></category><category term="review"></category></entry><entry><title>If you want my money, please state your payment processor clearly</title><link href="http://www.stevenmaude.co.uk/posts/if-you-want-my-money-please-state-your-payment-processor-clearly" rel="alternate"></link><published>2017-03-06T23:30:00+00:00</published><updated>2017-03-06T23:30:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-03-06:posts/if-you-want-my-money-please-state-your-payment-processor-clearly</id><summary type="html">&lt;p&gt;Today I got a nice letter in the post informing me that my vehicle tax
 was due. Wonderful news.&lt;/p&gt;
 &lt;p&gt;Maybe not.&lt;/p&gt;
 &lt;p&gt;Still, off I dutifully went to the appropriate &lt;a href="https://gov.uk"&gt;GOV.UK&lt;/a&gt;
@@ -670,95 +762,4 @@ manager&lt;/a&gt;, so he definitely knows
 his stuff here.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="EFI"></category><category term="UEFI"></category><category term="boot entry"></category><category term="efibootmgr"></category></entry><entry><title>A Year of Garmin: a Forerunner 15 review</title><link href="http://www.stevenmaude.co.uk/posts/a-year-of-garmin-a-forerunner-15-review" rel="alternate"></link><published>2016-12-14T15:43:00+00:00</published><updated>2016-12-14T15:43:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-14:posts/a-year-of-garmin-a-forerunner-15-review</id><summary type="html">&lt;p&gt;As I mentioned in &lt;a href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux"&gt;a previous
-post&lt;/a&gt;
-just after Christmas last year, I bought a new &lt;a href="https://buy.garmin.com/en-GB/GB/p/145621"&gt;Garmin
-watch&lt;/a&gt;. That's also the first
-GPS watch I've owned. Now I've been using it regularly for the best part
-of a year, I've got a much better idea of how I use it, and what I like
-about it.&lt;/p&gt;
-&lt;p&gt;And I like the Forerunner 15 a lot. Many of my favourite things focus on
-doing one or a small number of tasks well. It's &lt;a href="http://www.stevenmaude.co.uk/posts/still-rocking-rockbox"&gt;why I use Rockbox on
-dedicated audio player
-hardware&lt;/a&gt; as opposed to some
-music player app on a phone, and why I tend to use a separate camera,
-not a phone, for taking photographs.&lt;/p&gt;
-&lt;p&gt;The FR15 is a slightly chunky digital watch, compared with the
-low profile, cheap and cheerful Casio I usually wear. But it's not bulky
-enough that I've ever noticed it as an extra weight on my wrist. It's
-easy to just forget that it's there altogether. The strap's also
-comfortable to wear. It's also waterproof to 50 metres, which means that
-your investment won't be ruined by using the watch in the rain, although
-it's not a swimming fitness watch. The battery life could be better, but
-I usually get several runs out of it from a full charge. And it should
-be capable of lasting for a marathon, even if I'm not yet.&lt;/p&gt;
-&lt;h2 id="connectivity"&gt;Connectivity&lt;/h2&gt;
-&lt;p&gt;Charging and data transfer are by USB only. There's no Bluetooth
-connectivity, but I prefer that there's no specific mobile or desktop
-application that I'm forced to use to get my data off the watch.&lt;/p&gt;
-&lt;p&gt;As I don't use them, I can't comment on Garmin's client software or
-their website where you can submit and view your data, as I copy the
-data off to a PC running Linux. But, I imagine they'd have most of the
-features you'd want, provided you're comfortable with Garmin storing
-your location history. Alternatively, it's simple to copy the data
-directly from the watch for your own processing, which is how I use it.&lt;/p&gt;
-&lt;p&gt;One thing you miss out on if you don't regularly use the official
-software is updates to the ephemeris Extended Prediction Orbit (EPO)
-data. This provides a cache of satellite locations for a short period of
-time and helps to speed up the initial location detection of the watch.
-It's also possible to download this data from Garmin without using their
-software; I've mentioned solutions, &lt;a href="https://github.com/StevenMaude/armstrong"&gt;including my
-own&lt;/a&gt;, in the previous post I
-made on &lt;a href="http://www.stevenmaude.co.uk/posts/using-garmin-forerunner-watches-with-linux"&gt;Garmin watches and
-Linux&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Without that data to hand, the time to get a location lock can
-occasionally be long enough that I've warmed up and just set off and
-waited for it to catch up ten minutes later. It does vary depending on
-where you are. That's not too common a problem fortunately, but if
-you're racing then having the EPO data and getting the FR15 ready well
-ahead of time is a good idea. Though you can prepare the watch this way
-for a run, you'll need to occasionally press a button to keep the FR15
-awake before starting a run, otherwise the watch's power saving feature
-(which you can't disable) will turn it off. Not a huge deal, but not a
-perfect design either.&lt;/p&gt;
-&lt;h1 id="why-wear-a-gps-watch-while-running"&gt;Why wear a GPS watch while running?&lt;/h1&gt;
-&lt;p&gt;There's the slightly gimmicky thing of mapping runs and seeing how fast
-you were running. That said, having an archive of previous runs
-completed might be useful if you particularly enjoyed a route and want
-to file it away to revisit at a later date.&lt;/p&gt;
-&lt;p&gt;The data collection itself isn't really important for me. Having a live
-status of how far I've gone and my current pace is. That's useful both
-in training runs to see if I should be trying to push myself more, or in
-races to know how long I've got to go before I can finally stop. It's
-useful in races for pacing too. You can set a target pace and you get an
-audio alert when you're on pace, or go above or drop below it.  And
-keeping good track of your progress can be a useful motivator too.  In a
-10 km race this year, I worked out that if I pushed for the last 1.5 km
-or so, I might just beat that time and tried to up my pace. In the very
-last minute, I worked out it was possible if I ran the last 200 metres
-very quickly, and that encouraged me to both try and go on to succeed.&lt;/p&gt;
-&lt;p&gt;Likewise, the watch keeping tabs on your recorded best times at various
-distances (e.g. 1 km, 1 mile, 5 km) is nice to have when you realise
-that you've improved on your previous best.&lt;/p&gt;
-&lt;p&gt;With all that in mind, even a low-end watch like this is more than
-capable. You do lose bundled features like heart rate monitor and GPS
-route navigation, but you get the most essential and useful features, at
-a price that's reasonable enough. At the same time, this means the watch
-is pared down to the essential features, implements them well and they
-are all easy to access through the simple menus.&lt;/p&gt;
-&lt;p&gt;For a first-time user of GPS watches, I'm pleased with how good a
-purchase the Forerunner 15 was, especially considering it was on sale at
-the time. I looked around for a good couple of hours at reviews and
-comments on watches, and concluded that you could spend a lot and still
-not be entirely satisfied. It seemed most sensible to buy something
-cheap and cheerful, and not be disappointed by its flaws: I'm more
-forgiving of a sub-£100 watch, than maybe one that's closer to £200.&lt;/p&gt;
-&lt;p&gt;Finally, if you are shopping for GPS watches, the best resource I found
-for looking at these watches is the &lt;a href="https://www.dcrainmaker.com/product-reviews"&gt;comprehensive set of reviews by DC
-Rainmaker&lt;/a&gt;. When I say
-"comprehensive", that is not just in the number of devices covered, but
-in how rigorously they're evaluated too. Incidentally, he currently
-rates the TomTom Runner as a good budget watch for Winter 2016; looking
-around UK pricing, it's slightly cheaper than what the Forerunner 15
-typically sells for, so may be another option to consider if you're
-buying right now.&lt;/p&gt;</summary><category term="Garmin"></category><category term="Forerunner"></category><category term="review"></category><category term="running"></category></entry></feed>
+&lt;/div&gt;</summary><category term="EFI"></category><category term="UEFI"></category><category term="boot entry"></category><category term="efibootmgr"></category></entry></feed>
