@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Horrible wireless network pings in Ubuntu and how to fix them - stevenmaude.co.uk</title>
+    <title>Type:Rider: A Re:view - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,25 +9,21 @@
 
 
 
-<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/horrible-wireless-network-pings-in">
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/typerider-a-review">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="high,ping,latency,wireless,wifi,Ubuntu" />
-        <meta name="description" content="A quick guide on how to fix high and variable pings when connecting to wireless networks using Ubuntu Linux." />
+        <meta name="keywords" content="game,review" />
+        <meta name="description" content="What the PC game, Type:Rider, taught me about fonts." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Horrible wireless network pings in Ubuntu and how to fix them"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/horrible-wireless-network-pings-in"/>
-        <meta property="og:description" content="A quick guide on how to fix high and variable pings when connecting to wireless networks using Ubuntu Linux."/>
-        <meta property="article:published_time" content="2013-11-20" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="high" />
-            <meta property="article:tag" content="ping" />
-            <meta property="article:tag" content="latency" />
-            <meta property="article:tag" content="wireless" />
-            <meta property="article:tag" content="wifi" />
-            <meta property="article:tag" content="Ubuntu" />
+        <meta property="og:title" content="Type:Rider: A Re:view"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/typerider-a-review"/>
+        <meta property="og:description" content="What the PC game, Type:Rider, taught me about fonts."/>
+        <meta property="article:published_time" content="2017-03-29" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="game" />
+            <meta property="article:tag" content="review" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -90,7 +86,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Horrible wireless network pings in Ubuntu and how to fix them
+                Type:Rider: A Re:view
                 </h1>
             </header>
             <div class="entry-content">
@@ -99,99 +95,113 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-11-20T18:51:00+00:00"> 2013-11-20</time>
+        <time datetime="2017-03-29T00:31:00+01:00"> 2017-03-29</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2017-03-03T17:02:00+00:00"> 2017-03-03</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/high">high</a>
+	<a href="http://www.stevenmaude.co.uk/tag/game">game</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/ping">ping</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/latency">latency</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/wireless">wireless</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/wifi">wifi</a>
-        /
-	<a href="http://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+	<a href="http://www.stevenmaude.co.uk/tag/review">review</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <div class="admonition article-edit">
-<p>This post is now out of date. If you have this problem on a more
-recent version of Ubuntu, you want <a href="http://www.stevenmaude.co.uk/posts/fixing-horrible-wireless-network-pings-in-ubuntu-2017-edition">my more recent post on
-this</a>.</p>
-</div>
-<p>Yesterday I had an important video call that I needed to carry out under
-Ubuntu as I need to demo some of my work. About two minutes before it
-was due to begin, I noticed that my pings to the home network router
-were ridiculously variable and high:</p>
-<div class="highlight"><pre><span></span>PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
-64 bytes from 192.168.0.1: icmp_req=1 ttl=64 time=60.3 ms
-64 bytes from 192.168.0.1: icmp_req=2 ttl=64 time=82.9 ms
-64 bytes from 192.168.0.1: icmp_req=3 ttl=64 time=105 ms
-</pre></div>
-
-
-<p>Awful.</p>
-<p>Unfortunately, two minutes before an important call is not the time to
-be tinkering with network settings, so I left it at the time.
-Fortunately, it didn't seem to adversely affect the call.</p>
-<p>Later, I booted into Windows to find my pings were perfectly normal (1
-ms)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. So, what's the issue under Linux?</p>
-<p>What it turns out to be is wireless power management. You can easily
-test this by trying:</p>
-<div class="highlight"><pre><span></span>sudo iwconfig wlan0 power off
-</pre></div>
-
-
-<p>and remeasuring the pings:</p>
-<div class="highlight"><pre><span></span>64 bytes from 192.168.0.1: icmp_req=1 ttl=64 time=0.970 ms
-64 bytes from 192.168.0.1: icmp_req=2 ttl=64 time=1.04 ms
-64 bytes from 192.168.0.1: icmp_req=3 ttl=64 time=0.994 ms
-</pre></div>
-
-
-<p>Much better!</p>
-<p><a href="http://ubuntuforums.org/showthread.php?t=1686641">Thanks to this forum
-thread</a>, I found an
-easy way to make this fix permanent, you need to do something like:</p>
-<div class="highlight"><pre><span></span>sudo nano /etc/pm/power.d/wireless
-</pre></div>
-
-
-<p>and add the following lines to the newly created file:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-
-/sbin/iwconfig wlan0 power off
-</pre></div>
-
-
-<p>Next, do:</p>
-<div class="highlight"><pre><span></span>sudo chmod +x /etc/pm/power.d/wireless
-</pre></div>
-
-
-<p>so that this script is executable.</p>
-<p>Next time you reboot, the fix should still be in place.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>I have a feeling that I disabled any wireless power management on
-Windows when I first installed it a few months back; it may be that
-you'd suffer a similar problem in Windows too otherwise.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+                <h2 id="a-journey-through-history">A journey through history</h2>
+<blockquote>
+<p>Typography is ubiquitous and present in our daily lives, often without even
+noticing it.</p>
+</blockquote>
+<p>That's a quote from <a href="http://typerider.arte.tv/">Type:Rider</a>, what the
+developers call a "game documentary" and what I'd call a slightly frustrating,
+albeit compelling museum-style whistle stop tour through fonts and typography
+across human civilisation.</p>
+<p>But the quote is spot on. Typography is everywhere, and though that's difficult
+to imagine for us today — just take a look around — it wasn't always like that.</p>
+<p>Type:Rider goes on a journey from cave paintings, through to early writing
+systems, such as cuneiform and hieroglyphics, then onwards to the spread of
+printing across late medieval Europe, and the continued development of fonts,
+typography, all the way to the current age where words being marked on media
+has made way for being displayed on screen instead. So then, this is as much a
+study of the spread of information.</p>
+<p>Not only is it a journey through history for the player, but for the two dots
+comprising a colon that the player controls. They roll along the level and can,
+somewhat inexplicably, jump and wall jump.</p>
+<h2 id="typerider-is-no-nightsky">Type:Rider is no NightSky</h2>
+<p>Why two dots when, say, a full stop could have sufficed? Perhaps that's to
+avoid accusations of being a clone of Nifflas' relaxing
+<a href="http://nifflas.ni2.se/?page=NightSky">NightSky</a>. If anything, the extra dot is
+a hindrance; it makes the clumsy platforming even clumsier, and doesn't really
+add anything to the gameplay.</p>
+<p>Extra dot aside, it is reminiscent of NightSky (itself a game you should check
+out) and I think the difficulty and the slightly sparse, often monochrome
+foreground level layouts are why comparisons are drawn to Playdead's
+<a href="http://www.playdead.com/games/limbo/">Limbo</a>. That, as well as the difficulty.
+The difficulty is another reason that Type:Rider seems to get compared to
+Trials, but this is a more loose association only. The Trials games are finely
+balanced and tuned, so as to allow for mastery of very delicate, precise
+controls. Type:Rider, unfortunately, is not. Quite often you'll end up bouncing
+off uselessly from walls, or find your <a href="https://www.youtube.com/watch?v=xfKhDiUNOG0">pitiful leaps are insufficient to jump
+the chasms</a> that you need to.</p>
+<p>OK. It's not actually that glitchy — it's definitely no <a href="https://www.youtube.com/watch?v=3MWEHwvcnyM">Sonic the Hedgehog
+2006</a> — but the floatiness of how
+the dots "jump" and move, mean that there are some sections that are
+frustrating where you'll repeatedly bounce to your doom. With the addition of a
+couple of cheap instant death sections which seem like they were thrown in as
+attempts to add tension, it would have been just nicer to have a relaxing, easy
+to progress through, game.</p>
+<p>On the plus side, restarts are quick and the checkpoints frequent, so it's rare
+that you find yourself repeating familiar ground. It does still break the flow
+of what would be an otherwise relaxing experience, but this at least tempers
+player frustration. </p>
+<h2 id="but-typeriders-still-worth-a-look">But Type:Rider's still worth a look</h2>
+<p>That's all a pity, because the actual atmosphere, that of something like a very
+immersive museum exhibit is a pleasant one. The graphic designs of the levels,
+and the integration of fonts into them, are well thought out, and thematically
+cohesive in the ideas they're trying to portray and show imagination. The
+historical background is provided via brief, but informative, texts that are
+collected throughout the levels.</p>
+<p>There are some peculiar issues, likely due to a quickly thrown together English
+localisation. There is one notably particularly bad translation that recurs
+throughout: the term <em>wheelbase</em> peculiarly gets mentioned in the text several
+times. The Steam discussion forum for the game actually answered this: it's a
+<a href="https://www.collinsdictionary.com/dictionary/french-english/empattement">badly proofread
+translation</a>:
+it should be <em>serif</em>. Likewise, there are some weird text kerning issues in the
+history text too, and it's likely that these too don't occur in the French
+original. But that's an oversight considering that the game is dealing with
+typography.</p>
+<p>The scope of the game means that it is limited to telling a few stories, but as
+an introduction to some of the big names in history and the technological
+advances made, it does a good job. It is interesting just how important the
+onset of widespread dissemination of information has been, and the impact that
+has had since. We take the immediacy of that for granted now — you could well
+be reading this text that I wrote seconds after I published it on this site,
+wherever you are in the world — but the distribution of printed works on any
+useful scale wasn't even a concept until the late medieval period, just a few
+hundred years ago. It's difficult to comprehend that when information is so
+central to society now.</p>
+<p>It's also interesting where Type:Rider leaves off, which is the development of
+<a href="https://en.wikipedia.org/wiki/Generalized_Markup_Language">markup languages</a>,
+and computer bitmap and vector fonts. A really big omission, perhaps because it
+was made a few years ago, back in 2013, is emoji. (However, emoji were big
+enough in 2013 to make it into the <a href="http://public.oed.com/the-oed-today/recent-updates-to-the-oed/previous-updates/december-2013-update/new-words-katherine-martin/">Oxford English
+Dictionary</a>.)
+Electronic communication saw the incorporation of emoticons, constructed from
+text to hint at tone where plain text may be ambiguous. That's been followed by
+the widespread use of emoji, where characters visually represent concepts or
+objects, and so that nicely brings us full circle: modern day communication
+harking back to how writing systems first began.</p>
+<p>If the idea of spending a couple of hours learning about typography is
+something that sounds appealing, Type:Rider's worth spending the time with.
+Just take the gameplay for what it is, which is occasionally relaxing,
+sometimes frustrating, be prepared to work through the trickier sections. It's
+certainly hard to dislike a work that even manages to make a valiant attempt of
+painting <a href="https://www.theguardian.com/artanddesign/2017/mar/28/how-we-made-font-comic-sans-typography">Comic Sans
+MS</a>
+in a somewhat sympathetic light.</p>
             </div>
             <!-- /.entry-content -->
         </article>
