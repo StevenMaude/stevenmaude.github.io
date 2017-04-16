@@ -108,7 +108,7 @@ stevenmaude.co.uk            </a>
     </span>
             <span class="label label-default">Modified</span>
             <span class="modified">
-                <time datetime="2015-07-31T13:10:00+01:00"> 2015-07-31</time>
+                <time datetime="2017-04-16T20:58:00+01:00"> 2017-04-16</time>
             </span>
 
 
@@ -140,7 +140,13 @@ stevenmaude.co.uk            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Did a little quick maintenance to my Ubuntu install<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> today.</p>
+                <div class="admonition article-edit">
+<p>Things have changed since this post.</p>
+<p>It now seems that Ubuntu (at least on 16.04) will stick old kernels
+for autoremote: you can just <code>sudo apt autoremove</code> to ditch them.</p>
+<p>You can see how apt's behaviour is configured in <code>/etc/kernel/postinst.d/apt-auto-removal</code>.</p>
+</div>
+<p>Did a little quick maintenance to my Ubuntu install<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> today.</p>
 <p>First, I'd noticed that the boot partition was starting to get a little
 full, meaning that cleaning out old kernel images was overdue. If it
 gets completely full, you won't be able to upgrade to newer kernel
@@ -248,11 +254,6 @@ this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" rev="fo
                             encryption
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://www.stevenmaude.co.uk/tag/job">
-                            job
-                        </a>
-                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/linux">
                             Linux
@@ -266,6 +267,11 @@ this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" rev="fo
                     <li class="list-group-item tag-1">
                         <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
                             Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/virtualenv">
+                            virtualenv
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
