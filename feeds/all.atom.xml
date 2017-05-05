@@ -1,5 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-05-01T15:02:00+01:00</updated><entry><title>Learning LaTeX: why and how</title><link href="http://www.stevenmaude.co.uk/posts/learning-latex-why-and-how" rel="alternate"></link><published>2017-05-01T15:02:00+01:00</published><updated>2017-05-01T15:02:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-01:posts/learning-latex-why-and-how</id><summary type="html">&lt;h2 id="sharelatex"&gt;ShareLaTeX&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-05-05T11:15:00+01:00</updated><entry><title>Trying to trim down static GTFS feeds</title><link href="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-05-05T11:15:00+01:00</published><updated>2017-05-05T11:15:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
+&lt;p&gt;This week I've been attempting to reduce the size of a static GTFS feed.&lt;/p&gt;
+&lt;p&gt;For the uninitiated, GTFS is the &lt;a href="https://developers.google.com/transit/gtfs/"&gt;General Transit Feed
+Specification&lt;/a&gt;, a format
+for public transport providers to distribute details of their services.
+For example, a bus operator might want to share which routes they run
+on, and the times at which they arrive at certain stops. It's not
+restricted to buses. You might find GTFS feeds published for trains,
+underground services, ferries and &lt;a href="https://developers.google.com/transit/gtfs/reference/routes-file"&gt;even
+gondolas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The "static" distinguishes those feeds from realtime&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; feeds. Static
+feeds are just zip files that contain a number of text files in a
+comma-separated values (CSV) format, with a .txt filename extension.
+These CSVs detail regular timetables that should remain valid for some
+reasonable length of time, i.e. they change infrequently.&lt;/p&gt;
+&lt;p&gt;Realtime feeds (GTFS-RT) report, for example, live trip updates (e.g.
+when a bus gets behind the published ideal schedule) or vehicle
+locations. Realtime feeds are in Google's Protocol Buffers format, not
+CSV. It's useful to be aware of the difference, but, beyond that, I
+won't discuss GTFS-RT feeds further in this post.&lt;/p&gt;
+&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
+&lt;p&gt;Colleagues on a project were attempt to load the data we'd found for a
+particular country, and they were finding it far too large to be usable.
+GTFS files come zipped, and the total unzipped content of this file
+wasn't far off a gigabyte, and the import into their software was taking
+too long.&lt;/p&gt;
+&lt;p&gt;They were only interested in one geographic region, so maybe most
+content can be filtered out either by location, or by transport agency.
+Here's a rundown of what I found with the existing tools.&lt;/p&gt;
+&lt;h2 id="onebusaway-gtfs-transformer"&gt;onebusaway GTFS transformer&lt;/h2&gt;
+&lt;p&gt;Oh, on seeing the &lt;a href="http://developer.onebusaway.org/modules/onebusaway-gtfs-modules/1.3.3/onebusaway-gtfs-transformer-cli.html"&gt;onebusaway GTFS
+transformer&lt;/a&gt;,
+it seemed like a dream.&lt;/p&gt;
+&lt;p&gt;It's a Java program that lets you simply specify the agencies to retain
+from the feed in a simple JSON format, and it's fairly comprehensive in
+how you can do that. So, hey, let's write a simple transform JSON that
+keeps the bus and train agency for the region of interest, and drop the
+rest. Exactly what's needed, and a job well done, so now I can relax, and
+take a well-earned rest.&lt;/p&gt;
+&lt;p&gt;Oh, &lt;em&gt;opens eyes to the smell of a burning PC&lt;/em&gt;, it's time to wake up.&lt;/p&gt;
+&lt;p&gt;The documentation does provide a warning that this transformation may be
+memory and CPU hungry with large GTFS feeds, and that's what I found.&lt;/p&gt;
+&lt;p&gt;Unfortunately, the transformer seemed to choke on this large GTFS file.
+It ran for a long time (hours, across multiple CPUs), got stuck spinning
+its wheels on the huge stop_times.txt file (millions of lines) and never
+managed to escape that mud. As well as that, out of memory errors were a
+problem. In the software's defence, the free memory on the instance I
+was running on was fairly limited.&lt;/p&gt;
+&lt;p&gt;If you've simpler GTFS feeds to work with, it may do the trick, but, for
+large ones, you'll need a beefy PC to possibly get anywhere with it.
+That said, there's little status output while it's running, meaning it
+was unclear whether the transformer was ever doing any useful work or
+just getting stuck in some loop.&lt;/p&gt;
+&lt;h2 id="gtfstidy"&gt;gtfstidy&lt;/h2&gt;
+&lt;p&gt;Next, &lt;a href="https://github.com/patrickbr/gtfstidy/"&gt;gtfstidy&lt;/a&gt;. It can reduce
+the size of static GTFS feeds by removing redundant content, simplifying
+identifiers and doing clever things to optimise shape data.&lt;/p&gt;
+&lt;p&gt;It's written in Go, although there are no builds provided, so you'll
+have to have Go to install or compile it yourself, which is easy enough.&lt;/p&gt;
+&lt;p&gt;Once again, it took a long time to process; here, about five hours on my
+2013 Core i5 laptop. Then, gtfstidy crashed right at the end of
+processing the data &lt;a href="https://github.com/patrickbr/gtfstidy/issues/1"&gt;because as I later discovered, it expected the
+output directory to
+exist&lt;/a&gt; and just failed
+to write the output otherwise.&lt;/p&gt;
+&lt;p&gt;And then it took &lt;em&gt;another&lt;/em&gt; few hours after I created said output
+directory to run again and actually get the cleaned feed data.&lt;/p&gt;
+&lt;p&gt;In the end, gtfstidy reduced the total size of the GTFS files by about
+150 MB, which is a considerable saving. My initial idea was maybe it
+might clean the data up enough to make running the onebusaway
+transformer a little bit quicker, but it didn't seem worth bothering
+trying that again, as the data files overall were still large.&lt;/p&gt;
+&lt;h2 id="gtfssplit"&gt;gtfssplit&lt;/h2&gt;
+&lt;p&gt;Finally, &lt;a href="https://github.com/samuelmr/gtfssplit"&gt;gtfssplit&lt;/a&gt; is a PHP
+tool that breaks apart a static GTFS feed into trips, shapes and stops.
+Unlike the other two projects, this one hasn't been touched for a
+while.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;This took a fair time to run, although you can see it's at least doing
+something some of the time, because, contrary to the relatively shy and
+subdued onebusaway transformer, it displays a lot of warnings while
+running.&lt;/p&gt;
+&lt;p&gt;Once these files are all on disk, maybe it's possible to write code to
+recombine these back together into a GTFS feed, filtering out for
+agencies that you're not interested in?&lt;/p&gt;
+&lt;p&gt;I'm not sure.&lt;/p&gt;
+&lt;p&gt;What I observed is that the dates.txt files that the gtfssplit documentation
+refers to in the output (that should be for a given service, i.e. to
+tell you which dates the service applies) didn't seem to be present, so
+it might be possible that it's losing data somewhere. Maybe that's
+because the feed I was looking at has a &lt;a href="https://developers.google.com/transit/gtfs/reference/calendar_dates-file"&gt;calendar_dates.txt and no
+calendar.txt
+file&lt;/a&gt;,
+and this case isn't handled. (It's valid, just not the recommended way
+of putting together a feed.)&lt;/p&gt;
+&lt;p&gt;Again, I'm not sure, and didn't spend any more time investigating.&lt;/p&gt;
+&lt;h2 id="journeys-end"&gt;Journey's end?&lt;/h2&gt;
+&lt;p&gt;And that's as far I got to, which is a little anticlimactic. That is, I
+haven't found a good existing solution for solving this for large feeds,
+outside of the prospect of attempting to write code to do this myself.
+However, the fact that all the existing software runs slowly, doesn't
+exactly instil me with much hope of doing a better job.&lt;/p&gt;
+&lt;p&gt;A big difference is that what's actually needed here to solve the
+problem is something relatively simple by comparison. The core issue is
+that the stop_times.txt is too large. Maybe it's possible to filter that
+down based on working through the various files, which is a much more
+specific kind of tool than the generic transformer. Perhaps this could
+work along the lines of:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Keep rows from routes.txt that match the relatively few transport
+   &lt;code&gt;agency_id&lt;/code&gt;s of interest giving a set of &lt;code&gt;route_id&lt;/code&gt;s.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Keep rows from trips.txt that match those &lt;code&gt;route_id&lt;/code&gt;s from 1 in
+   trips.txt, so now these give &lt;code&gt;trip_id&lt;/code&gt;s of interest.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Keep rows in stop_times.txt if they match a &lt;code&gt;trip_id&lt;/code&gt; retained from
+   2, meaning most of the rows disappear, assuming the agencies that are
+   of interest make up only a small proportion of the total rows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You could go further and then fix up the other files too to purge
+anything that's now no longer relevant: for example, cleaning agency.txt
+to remove agencies that are no longer present. But perhaps gtfstidy
+might be enough to tidy up the remaining files and allow us to construct
+a clean and valid feed from the files we've mangled.&lt;/p&gt;
+&lt;p&gt;There are also ways of wrangling GTFS feeds into SQL databases — haven't
+linked any as I haven't tried any and can't vouch for them, but they're
+easy to find by searching "GTFS to SQL" — so importing and writing
+queries to do this filtering, then exporting the result as CSV might be
+an alternative option instead of coding something.&lt;/p&gt;
+&lt;p&gt;This is all speculation for now; I haven't attempted any of this yet. If
+I do and it's useful, I'll share what I learn.&lt;/p&gt;
+&lt;p&gt;What would be nice is if feed providers offered feeds in smaller
+regional chunks. Often, transport companies are providing GTFS feeds at
+an agency level, so these should be relatively small. I suspect that the
+sources of countrywide feeds are usually efforts of communities or
+companies to compile the data, which is sometimes originally in a format
+other than GTFS, into a standard feed. So it feels ungrateful to comment
+that it would be nicer if they broke these feeds into smaller chunks for
+data consumers to import into software without further work because
+they're providing a free service and their efforts are appreciated.&lt;/p&gt;
+&lt;p&gt;At the same time, those making efforts to share this data may find more
+users for their data if it's ready for import into other software
+without needing fast PCs with lots of RAM, or without consumers having
+to find ways to divide up the provided feed. For instance, applications
+like OpenTripPlanner can, at time of writing, &lt;a href="https://github.com/opentripplanner/OpenTripPlanner/issues/2063"&gt;still struggle with large
+GTFS
+files&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The single word "realtime" is how the specification writes it.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;This isn't always the case, but looking at the activity of an open
+  source project can be a portent of how useful it might be, if
+  there are several competing bits of software that do the same
+  thing and you're trying to narrow down to a few candidates to try
+  out.&lt;/p&gt;
+&lt;p&gt;How popular a project is, e.g. the number of GitHub stars, might
+  be one indicator, although all projects will start out at zero on
+  this, so it could well be a good project you've stumbled across
+  that's just relatively new, or in a particular niche that means it
+  will never become extremely popular. If there are multiple
+  competing projects, you can compare them relatively, as opposed to
+  comparing their number of stars to &lt;a href="https://github.com/twbs/bootstrap"&gt;something like
+  Bootstrap&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The age of the last commit is another. If a project has not been
+  touched in a very long time, it could be so good that it hasn't
+  needed any maintenance, or just be abandoned because it no longer
+  works, or it never did.&lt;/p&gt;
+&lt;p&gt;A project with comprehensive documentation, particularly if the
+  documentation is good and still valid is another positive sign.
+  Especially if you can get a software package or program to install
+  and runs an example as described in the docs. There have been
+  times I've found that this isn't the case; not a good start and
+  I'm likely to give up at this point, if there are alternatives to
+  still try.&lt;/p&gt;
+&lt;p&gt;These aren't definite rules. And if projects are open source, then
+  the only cost in trying them out is time, but these are some of
+  the rules of thumb that I'd use when looking out for software I'm
+  unfamiliar with.&lt;/p&gt;
+&lt;p&gt;Asking for recommendations from others is another valuable
+  resource that might speed up your search, instead of solely
+  relying on your own judgement and web searching skills too.&lt;/p&gt;
+&lt;p&gt;This footnote definitely turned out much longer than planned.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry><entry><title>Learning LaTeX: why and how</title><link href="http://www.stevenmaude.co.uk/posts/learning-latex-why-and-how" rel="alternate"></link><published>2017-05-01T15:02:00+01:00</published><updated>2017-05-01T15:02:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-01:posts/learning-latex-why-and-how</id><summary type="html">&lt;h2 id="sharelatex"&gt;ShareLaTeX&lt;/h2&gt;
 &lt;p&gt;Today I saw &lt;a href="https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes"&gt;this
 documentation&lt;/a&gt;
 from ShareLaTeX linked on Hacker News and, as I haven't used LaTeX in a
@@ -654,151 +845,4 @@ I was looking to reduce or eliminate it.&lt;/p&gt;
   likes of Behringer, while some people even make their own DIY
   solutions.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="keyboard"></category><category term="music"></category><category term="noise"></category></entry><entry><title>Installing pip, virtualenv and virtualenvwrapper tidily in Linux</title><link href="http://www.stevenmaude.co.uk/posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux" rel="alternate"></link><published>2016-12-30T00:10:00+00:00</published><updated>2016-12-30T00:10:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2016-12-30:posts/installing-pip-virtualenv-and-virtualenvwrapper-tidily-in-linux</id><summary type="html">&lt;p&gt;When I reinstalled my PC, I was thinking about the "cleanest" way that I
-could get the Python tools I needed on there. Previously, I'd used the
-pip bundled in the Ubuntu repositories, then found it was left to
-languish, and was hideously out of date. (I think it is possible to
-update if you've installed that way, but involves using &lt;code&gt;sudo pip
-install -U&lt;/code&gt; all the time, which didn't seem sensible.)&lt;/p&gt;
-&lt;p&gt;A better option might be to install pip directly from the installer
-that's provided by the pip developers, using pip to install virtualenv
-and virtualenvwrapper, and then using the virtualenv tools to create
-virtualenvs to actually install Python packages for development. This
-way should create the minimum level of clutter you're adding to your
-system's Python installation.&lt;/p&gt;
-&lt;p&gt;But, reading around, the suggestions here on &lt;a href="https://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python"&gt;doing a clean
-installation&lt;/a&gt;
-seemed an even better idea. You download the virtualenv package from
-PyPI yourself, use Python to run the &lt;code&gt;virtualenv&lt;/code&gt; Python code directly
-and use that to create a "bootstrap" virtualenv that you can then create
-new virtualenvs from.  Note that these virtualenvs all include pip; no
-need for extra work to get it installed.&lt;/p&gt;
-&lt;p&gt;All of this is possible without doing any installation into the system's
-Python at all, not even requiring any &lt;code&gt;pip install --user&lt;/code&gt; commands.
-It's pretty simple to do. If you want to follow this along further and
-add virtualenvwrapper too, see the Stack Overflow post for more details
-(essentially, you need to get a copy of virtualenv via downloading it,
-e.g. from PyPI, using curl or a web browser and then run &lt;code&gt;python
-virtualenv.py $YOUR_CHOSEN_VIRTUALENV_DIRECTORY&lt;/code&gt;), then continue here.&lt;/p&gt;
-&lt;h2 id="getting-virtualenvwrapper-working"&gt;Getting virtualenvwrapper working&lt;/h2&gt;
-&lt;p&gt;Though &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation"&gt;it's not recommended in the
-documentation&lt;/a&gt;,
-someone in the Stack Overflow comments said they'd got it working, so I
-thought worth trying.&lt;/p&gt;
-&lt;p&gt;What I did was create a Python virtualenv purely for virtualenvwrapper
-using the method in the Stack Overflow answer. I called the virtualenv
-"virtualenvwrapper" and created it inside &lt;code&gt;$HOME/.virtualenvs&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Next, I then activated this new virtualenv using &lt;code&gt;source
-$HOME/.virtualenvs/virtualenvwrapper/bin/activate&lt;/code&gt; and did &lt;code&gt;pip install
-virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If you modify your shell startup files as suggested in the
-virtualenvwrapper documentation, you'll find you get an error:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;virtualenvwrapper.sh: There was a problem running the initialization
-hooks.     
-
-If Python could not import the module virtualenvwrapper.hook_loader,
-check that virtualenvwrapper has been installed for
-VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON and that PATH is
-set properly.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;As virtualenvwrapper isn't installed in the default Python, the script
-looks for it and understandably can't find it. It's a simple fix: just
-activate the virtualenvwrapper virtualenv before this shell script is
-sourced.&lt;/p&gt;
-&lt;p&gt;Even if you immediately deactivate the virtualenvwrapper virtualenv
-again, you'll still have commands like &lt;code&gt;workon&lt;/code&gt; that function correctly
-in your shell environment.&lt;/p&gt;
-&lt;p&gt;So what I first tried was doing what the virtualenvwrapper documentation
-suggests, and modifying shell startup files, but with extra activate and
-deactivate steps:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local/src 
-&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/activate
-&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
-deactivate                                                          
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;You will need to switch to some virtualenv first with the virtualenv
-package installed, before commands that require the Python virtualenv
-package to be installed will work (e.g. to create new virtualenvs). It's
-simple enough to do &lt;code&gt;workon py3venv&lt;/code&gt; and then e.g. &lt;code&gt;mkvirtualenv
-virtualenv_name&lt;/code&gt; when you want to create one. However, &lt;code&gt;workon&lt;/code&gt; to
-switch virtualenvs should always work.&lt;/p&gt;
-&lt;h2 id="limitations-with-this-clean-solution"&gt;Limitations with this clean solution&lt;/h2&gt;
-&lt;p&gt;This works pretty well, but:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;The bootstrap environments are the ones you base your other
-   virtualenvs on.  If, for some reason, you suddenly need some system
-   site package installed for some particular Python package, then
-   you'll need to create a new bootstrap virtualenv first, with the
-   &lt;code&gt;--system-site-packages&lt;/code&gt; option. (Even if you've already got a
-   "system site packages" virtualenv, if you subsequently updated the
-   system packages and want a virtualenv to reflect this, you'll have to
-   go back to the bootstrapping stage.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You'll likely need to recreate the bootstrap environments in addition
-   to any actual in-use virtualenvs if you want to move to a new Python
-   version. I've read in places things that suggest the Python binary is
-   a symlink to the system one; on my current virtualenvs, there are
-   only symlinks to the local virtualenv copy of the python binary.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="fixing-virtualenvwrapper-slowing-terminal-startup"&gt;Fixing virtualenvwrapper slowing terminal startup&lt;/h2&gt;
-&lt;p&gt;virtualenvwrapper does slightly delay bash starting up. On
-investigation, this is principally due to virtualenvwrapper.sh itself,
-not the activate/deactivate step. You can check this by running &lt;code&gt;time&lt;/code&gt;
-on each of the commands, &lt;code&gt;source bin/activate&lt;/code&gt; and &lt;code&gt;deactivate&lt;/code&gt; are
-basically instant, whereas this script slows things down considerably.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;time&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
-
-real    0m0.304s
-user    0m0.248s
-sys     0m0.032s
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;A 0.3 s delay isn't particularly long. But, for me, it makes bash feel
-slightly less snappy on opening a new terminal.&lt;/p&gt;
-&lt;p&gt;To solve this, you can use the &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#lazy-loading"&gt;"lazy
-loading"&lt;/a&gt;
-script provided with virtualenvwrapper. For my setup, this means I would
-need to hack that lazy loading script to add the activate and deactivate
-command there.&lt;/p&gt;
-&lt;p&gt;I tried this and it did work. But, it didn't seem like a good solution.
-In part, it just felt hacky and, more importantly, these commands would
-be removed if you upgrade virtualenvwrapper, breaking it until you again
-hacked the script.&lt;/p&gt;
-&lt;p&gt;Instead, my preferred option to work around the slightly slow loading
-was to create another script that I can &lt;code&gt;source&lt;/code&gt; whenever wanting to
-work with Python virtualenvs:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh -e&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local/src
-&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/venvwrapper/bin/activate
-&lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs/venvwrapper/bin/virtualenvwrapper.sh
-deactivate
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This is less direct. You can't just directly access virtualenvs.
-Insteaad, you must source this script first so that you can then
-&lt;code&gt;workon&lt;/code&gt; a virtualenv to &lt;code&gt;workon&lt;/code&gt;. However, it keeps the clean install
-we have made, doesn't slow bash from loading at all, and isn't a hack of
-the existing virtualenvwrapper. Provided we keep it installed in the
-same place, it'll work.&lt;/p&gt;
-&lt;h2 id="keeping-clean"&gt;Keeping clean&lt;/h2&gt;
-&lt;p&gt;Despite the few drawbacks, I do like the idea of this approach overall.
-You don't even need to install any Python packages, even as a user, into
-Python outside of a virtualenv.&lt;/p&gt;
-&lt;p&gt;Bear in mind if you're intent on being particularly rigorous in keeping
-your system Python clean: installing software that is built on Python
-via your package manager (e.g. apt) may well end up pulling in the
-package manager's version of dependencies that the software may use. A
-way around this is to install whatever software you want to use in a
-virtualenv instead manually, although this may be awkward if that
-software uses system packages.&lt;/p&gt;</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Python"></category><category term="pip"></category><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry></feed>
+&lt;/ul&gt;</summary><category term="keyboard"></category><category term="music"></category><category term="noise"></category></entry></feed>

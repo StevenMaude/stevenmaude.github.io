@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Trying to trim down static GTFS feeds - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="GTFS,open data,transit,public transport" />
+        <meta name="description" content="Some tools to perhaps pare down ponderous static GTFS feeds." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Trying to trim down static GTFS feeds"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds"/>
+        <meta property="og:description" content="Some tools to perhaps pare down ponderous static GTFS feeds."/>
+        <meta property="article:published_time" content="2017-05-05" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="GTFS" />
+            <meta property="article:tag" content="open data" />
+            <meta property="article:tag" content="transit" />
+            <meta property="article:tag" content="public transport" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="http://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="http://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="http://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Trying to trim down static GTFS feeds
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2017-05-05T11:15:00+01:00"> 2017-05-05</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.stevenmaude.co.uk/tag/gtfs">GTFS</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/open-data">open data</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/transit">transit</a>
+        /
+	<a href="http://www.stevenmaude.co.uk/tag/public-transport">public transport</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2 id="whats-a-gtfs-feed">What's a GTFS feed?</h2>
+<p>This week I've been attempting to reduce the size of a static GTFS feed.</p>
+<p>For the uninitiated, GTFS is the <a href="https://developers.google.com/transit/gtfs/">General Transit Feed
+Specification</a>, a format
+for public transport providers to distribute details of their services.
+For example, a bus operator might want to share which routes they run
+on, and the times at which they arrive at certain stops. It's not
+restricted to buses. You might find GTFS feeds published for trains,
+underground services, ferries and <a href="https://developers.google.com/transit/gtfs/reference/routes-file">even
+gondolas</a>.</p>
+<p>The "static" distinguishes those feeds from realtime<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> feeds. Static
+feeds are just zip files that contain a number of text files in a
+comma-separated values (CSV) format, with a .txt filename extension.
+These CSVs detail regular timetables that should remain valid for some
+reasonable length of time, i.e. they change infrequently.</p>
+<p>Realtime feeds (GTFS-RT) report, for example, live trip updates (e.g.
+when a bus gets behind the published ideal schedule) or vehicle
+locations. Realtime feeds are in Google's Protocol Buffers format, not
+CSV. It's useful to be aware of the difference, but, beyond that, I
+won't discuss GTFS-RT feeds further in this post.</p>
+<h2 id="the-problem">The problem</h2>
+<p>Colleagues on a project were attempt to load the data we'd found for a
+particular country, and they were finding it far too large to be usable.
+GTFS files come zipped, and the total unzipped content of this file
+wasn't far off a gigabyte, and the import into their software was taking
+too long.</p>
+<p>They were only interested in one geographic region, so maybe most
+content can be filtered out either by location, or by transport agency.
+Here's a rundown of what I found with the existing tools.</p>
+<h2 id="onebusaway-gtfs-transformer">onebusaway GTFS transformer</h2>
+<p>Oh, on seeing the <a href="http://developer.onebusaway.org/modules/onebusaway-gtfs-modules/1.3.3/onebusaway-gtfs-transformer-cli.html">onebusaway GTFS
+transformer</a>,
+it seemed like a dream.</p>
+<p>It's a Java program that lets you simply specify the agencies to retain
+from the feed in a simple JSON format, and it's fairly comprehensive in
+how you can do that. So, hey, let's write a simple transform JSON that
+keeps the bus and train agency for the region of interest, and drop the
+rest. Exactly what's needed, and a job well done, so now I can relax, and
+take a well-earned rest.</p>
+<p>Oh, <em>opens eyes to the smell of a burning PC</em>, it's time to wake up.</p>
+<p>The documentation does provide a warning that this transformation may be
+memory and CPU hungry with large GTFS feeds, and that's what I found.</p>
+<p>Unfortunately, the transformer seemed to choke on this large GTFS file.
+It ran for a long time (hours, across multiple CPUs), got stuck spinning
+its wheels on the huge stop_times.txt file (millions of lines) and never
+managed to escape that mud. As well as that, out of memory errors were a
+problem. In the software's defence, the free memory on the instance I
+was running on was fairly limited.</p>
+<p>If you've simpler GTFS feeds to work with, it may do the trick, but, for
+large ones, you'll need a beefy PC to possibly get anywhere with it.
+That said, there's little status output while it's running, meaning it
+was unclear whether the transformer was ever doing any useful work or
+just getting stuck in some loop.</p>
+<h2 id="gtfstidy">gtfstidy</h2>
+<p>Next, <a href="https://github.com/patrickbr/gtfstidy/">gtfstidy</a>. It can reduce
+the size of static GTFS feeds by removing redundant content, simplifying
+identifiers and doing clever things to optimise shape data.</p>
+<p>It's written in Go, although there are no builds provided, so you'll
+have to have Go to install or compile it yourself, which is easy enough.</p>
+<p>Once again, it took a long time to process; here, about five hours on my
+2013 Core i5 laptop. Then, gtfstidy crashed right at the end of
+processing the data <a href="https://github.com/patrickbr/gtfstidy/issues/1">because as I later discovered, it expected the
+output directory to
+exist</a> and just failed
+to write the output otherwise.</p>
+<p>And then it took <em>another</em> few hours after I created said output
+directory to run again and actually get the cleaned feed data.</p>
+<p>In the end, gtfstidy reduced the total size of the GTFS files by about
+150 MB, which is a considerable saving. My initial idea was maybe it
+might clean the data up enough to make running the onebusaway
+transformer a little bit quicker, but it didn't seem worth bothering
+trying that again, as the data files overall were still large.</p>
+<h2 id="gtfssplit">gtfssplit</h2>
+<p>Finally, <a href="https://github.com/samuelmr/gtfssplit">gtfssplit</a> is a PHP
+tool that breaks apart a static GTFS feed into trips, shapes and stops.
+Unlike the other two projects, this one hasn't been touched for a
+while.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+<p>This took a fair time to run, although you can see it's at least doing
+something some of the time, because, contrary to the relatively shy and
+subdued onebusaway transformer, it displays a lot of warnings while
+running.</p>
+<p>Once these files are all on disk, maybe it's possible to write code to
+recombine these back together into a GTFS feed, filtering out for
+agencies that you're not interested in?</p>
+<p>I'm not sure.</p>
+<p>What I observed is that the dates.txt files that the gtfssplit documentation
+refers to in the output (that should be for a given service, i.e. to
+tell you which dates the service applies) didn't seem to be present, so
+it might be possible that it's losing data somewhere. Maybe that's
+because the feed I was looking at has a <a href="https://developers.google.com/transit/gtfs/reference/calendar_dates-file">calendar_dates.txt and no
+calendar.txt
+file</a>,
+and this case isn't handled. (It's valid, just not the recommended way
+of putting together a feed.)</p>
+<p>Again, I'm not sure, and didn't spend any more time investigating.</p>
+<h2 id="journeys-end">Journey's end?</h2>
+<p>And that's as far I got to, which is a little anticlimactic. That is, I
+haven't found a good existing solution for solving this for large feeds,
+outside of the prospect of attempting to write code to do this myself.
+However, the fact that all the existing software runs slowly, doesn't
+exactly instil me with much hope of doing a better job.</p>
+<p>A big difference is that what's actually needed here to solve the
+problem is something relatively simple by comparison. The core issue is
+that the stop_times.txt is too large. Maybe it's possible to filter that
+down based on working through the various files, which is a much more
+specific kind of tool than the generic transformer. Perhaps this could
+work along the lines of:</p>
+<ol>
+<li>
+<p>Keep rows from routes.txt that match the relatively few transport
+   <code>agency_id</code>s of interest giving a set of <code>route_id</code>s.</p>
+</li>
+<li>
+<p>Keep rows from trips.txt that match those <code>route_id</code>s from 1 in
+   trips.txt, so now these give <code>trip_id</code>s of interest.</p>
+</li>
+<li>
+<p>Keep rows in stop_times.txt if they match a <code>trip_id</code> retained from
+   2, meaning most of the rows disappear, assuming the agencies that are
+   of interest make up only a small proportion of the total rows.</p>
+</li>
+</ol>
+<p>You could go further and then fix up the other files too to purge
+anything that's now no longer relevant: for example, cleaning agency.txt
+to remove agencies that are no longer present. But perhaps gtfstidy
+might be enough to tidy up the remaining files and allow us to construct
+a clean and valid feed from the files we've mangled.</p>
+<p>There are also ways of wrangling GTFS feeds into SQL databases — haven't
+linked any as I haven't tried any and can't vouch for them, but they're
+easy to find by searching "GTFS to SQL" — so importing and writing
+queries to do this filtering, then exporting the result as CSV might be
+an alternative option instead of coding something.</p>
+<p>This is all speculation for now; I haven't attempted any of this yet. If
+I do and it's useful, I'll share what I learn.</p>
+<p>What would be nice is if feed providers offered feeds in smaller
+regional chunks. Often, transport companies are providing GTFS feeds at
+an agency level, so these should be relatively small. I suspect that the
+sources of countrywide feeds are usually efforts of communities or
+companies to compile the data, which is sometimes originally in a format
+other than GTFS, into a standard feed. So it feels ungrateful to comment
+that it would be nicer if they broke these feeds into smaller chunks for
+data consumers to import into software without further work because
+they're providing a free service and their efforts are appreciated.</p>
+<p>At the same time, those making efforts to share this data may find more
+users for their data if it's ready for import into other software
+without needing fast PCs with lots of RAM, or without consumers having
+to find ways to divide up the provided feed. For instance, applications
+like OpenTripPlanner can, at time of writing, <a href="https://github.com/opentripplanner/OpenTripPlanner/issues/2063">still struggle with large
+GTFS
+files</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The single word "realtime" is how the specification writes it.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>This isn't always the case, but looking at the activity of an open
+  source project can be a portent of how useful it might be, if
+  there are several competing bits of software that do the same
+  thing and you're trying to narrow down to a few candidates to try
+  out.</p>
+<p>How popular a project is, e.g. the number of GitHub stars, might
+  be one indicator, although all projects will start out at zero on
+  this, so it could well be a good project you've stumbled across
+  that's just relatively new, or in a particular niche that means it
+  will never become extremely popular. If there are multiple
+  competing projects, you can compare them relatively, as opposed to
+  comparing their number of stars to <a href="https://github.com/twbs/bootstrap">something like
+  Bootstrap</a>.</p>
+<p>The age of the last commit is another. If a project has not been
+  touched in a very long time, it could be so good that it hasn't
+  needed any maintenance, or just be abandoned because it no longer
+  works, or it never did.</p>
+<p>A project with comprehensive documentation, particularly if the
+  documentation is good and still valid is another positive sign.
+  Especially if you can get a software package or program to install
+  and runs an example as described in the docs. There have been
+  times I've found that this isn't the case; not a good start and
+  I'm likely to give up at this point, if there are alternatives to
+  still try.</p>
+<p>These aren't definite rules. And if projects are open source, then
+  the only cost in trying them out is time, but these are some of
+  the rules of thumb that I'd use when looking out for software I'm
+  unfamiliar with.</p>
+<p>Asking for recommendations from others is another valuable
+  resource that might speed up your search, instead of solely
+  relying on your own judgement and web searching skills too.</p>
+<p>This footnote definitely turned out much longer than planned.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="http://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/android">
+                            Android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/bitlocker">
+                            BitLocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/linux">
+                            Linux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/science">
+                            science
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://www.stevenmaude.co.uk/tag/wordpress">
+                            WordPress
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="http://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62289274-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
+
+</body>
+</html>
