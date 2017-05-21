@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-05-05T11:15:00+01:00</updated><entry><title>Trying to trim down static GTFS feeds</title><link href="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-05-05T11:15:00+01:00</published><updated>2017-05-05T11:15:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-05-21T20:09:00+01:00</updated><entry><title>Looking at Ableton's Learning Music</title><link href="http://www.stevenmaude.co.uk/posts/looking-at-abletons-learning-music" rel="alternate"></link><published>2017-05-21T20:09:00+01:00</published><updated>2017-05-21T20:09:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-21:posts/looking-at-abletons-learning-music</id><summary type="html">&lt;p&gt;Previously I &lt;a href="http://www.stevenmaude.co.uk/posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers"&gt;looked at Ableton's book of ideas for music
+producers&lt;/a&gt; that came out
+a while back, geared to people with some experience of making music
+already. That did well in summarising suggestions for creativity into
+short, easily digestible chapters.&lt;/p&gt;
+&lt;p&gt;Ableton have now followed on by developing a free tutorial site that
+actually takes a step back. It's instead aimed at complete beginners who
+might be interested in creating music which, in the spirit of
+&lt;a href="https://en.wikipedia.org/wiki/Does_exactly_what_it_says_on_the_tin"&gt;Ronseal&lt;/a&gt;,
+Ableton have called it &lt;a href="https://learningmusic.ableton.com/"&gt;Learning
+Music&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unlike the previously published book, this resource is accessible for
+free. Is it worth your time to work through?&lt;/p&gt;
+&lt;h2 id="how-does-the-site-work"&gt;How does the site work?&lt;/h2&gt;
+&lt;p&gt;You can always &lt;a href="https://learningmusic.ableton.com/"&gt;check it out&lt;/a&gt;
+yourself, but, briefly, each page is a mixture of a small amount of
+explanatory text with usually some interactive tool that mimics some
+aspect of a digital audio workstation (DAW) (particularly Ableton Live).
+Sometimes, there are music videos where some feature of that music is
+then broken down on the page.&lt;/p&gt;
+&lt;p&gt;Where this DAW-lite interactivity works well is that it's stripped down
+to the minimum framework of triggering samples or placing notes. Looking
+at a lot of modern audio software, it's easy to be overwhelmed by
+options, even as a seasoned user. This paring down was a sensible
+decision so as not to deter the interested who might have little
+experience of music theory, or digital music making. (And no doubt made
+the site simpler to build too.)&lt;/p&gt;
+&lt;p&gt;This functionality also provides an opportunity to practice and try
+altering the examples, if someone doesn't yet have a digital audio
+workstation installed.&lt;/p&gt;
+&lt;p&gt;These interactive tools often nicely assist the user, making it easy to
+make something sounding pleasing. This can be by, for example,
+restricting the permitted notes to ones within a scale, or, as on the
+&lt;a href="https://learningmusic.ableton.com/index.html"&gt;first page&lt;/a&gt;, by carefully
+creating patterns that the user can trigger and overlay each other
+without any danger of the sounds clashing.&lt;/p&gt;
+&lt;p&gt;Although the look and feel of the interactive sequencer widgets is
+obviously influenced by Ableton Live, and could segue nicely into trying
+out the Ableton Live demo, the ideas — much like the book — transcend
+any particular piece of software. Like the book, even if you've no
+interest in Ableton itself, and intend to use some other software (or
+hardware) for making music, that shouldn't put you off.&lt;/p&gt;
+&lt;p&gt;This tutorial does allow you to export sketches you make in the Learning
+Music web app to Ableton Live, should you wish — a nice touch — albeit
+one that's geared towards steering users towards Live (which is fair
+enough).&lt;/p&gt;
+&lt;p&gt;The other main feature of this tutorial is that context of the musical
+ideas is given by reference to contemporary music, often well-known
+electronic music. Some aspect of each is broken down. This can be quite
+revealing if you haven't thought of music that way before: isolating one
+part (percussion, bassline, chords, melodies, structure) and briefly
+exploring what makes those aspects effective. It's nice that's it's
+example led; it gives the reader something to quickly grab onto, and
+provides possible inspirations too. Active listening in this way was
+pushed throughout the earlier Making Music book.&lt;/p&gt;
+&lt;p&gt;Perhaps the creators of the site's material could have gone slightly
+further. Maybe deconstructing one simple track throughout the course of
+the tutorial would work well in addition to analysing different pieces
+of music (which admittedly does help avoid boredom). Referring back to a
+single piece of music and considering a different aspect each time might
+provide two things: a sense of familiarity as the learner progresses
+through the material, and a sense of achievement that they understand
+how most of the main aspects of a particular track are put together,
+once they've completed the tutorials.&lt;/p&gt;
+&lt;h2 id="and-does-the-site-work"&gt;And does the site work?&lt;/h2&gt;
+&lt;p&gt;In terms of material, if you've ever covered some basic music theory or
+have reasonable proficiency on an instrument, then you'll probably have
+encountered plenty of what is taught, and you won't get that much out of
+it.&lt;/p&gt;
+&lt;p&gt;However, there were still a few things I learned about, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the Indonesian &lt;a href="https://en.wikipedia.org/wiki/Pelog"&gt;Pelog&lt;/a&gt; scale;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the opening notes of the melody from Kraftwerk's &lt;a href="https://www.youtube.com/watch?v=LTZyXlLhvxs"&gt;Tour de
+  France&lt;/a&gt; are apparently
+  taken from Paul Hindemith's &lt;a href="https://www.youtube.com/watch?v=vXb63qlNg5c"&gt;Heiter
+  Bewegt&lt;/a&gt; from Sonata for
+  Flute and Piano. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The tutorials, then, only skirt the surface of each topic. Read the
+wrong way, this might sound like a criticism. It's not. In teaching
+aimed to give a survey of a topic, it's actually a positive: crucially,
+it's just enough to get the main point across to the target audience,
+make them aware of the ideas, and prompt the curious to go and learn
+more elsewhere, without being so detailed as to feel like hard work. So,
+for me, the site succeeds in its aims.&lt;/p&gt;
+&lt;p&gt;If you're a relative newcomer to music theory or composition, have got a
+spare hour or two and want to learn a little about creating music, or if
+you just want to see breakdowns of how parts of some pieces of music
+work — music that you may well have already heard and loved — it's more
+than worth your time to work through the material Ableton are offering.&lt;/p&gt;</summary><category term="Ableton"></category><category term="music"></category><category term="music theory"></category></entry><entry><title>Trying to trim down static GTFS feeds</title><link href="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-05-05T11:15:00+01:00</published><updated>2017-05-05T11:15:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
 &lt;p&gt;This week I've been attempting to reduce the size of a static GTFS feed.&lt;/p&gt;
 &lt;p&gt;For the uninitiated, GTFS is the &lt;a href="https://developers.google.com/transit/gtfs/"&gt;General Transit Feed
 Specification&lt;/a&gt;, a format
@@ -786,63 +879,4 @@ option of that name that appears under Preference Name and select Toggle
 to change it from the default (true) to false.&lt;/p&gt;
 &lt;p&gt;Now, if you try to click on a URL now that's displayed in an email,
 nothing will happen; your web browser won't open. However, you can
-always copy the URL and paste into a browser yourself.&lt;/p&gt;</summary><category term="Thunderbird"></category></entry><entry><title>The buzz (and hum) of learning a new instrument</title><link href="http://www.stevenmaude.co.uk/posts/the-buzz-and-hum-of-learning-a-new-instrument" rel="alternate"></link><published>2017-01-21T18:41:00+00:00</published><updated>2017-01-21T18:41:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-01-21:posts/the-buzz-and-hum-of-learning-a-new-instrument</id><summary type="html">&lt;p&gt;Because I want to improve my skills in producing music, I've started taking
-piano lessons. To start out with, I'm using a borrowed 61 key, touch sensitive
-keyboard. I'd read around about this. Some people suggest you should always
-learn on a piano, but my teacher suggested that's not necessary when first
-starting out, at least until reaching ABRSM Grade 1 level. This has the benefit
-of not having to invest a substantial amount of money into a digital piano,
-should learning prove too difficult.&lt;/p&gt;
-&lt;p&gt;The first thing you realise when practising is that it's unlikely that anyone
-else within hearing distance is going to appreciate the false starts and wrong
-notes of a beginner playing piano. This is a big plus of keyboards or digital
-pianos: a headphone socket means you can practise without irritating anyone
-nearby.&lt;/p&gt;
-&lt;p&gt;So, duly plugging headphones in, I realised there was a substantial hum
-(possibly ground hum) from the keyboard's output, even at zero volume,
-and white noise which appears as the volume is cranked up. The same
-happens in the speaker output, but is much less apparent and distracting
-as it tends to get masked by ambient background noise.&lt;/p&gt;
-&lt;p&gt;I'm usually quite fussy about unwanted noise, but I found this particularly
-distracting when trying to concentrate. I would also say that you do tend to
-get used to it over time and can maybe forget it's there a little, but ideally
-I was looking to reduce or eliminate it.&lt;/p&gt;
-&lt;h2 id="quietening-things-down"&gt;Quietening things down&lt;/h2&gt;
-&lt;h3 id="solutions-i-considered-but-didnt-try"&gt;Solutions I considered but didn't try&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Try another power supply. It's possible that this might not fix it, if
-  the power supply isn't the source, so I didn't actually buy another to
-  test this theory. (In this case, the keyboard can be powered by a
-  substantial number of batteries, which would be an ideal test to
-  diagnose whether the power supply is at fault here.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Route the keyboard to a PC via MIDI to USB, play the keyboard via a
-  digital audio workstation, and use a computer audio output instead of
-  the keyboard's own output. This would work if you have PC audio that
-  is noise-free. But, it means you then have to rely on having a PC
-  around and powered on. Instead, I'd prefer to use an instrument
-  directly; this way it actually keeps me away from a computer for once.
-  If you're on a Windows PC, also bear in mind that you'll likely need
-  decent ASIO drivers for your audio hardware, otherwise you might have
-  to deal with considerable input latency.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="solutions-i-used"&gt;Solutions I used&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Use worse headphones. The budget Monoprice headphones I have did seem
-  to reduce the noise a little compared with the Sennheiser HD25 I'd
-  first tested out.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Add a ground loop isolator into the headphone socket on the keyboard
-  and plug headphones into that. This did the trick for me. Since it's
-  filtering the signal, it does also attenuate the volume, but that's a
-  small price to pay for quiet. The going rate seems to be under £5 for
-  cheap and cheerful generic kit, you can spend more on ones from the
-  likes of Behringer, while some people even make their own DIY
-  solutions.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="keyboard"></category><category term="music"></category><category term="noise"></category></entry></feed>
+always copy the URL and paste into a browser yourself.&lt;/p&gt;</summary><category term="Thunderbird"></category></entry></feed>
