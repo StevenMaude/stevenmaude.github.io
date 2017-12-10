@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Firefox keyword searches, and how to fix adding them - stevenmaude.co.uk</title>
+    <title>Upgrading Raspbian and rc.local failures - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,22 +9,22 @@
 
 
 
-<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them">
+<link rel="canonical" href="http://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="Firefox,keyword search,quick search" />
-        <meta name="description" content="How Firefox keyword searches speed up web searching, and how to resolve the situation when you can&#39;t add new ones." />
+        <meta name="keywords" content="Raspberry Pi,Raspbian,Linux" />
+        <meta name="description" content="Using a Raspberry Pi as a wireless bridge, in-place upgrading Raspbian and dealing with rc.local not running tasks as planned." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Firefox keyword searches, and how to fix adding them"/>
-        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/firefox-keyword-searches-and-how-to-fix-adding-them"/>
-        <meta property="og:description" content="How Firefox keyword searches speed up web searching, and how to resolve the situation when you can&#39;t add new ones."/>
-        <meta property="article:published_time" content="2016-04-03" />
-            <meta property="article:section" content="2016" />
-            <meta property="article:tag" content="Firefox" />
-            <meta property="article:tag" content="keyword search" />
-            <meta property="article:tag" content="quick search" />
+        <meta property="og:title" content="Upgrading Raspbian and rc.local failures"/>
+        <meta property="og:url" content="http://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures"/>
+        <meta property="og:description" content="Using a Raspberry Pi as a wireless bridge, in-place upgrading Raspbian and dealing with rc.local not running tasks as planned."/>
+        <meta property="article:published_time" content="2017-12-10" />
+            <meta property="article:section" content="2017" />
+            <meta property="article:tag" content="Raspberry Pi" />
+            <meta property="article:tag" content="Raspbian" />
+            <meta property="article:tag" content="Linux" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="http://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -87,7 +87,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Firefox keyword searches, and how to fix adding them
+                Upgrading Raspbian and <code>rc.local</code> failures
                 </h1>
             </header>
             <div class="entry-content">
@@ -96,7 +96,7 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2016-04-03T17:00:00+01:00"> 2016-04-03</time>
+        <time datetime="2017-12-10T20:13:00+00:00"> 2017-12-10</time>
     </span>
 
 
@@ -104,84 +104,121 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.stevenmaude.co.uk/tag/firefox">Firefox</a>
+	<a href="http://www.stevenmaude.co.uk/tag/raspberry-pi">Raspberry Pi</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/keyword-search">keyword search</a>
+	<a href="http://www.stevenmaude.co.uk/tag/raspbian">Raspbian</a>
         /
-	<a href="http://www.stevenmaude.co.uk/tag/quick-search">quick search</a>
+	<a href="http://www.stevenmaude.co.uk/tag/linux">Linux</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2 id="what-are-keyword-searches">What are keyword searches?</h2>
-<p>Keyword searches, or quick searches, are really handy when browsing. If
-you think of something that you want to search for, they remove the
-extra step of first navigating to the site and selecting the search box. </p>
-<p>Instead, you can just directly enter your query into your address bar,
-preceded by some keyword. For instance, if I look up "Ubuntu" on
-<a href="https://duckduckgo.com">DuckDuckGo</a>, I can just hit Ctrl+L to access
-the address bar, type <code>d Ubuntu</code> and hit enter, to directly access the
-page of search results.</p>
-<h2 id="how-keyword-searches-save-time">How keyword searches save time</h2>
-<p>This might not seem like a big time saving, but when you consider that
-you have to repeat the same process for every site you search on, it
-soon adds up. It's a feature you can use not only with traditional
-search engines, but with most sites that have a search box. One example
-is YouTube, I'll often — maybe <strong>too</strong> often — type <code>yt Yet another timewasting
-distraction</code>.</p>
-<h2 id="creating-and-using-custom-keyword-searches-in-firefox">Creating and using custom keyword searches in Firefox</h2>
-<p>This is really simple to do. You're really just adding a bookmark, but
-one that refers to whatever URL the search box will send you to, not the
-page itself.</p>
-<ol>
-<li>Right click a search box on a webpage.</li>
-<li>Select "Add a Keyword for this Search..."</li>
-<li>In the dialogue that opens, enter a keyword and the search URL is
-   then added to your bookmarks with a placeholder for a query.</li>
-<li>When you next type that keyword followed by a search query into the
-   address bar, the bookmark gets loaded with your query automatically inserted
-   into the URL.</li>
-</ol>
-<p>These keyword searches are normal bookmarks; you can edit them like any
-other bookmark. The only difference is that they contain the <code>%s</code>
-<a href="https://en.wikipedia.org/wiki/Printf_format_string">placeholder</a> in the
-URL. When you carry out a keyword search, the term following the keyword
-replaces the <code>%s</code> in the bookmark.</p>
-<p>If you're browsing through your bookmarks in the Library, you'll only
-see "Name", "Location" and "Tags", but if you click "More", you'll see
-(and can change) the keyword you've set too. </p>
-<p>(This all works because, as you've probably noticed, using a search
-option on a site usually sends you to a URL that contains the search
-term. Hopefully you can see that if you construct the URL without even
-visiting the site first, that this should still work. That said, this
-assumes that the site uses GET requests where the query is contained in
-the URL itself.)</p>
-<h2 id="but-my-keyword-searches-arent-being-added">But my keyword searches aren't being added?</h2>
-<p>As I find them so useful, I sorely missed it when recently, for whatever
-reason, Firefox decided that it wouldn't add them any more.</p>
-<p>The bookmark would get created, but the keyword I added didn't get
-saved. Even if I manually edited the bookmark, I could enter a keyword
-but on navigating away to another bookmark and back again, the keyword
-would be lost again.</p>
-<p>The simple fix was just to exit Firefox, locate <code>places.sqlite</code> inside
-the Firefox profile directory,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> rename <code>places.sqlite</code>, and let the
-file be rebuilt on the next restart (as documented in <a href="https://support.mozilla.org/en-US/kb/cant-add-change-or-save-bookmarks">Mozilla's support
-pages</a>).</p>
-<p>The documentation states that you lose history, but any bookmarks are
-rebuilt from a backup. Once you're happy everything's OK, you can delete
-the old <code>places.sqlite</code>. After that, new keyword searches were added
-without a problem.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Its location depends on <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data">your operating system</a>.
-For me, on Linux, it was in the hidden <code>~/.mozilla/firefox</code>. On
-Windows, it'll be in <code>%APPDATA%\Mozilla\Firefox\Profiles\</code>. Make sure
-that you're in the correct profile directory, if you have multiple
-Firefox profiles.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+                <h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware">A Raspberry Pi as a wireless bridge for old hardware</h2>
+<p>This is something I did a couple of months back, but figure it's worth
+documenting, to maybe help anyone with a similar problem search for it.</p>
+<p>One use for my Raspberry Pi is as a wireless bridge, and this is mainly
+for a now ancient Xbox 360. Yes, the one without built-in wifi, it just
+has an Ethernet port for networking; not much good when your router is
+nowhere near a TV.</p>
+<p>Originally, and as is often customary when solving technology problems,
+I used <a href="https://unix.stackexchange.com/a/64353/32125">instructions that I cobbled
+together</a> from various
+places.</p>
+<p>I'd been slack on upgrading my Raspberry Pi's Raspbian. It was working
+perfectly fine for what it was doing, so there was no immediate need to
+touch it. Because of this, it has languished on a distribution based on
+the now aging Debian Wheezy.</p>
+<p>More recently, with the <a href="https://www.ncsc.gov.uk/krack">recent WPA2
+exploit</a> in October, and the then lack of
+any as-yet patch even for Debian Wheezy (which has since been patched,
+not sure about Raspbian itself), I thought I should finally upgrade, so
+the Pi was patched against this and any other future security issues.</p>
+<p>I didn't particularly want to go to the trouble of doing a fresh
+install, so I tried an in-place operating system upgrade, deciding that
+the worst that could happen is the upgrade fails and I'd have to do a
+fresh install anyway.</p>
+<h2 id="the-upgrade-process">The upgrade process</h2>
+<p>I actually upgraded in two stages. First from Wheezy to Jessie, and then
+I figured if that went OK, I could try upgrading again, from Jessie to
+Stretch too.</p>
+<p>Upgrading the distribution actually worked well. With my Raspbian Wheezy
+install, I upgraded to Jessie as described on the <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;t=121880">Raspberry Pi
+forum</a>.
+Everything seemed to work, including the Xbox's internet connection.</p>
+<p>Since I was feeling brave, I decided to upgrade again. However, I didn't
+feel so brave that I would do that without first backing up the working
+system, so I <a href="https://raspberrypi.stackexchange.com/a/312/12370">backed up the SD card with
+<code>dd</code></a> to a gzipped
+image in case something went wrong and I could recover a working system
+quickly.</p>
+<p>Next, I upgraded from Jessie to Stretch. This is the same process as for
+Wheezy to Jessie, just with <a href="https://www.raspberrypi.org/blog/raspbian-stretch/">different repository sources
+used</a>.</p>
+<p>Once again, the upgrade worked fine, the Pi booted up, and I could
+connect to it wirelessly.</p>
+<h2 id="a-stretch-too-far">A stretch too far</h2>
+<p>But, the Xbox's internet connection no longer worked. Checking the Pi, I
+spotted what looked like error messages appearing at boot time.</p>
+<p>The first problem is checking the boot log messages that quickly
+disappear from the screen. Since Debian now uses systemd, you need <code>sudo
+systemctl</code> to review those messages.</p>
+<p>What I spotted there is that there was an error that indicated that
+commands I had in <code>rc.local</code> were not running correctly. As mentioned,
+in my <a href="https://unix.stackexchange.com/a/64353/32125">description of my Xbox and Pi
+configuration</a>, I was
+using <code>rc.local</code> to run the commands on boot that ensured the bridge
+worked, instead of having to run anything by hand every boot.</p>
+<p>That seemed strange. More so when running the script by hand caused it
+to work as normal, which allowed the Xbox to once again connect to the
+internet as it did on Raspbian Jessie.</p>
+<p>Why did this script fail on boot via <code>rc.local</code>? As <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;t=122207">mentioned on the
+Raspberry Pi
+forums</a>,
+the difference presumably is that the Pi's networking isn't configured
+at the time of the script trying to run. Trying to then change this
+configuration when it's not ready will then fail.</p>
+<p>So there are no guarantees about when <code>rc.local</code> is run. If you have
+dependencies on other things, the moral of this longish story is that
+you should create a systemd service and have systemd launch it after
+everything else; this fixed the problem and everything finally was
+working again.</p>
+<h2 id="configuration">Configuration</h2>
+<p>For reference, here's what I have configured:</p>
+<p><code>wireless_bridge.sh</code> is saved in <code>/usr/local/sbin</code>, with 755 file
+permissions, root as owner and group, and contains:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -e</span>
+/usr/sbin/ifplugd eth0 --kill
+/sbin/sysctl -w net.ipv4.ip_forward<span class="o">=</span>1
+/sbin/ifconfig eth0 192.168.1.1
+/sbin/iptables -t nat -A POSTROUTING -o wlan0 -s 192.168.1.0/24 -j MASQUERADE
+</pre></div>
+
+
+<p><code>wireless-bridge.service</code> is saved in <code>/etc/systemd/system</code>, with 644
+file permissions, root as owner and group, and contains:</p>
+<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Wireless Bridge Service</span>
+<span class="na">After</span><span class="o">=</span><span class="s">multi-user.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">idle</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/sbin/wireless_bridge.sh</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+
+
+<p>You could possibly change <code>multi-user.target</code> to one of systemd's
+<a href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/">network
+targets</a>,
+but I didn't bother testing this out, as the configuration above just
+seemed to work (with, I suppose, the possible cost of the bridged
+connection not being available until slightly later).</p>
+<p>I also have the Xbox network settings as:</p>
+<p>IP address: 192.168.1.2<br />
+Subnet mask: 255.255.255.0<br />
+Gateway: 192.168.1.1  </p>
+<p>and the primary DNS server set to my router's IP address.</p>
             </div>
             <!-- /.entry-content -->
         </article>

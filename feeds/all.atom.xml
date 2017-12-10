@@ -1,5 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-10-22T17:10:00+01:00</updated><entry><title>A digital piano buyers' guide for learners</title><link href="http://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;As I've &lt;a href="http://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-12-10T20:13:00+00:00</updated><entry><title>Upgrading Raspbian and rc.local failures</title><link href="http://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
+&lt;p&gt;This is something I did a couple of months back, but figure it's worth
+documenting, to maybe help anyone with a similar problem search for it.&lt;/p&gt;
+&lt;p&gt;One use for my Raspberry Pi is as a wireless bridge, and this is mainly
+for a now ancient Xbox 360. Yes, the one without built-in wifi, it just
+has an Ethernet port for networking; not much good when your router is
+nowhere near a TV.&lt;/p&gt;
+&lt;p&gt;Originally, and as is often customary when solving technology problems,
+I used &lt;a href="https://unix.stackexchange.com/a/64353/32125"&gt;instructions that I cobbled
+together&lt;/a&gt; from various
+places.&lt;/p&gt;
+&lt;p&gt;I'd been slack on upgrading my Raspberry Pi's Raspbian. It was working
+perfectly fine for what it was doing, so there was no immediate need to
+touch it. Because of this, it has languished on a distribution based on
+the now aging Debian Wheezy.&lt;/p&gt;
+&lt;p&gt;More recently, with the &lt;a href="https://www.ncsc.gov.uk/krack"&gt;recent WPA2
+exploit&lt;/a&gt; in October, and the then lack of
+any as-yet patch even for Debian Wheezy (which has since been patched,
+not sure about Raspbian itself), I thought I should finally upgrade, so
+the Pi was patched against this and any other future security issues.&lt;/p&gt;
+&lt;p&gt;I didn't particularly want to go to the trouble of doing a fresh
+install, so I tried an in-place operating system upgrade, deciding that
+the worst that could happen is the upgrade fails and I'd have to do a
+fresh install anyway.&lt;/p&gt;
+&lt;h2 id="the-upgrade-process"&gt;The upgrade process&lt;/h2&gt;
+&lt;p&gt;I actually upgraded in two stages. First from Wheezy to Jessie, and then
+I figured if that went OK, I could try upgrading again, from Jessie to
+Stretch too.&lt;/p&gt;
+&lt;p&gt;Upgrading the distribution actually worked well. With my Raspbian Wheezy
+install, I upgraded to Jessie as described on the &lt;a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;amp;t=121880"&gt;Raspberry Pi
+forum&lt;/a&gt;.
+Everything seemed to work, including the Xbox's internet connection.&lt;/p&gt;
+&lt;p&gt;Since I was feeling brave, I decided to upgrade again. However, I didn't
+feel so brave that I would do that without first backing up the working
+system, so I &lt;a href="https://raspberrypi.stackexchange.com/a/312/12370"&gt;backed up the SD card with
+&lt;code&gt;dd&lt;/code&gt;&lt;/a&gt; to a gzipped
+image in case something went wrong and I could recover a working system
+quickly.&lt;/p&gt;
+&lt;p&gt;Next, I upgraded from Jessie to Stretch. This is the same process as for
+Wheezy to Jessie, just with &lt;a href="https://www.raspberrypi.org/blog/raspbian-stretch/"&gt;different repository sources
+used&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once again, the upgrade worked fine, the Pi booted up, and I could
+connect to it wirelessly.&lt;/p&gt;
+&lt;h2 id="a-stretch-too-far"&gt;A stretch too far&lt;/h2&gt;
+&lt;p&gt;But, the Xbox's internet connection no longer worked. Checking the Pi, I
+spotted what looked like error messages appearing at boot time.&lt;/p&gt;
+&lt;p&gt;The first problem is checking the boot log messages that quickly
+disappear from the screen. Since Debian now uses systemd, you need &lt;code&gt;sudo
+systemctl&lt;/code&gt; to review those messages.&lt;/p&gt;
+&lt;p&gt;What I spotted there is that there was an error that indicated that
+commands I had in &lt;code&gt;rc.local&lt;/code&gt; were not running correctly. As mentioned,
+in my &lt;a href="https://unix.stackexchange.com/a/64353/32125"&gt;description of my Xbox and Pi
+configuration&lt;/a&gt;, I was
+using &lt;code&gt;rc.local&lt;/code&gt; to run the commands on boot that ensured the bridge
+worked, instead of having to run anything by hand every boot.&lt;/p&gt;
+&lt;p&gt;That seemed strange. More so when running the script by hand caused it
+to work as normal, which allowed the Xbox to once again connect to the
+internet as it did on Raspbian Jessie.&lt;/p&gt;
+&lt;p&gt;Why did this script fail on boot via &lt;code&gt;rc.local&lt;/code&gt;? As &lt;a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;amp;t=122207"&gt;mentioned on the
+Raspberry Pi
+forums&lt;/a&gt;,
+the difference presumably is that the Pi's networking isn't configured
+at the time of the script trying to run. Trying to then change this
+configuration when it's not ready will then fail.&lt;/p&gt;
+&lt;p&gt;So there are no guarantees about when &lt;code&gt;rc.local&lt;/code&gt; is run. If you have
+dependencies on other things, the moral of this longish story is that
+you should create a systemd service and have systemd launch it after
+everything else; this fixed the problem and everything finally was
+working again.&lt;/p&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;For reference, here's what I have configured:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wireless_bridge.sh&lt;/code&gt; is saved in &lt;code&gt;/usr/local/sbin&lt;/code&gt;, with 755 file
+permissions, root as owner and group, and contains:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh -e&lt;/span&gt;
+/usr/sbin/ifplugd eth0 --kill
+/sbin/sysctl -w net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;1
+/sbin/ifconfig eth0 192.168.1.1
+/sbin/iptables -t nat -A POSTROUTING -o wlan0 -s 192.168.1.0/24 -j MASQUERADE
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;wireless-bridge.service&lt;/code&gt; is saved in &lt;code&gt;/etc/systemd/system&lt;/code&gt;, with 644
+file permissions, root as owner and group, and contains:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Unit]&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Wireless Bridge Service&lt;/span&gt;
+&lt;span class="na"&gt;After&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+
+&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;idle&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/sbin/wireless_bridge.sh&lt;/span&gt;
+
+&lt;span class="k"&gt;[Install]&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You could possibly change &lt;code&gt;multi-user.target&lt;/code&gt; to one of systemd's
+&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/"&gt;network
+targets&lt;/a&gt;,
+but I didn't bother testing this out, as the configuration above just
+seemed to work (with, I suppose, the possible cost of the bridged
+connection not being available until slightly later).&lt;/p&gt;
+&lt;p&gt;I also have the Xbox network settings as:&lt;/p&gt;
+&lt;p&gt;IP address: 192.168.1.2&lt;br /&gt;
+Subnet mask: 255.255.255.0&lt;br /&gt;
+Gateway: 192.168.1.1  &lt;/p&gt;
+&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry><entry><title>A digital piano buyers' guide for learners</title><link href="http://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;As I've &lt;a href="http://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
 here&lt;/a&gt;, I've been
 taking piano lessons since the start of this year. There I also
 mentioned I'd been using a keyboard to learn. Since then, I've switched
@@ -1300,96 +1406,4 @@ post a few days later.&lt;/p&gt;
   compilation.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="DJ"></category><category term="MP3"></category><category term="music"></category></entry><entry><title>Type:Rider: A Re:view</title><link href="http://www.stevenmaude.co.uk/posts/typerider-a-review" rel="alternate"></link><published>2017-03-29T00:31:00+01:00</published><updated>2017-03-29T00:31:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-03-29:posts/typerider-a-review</id><summary type="html">&lt;h2 id="a-journey-through-history"&gt;A journey through history&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Typography is ubiquitous and present in our daily lives, often without even
-noticing it.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;That's a quote from &lt;a href="http://typerider.arte.tv/"&gt;Type:Rider&lt;/a&gt;, what the
-developers call a "game documentary" and what I'd call a slightly frustrating,
-albeit compelling museum-style whistle stop tour through fonts and typography
-across human civilisation.&lt;/p&gt;
-&lt;p&gt;But the quote is spot on. Typography is everywhere, and though that's difficult
-to imagine for us today — just take a look around — it wasn't always like that.&lt;/p&gt;
-&lt;p&gt;Type:Rider goes on a journey from cave paintings, through to early writing
-systems, such as cuneiform and hieroglyphics, then onwards to the spread of
-printing across late medieval Europe, and the continued development of fonts,
-typography, all the way to the current age where words being marked on media
-has made way for being displayed on screen instead. So then, this is as much a
-study of the spread of information.&lt;/p&gt;
-&lt;p&gt;Not only is it a journey through history for the player, but for the two dots
-comprising a colon that the player controls. They roll along the level and can,
-somewhat inexplicably, jump and wall jump.&lt;/p&gt;
-&lt;h2 id="typerider-is-no-nightsky"&gt;Type:Rider is no NightSky&lt;/h2&gt;
-&lt;p&gt;Why two dots when, say, a full stop could have sufficed? Perhaps that's to
-avoid accusations of being a clone of Nifflas' relaxing
-&lt;a href="http://nifflas.ni2.se/?page=NightSky"&gt;NightSky&lt;/a&gt;. If anything, the extra dot is
-a hindrance; it makes the clumsy platforming even clumsier, and doesn't really
-add anything to the gameplay.&lt;/p&gt;
-&lt;p&gt;Extra dot aside, it is reminiscent of NightSky (itself a game you should check
-out) and I think the difficulty and the slightly sparse, often monochrome
-foreground level layouts are why comparisons are drawn to Playdead's
-&lt;a href="http://www.playdead.com/games/limbo/"&gt;Limbo&lt;/a&gt;. That, as well as the difficulty.
-The difficulty is another reason that Type:Rider seems to get compared to
-Trials, but this is a more loose association only. The Trials games are finely
-balanced and tuned, so as to allow for mastery of very delicate, precise
-controls. Type:Rider, unfortunately, is not. Quite often you'll end up bouncing
-off uselessly from walls, or find your &lt;a href="https://www.youtube.com/watch?v=xfKhDiUNOG0"&gt;pitiful leaps are insufficient to jump
-the chasms&lt;/a&gt; that you need to.&lt;/p&gt;
-&lt;p&gt;OK. It's not actually that glitchy — it's definitely no &lt;a href="https://www.youtube.com/watch?v=3MWEHwvcnyM"&gt;Sonic the Hedgehog
-2006&lt;/a&gt; — but the floatiness of how
-the dots "jump" and move, mean that there are some sections that are
-frustrating where you'll repeatedly bounce to your doom. With the addition of a
-couple of cheap instant death sections which seem like they were thrown in as
-attempts to add tension, it would have been just nicer to have a relaxing, easy
-to progress through, game.&lt;/p&gt;
-&lt;p&gt;On the plus side, restarts are quick and the checkpoints frequent, so it's rare
-that you find yourself repeating familiar ground. It does still break the flow
-of what would be an otherwise relaxing experience, but this at least tempers
-player frustration. &lt;/p&gt;
-&lt;h2 id="but-typeriders-still-worth-a-look"&gt;But Type:Rider's still worth a look&lt;/h2&gt;
-&lt;p&gt;That's all a pity, because the actual atmosphere, that of something like a very
-immersive museum exhibit is a pleasant one. The graphic designs of the levels,
-and the integration of fonts into them, are well thought out, and thematically
-cohesive in the ideas they're trying to portray and show imagination. The
-historical background is provided via brief, but informative, texts that are
-collected throughout the levels.&lt;/p&gt;
-&lt;p&gt;There are some peculiar issues, likely due to a quickly thrown together English
-localisation. There is one notably particularly bad translation that recurs
-throughout: the term &lt;em&gt;wheelbase&lt;/em&gt; peculiarly gets mentioned in the text several
-times. The Steam discussion forum for the game actually answered this: it's a
-&lt;a href="https://www.collinsdictionary.com/dictionary/french-english/empattement"&gt;badly proofread
-translation&lt;/a&gt;:
-it should be &lt;em&gt;serif&lt;/em&gt;. Likewise, there are some weird text kerning issues in the
-history text too, and it's likely that these too don't occur in the French
-original. But that's an oversight considering that the game is dealing with
-typography.&lt;/p&gt;
-&lt;p&gt;The scope of the game means that it is limited to telling a few stories, but as
-an introduction to some of the big names in history and the technological
-advances made, it does a good job. It is interesting just how important the
-onset of widespread dissemination of information has been, and the impact that
-has had since. We take the immediacy of that for granted now — you could well
-be reading this text that I wrote seconds after I published it on this site,
-wherever you are in the world — but the distribution of printed works on any
-useful scale wasn't even a concept until the late medieval period, just a few
-hundred years ago. It's difficult to comprehend that when information is so
-central to society now.&lt;/p&gt;
-&lt;p&gt;It's also interesting where Type:Rider leaves off, which is the development of
-&lt;a href="https://en.wikipedia.org/wiki/Generalized_Markup_Language"&gt;markup languages&lt;/a&gt;,
-and computer bitmap and vector fonts. A really big omission, perhaps because it
-was made a few years ago, back in 2013, is emoji. (However, emoji were big
-enough in 2013 to make it into the &lt;a href="http://public.oed.com/the-oed-today/recent-updates-to-the-oed/previous-updates/december-2013-update/new-words-katherine-martin/"&gt;Oxford English
-Dictionary&lt;/a&gt;.)
-Electronic communication saw the incorporation of emoticons, constructed from
-text to hint at tone where plain text may be ambiguous. That's been followed by
-the widespread use of emoji, where characters visually represent concepts or
-objects, and so that nicely brings us full circle: modern day communication
-harking back to how writing systems first began.&lt;/p&gt;
-&lt;p&gt;If the idea of spending a couple of hours learning about typography is
-something that sounds appealing, Type:Rider's worth spending the time with.
-Just take the gameplay for what it is, which is occasionally relaxing,
-sometimes frustrating, be prepared to work through the trickier sections. It's
-certainly hard to dislike a work that even manages to make a valiant attempt of
-painting &lt;a href="https://www.theguardian.com/artanddesign/2017/mar/28/how-we-made-font-comic-sans-typography"&gt;Comic Sans
-MS&lt;/a&gt;
-in a somewhat sympathetic light.&lt;/p&gt;</summary><category term="game"></category><category term="review"></category></entry></feed>
+&lt;/div&gt;</summary><category term="DJ"></category><category term="MP3"></category><category term="music"></category></entry></feed>
