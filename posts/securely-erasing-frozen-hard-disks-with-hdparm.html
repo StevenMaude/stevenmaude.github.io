@@ -97,6 +97,10 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2016-11-22T13:54:00+00:00"> 2016-11-22</time>
     </span>
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2017-12-29T21:59:00+00:00"> 2017-12-29</time>
+            </span>
 
 
 
@@ -109,7 +113,30 @@ stevenmaude.co.uk            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Yesterday I was trying to erase a hard drive before I used it for a new
+                <div class="admonition article-edit">
+<p>Edit 2017-12-29: Justin Smith, who'd read this post, had a
+discussion by email with me pointing out he'd had some problems
+with this process: namely, wiping appeared to complete, but then he
+could still find files present on the disk afterwards. I couldn't
+figure it out, but suggested Justin contacted hdparm's author, Mark
+Lord, for advice. Mark diagnosed the problem as the drive not being
+unmounted first:</p>
+<blockquote>
+<p>Yes, you MUST unmount anything that got automounted, because stuff
+that is mounted gets periodically written to by the kernel
+(filesystem timestamps etc), which could account for some of the
+non-zero stuff you saw later.</p>
+</blockquote>
+<p>Mark's suggestion for wiping the drive was as follows:</p>
+<blockquote>
+<p>Do this:</p>
+<p>(1) Un-mount all partitions of the drive, including those that got
+auto-mounted. Then do "sync".</p>
+<p>(2) Set an empty password: hdparm --security-set-pass NULL /dev/sdX</p>
+<p>(3) Erase it: hdparm --security-erase NULL /dev/sdX</p>
+</blockquote>
+</div>
+<p>Yesterday I was trying to erase a hard drive before I used it for a new
 install. It may well have never been used, but I couldn't remember and,
 for the sake of a few minutes, it seemed sensible to do so first.</p>
 <p>The best way to erase, especially if the drive is a solid state drive,
