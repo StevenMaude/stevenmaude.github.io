@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="http://www.stevenmaude.co.uk/" rel="alternate"></link><link href="http://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>http://www.stevenmaude.co.uk/</id><updated>2017-12-29T22:24:00+00:00</updated><entry><title>Upgrading Raspbian and rc.local failures</title><link href="http://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2017-12-29T22:24:00+00:00</updated><entry><title>Upgrading Raspbian and rc.local failures</title><link href="https://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
 &lt;p&gt;This is something I did a couple of months back, but figure it's worth
 documenting, to maybe help anyone with a similar problem search for it.&lt;/p&gt;
 &lt;p&gt;One use for my Raspberry Pi is as a wireless bridge, and this is mainly
@@ -74,9 +74,9 @@ working again.&lt;/p&gt;
 permissions, root as owner and group, and contains:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh -e&lt;/span&gt;
 /usr/sbin/ifplugd eth0 --kill
-/sbin/sysctl -w net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;1
-/sbin/ifconfig eth0 192.168.1.1
-/sbin/iptables -t nat -A POSTROUTING -o wlan0 -s 192.168.1.0/24 -j MASQUERADE
+/sbin/sysctl -w net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+/sbin/ifconfig eth0 &lt;span class="m"&gt;192&lt;/span&gt;.168.1.1
+/sbin/iptables -t nat -A POSTROUTING -o wlan0 -s &lt;span class="m"&gt;192&lt;/span&gt;.168.1.0/24 -j MASQUERADE
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -105,7 +105,7 @@ connection not being available until slightly later).&lt;/p&gt;
 &lt;p&gt;IP address: 192.168.1.2&lt;br /&gt;
 Subnet mask: 255.255.255.0&lt;br /&gt;
 Gateway: 192.168.1.1  &lt;/p&gt;
-&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry><entry><title>A digital piano buyers' guide for learners</title><link href="http://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;As I've &lt;a href="http://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
+&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry><entry><title>A digital piano buyers' guide for learners</title><link href="https://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;As I've &lt;a href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
 here&lt;/a&gt;, I've been
 taking piano lessons since the start of this year. There I also
 mentioned I'd been using a keyboard to learn. Since then, I've switched
@@ -239,7 +239,7 @@ piano.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;headphone noise; after I had an experience with a keyboard's headphone
-  output being &lt;a href="http://www.stevenmaude.co.uk/posts/the-buzz-and-hum-of-learning-a-new-instrument"&gt;distractingly
+  output being &lt;a href="https://www.stevenmaude.co.uk/posts/the-buzz-and-hum-of-learning-a-new-instrument"&gt;distractingly
   noisy&lt;/a&gt;,
   I knew I should check this on any piano I bought.  Just remember to
   take the pair of headphones you use with you when looking at a piano
@@ -358,7 +358,7 @@ previous keyboard initially, it didn't take that long to adjust. Since
 then, it has made a noticeable difference in my confidence going into
 piano lessons and being sat at an acoustic grand piano. It now feels
 much more a natural transition to go from playing at home to playing in
-lessons.&lt;/p&gt;</summary><category term="music"></category><category term="piano"></category></entry><entry><title>Full of heart: an Undertale review</title><link href="http://www.stevenmaude.co.uk/posts/full-of-heart-an-undertale-review" rel="alternate"></link><published>2017-08-20T15:47:00+01:00</published><updated>2017-08-20T15:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-08-20:posts/full-of-heart-an-undertale-review</id><summary type="html">&lt;h2 id="playing-undertale-fills-you-with-determination"&gt;Playing Undertale fills you with determination&lt;/h2&gt;
+lessons.&lt;/p&gt;</summary><category term="music"></category><category term="piano"></category></entry><entry><title>Full of heart: an Undertale review</title><link href="https://www.stevenmaude.co.uk/posts/full-of-heart-an-undertale-review" rel="alternate"></link><published>2017-08-20T15:47:00+01:00</published><updated>2017-08-20T15:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-08-20:posts/full-of-heart-an-undertale-review</id><summary type="html">&lt;h2 id="playing-undertale-fills-you-with-determination"&gt;Playing Undertale fills you with determination&lt;/h2&gt;
 &lt;p&gt;Undertale's almost two years old. Yet I only bothered to play it this
 year. If you have a PS4 and never got it on PC, it was released this
 week. While the PC version will have been much cheaper while on sale,
@@ -432,7 +432,7 @@ beating down your windows, a dull Tuesday where you're miserably plagued
 with cold, or maybe even a snowy Thursday where you have the luxury of
 being snowed in, unable to get to school or work, and are just warming
 up with hot chocolate after already having been out to play in the snow.&lt;/p&gt;
-&lt;p&gt;It's that kind of game.&lt;/p&gt;</summary><category term="game"></category><category term="review"></category></entry><entry><title>Flipping out over swimming turns</title><link href="http://www.stevenmaude.co.uk/posts/flipping-out-over-swimming-turns" rel="alternate"></link><published>2017-07-29T12:18:00+01:00</published><updated>2017-07-29T12:18:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-29:posts/flipping-out-over-swimming-turns</id><summary type="html">&lt;p&gt;Note that I actually learned how to flip (or tumble) turn a while ago,
+&lt;p&gt;It's that kind of game.&lt;/p&gt;</summary><category term="game"></category><category term="review"></category></entry><entry><title>Flipping out over swimming turns</title><link href="https://www.stevenmaude.co.uk/posts/flipping-out-over-swimming-turns" rel="alternate"></link><published>2017-07-29T12:18:00+01:00</published><updated>2017-07-29T12:18:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-29:posts/flipping-out-over-swimming-turns</id><summary type="html">&lt;p&gt;Note that I actually learned how to flip (or tumble) turn a while ago,
 drafted this back then and only just got round to posting it.&lt;/p&gt;
 &lt;h2 id="turn-down-for-what"&gt;Turn down for what?&lt;/h2&gt;
 &lt;p&gt;I have been swimming for probably the best part of twenty years. That is
@@ -584,7 +584,7 @@ right.&lt;/p&gt;
   to learn.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="swimming"></category></entry><entry><title>Rinse FM's SoundCloud account takedown</title><link href="http://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown" rel="alternate"></link><published>2017-07-18T21:56:00+01:00</published><updated>2017-07-18T21:56:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-15:posts/rinse-fms-soundcloud-account-takedown</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+&lt;/div&gt;</summary><category term="swimming"></category></entry><entry><title>Rinse FM's SoundCloud account takedown</title><link href="https://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown" rel="alternate"></link><published>2017-07-18T21:56:00+01:00</published><updated>2017-07-18T21:56:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-15:posts/rinse-fms-soundcloud-account-takedown</id><summary type="html">&lt;div class="admonition article-edit"&gt;
 &lt;p&gt;Edit 2017-07-18: SoundCloud have now restored &lt;a href="https://twitter.com/geeneus/status/887050524067061760"&gt;Rinse FM's
 account&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Nonetheless, the points below still stand in relation to hosting
@@ -708,11 +708,11 @@ Hedging your bets seems the only viable solution.&lt;/p&gt;
   station bosses are often so unadventurous.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:2"&gt;
-&lt;p&gt;Look &lt;a href="http://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human"&gt;what happened to my GitHub account last year&lt;/a&gt;,
+&lt;p&gt;Look &lt;a href="https://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human"&gt;what happened to my GitHub account last year&lt;/a&gt;,
   for example.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry><entry><title>Do you even Liszt? Five months of learning piano</title><link href="http://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano" rel="alternate"></link><published>2017-06-11T14:06:00+01:00</published><updated>2017-06-11T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-06-11:posts/do-you-even-liszt-five-months-of-learning-piano</id><summary type="html">&lt;h2 id="why-learn-now"&gt;Why learn now?&lt;/h2&gt;
+&lt;/div&gt;</summary><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry><entry><title>Do you even Liszt? Five months of learning piano</title><link href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano" rel="alternate"></link><published>2017-06-11T14:06:00+01:00</published><updated>2017-06-11T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-06-11:posts/do-you-even-liszt-five-months-of-learning-piano</id><summary type="html">&lt;h2 id="why-learn-now"&gt;Why learn now?&lt;/h2&gt;
 &lt;p&gt;Other posts on my blog highlight the small theme of me very, very slowly
 trying to get better at making music. When you're a novice, it's natural
 to ask what's the best way to improve? Some common advice I've found on
@@ -883,7 +883,7 @@ create as &lt;a href="https://en.wikipedia.org/wiki/Outsider_music"&gt;distinct 
 unique&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="learning"></category><category term="music"></category><category term="piano"></category></entry><entry><title>Looking at Ableton's Learning Music</title><link href="http://www.stevenmaude.co.uk/posts/looking-at-abletons-learning-music" rel="alternate"></link><published>2017-05-21T20:09:00+01:00</published><updated>2017-05-21T20:09:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-21:posts/looking-at-abletons-learning-music</id><summary type="html">&lt;p&gt;Previously I &lt;a href="http://www.stevenmaude.co.uk/posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers"&gt;looked at Ableton's book of ideas for music
+&lt;/div&gt;</summary><category term="learning"></category><category term="music"></category><category term="piano"></category></entry><entry><title>Looking at Ableton's Learning Music</title><link href="https://www.stevenmaude.co.uk/posts/looking-at-abletons-learning-music" rel="alternate"></link><published>2017-05-21T20:09:00+01:00</published><updated>2017-05-21T20:09:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-21:posts/looking-at-abletons-learning-music</id><summary type="html">&lt;p&gt;Previously I &lt;a href="https://www.stevenmaude.co.uk/posts/book-and-talk-review-making-music-74-creative-strategies-for-electronic-music-producers"&gt;looked at Ableton's book of ideas for music
 producers&lt;/a&gt; that came out
 a while back, geared to people with some experience of making music
 already. That did well in summarising suggestions for creativity into
@@ -976,7 +976,7 @@ for me, the site succeeds in its aims.&lt;/p&gt;
 spare hour or two and want to learn a little about creating music, or if
 you just want to see breakdowns of how parts of some pieces of music
 work — music that you may well have already heard and loved — it's more
-than worth your time to work through the material Ableton are offering.&lt;/p&gt;</summary><category term="Ableton"></category><category term="music"></category><category term="music theory"></category></entry><entry><title>Trying to trim down static GTFS feeds</title><link href="http://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-12-29T22:24:00+00:00</published><updated>2017-12-29T22:24:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
+than worth your time to work through the material Ableton are offering.&lt;/p&gt;</summary><category term="Ableton"></category><category term="music"></category><category term="music theory"></category></entry><entry><title>Trying to trim down static GTFS feeds</title><link href="https://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-12-29T22:24:00+00:00</published><updated>2017-12-29T22:24:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
 &lt;p&gt;This week I've been attempting to reduce the size of a static GTFS feed.&lt;/p&gt;
 &lt;p&gt;For the uninitiated, GTFS is the &lt;a href="https://developers.google.com/transit/gtfs/"&gt;General Transit Feed
 Specification&lt;/a&gt;, a format
@@ -1202,7 +1202,7 @@ files&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This footnote definitely turned out much longer than planned.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry><entry><title>Learning LaTeX: why and how</title><link href="http://www.stevenmaude.co.uk/posts/learning-latex-why-and-how" rel="alternate"></link><published>2017-05-01T15:02:00+01:00</published><updated>2017-05-01T15:02:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-01:posts/learning-latex-why-and-how</id><summary type="html">&lt;h2 id="sharelatex"&gt;ShareLaTeX&lt;/h2&gt;
+&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry><entry><title>Learning LaTeX: why and how</title><link href="https://www.stevenmaude.co.uk/posts/learning-latex-why-and-how" rel="alternate"></link><published>2017-05-01T15:02:00+01:00</published><updated>2017-05-01T15:02:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-01:posts/learning-latex-why-and-how</id><summary type="html">&lt;h2 id="sharelatex"&gt;ShareLaTeX&lt;/h2&gt;
 &lt;p&gt;Today I saw &lt;a href="https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes"&gt;this
 documentation&lt;/a&gt;
 from ShareLaTeX linked on Hacker News and, as I haven't used LaTeX in a
@@ -1383,7 +1383,7 @@ than thirty years after its first development. Furthermore, it's also
 released under an open source license (the LaTeX Project Public License)
 so these professional-level tools are available to everyone at no cost.
 If you have the likes of long reports or a thesis to write, it's
-certainly still worth a look.&lt;/p&gt;</summary><category term="LaTeX"></category><category term="document preparation"></category><category term="word processor"></category></entry><entry><title>Building a music collection on a budget</title><link href="http://www.stevenmaude.co.uk/posts/building-a-music-collection-on-a-budget" rel="alternate"></link><published>2017-04-04T13:55:00+01:00</published><updated>2017-04-04T13:55:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-04-04:posts/building-a-music-collection-on-a-budget</id><summary type="html">&lt;p&gt;A couple of months back I wrote something on trying to find inexpensive music
+certainly still worth a look.&lt;/p&gt;</summary><category term="LaTeX"></category><category term="document preparation"></category><category term="word processor"></category></entry><entry><title>Building a music collection on a budget</title><link href="https://www.stevenmaude.co.uk/posts/building-a-music-collection-on-a-budget" rel="alternate"></link><published>2017-04-04T13:55:00+01:00</published><updated>2017-04-04T13:55:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-04-04:posts/building-a-music-collection-on-a-budget</id><summary type="html">&lt;p&gt;A couple of months back I wrote something on trying to find inexpensive music
 for DJ sets for DJ TechTools which just &lt;a href="http://djtechtools.com/2017/04/02/dj-music-for-a-budget-beatmatcher/"&gt;got posted
 there&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There's another two tips here that I didn't think to include there.&lt;/p&gt;
