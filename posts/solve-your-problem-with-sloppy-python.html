@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>It's not often that I think of technical fixes as favourites, but... - stevenmaude.co.uk</title>
+    <title>Solve your problem with sloppy Python - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,29 +9,21 @@
 
 
 
-<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/its-not-often-that-i-think-of-technical">
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="LED,Revolution,charging,bash,mouse,Logitech,slam,MX,red,fix" />
-        <meta name="description" content="Fixing a common charging issue of the Logitech MX Revolution where the battery red LED flashes when charging." />
+        <meta name="keywords" content="PyCon,Python" />
+        <meta name="description" content="A summary of a talk by Larry Hastings at PyCon 2018." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="It&#39;s not often that I think of technical fixes as favourites, but..."/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/its-not-often-that-i-think-of-technical"/>
-        <meta property="og:description" content="Fixing a common charging issue of the Logitech MX Revolution where the battery red LED flashes when charging."/>
-        <meta property="article:published_time" content="2013-11-10" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="LED" />
-            <meta property="article:tag" content="Revolution" />
-            <meta property="article:tag" content="charging" />
-            <meta property="article:tag" content="bash" />
-            <meta property="article:tag" content="mouse" />
-            <meta property="article:tag" content="Logitech" />
-            <meta property="article:tag" content="slam" />
-            <meta property="article:tag" content="MX" />
-            <meta property="article:tag" content="red" />
-            <meta property="article:tag" content="fix" />
+        <meta property="og:title" content="Solve your problem with sloppy Python"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python"/>
+        <meta property="og:description" content="A summary of a talk by Larry Hastings at PyCon 2018."/>
+        <meta property="article:published_time" content="2018-05-20" />
+            <meta property="article:section" content="2018" />
+            <meta property="article:tag" content="PyCon" />
+            <meta property="article:tag" content="Python" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -94,7 +86,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                It's not often that I think of technical fixes as favourites, but...
+                Solve your problem with sloppy Python
                 </h1>
             </header>
             <div class="entry-content">
@@ -103,67 +95,101 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-11-10T16:49:00+00:00"> 2013-11-10</time>
+        <time datetime="2018-05-20T17:24:00+01:00"> 2018-05-20</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2013-11-10T17:12:00+00:00"> 2013-11-10</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/led">LED</a>
+	<a href="https://www.stevenmaude.co.uk/tag/pycon">PyCon</a>
         /
-	<a href="https://www.stevenmaude.co.uk/tag/revolution">Revolution</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/charging">charging</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/bash">bash</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/mouse">mouse</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/logitech">Logitech</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/slam">slam</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/mx">MX</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/red">red</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+	<a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>...this one is great. Normally I'm just relieved I've got something
-finally working and file the problem under 'done'.</p>
-<p>Anyway, I've had a Logitech MX Revolution mouse<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> for several years and
-recently spotted that it wasn't charging. It has a series of battery
-LEDs on the mouse which should normally flash green when charging. It
-seems to be a common problem where this just flashes red.</p>
-<p>The cause appears to be some kind of battery contact issue: <a href="http://alexking.org/blog/2008/01/29/mx-revolution-flashing-red-light-in-cradle">just
-slamming the underside of the mouse down against
-something</a>
-seems to be the advice that many users have taken to resolve it. In my
-case, it took a couple of tries to do this — and I'd recommend doing
-slamming it against something soft — but it worked.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>It's a fantastic mouse though unfortunately no longer manufactured,
-having been replaced by <a href="http://www.logitech.com/en-us/product/performance-mouse-mx">an inferior
-model</a>. Why
-has the second wheel been replaced by buttons? <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Performance-Mouse-MX-how-to-change-scroll-wheel-settings-and/td-p/451972?nobounce">Why do you have to press
-a button to toggle the scroll wheel from normal ratcheting scrolling to
-free wheel
-mode</a>, rather than it elegantly autoswitching when you spin the wheel fast
-enough? Who knows.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+                <h2 id="pycon-2018-a-quick-note">PyCon 2018: A quick note</h2>
+<p>As PyCon 2018 happened last week, I've been watching a few talks. It's
+sometimes difficult to keep up with changes to technology if you're not
+paying constant attention. These kinds of talks are a useful way of
+trying to catch up a little. With that in mind, I'm writing up summaries
+of a few talks here.</p>
+<h2 id="solve-your-problem-with-sloppy-python">Solve your problem with sloppy Python</h2>
+<p>The talk is available to <a href="https://www.youtube.com/watch?v=Jd8ulMb6_ls">watch
+here</a>, and an easy watch.
+This was a pragmatic and enjoyable talk that would be easy for beginners
+in Python to follow.</p>
+<p>It's a nice contrast from other programming talks too. Often,
+presenters, quite reasonably, focus on telling or teaching an audience
+what they believe to be best practice on a topic. Concentrating on a
+more practical side made for a light and refreshing approach.</p>
+<h3 id="code-being-discussed-is-for-personal-automation">Code being discussed is for personal automation</h3>
+<p>Writing code to solve your problem.</p>
+<ul>
+<li>Not writing code in a professional context.</li>
+<li>These are throwaway scripts.</li>
+<li>You're the only person writing it and likely to see it.</li>
+</ul>
+<h4 id="rules">Rules</h4>
+<ul>
+<li>Fail early and noisily.</li>
+<li>Use Python instead of shell scripts.</li>
+<li>Have fun!</li>
+</ul>
+<h4 id="guidelines">Guidelines</h4>
+<ul>
+<li>Use latest Python version to take advantage of new features.</li>
+<li>Try automating even more, push as far as you can go, but may have some
+  human intervention too.</li>
+<li>These projects are an excuse to try or learn new libraries/technologies.</li>
+</ul>
+<p>It doesn't matter if the code's hacky; you may not bother with tests.
+Quick and dirty code to get a job done. A couple of examples of this
+from the renaming files problem in the talk:</p>
+<ul>
+<li>using <code>ls</code> to generate a list of filenames in Python; add triple
+  quotes around string, <code>strip()</code> and <code>split()</code> on newlines gives a
+  list.</li>
+<li>using exceptions lists in renaming files (e.g. to add apostrophes to
+  words), run through each check for each filename. Most won't trigger,
+  so you're doing lots of unnecessary checks, and could refine that, but
+  performance unlikely to be an issue for these kinds of tasks.</li>
+</ul>
+<p>Cutting corners is OK in this context, if it gets the job done.</p>
+<h3 id="example-uses">Example uses</h3>
+<ul>
+<li>Renaming files. A general tip for file renaming tasks — in this case,
+  downloaded radio shows — back these up via creating hard links with
+  the same filenames in a backup directory. That way you can always
+  revert to the original names, without having to backup the files.
+  Could use Python's <code>os.link()</code> but also possible via a simple shell
+  loop: <code>mkdir backup &amp;&amp; for a in * ; do ln $a backup/$a ; done</code>.</li>
+<li>Provisioning new machines, e.g. running <code>apt install</code> and configuring
+  programs, e.g. copying license keys.</li>
+<li>Tidying audio files, creating playlists etc.; possibly with human
+  intervention here.</li>
+<li>Ripping CDs, using simple metadata format that can be parsed easily.</li>
+</ul>
+<h3 id="a-final-note">A final note</h3>
+<ul>
+<li>Sometimes Python was used to call out to the shell. <code>subprocess.run(s,
+  check=True, shell=True)</code> is better than <code>os.system()</code> because
+  <code>os.system()</code> does not fail noisily, but <code>subprocess.run()</code> does.</li>
+</ul>
+<h3 id="a-thought">A thought</h3>
+<p>One thing that didn't get asked in the Q&amp;A at the end: how should you
+estimate whether the automation is actually costing you time? xkcd
+has covered this well in these <a href="https://xkcd.com/1205/">two</a>
+<a href="https://xkcd.com/1319/">comics</a>.</p>
+<p>In some cases, it can be reasonably predicted that, if the process is
+either time consuming or will be repeated often, it's worthwhile to
+spend the time to write code as a solution to the problem.</p>
+<p>But, the "Rogue's Gallery" radio show renaming given as the main example
+presumably took a few minutes to write, find the exceptions (by hand)
+and verify (probably also by hand) the code is doing what it should.
+There are only actually a few shows to rename, and these themselves
+could be done by hand, as a one-off task.</p>
             </div>
             <!-- /.entry-content -->
         </article>
