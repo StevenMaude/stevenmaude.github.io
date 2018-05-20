@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>It's not often that I think of technical fixes as favourites, but... - stevenmaude.co.uk</title>
+    <title>PyCon - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,30 +9,16 @@
 
 
 
-<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/its-not-often-that-i-think-of-technical">
 
-        <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="LED,Revolution,charging,bash,mouse,Logitech,slam,MX,red,fix" />
-        <meta name="description" content="Fixing a common charging issue of the Logitech MX Revolution where the battery red LED flashes when charging." />
+    <meta name="author" content="Steven Maude" />
+    <meta name="keywords" content="PyCon" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="It&#39;s not often that I think of technical fixes as favourites, but..."/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/its-not-often-that-i-think-of-technical"/>
-        <meta property="og:description" content="Fixing a common charging issue of the Logitech MX Revolution where the battery red LED flashes when charging."/>
-        <meta property="article:published_time" content="2013-11-10" />
-            <meta property="article:section" content="2013" />
-            <meta property="article:tag" content="LED" />
-            <meta property="article:tag" content="Revolution" />
-            <meta property="article:tag" content="charging" />
-            <meta property="article:tag" content="bash" />
-            <meta property="article:tag" content="mouse" />
-            <meta property="article:tag" content="Logitech" />
-            <meta property="article:tag" content="slam" />
-            <meta property="article:tag" content="MX" />
-            <meta property="article:tag" content="red" />
-            <meta property="article:tag" content="fix" />
-            <meta property="article:author" content="Steven Maude" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="stevenmaude.co.uk"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk"/>
+        <meta property="og:description" content="stevenmaude.co.uk"/>
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -40,8 +26,6 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
-            <meta property="twitter:image"
-                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -90,84 +74,29 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                It's not often that I think of technical fixes as favourites, but...
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+            <article>
+                <h2 class="article-link"><a class="article-link" href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python">Solve your problem with sloppy Python</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2013-11-10T16:49:00+00:00"> 2013-11-10</time>
+        <time datetime="2018-05-20T17:24:00+01:00"> 2018-05-20</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2013-11-10T17:12:00+00:00"> 2013-11-10</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/led">LED</a>
+	<a href="https://www.stevenmaude.co.uk/tag/pycon">PyCon</a>
         /
-	<a href="https://www.stevenmaude.co.uk/tag/revolution">Revolution</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/charging">charging</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/bash">bash</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/mouse">mouse</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/logitech">Logitech</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/slam">slam</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/mx">MX</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/red">red</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+	<a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
     
 </footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>A summary of a talk by Larry Hastings at PyCon 2018.</p>
                 </div>
-                <p>...this one is great. Normally I'm just relieved I've got something
-finally working and file the problem under 'done'.</p>
-<p>Anyway, I've had a Logitech MX Revolution mouse<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> for several years and
-recently spotted that it wasn't charging. It has a series of battery
-LEDs on the mouse which should normally flash green when charging. It
-seems to be a common problem where this just flashes red.</p>
-<p>The cause appears to be some kind of battery contact issue: <a href="http://alexking.org/blog/2008/01/29/mx-revolution-flashing-red-light-in-cradle">just
-slamming the underside of the mouse down against
-something</a>
-seems to be the advice that many users have taken to resolve it. In my
-case, it took a couple of tries to do this — and I'd recommend doing
-slamming it against something soft — but it worked.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>It's a fantastic mouse though unfortunately no longer manufactured,
-having been replaced by <a href="http://www.logitech.com/en-us/product/performance-mouse-mx">an inferior
-model</a>. Why
-has the second wheel been replaced by buttons? <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Performance-Mouse-MX-how-to-change-scroll-wheel-settings-and/td-p/451972?nobounce">Why do you have to press
-a button to toggle the scroll wheel from normal ratcheting scrolling to
-free wheel
-mode</a>, rather than it elegantly autoswitching when you spin the wheel fast
-enough? Who knows.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
-            </div>
-            <!-- /.entry-content -->
-        </article>
-    </section>
+            </article>
+            <hr/>
 
         </div>
         <div class="col-sm-3" id="sidebar">
