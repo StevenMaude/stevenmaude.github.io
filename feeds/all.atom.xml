@@ -1129,6 +1129,7 @@ might clean the data up enough to make running the onebusaway
 transformer a little bit quicker, but it didn't seem worth bothering
 trying that again, as the data files overall were still large.&lt;/p&gt;
 &lt;div class="admonition article-edit"&gt;
+&lt;p class="admonition-title"&gt;"&lt;/p&gt;
 &lt;p&gt;Edit 2017-12-29: The author of gtfstidy emailed me to say:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;gtfstidy actually comes with a very handy option which I use
@@ -1214,6 +1215,7 @@ an alternative option instead of coding something.&lt;/p&gt;
 &lt;p&gt;This is all speculation for now; I haven't attempted any of this yet. If
 I do and it's useful, I'll share what I learn.&lt;/p&gt;
 &lt;div class="admonition article-edit"&gt;
+&lt;p class="admonition-title"&gt;"&lt;/p&gt;
 &lt;p&gt;Edit 2017-12-29: The approach I actually used to solve this problem
 is on &lt;a href="https://github.com/sensiblecodeio/diet-gtfs"&gt;GitHub&lt;/a&gt; albeit
 scrappy. It's possible to specify a latitude and longitude range,
