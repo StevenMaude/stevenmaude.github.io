@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>A look at Pipenv - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Pipenv,Python" />
+        <meta name="description" content="A quick look at Pipenv, a tool to manage Python packages." />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="A look at Pipenv"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv"/>
+        <meta property="og:description" content="A quick look at Pipenv, a tool to manage Python packages."/>
+        <meta property="article:published_time" content="2018-08-26" />
+            <meta property="article:section" content="2018" />
+            <meta property="article:tag" content="Pipenv" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="https://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="https://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="https://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                A look at Pipenv
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2018-08-26T14:06:00+01:00"> 2018-08-26</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.stevenmaude.co.uk/tag/pipenv">Pipenv</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><a href="https://github.com/pypa/pipenv">Pipenv</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> is a tool that aims to
+remove the hassle of using
+<a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under">virtualenvs</a>
+(Python runtime environments to keep separate Python setups for
+different projects independent), and also help manage requirements. It
+also aims to help provide deterministic builds of software.</p>
+<p>I had read about Pipenv previously, but couldn't ever really understand
+how it worked from just reading about it. So I switched from my existing
+virtualenv setup to this to try it out and figure out whether I can
+replicate the same behaviour I had with virtualenv and
+virtualenvwrapper.</p>
+<h2 id="differences">Differences</h2>
+<p>The main difference of Pipenv to the way you might work with virtualenvs
+— which, for me, is switch to a particular virtualenv for a project, then
+run commands in the shell as normal, just with a self-contained Python
+setup — is that Pipenv is more contextual.</p>
+<p>With Pipenv, you change to the appropriate project directory and then
+run commands directly in that virtualenv by preceding them with <code>pipenv
+run</code>, e.g. <code>pipenv run myscript.py</code>. Pipenv knows which virtualenv to
+use based on the location you're in.</p>
+<p>(You can also get more virtualenv-like behaviour by going to a project
+directory and doing <code>pipenv shell</code> where it effectively activates the
+virtualenv in the shell. However, one downside with this is that the
+subshell command history there only exists within that subshell; it is
+not stored in your main shell.)</p>
+<p>Another difference is that you would also tend to favour using <code>pipenv</code>
+over <code>pip</code> for installing packages; <code>pipenv install &lt;SOME_PACKAGE&gt;</code> also
+adds packages to your project's
+<a href="https://github.com/pypa/pipfile"><code>Pipfile</code></a>, which replaces the older
+<code>requirements.txt</code> file of specifying dependencies.</p>
+<h2 id="usage">Usage</h2>
+<p>You can create a new Pipenv either implicitly by <code>pipenv install --dev</code>
+which installs dependencies for that project (including dev
+dependencies) in a new virtualenv it creates, or more explicitly by:
+<code>pipenv --two</code> or <code>pipenv --three</code> which gets you a new virtualenv with
+that version of Python.</p>
+<p>You can also use <code>--python &lt;VERSION_NUMBER&gt;</code> to use a specific point
+release of Python of your choice you have installed, e.g. 3.7.
+Furthermore, if you have pyenv installed, it will install the requested
+version of Python for you, if that version is not installed already.</p>
+<p>There are two broad uses of virtualenvs I had:</p>
+<ol>
+<li>
+<p>for Python development to avoid any clash of package versions, which
+   is covered quite well by the default behaviour of Pipenv.</p>
+</li>
+<li>
+<p>for running standalone Python software I want to run, e.g.
+   Docker Compose, but keeping their installations entirely independent
+   of each other to avoid any conflicts. This isn't quite covered as
+   well, because <code>pipenv run</code> requires you to be in the directory or a
+   subdirectory of that directory<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> where you've already run Pipenv
+   and a Pipfile exists, as that's how I assume it figures out which
+   virtualenv to use. Otherwise, running Pipenv creates a new
+   virtualenv! I think <code>pipenv shell</code> works around this dropping you
+   into a new subshell where the virtualenv is activated.</p>
+<p>Alternatively, in bash, you can do <code>source $(pipenv
+--venv)/bin/activate</code> in the directory with the virtualenv, to work
+at a slightly lower level, with the virtualenv directly, without
+<code>pipenv shell</code>.</p>
+</li>
+</ol>
+<p>These use cases are both handled reasonably well by Pipenv.</p>
+<h2 id="summary">Summary</h2>
+<p>Pipenv seems to work well enough if you want to simplify using
+virtualenvs and management of dependencies. I think there are two groups
+of users that it might particularly suit: those who are newer to
+managing Python packaging and virtualenvs — as a means of abstracting
+away virtualenv management — and those who are more experienced but want
+to have a tool that integrates other features, e.g. checking for
+dependency vulnerabilities via <code>pipenv check</code> (which is provided by the
+<a href="https://github.com/pyupio/safety">safety</a> package).</p>
+<p>However, if you read around, there is still some contention about Pipenv
+being <a href="https://packaging.python.org/guides/tool-recommendations/">recommended by the
+PyPA</a>.
+Certainly, there are a considerable number of small issues that remove
+some of Pipenv's sheen; <a href="https://github.com/pypa/pipenv/issues/2753">I encountered a small one already
+reported</a> within just a
+short time of using Pipenv. There are also several issues relating to
+dependency resolution, which seem a little more critical seeing as
+dependency management is one of the tool's core goals.</p>
+<p>Pipenv then is no panacea for Python's still byzantine dependency
+management. <a href="https://www.python.org/dev/peps/pep-0020/">PEP 20</a>'s call
+for "one obvious way to do it" is not yet fully heeded. But maybe it's a
+step roughly in the right direction, even if there's still some
+meandering to do before there's a really simple and transparent workflow
+for Python. (However, I don't think it's uncommon for dependency
+management being tricky to get right either; Go has been around for a
+decade and is only just <a href="https://blog.golang.org/versioning-proposal">getting
+there</a>. Python's had
+considerably longer than Go to get it right though.)</p>
+<p>Finally, it is worth noting that there are other alternatives too.
+<a href="https://github.com/sdispater/poetry">Poetry</a> is a newer, and perhaps
+less well known, tool whose goals intersect with those of Pipenv. It
+fixes some of the existing issues of dependency resolution that
+pip-tools has (pip-tools is the underlying package that pipenv actually
+uses for this task), and therefore may be another useful contender to
+keep in mind.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Confusingly, Pipenv's name is capitalised, while pip's is not.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Caveat: it only looks a certain number of subdirectories deep by
+default, though <a href="https://github.com/pypa/pipenv/issues/1634">this number is configurable</a>.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
+                            BitLocker
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="https://www.stevenmaude.co.uk/tag/data">
+                            data
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
+                            encryption
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/linux">
+                            Linux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/music">
+                            music
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/python">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="https://www.stevenmaude.co.uk/tag/review">
+                            review
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="https://www.stevenmaude.co.uk/tag/windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="https://www.stevenmaude.co.uk/tag/wordpress">
+                            WordPress
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+    <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+
+</body>
+</html>
