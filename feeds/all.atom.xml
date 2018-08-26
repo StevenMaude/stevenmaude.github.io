@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-05-20T17:24:00+01:00</updated><entry><title>Solve your problem with sloppy Python</title><link href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python" rel="alternate"></link><published>2018-05-20T17:24:00+01:00</published><updated>2018-05-20T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-05-20:posts/solve-your-problem-with-sloppy-python</id><summary type="html">&lt;h2 id="pycon-2018-a-quick-note"&gt;PyCon 2018: A quick note&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-08-26T14:06:00+01:00</updated><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
+remove the hassle of using
+&lt;a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under"&gt;virtualenvs&lt;/a&gt;
+(Python runtime environments to keep separate Python setups for
+different projects independent), and also help manage requirements. It
+also aims to help provide deterministic builds of software.&lt;/p&gt;
+&lt;p&gt;I had read about Pipenv previously, but couldn't ever really understand
+how it worked from just reading about it. So I switched from my existing
+virtualenv setup to this to try it out and figure out whether I can
+replicate the same behaviour I had with virtualenv and
+virtualenvwrapper.&lt;/p&gt;
+&lt;h2 id="differences"&gt;Differences&lt;/h2&gt;
+&lt;p&gt;The main difference of Pipenv to the way you might work with virtualenvs
+— which, for me, is switch to a particular virtualenv for a project, then
+run commands in the shell as normal, just with a self-contained Python
+setup — is that Pipenv is more contextual.&lt;/p&gt;
+&lt;p&gt;With Pipenv, you change to the appropriate project directory and then
+run commands directly in that virtualenv by preceding them with &lt;code&gt;pipenv
+run&lt;/code&gt;, e.g. &lt;code&gt;pipenv run myscript.py&lt;/code&gt;. Pipenv knows which virtualenv to
+use based on the location you're in.&lt;/p&gt;
+&lt;p&gt;(You can also get more virtualenv-like behaviour by going to a project
+directory and doing &lt;code&gt;pipenv shell&lt;/code&gt; where it effectively activates the
+virtualenv in the shell. However, one downside with this is that the
+subshell command history there only exists within that subshell; it is
+not stored in your main shell.)&lt;/p&gt;
+&lt;p&gt;Another difference is that you would also tend to favour using &lt;code&gt;pipenv&lt;/code&gt;
+over &lt;code&gt;pip&lt;/code&gt; for installing packages; &lt;code&gt;pipenv install &amp;lt;SOME_PACKAGE&amp;gt;&lt;/code&gt; also
+adds packages to your project's
+&lt;a href="https://github.com/pypa/pipfile"&gt;&lt;code&gt;Pipfile&lt;/code&gt;&lt;/a&gt;, which replaces the older
+&lt;code&gt;requirements.txt&lt;/code&gt; file of specifying dependencies.&lt;/p&gt;
+&lt;h2 id="usage"&gt;Usage&lt;/h2&gt;
+&lt;p&gt;You can create a new Pipenv either implicitly by &lt;code&gt;pipenv install --dev&lt;/code&gt;
+which installs dependencies for that project (including dev
+dependencies) in a new virtualenv it creates, or more explicitly by:
+&lt;code&gt;pipenv --two&lt;/code&gt; or &lt;code&gt;pipenv --three&lt;/code&gt; which gets you a new virtualenv with
+that version of Python.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;code&gt;--python &amp;lt;VERSION_NUMBER&amp;gt;&lt;/code&gt; to use a specific point
+release of Python of your choice you have installed, e.g. 3.7.
+Furthermore, if you have pyenv installed, it will install the requested
+version of Python for you, if that version is not installed already.&lt;/p&gt;
+&lt;p&gt;There are two broad uses of virtualenvs I had:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;for Python development to avoid any clash of package versions, which
+   is covered quite well by the default behaviour of Pipenv.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;for running standalone Python software I want to run, e.g.
+   Docker Compose, but keeping their installations entirely independent
+   of each other to avoid any conflicts. This isn't quite covered as
+   well, because &lt;code&gt;pipenv run&lt;/code&gt; requires you to be in the directory or a
+   subdirectory of that directory&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; where you've already run Pipenv
+   and a Pipfile exists, as that's how I assume it figures out which
+   virtualenv to use. Otherwise, running Pipenv creates a new
+   virtualenv! I think &lt;code&gt;pipenv shell&lt;/code&gt; works around this dropping you
+   into a new subshell where the virtualenv is activated.&lt;/p&gt;
+&lt;p&gt;Alternatively, in bash, you can do &lt;code&gt;source $(pipenv
+--venv)/bin/activate&lt;/code&gt; in the directory with the virtualenv, to work
+at a slightly lower level, with the virtualenv directly, without
+&lt;code&gt;pipenv shell&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These use cases are both handled reasonably well by Pipenv.&lt;/p&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Pipenv seems to work well enough if you want to simplify using
+virtualenvs and management of dependencies. I think there are two groups
+of users that it might particularly suit: those who are newer to
+managing Python packaging and virtualenvs — as a means of abstracting
+away virtualenv management — and those who are more experienced but want
+to have a tool that integrates other features, e.g. checking for
+dependency vulnerabilities via &lt;code&gt;pipenv check&lt;/code&gt; (which is provided by the
+&lt;a href="https://github.com/pyupio/safety"&gt;safety&lt;/a&gt; package).&lt;/p&gt;
+&lt;p&gt;However, if you read around, there is still some contention about Pipenv
+being &lt;a href="https://packaging.python.org/guides/tool-recommendations/"&gt;recommended by the
+PyPA&lt;/a&gt;.
+Certainly, there are a considerable number of small issues that remove
+some of Pipenv's sheen; &lt;a href="https://github.com/pypa/pipenv/issues/2753"&gt;I encountered a small one already
+reported&lt;/a&gt; within just a
+short time of using Pipenv. There are also several issues relating to
+dependency resolution, which seem a little more critical seeing as
+dependency management is one of the tool's core goals.&lt;/p&gt;
+&lt;p&gt;Pipenv then is no panacea for Python's still byzantine dependency
+management. &lt;a href="https://www.python.org/dev/peps/pep-0020/"&gt;PEP 20&lt;/a&gt;'s call
+for "one obvious way to do it" is not yet fully heeded. But maybe it's a
+step roughly in the right direction, even if there's still some
+meandering to do before there's a really simple and transparent workflow
+for Python. (However, I don't think it's uncommon for dependency
+management being tricky to get right either; Go has been around for a
+decade and is only just &lt;a href="https://blog.golang.org/versioning-proposal"&gt;getting
+there&lt;/a&gt;. Python's had
+considerably longer than Go to get it right though.)&lt;/p&gt;
+&lt;p&gt;Finally, it is worth noting that there are other alternatives too.
+&lt;a href="https://github.com/sdispater/poetry"&gt;Poetry&lt;/a&gt; is a newer, and perhaps
+less well known, tool whose goals intersect with those of Pipenv. It
+fixes some of the existing issues of dependency resolution that
+pip-tools has (pip-tools is the underlying package that pipenv actually
+uses for this task), and therefore may be another useful contender to
+keep in mind.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Confusingly, Pipenv's name is capitalised, while pip's is not.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Caveat: it only looks a certain number of subdirectories deep by
+default, though &lt;a href="https://github.com/pypa/pipenv/issues/1634"&gt;this number is configurable&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Pipenv"></category><category term="Python"></category></entry><entry><title>Solve your problem with sloppy Python</title><link href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python" rel="alternate"></link><published>2018-05-20T17:24:00+01:00</published><updated>2018-05-20T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-05-20:posts/solve-your-problem-with-sloppy-python</id><summary type="html">&lt;h2 id="pycon-2018-a-quick-note"&gt;PyCon 2018: A quick note&lt;/h2&gt;
 &lt;p&gt;As PyCon 2018 happened last week, I've been watching a few talks. It's
 sometimes difficult to keep up with changes to technology if you're not
 paying constant attention. These kinds of talks are a useful way of
@@ -1284,185 +1393,4 @@ files&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This footnote definitely turned out much longer than planned.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry><entry><title>Learning LaTeX: why and how</title><link href="https://www.stevenmaude.co.uk/posts/learning-latex-why-and-how" rel="alternate"></link><published>2017-05-01T15:02:00+01:00</published><updated>2017-05-01T15:02:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-01:posts/learning-latex-why-and-how</id><summary type="html">&lt;h2 id="sharelatex"&gt;ShareLaTeX&lt;/h2&gt;
-&lt;p&gt;Today I saw &lt;a href="https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes"&gt;this
-documentation&lt;/a&gt;
-from ShareLaTeX linked on Hacker News and, as I haven't used LaTeX in a
-while, thought I'd quickly skim through to see what I remembered. And I
-started reminiscing about LaTeX which I'd been using semi-regularly
-around a decade ago, eventually writing a circa 300 page thesis with it.&lt;/p&gt;
-&lt;p&gt;If you've never encountered it before, LaTeX is a free software project
-that is described by the &lt;a href="https://www.latex-project.org"&gt;project's site&lt;/a&gt;
-as:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;a high-quality typesetting system; it includes features designed for
-the production of technical and scientific documentation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;There's nothing to stop you using it for other types of documents too;
-those are just the areas where it's traditionally used, particularly in
-academic circles.&lt;/p&gt;
-&lt;p&gt;Back to ShareLaTeX. First, the ShareLaTeX documentation looks pretty
-good if you need something to get you started.&lt;/p&gt;
-&lt;p&gt;I haven't used ShareLaTeX recently although I think I tried it out a few
-years back and it seemed fine enough. It's a web app that lets you
-prepare LaTeX documents and, if you pay, collaborate on them. One big
-advantage I can see of using a web app for LaTeX beginners is that it
-removes one of the barriers of starting with LaTeX: installing
-everything.&lt;/p&gt;
-&lt;h2 id="installing-latex-on-windows"&gt;Installing LaTeX on Windows&lt;/h2&gt;
-&lt;p&gt;I've not had cause to use LaTeX much recently, so haven't tried
-installing on Ubuntu; a lot of my writing is done via Markdown, whether
-technical documentation or words like the ones you're reading now on my
-blog.&lt;/p&gt;
-&lt;p&gt;On Windows, it used to be reasonably simple to get a working system with
-&lt;a href="http://www.texniccenter.org"&gt;TeXnicCenter&lt;/a&gt; and
-&lt;a href="https://miktex.org"&gt;MikTeX&lt;/a&gt;, but you'd still have to get a PDF viewer,
-like &lt;a href="https://www.sumatrapdfreader.org"&gt;SumatraPDF&lt;/a&gt; integrated into that
-for previewing. This &lt;a href="https://tex.stackexchange.com/questions/116981/how-to-configure-texniccenter-2-0-with-sumatra-2013-2016-version"&gt;Stack Exchange
-answer&lt;/a&gt;
-may help with integrating the PDF preview.&lt;/p&gt;
-&lt;p&gt;Though that's still three different bits of software you have to get
-working together, so not a trivial task by any means. From memory,
-install MikTeX first, as TeXnicCenter can detect it during install and
-configure its own settings to use your MikTeX installation without you
-needing to set things up by hand.&lt;/p&gt;
-&lt;h2 id="starting-out"&gt;Starting out&lt;/h2&gt;
-&lt;p&gt;The ShareLaTeX documentation just starts out with creating a basic
-document and has you working through following their example. That's
-fine to see things piece by piece. Beyond that the single suggestion I'd
-have for a new user to learn effectively is to take a completed document
-you have written, representative of what you'd like to create using
-LaTeX, and then &lt;strong&gt;struggle through recreating that existing document in
-LaTeX&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;And it may well be a struggle, but this has a few benefits:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;It's presumably a finished work, so you don't have any time pressure
-  for completion. With a deadline to meet, as soon as you encounter
-  issues with LaTeX, you'll likely fall back to whatever word processor
-  or document creator you're comfortable with to get the job done, and
-  then give up on learning LaTeX.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Using a document similar to that you'd usually be writing, you'll
-  encounter many of the issues in LaTeX that you'd hit doing so, and can
-  solve these without the aforementioned time pressure.&lt;/p&gt;
-&lt;p&gt;In my experience, it was graphics and, especially, table layouts
-that caused the most problems, but you may have particular
-typography requirements that require some package to be installed,
-or some subtle override of the LaTeX defaults to change.&lt;/p&gt;
-&lt;p&gt;Finding these solutions is not always quick, but I imagine there are
-more forum posts, &lt;a href="https://tex.stackexchange.com/"&gt;Stack Exchange&lt;/a&gt;
-questions and blog posts around than there were when I started, so
-it's likely someone's encountered and asked about the same issue
-you're dealing with. The LaTeX Community forum was also a good
-source of helpful solutions from knowledgable people even in its
-early days ten years ago, and &lt;a href="http://latex.org/forum/"&gt;still lives on
-today&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A completed document gives you a reference for getting started in
-  future.  You can use it as the basis for a new document, instead of
-  starting from nothing, or you can just refer back to it and copy and
-  paste appropriate bits of formatting markup you need.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="latex-versus-word"&gt;LaTeX versus Word&lt;/h2&gt;
-&lt;h3 id="latex-installation"&gt;LaTeX installation&lt;/h3&gt;
-&lt;p&gt;As I saw it when learning back in 2007ish, LaTeX was more difficult to
-get started with than the likes of conventional word processors: the
-installation isn't trivial, and you need several things other than your
-desired text in a LaTeX document before you can get that text to
-display. In a word processor, you can just start typing. So there's some
-level of competence you need just to make &lt;em&gt;any&lt;/em&gt; old document, let alone
-the one you actually want to make.&lt;/p&gt;
-&lt;h3 id="word-woes"&gt;Word woes&lt;/h3&gt;
-&lt;p&gt;Word is easy to get started with, but Word had, and maybe still has, its
-own problems: again, going back to 2007, to when Word 2003 was still
-popular, referencing support was limited, that you'd use external tools
-for (e.g. EndNote or &lt;a href="https://www.zotero.org/"&gt;Zotero&lt;/a&gt;).  I'm not sure
-how Word looks with respect to that now.&lt;/p&gt;
-&lt;p&gt;Back then, Word seemed to struggle and be sluggish with large documents
-with lots of images, which was always fun. Again, maybe that's improved
-in recent versions? When editing LaTeX, you're only editing the source
-markup in whatever text editor you choose to use, and this source, even
-for a lengthy document, will be relatively small; images for LaTeX are
-stored entirely separately from the source. &lt;/p&gt;
-&lt;p&gt;Another issue with Word is ensuring formatting styles are correctly and
-consistently applied to text. You can create styles, but you then have
-to apply them by hand, selecting the text. Sometimes you may delete
-spacing between words and suddenly you have to reapply a styling, as the
-text has changed to the style of its neighbours. In LaTeX, anything to
-do with formatting is specified explicitly in the markup, making it easy
-to see that the correct styling is applied to the text.  Furthermore,
-the LaTeX defaults are usually decent, not always perfect, but decent.&lt;/p&gt;
-&lt;h3 id="the-good-and-bad-of-latex"&gt;The good and bad of LaTeX&lt;/h3&gt;
-&lt;p&gt;This explicitness and strictness of LaTeX is good and bad. It means that
-you know what is intended for your text, but it also means that it's
-possible for you to break your document sufficiently such that it cannot
-be rendered correctly, or sometimes even at all, by LaTeX.&lt;/p&gt;
-&lt;p&gt;If you've done programming and are used to finding and correcting your
-inevitable mistakes, this isn't unusual. But the idea of having written
-a document that you can't then display in the intended output format may
-be an intimidating concept to new users. Likewise, the error messages
-can be numerous and formal, and not much help to novice users.&lt;/p&gt;
-&lt;p&gt;Tricks known to programmers like a regular edit-compile cycle to ensure
-you find issues as you create them, or commenting out markup to isolate
-the specific parts of markup that are the cause of difficult to
-understand problems are useful skills. (These ways of working are
-perhaps a result of the creators of LaTeX — and TeX, which LaTeX is
-built on — being computer scientists.) However, these concepts may not
-be immediately obvious by users with little experience of coding who
-just want to get on with writing, and don't want tools getting in the
-way.&lt;/p&gt;
-&lt;p&gt;On the other hand, working just with the LaTeX source and focusing on
-the text alone seems much more productive to me. You can concentrate on
-content first, and fix up the presentation at the end. Otherwise, I find
-that working alongside the printed document layout presents me with the
-continuous distraction of making things look "right", fixing incorrect
-formatting or alignments, even though the content in question could be
-modified or removed entirely during later editing. This time might be
-better spent just writing.&lt;/p&gt;
-&lt;p&gt;Talking of layout, in my opinion, a LaTeX document using defaults will
-be much more pleasant to read than a Word document using defaults. To
-some extent, in both cases, this can somewhat depend on templates that
-you may choose to create your document, but a default LaTeX document has
-more of the look of a professionally typeset book.&lt;/p&gt;
-&lt;p&gt;Finally, many useful additions to LaTeX come in the form of a huge range
-of additional packages you can install to add new commands and features.
-Again, this is a mixed blessing. First, you need to be aware that they
-even exist — &lt;a href="https://tex.stackexchange.com/questions/553/what-packages-do-people-load-by-default-in-latex"&gt;lists like
-this&lt;/a&gt;
-can help: there may be a package perfect for what you're trying to do,
-but you just haven't discovered it yet. Another hassle is that you can
-have incompatibility issues between certain packages, or they may
-require to be loaded in a certain order. Fixing problems like these is
-time, again, spent on tools, not on writing.&lt;/p&gt;
-&lt;p&gt;You do need to be careful of package updates. Mostly these should be
-benign, but in one case I experienced, a package update suddenly broke
-my document, and I had to spend time discovering the problem and
-reverting the package version.  (My memory's hazy, but I think this was
-complicated by MikTeX only having the latest package versions, so in the
-end I think that I had to download from elsewhere and install by hand.)
-This may be an issue for compiling documents if you return to them much
-later in the future: if any of the packages have broken their backwards
-compatibility, you may be stuck. There's also no easy way that I was
-aware of to pin package versions, like you might in a &lt;a href="https://packaging.python.org/requirements/"&gt;Python
-setup.py&lt;/a&gt; file.&lt;/p&gt;
-&lt;h2 id="do-you-still-need-to-learn-latex-these-days"&gt;Do you still need to learn LaTeX these days?&lt;/h2&gt;
-&lt;p&gt;Since I learned LaTeX, software like &lt;a href="http://pandoc.org/"&gt;pandoc&lt;/a&gt; has
-appeared and made it simple to write in other formats — for instance,
-Markdown, reStructuredText, or HTML — and convert that to LaTeX.
-&lt;a href="https://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; in particular is very
-simple, and easy to learn.&lt;/p&gt;
-&lt;p&gt;For relatively straightforward documents, that's an alternative to give
-you the benefit of nicely typeset output, without having to bother
-writing LaTeX directly. This can give you a handy subset of LaTeX in
-potentially a simpler markup, especially with Markdown.&lt;/p&gt;
-&lt;p&gt;However, LaTeX remains flexible and powerful and, especially for
-creating more complicated documents, it still retains popularity more
-than thirty years after its first development. Furthermore, it's also
-released under an open source license (the LaTeX Project Public License)
-so these professional-level tools are available to everyone at no cost.
-If you have the likes of long reports or a thesis to write, it's
-certainly still worth a look.&lt;/p&gt;</summary><category term="LaTeX"></category><category term="document preparation"></category><category term="word processor"></category></entry></feed>
+&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry></feed>
