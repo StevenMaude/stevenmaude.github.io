@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-08-26T14:06:00+01:00</updated><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-11-10T13:23:00+00:00</updated><entry><title>git: nice and lease-y</title><link href="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y" rel="alternate"></link><published>2018-11-10T13:23:00+00:00</published><updated>2018-11-10T13:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-11-10:posts/git-nice-and-lease-y</id><summary type="html">&lt;h2 id="can-you-feel-the-force"&gt;Can you feel the &lt;code&gt;--force&lt;/code&gt;?&lt;/h2&gt;
+&lt;p&gt;Force pushing to a remote repository that others may be using should
+always be done with care. Even if it's a completely private repository
+that only you use, you maybe should double check your thinking before
+going ahead.&lt;/p&gt;
+&lt;p&gt;The double edged sword of a force push is that you're changing the state
+of the remote repository history irrevocably.&lt;/p&gt;
+&lt;p&gt;This can be good, for instance, if you're working on a non-master
+repository branch that you "own" and have perhaps cleaned it up:
+rebasing it, removing or squashing unneeded separate commits.&lt;/p&gt;
+&lt;p&gt;It can be bad if you force push to master on a repository, and cause, at
+minimum, considerable inconvenience for other developers. Those
+developesr may now face working out what exactly has happened to the
+repository, when they try and integrate their future changes, or may be
+baffled that a previously existing commit has now mysteriously
+disappeared.&lt;/p&gt;
+&lt;p&gt;If you're working on a non-master development branch, you may be a
+little bit more lax in how you force push. Certainly, the way I've used
+branches with other people is that generally a branch is owned by one
+particular person, and those are free to be amended by that branch owner
+(usually the creator of that branch, although ownership may be passed
+from person to person). Then, as the agreed owner of such a branch,
+provided I know that I'm happy with the local changes, I can just force
+push to that development branch.&lt;/p&gt;
+&lt;p&gt;However, that's not always the case. Perhaps two people are working on
+the same branch, maybe working on slightly different things, e.g. one
+could be working on frontend changes for the site, while another works
+on backend changes, but these changes are part of the same feature, and
+therefore need to be part of the same branch. &lt;/p&gt;
+&lt;h2 id="what-force-with-lease-offers-over-vanilla-force"&gt;What &lt;code&gt;--force-with-lease&lt;/code&gt; offers over vanilla &lt;code&gt;--force&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;What I discovered recently, although it's been around for ages, is that
+git has another option for forcing push: &lt;code&gt;--force-with-lease&lt;/code&gt;. What this
+option does is checks that the remote branch is still in the same state
+it was when you last pulled it, and refuses to force push if not, i.e.
+there have been no other changes to the branch in the intervening time.&lt;/p&gt;
+&lt;p&gt;Of course, you can always still override this check by just using plain
+old &lt;code&gt;--force&lt;/code&gt;. But &lt;code&gt;--force-with-lease&lt;/code&gt; at least gives you another
+safety check before force pushing, just in case someone else has altered
+the remote branch (giving you chance, for example, to pull that branch,
+and rebase your changes on it), and avoiding any confusion between
+developers, and potentially loss of work.&lt;/p&gt;
+&lt;p&gt;Note though, &lt;a href="https://stackoverflow.com/a/43726130"&gt;as this answer
+highlights&lt;/a&gt;, if you have an editor
+or other scheduled task running &lt;code&gt;git fetch&lt;/code&gt; in the background,
+&lt;code&gt;--force-with-lease&lt;/code&gt; won't offer any protection as the remote tracking
+branches that would be stored locally are being periodically updated.&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
 remove the hassle of using
 &lt;a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under"&gt;virtualenvs&lt;/a&gt;
 (Python runtime environments to keep separate Python setups for
@@ -1165,232 +1210,4 @@ for me, the site succeeds in its aims.&lt;/p&gt;
 spare hour or two and want to learn a little about creating music, or if
 you just want to see breakdowns of how parts of some pieces of music
 work — music that you may well have already heard and loved — it's more
-than worth your time to work through the material Ableton are offering.&lt;/p&gt;</summary><category term="Ableton"></category><category term="music"></category><category term="music theory"></category></entry><entry><title>Trying to trim down static GTFS feeds</title><link href="https://www.stevenmaude.co.uk/posts/trying-to-trim-down-static-gtfs-feeds" rel="alternate"></link><published>2017-12-29T22:24:00+00:00</published><updated>2017-12-29T22:24:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-05-05:posts/trying-to-trim-down-static-gtfs-feeds</id><summary type="html">&lt;h2 id="whats-a-gtfs-feed"&gt;What's a GTFS feed?&lt;/h2&gt;
-&lt;p&gt;This week I've been attempting to reduce the size of a static GTFS feed.&lt;/p&gt;
-&lt;p&gt;For the uninitiated, GTFS is the &lt;a href="https://developers.google.com/transit/gtfs/"&gt;General Transit Feed
-Specification&lt;/a&gt;, a format
-for public transport providers to distribute details of their services.
-For example, a bus operator might want to share which routes they run
-on, and the times at which they arrive at certain stops. It's not
-restricted to buses. You might find GTFS feeds published for trains,
-underground services, ferries and &lt;a href="https://developers.google.com/transit/gtfs/reference/routes-file"&gt;even
-gondolas&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The "static" distinguishes those feeds from realtime&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; feeds. Static
-feeds are just zip files that contain a number of text files in a
-comma-separated values (CSV) format, with a .txt filename extension.
-These CSVs detail regular timetables that should remain valid for some
-reasonable length of time, i.e. they change infrequently.&lt;/p&gt;
-&lt;p&gt;Realtime feeds (GTFS-RT) report, for example, live trip updates (e.g.
-when a bus gets behind the published ideal schedule) or vehicle
-locations. Realtime feeds are in Google's Protocol Buffers format, not
-CSV. It's useful to be aware of the difference, but, beyond that, I
-won't discuss GTFS-RT feeds further in this post.&lt;/p&gt;
-&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;Colleagues on a project were attempt to load the data we'd found for a
-particular country, and they were finding it far too large to be usable.
-GTFS files come zipped, and the total unzipped content of this file
-wasn't far off a gigabyte, and the import into their software was taking
-too long.&lt;/p&gt;
-&lt;p&gt;They were only interested in one geographic region, so maybe most
-content can be filtered out either by location, or by transport agency.
-Here's a rundown of what I found with the existing tools.&lt;/p&gt;
-&lt;h2 id="onebusaway-gtfs-transformer"&gt;onebusaway GTFS transformer&lt;/h2&gt;
-&lt;p&gt;Oh, on seeing the &lt;a href="http://developer.onebusaway.org/modules/onebusaway-gtfs-modules/1.3.3/onebusaway-gtfs-transformer-cli.html"&gt;onebusaway GTFS
-transformer&lt;/a&gt;,
-it seemed like a dream.&lt;/p&gt;
-&lt;p&gt;It's a Java program that lets you simply specify the agencies to retain
-from the feed in a simple JSON format, and it's fairly comprehensive in
-how you can do that. So, hey, let's write a simple transform JSON that
-keeps the bus and train agency for the region of interest, and drop the
-rest. Exactly what's needed, and a job well done, so now I can relax, and
-take a well-earned rest.&lt;/p&gt;
-&lt;p&gt;Oh, &lt;em&gt;opens eyes to the smell of a burning PC&lt;/em&gt;, it's time to wake up.&lt;/p&gt;
-&lt;p&gt;The documentation does provide a warning that this transformation may be
-memory and CPU hungry with large GTFS feeds, and that's what I found.&lt;/p&gt;
-&lt;p&gt;Unfortunately, the transformer seemed to choke on this large GTFS file.
-It ran for a long time (hours, across multiple CPUs), got stuck spinning
-its wheels on the huge stop_times.txt file (millions of lines) and never
-managed to escape that mud. As well as that, out of memory errors were a
-problem. In the software's defence, the free memory on the instance I
-was running on was fairly limited.&lt;/p&gt;
-&lt;p&gt;If you've simpler GTFS feeds to work with, it may do the trick, but, for
-large ones, you'll need a beefy PC to possibly get anywhere with it.
-That said, there's little status output while it's running, meaning it
-was unclear whether the transformer was ever doing any useful work or
-just getting stuck in some loop.&lt;/p&gt;
-&lt;h2 id="gtfstidy"&gt;gtfstidy&lt;/h2&gt;
-&lt;p&gt;Next, &lt;a href="https://github.com/patrickbr/gtfstidy/"&gt;gtfstidy&lt;/a&gt;. It can reduce
-the size of static GTFS feeds by removing redundant content, simplifying
-identifiers and doing clever things to optimise shape data.&lt;/p&gt;
-&lt;p&gt;It's written in Go, although there are no builds provided, so you'll
-have to have Go to install or compile it yourself, which is easy enough.&lt;/p&gt;
-&lt;p&gt;Once again, it took a long time to process; here, about five hours on my
-2013 Core i5 laptop. Then, gtfstidy crashed right at the end of
-processing the data &lt;a href="https://github.com/patrickbr/gtfstidy/issues/1"&gt;because as I later discovered, it expected the
-output directory to
-exist&lt;/a&gt; and just failed
-to write the output otherwise.&lt;/p&gt;
-&lt;p&gt;And then it took &lt;em&gt;another&lt;/em&gt; few hours after I created said output
-directory to run again and actually get the cleaned feed data.&lt;/p&gt;
-&lt;p&gt;In the end, gtfstidy reduced the total size of the GTFS files by about
-150 MB, which is a considerable saving. My initial idea was maybe it
-might clean the data up enough to make running the onebusaway
-transformer a little bit quicker, but it didn't seem worth bothering
-trying that again, as the data files overall were still large.&lt;/p&gt;
-&lt;div class="admonition article-edit"&gt;
-&lt;p class="admonition-title"&gt;"&lt;/p&gt;
-&lt;p&gt;Edit 2017-12-29: The author of gtfstidy emailed me to say:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;gtfstidy actually comes with a very handy option which I use
-extensively for filtering. If you run gtfstidy with &lt;code&gt;-DO&lt;/code&gt;, it will
-delete any entity which makes any problems during validation and
-also delete any entity which is not referenced anywhere. This
-cascades through the feed. This means that, if you want to only
-keep data for certain agencies, for example, you can just delete
-all agencies you don't want to keep from the agency.txt file.
-&lt;code&gt;gtfstidy -DO&lt;/code&gt; will now remove any route that references one of the
-agencies you have deleted, and any trip that references one of
-these routes, and any stop_time that references one of these
-trips, and so on. If any orphan stops, or orphan shapes, or orphan
-fare rules etc remain after this, the &lt;code&gt;-O&lt;/code&gt; option will delete them
-too.&lt;/p&gt;
-&lt;p&gt;This works for any of the GTFS files. If you just want to keep trips
-for certain stops, delete every other stop from stops.txt. If you
-just want to keep data for some routes, delete all the other routes.
-After &lt;code&gt;gtfstidy -DO&lt;/code&gt;, you will have a new error-free, filtered subset
-of the original feed.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;h2 id="gtfssplit"&gt;gtfssplit&lt;/h2&gt;
-&lt;p&gt;Finally, &lt;a href="https://github.com/samuelmr/gtfssplit"&gt;gtfssplit&lt;/a&gt; is a PHP
-tool that breaks apart a static GTFS feed into trips, shapes and stops.
-Unlike the other two projects, this one hasn't been touched for a
-while.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;This took a fair time to run, although you can see it's at least doing
-something some of the time, because, contrary to the relatively shy and
-subdued onebusaway transformer, it displays a lot of warnings while
-running.&lt;/p&gt;
-&lt;p&gt;Once these files are all on disk, maybe it's possible to write code to
-recombine these back together into a GTFS feed, filtering out for
-agencies that you're not interested in?&lt;/p&gt;
-&lt;p&gt;I'm not sure.&lt;/p&gt;
-&lt;p&gt;What I observed is that the dates.txt files that the gtfssplit documentation
-refers to in the output (that should be for a given service, i.e. to
-tell you which dates the service applies) didn't seem to be present, so
-it might be possible that it's losing data somewhere. Maybe that's
-because the feed I was looking at has a &lt;a href="https://developers.google.com/transit/gtfs/reference/calendar_dates-file"&gt;calendar_dates.txt and no
-calendar.txt
-file&lt;/a&gt;,
-and this case isn't handled. (It's valid, just not the recommended way
-of putting together a feed.)&lt;/p&gt;
-&lt;p&gt;Again, I'm not sure, and didn't spend any more time investigating.&lt;/p&gt;
-&lt;h2 id="journeys-end"&gt;Journey's end?&lt;/h2&gt;
-&lt;p&gt;And that's as far I got to, which is a little anticlimactic. That is, I
-haven't found a good existing solution for solving this for large feeds,
-outside of the prospect of attempting to write code to do this myself.
-However, the fact that all the existing software runs slowly, doesn't
-exactly instil me with much hope of doing a better job.&lt;/p&gt;
-&lt;p&gt;A big difference is that what's actually needed here to solve the
-problem is something relatively simple by comparison. The core issue is
-that the stop_times.txt is too large. Maybe it's possible to filter that
-down based on working through the various files, which is a much more
-specific kind of tool than the generic transformer. Perhaps this could
-work along the lines of:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Keep rows from routes.txt that match the relatively few transport
-   &lt;code&gt;agency_id&lt;/code&gt;s of interest giving a set of &lt;code&gt;route_id&lt;/code&gt;s.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Keep rows from trips.txt that match those &lt;code&gt;route_id&lt;/code&gt;s from 1 in
-   trips.txt, so now these give &lt;code&gt;trip_id&lt;/code&gt;s of interest.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Keep rows in stop_times.txt if they match a &lt;code&gt;trip_id&lt;/code&gt; retained from
-   2, meaning most of the rows disappear, assuming the agencies that are
-   of interest make up only a small proportion of the total rows.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You could go further and then fix up the other files too to purge
-anything that's now no longer relevant: for example, cleaning agency.txt
-to remove agencies that are no longer present. But perhaps gtfstidy
-might be enough to tidy up the remaining files and allow us to construct
-a clean and valid feed from the files we've mangled.&lt;/p&gt;
-&lt;p&gt;There are also ways of wrangling GTFS feeds into SQL databases — haven't
-linked any as I haven't tried any and can't vouch for them, but they're
-easy to find by searching "GTFS to SQL" — so importing and writing
-queries to do this filtering, then exporting the result as CSV might be
-an alternative option instead of coding something.&lt;/p&gt;
-&lt;p&gt;This is all speculation for now; I haven't attempted any of this yet. If
-I do and it's useful, I'll share what I learn.&lt;/p&gt;
-&lt;div class="admonition article-edit"&gt;
-&lt;p class="admonition-title"&gt;"&lt;/p&gt;
-&lt;p&gt;Edit 2017-12-29: The approach I actually used to solve this problem
-is on &lt;a href="https://github.com/sensiblecodeio/diet-gtfs"&gt;GitHub&lt;/a&gt; albeit
-scrappy. It's possible to specify a latitude and longitude range,
-which you can then filter out stops in stops.txt, and then remove
-any then-irrelevant content in the other files, and rebuild the
-feed.&lt;/p&gt;
-&lt;p&gt;I seem to recall this generated a feed with no serious problems
-when verified by a GTFS feed validator; you could always try
-sending the output of this through something like gtfstidy, of
-course.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;What would be nice is if feed providers offered feeds in smaller
-regional chunks. Often, transport companies are providing GTFS feeds at
-an agency level, so these should be relatively small. I suspect that the
-sources of countrywide feeds are usually efforts of communities or
-companies to compile the data, which is sometimes originally in a format
-other than GTFS, into a standard feed. So it feels ungrateful to comment
-that it would be nicer if they broke these feeds into smaller chunks for
-data consumers to import into software without further work because
-they're providing a free service and their efforts are appreciated.&lt;/p&gt;
-&lt;p&gt;At the same time, those making efforts to share this data may find more
-users for their data if it's ready for import into other software
-without needing fast PCs with lots of RAM, or without consumers having
-to find ways to divide up the provided feed. For instance, applications
-like OpenTripPlanner can, at time of writing, &lt;a href="https://github.com/opentripplanner/OpenTripPlanner/issues/2063"&gt;still struggle with large
-GTFS
-files&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;The single word "realtime" is how the specification writes it.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;This isn't always the case, but looking at the activity of an open
-  source project can be a portent of how useful it might be, if
-  there are several competing bits of software that do the same
-  thing and you're trying to narrow down to a few candidates to try
-  out.&lt;/p&gt;
-&lt;p&gt;How popular a project is, e.g. the number of GitHub stars, might
-  be one indicator, although all projects will start out at zero on
-  this, so it could well be a good project you've stumbled across
-  that's just relatively new, or in a particular niche that means it
-  will never become extremely popular. If there are multiple
-  competing projects, you can compare them relatively, as opposed to
-  comparing their number of stars to &lt;a href="https://github.com/twbs/bootstrap"&gt;something like
-  Bootstrap&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The age of the last commit is another. If a project has not been
-  touched in a very long time, it could be so good that it hasn't
-  needed any maintenance, or just be abandoned because it no longer
-  works, or it never did.&lt;/p&gt;
-&lt;p&gt;A project with comprehensive documentation, particularly if the
-  documentation is good and still valid is another positive sign.
-  Especially if you can get a software package or program to install
-  and runs an example as described in the docs. There have been
-  times I've found that this isn't the case; not a good start and
-  I'm likely to give up at this point, if there are alternatives to
-  still try.&lt;/p&gt;
-&lt;p&gt;These aren't definite rules. And if projects are open source, then
-  the only cost in trying them out is time, but these are some of
-  the rules of thumb that I'd use when looking out for software I'm
-  unfamiliar with.&lt;/p&gt;
-&lt;p&gt;Asking for recommendations from others is another valuable
-  resource that might speed up your search, instead of solely
-  relying on your own judgement and web searching skills too.&lt;/p&gt;
-&lt;p&gt;This footnote definitely turned out much longer than planned.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary><category term="GTFS"></category><category term="open data"></category><category term="transit"></category><category term="public transport"></category></entry></feed>
+than worth your time to work through the material Ableton are offering.&lt;/p&gt;</summary><category term="Ableton"></category><category term="music"></category><category term="music theory"></category></entry></feed>
