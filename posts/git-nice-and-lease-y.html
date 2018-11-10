@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>registrar - stevenmaude.co.uk</title>
+    <title>git: nice and lease-y - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,21 @@
 
 
 
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="registrar" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="git" />
+        <meta name="description" content="Why generally using git push --force-with-lease over git push --force seems sensible." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="git: nice and lease-y"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y"/>
+        <meta property="og:description" content="Why generally using git push --force-with-lease over git push --force seems sensible."/>
+        <meta property="article:published_time" content="2018-11-10" />
+            <meta property="article:section" content="2018" />
+            <meta property="article:tag" content="git" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -26,6 +31,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -74,13 +81,20 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="https://www.stevenmaude.co.uk/posts/as-easy-as-123-reg">As easy as 123(-reg)</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                git: nice and lease-y
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2015-12-11T17:04:00+00:00"> 2015-12-11</time>
+        <time datetime="2018-11-10T13:23:00+00:00"> 2018-11-10</time>
     </span>
 
 
@@ -88,19 +102,60 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/domain">domain</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/namecheap">Namecheap</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/registrar">registrar</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/transfer">transfer</a>
+	<a href="https://www.stevenmaude.co.uk/tag/git">git</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Transferring a .co.uk domain from 123-reg to Namecheap with no downtime.</p>
                 </div>
-            </article>
-            <hr/>
+                <h2 id="can-you-feel-the-force">Can you feel the <code>--force</code>?</h2>
+<p>Force pushing to a remote repository that others may be using should
+always be done with care. Even if it's a completely private repository
+that only you use, you maybe should double check your thinking before
+going ahead.</p>
+<p>The double edged sword of a force push is that you're changing the state
+of the remote repository history irrevocably.</p>
+<p>This can be good, for instance, if you're working on a non-master
+repository branch that you "own" and have perhaps cleaned it up:
+rebasing it, removing or squashing unneeded separate commits.</p>
+<p>It can be bad if you force push to master on a repository, and cause, at
+minimum, considerable inconvenience for other developers. Those
+developesr may now face working out what exactly has happened to the
+repository, when they try and integrate their future changes, or may be
+baffled that a previously existing commit has now mysteriously
+disappeared.</p>
+<p>If you're working on a non-master development branch, you may be a
+little bit more lax in how you force push. Certainly, the way I've used
+branches with other people is that generally a branch is owned by one
+particular person, and those are free to be amended by that branch owner
+(usually the creator of that branch, although ownership may be passed
+from person to person). Then, as the agreed owner of such a branch,
+provided I know that I'm happy with the local changes, I can just force
+push to that development branch.</p>
+<p>However, that's not always the case. Perhaps two people are working on
+the same branch, maybe working on slightly different things, e.g. one
+could be working on frontend changes for the site, while another works
+on backend changes, but these changes are part of the same feature, and
+therefore need to be part of the same branch. </p>
+<h2 id="what-force-with-lease-offers-over-vanilla-force">What <code>--force-with-lease</code> offers over vanilla <code>--force</code></h2>
+<p>What I discovered recently, although it's been around for ages, is that
+git has another option for forcing push: <code>--force-with-lease</code>. What this
+option does is checks that the remote branch is still in the same state
+it was when you last pulled it, and refuses to force push if not, i.e.
+there have been no other changes to the branch in the intervening time.</p>
+<p>Of course, you can always still override this check by just using plain
+old <code>--force</code>. But <code>--force-with-lease</code> at least gives you another
+safety check before force pushing, just in case someone else has altered
+the remote branch (giving you chance, for example, to pull that branch,
+and rebase your changes on it), and avoiding any confusion between
+developers, and potentially loss of work.</p>
+<p>Note though, <a href="https://stackoverflow.com/a/43726130">as this answer
+highlights</a>, if you have an editor
+or other scheduled task running <code>git fetch</code> in the background,
+<code>--force-with-lease</code> won't offer any protection as the remote tracking
+branches that would be stored locally are being periodically updated.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -177,7 +232,7 @@ stevenmaude.co.uk            </a>
    <div class="container">
       <hr class="content-author-separator">
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Steven Maude
+         <div class="col-xs-10">&copy; 2018 Steven Maude
             <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
