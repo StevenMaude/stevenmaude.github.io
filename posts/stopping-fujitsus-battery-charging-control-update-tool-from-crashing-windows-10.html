@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Arduous lessons in Python: why main() is useful - stevenmaude.co.uk</title>
+    <title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10 - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,24 +9,21 @@
 
 
 
-<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/arduous-lessons-in-python-why-main-is">
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="foolishness,name,main,Python,fix" />
-        <meta name="description" content="Why if __name__ == &#39;__main__&#39; is a sensible check in code you&#39;re reusing." />
+        <meta name="keywords" content="fix,Windows" />
+        <meta name="description" content="Preventing Fujitsu&#39;s Battery Charging Control Update from making Windows 10 crash with a blue screen error caused by tdklib64.sys." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Arduous lessons in Python: why main() is useful"/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/arduous-lessons-in-python-why-main-is"/>
-        <meta property="og:description" content="Why if __name__ == &#39;__main__&#39; is a sensible check in code you&#39;re reusing."/>
-        <meta property="article:published_time" content="2014-07-05" />
-            <meta property="article:section" content="2014" />
-            <meta property="article:tag" content="foolishness" />
-            <meta property="article:tag" content="name" />
-            <meta property="article:tag" content="main" />
-            <meta property="article:tag" content="Python" />
+        <meta property="og:title" content="Stopping Fujitsu&#39;s Battery Charging Control Update Tool from crashing Windows 10"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10"/>
+        <meta property="og:description" content="Preventing Fujitsu&#39;s Battery Charging Control Update from making Windows 10 crash with a blue screen error caused by tdklib64.sys."/>
+        <meta property="article:published_time" content="2018-12-10" />
+            <meta property="article:section" content="2018" />
             <meta property="article:tag" content="fix" />
+            <meta property="article:tag" content="Windows" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -89,7 +86,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Arduous lessons in Python: why main() is useful
+                Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10
                 </h1>
             </header>
             <div class="entry-content">
@@ -98,101 +95,63 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2014-07-05T11:34:00+01:00"> 2014-07-05</time>
+        <time datetime="2018-12-10T21:16:00+00:00"> 2018-12-10</time>
     </span>
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-07-05T11:42:00+01:00"> 2014-07-05</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/foolishness">foolishness</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/name">name</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/main">main</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
-        /
 	<a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><img class="article-image" src="https://www.stevenmaude.co.uk/images/2014/python_logo.png" alt="The Python logo."></p>
-<p>An ordinary afternoon and I'd wanted to work on some code locally on my
-machine. I knew the tests previously ran without any issue. So, after
-I'd cloned the repository locally, I ran <code>nosetests</code> to make sure
-everything was OK with my setup before I started.</p>
-<p>What I expected is the tests to run pretty quickly as before.</p>
-<p>What happened instead is that Python started hogging a CPU and I saw a
-lonely blinking cursor where I expected my test results.</p>
-<p>Something was happening, but none of the tests were seemingly running.
-That is, I wasn't seeing any pass/fail indicators, which was strange.</p>
-<h2 id="what-actually-happened">What actually happened</h2>
-<p>Something was running that evidently wasn't what I intended.</p>
-<p>On inspection, one of the import statements in the test code had a
-structure somewhat like:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
-    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">():</span>
-    <span class="n">do</span> <span class="n">some</span> <span class="n">other</span> <span class="n">things</span>
-
-<span class="k">def</span> <span class="nf">really_long_winded_scraping_function</span><span class="p">():</span>
-    <span class="n">do</span> <span class="n">lots</span> <span class="n">of</span> <span class="n">things</span>
-
-<span class="n">really_long_winded_scraping_function</span><span class="p">()</span>
-</pre></div>
-
-
-<p>Bear in mind that when you import a module, the statements are actually
-executed. If you've just got function and class definitions in there,
-then this means that they get defined, but they aren't executed until
-you call them.</p>
-<p>However, if functions are called in the module's flow of execution, then
-they'll be called when you import it too.</p>
-<p>So, when this module was being imported by the test module, the
-<code>really_long_winded_scraping_function()</code> was being called. So, yes,
-eventually, the tests would have run, but they'd run <em>after</em> the code in
-the <code>import</code> had finished, which would have taken <strong>hours</strong>.</p>
-<h2 id="fixing-the-problem">Fixing the problem</h2>
-<p>Normally, I routinely use:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
-
-<p>in Python code that I start writing.</p>
-<p>From the <a href="https://docs.python.org/2/tutorial/modules.html">official
-documentation</a>:</p>
-<blockquote>
-<p>"Within a module, the module’s name (as a string) is available as the
-value of the global variable <code>__name__</code>."</p>
-</blockquote>
-<p>What it also does is assigns <code>'__main__'</code> to <code>__name__</code> if the module is
-being executed directly. This gives you a way to specify different
-behaviour depending on whether the module itself is run or just
-imported.</p>
-<p>If you're importing the module to reuse the code elsewhere, you can then
-just access the relevant functions and classes that you need, rather
-than running code that actually starts doing things.</p>
-<p>In this case, for some reason, we'd just quickly thrown some functions
-together, then found that the function that actually initiates all of
-the scraping wasn't being called. So, we'd just quickly added a call to
-what was our at the bottom of the module, set the code going to do the
-scraping and not run the tests again.</p>
-<p>This was fine, until I forgot about this and came to run the tests again
-later! It's a good case for running your tests regularly; the reason it
-took me so long was that we hadn't run the tests since getting the main
-code working. If we had, I think I'd have been more likely to spot the
-connection between our fix to the code and the tests taking an age.</p>
-<p>(This isn't a test specific problem. You'd notice it whenever you
-imported the code into another module. It just happened to be that the
-tests were the only other module that we'd imported the code into.)</p>
+                <p>(NB: There's some background here just by way of introduction. If you encounter
+this problem and don't want to endure my waffling, check the setting I <a href="#the-fix">mention
+below</a>.)</p>
+<p>My Fujitsu laptop currently dual boots Windows and Ubuntu, but it's rare that I
+boot into Windows. Nonetheless, I had a little time spare last week, I figured
+I might as well catch up on things everywhere and update the Windows install.</p>
+<p>Dropping into that did update Windows, and all well and good. Or so I thought.</p>
+<h1 id="the-problem">The problem</h1>
+<p>On restarting, I noticed there was a Fujitsu prompt that appeared, and was a
+little unexpected. What I was being asked to install was the very precisely
+named "Battery Charging Control Update Tool". It seems <a href="https://www.fujitsu.com/global/about/resources/news/notices/2018/1031-01.html">Fujitsu have had some
+issues with battery
+quality</a>,
+leading to a potential fire risk; this tool is supposed to mitigate that.</p>
+<p>It seems that, at least for my model of laptop, the tool was attempting to
+update the BIOS. And you can see how the <a href="https://www.fujitsu.com/hk/support/products/computing/pc/ap/announcements/battery-control-update-tool.html">tool <em>should</em> work on Fujitsu's Hong
+Kong site</a>
+(and that page I could only find on the Hong Kong site for some reason).</p>
+<p>In the previous paragraph, I say <em>attempting</em> to update the BIOS, because what
+happened, after the initial preparation stage occurred with the "Continue to
+update BIOS?" prompt, was that shortly after I clicked "Yes", I saw a lovely
+Windows 10 blue screen which I think mentioned tdklib64.sys as the cause.</p>
+<p>There's nothing I could find relating to this failed BIOS update and these blue
+screens — although there were mentions of BIOS update failures and tdklib64.sys
+relating to other manufacturers machines. Finding nothing struck me as strange:
+it's a fair bet that you'll find at least one person's already complained
+loudly somewhere about a problem you've encountered too. </p>
+<p>Anyway, I rebooted and tried the update again. Same result. Blue screen.</p>
+<p>OK then. Third time lucky, maybe? No. Just the same (reliably) unreliable
+result.</p>
+<h1 id="the-fix">The fix</h1>
+<p>In a moment of fortunate (and rare) inspiration, I remembered that I'd turned on a
+relatively new security feature — <a href="https://support.microsoft.com/en-us/help/4096339/windows-10-device-protection-in-windows-defender-security-center">Memory
+Integrity</a>
+— in Windows Defender Security Center as I'd spotted it as a setting I'd not
+enabled already. Perhaps that was the culprit, especially as no-one else seemed
+to have encounter this failure yet?</p>
+<p>Yes. Yes, it was.</p>
+<p>Disabling that again meant the update proceeded without a problem, and then I
+just re-enabled the Memory Integrity setting once again after the BIOS update
+completed. If you're having a similar problem, check this setting before
+attempting to update. Maybe this tip helps you avoid the hour I spent figuring
+this out.</p>
             </div>
             <!-- /.entry-content -->
         </article>
