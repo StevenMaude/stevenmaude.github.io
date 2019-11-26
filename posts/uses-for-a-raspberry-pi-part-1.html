@@ -32,12 +32,14 @@
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -51,13 +53,11 @@
               title="stevenmaude.co.uk ATOM Feed"/>
 
 
-
-
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -81,8 +81,11 @@ stevenmaude.co.uk            </a>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 <!-- End Banner -->
+
+<!-- Content Container -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -101,7 +104,7 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2013-07-10T21:21:00+01:00"> 2013-07-10</time>
     </span>
-            <span class="label label-default">Modified</span>
+          <span class="label label-default">Modified</span>
             <span class="modified">
                 <time datetime="2013-07-14T13:45:00+01:00"> 2013-07-14</time>
             </span>
@@ -170,7 +173,7 @@ connect to the Pi via an
 could attach a keyboard and TV/monitor to it and enter terminal commands
 directly.</p>
 <p>So, what can you use a Pi for?</p>
-<hr />
+<hr>
 <h2 id="1-access-to-useful-linux-command-line-tools">1. Access to useful Linux command line tools</h2>
 <p>Even just installing a Linux distribution like Raspbian, <em>without
 installing anything else</em>, gives you access to <a href="https://en.wikipedia.org/wiki/List_of_Unix_utilities">several powerful
@@ -220,7 +223,7 @@ how to install this on the Pi. Even with having to install
 whole setup took more than thirty minutes or so. With this AirPrint
 solution, printing from an iPad is integrated just as if we used an
 AirPrint-compatible printer; no third party app is necessary to print.</p>
-<hr />
+<hr>
 <p>As its price suggests, the Pi isn't hugely powerful, but that doesn't
 hinder it from being incredibly useful for applications where computing
 power isn't critical, like the AirPrint server. (Here, even if it runs a
@@ -248,74 +251,55 @@ to be a great alternative to the BBC's officially supported service.</p>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush">
 
-
-
-            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/android">
-                            Android
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
-                            BitLocker
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/data">
-                            data
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
-                            encryption
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/linux">
-                            Linux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/music">
-                            music
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/python">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/windows">
-                            Windows
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-    </ul>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/music">music</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/review">review</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/wordpress">WordPress</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
 </section>
-            </aside>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
+<!-- End Content Container -->
+
 <footer>
    <div class="container">
       <hr class="content-author-separator">
@@ -340,7 +324,9 @@ to be a great alternative to the BBC's officially supported service.</p>
 <script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
+
     <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
 
 
 </body>

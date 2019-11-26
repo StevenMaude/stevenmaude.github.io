@@ -31,12 +31,14 @@
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -50,13 +52,11 @@
               title="stevenmaude.co.uk ATOM Feed"/>
 
 
-
-
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -80,8 +80,11 @@ stevenmaude.co.uk            </a>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 <!-- End Banner -->
+
+<!-- Content Container -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -100,7 +103,7 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2013-09-07T11:48:00+01:00"> 2013-09-07</time>
     </span>
-            <span class="label label-default">Modified</span>
+          <span class="label label-default">Modified</span>
             <span class="modified">
                 <time datetime="2013-09-07T12:07:00+01:00"> 2013-09-07</time>
             </span>
@@ -137,7 +140,7 @@ full day's work, this can happen several times.</p>
 <p>Instead, I prefer to connect to GitHub using an
 <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> connection. All I do
 now is enter a passphrase once per login session and then forget about
-it<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. Another advantage is that you can <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">forward access to your local
+it<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Another advantage is that you can <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">forward access to your local
 SSH credentials</a>
 even when developing in remote shell accounts.</p>
 <p>GitHub's help section has several well written pages that detail clearly
@@ -177,9 +180,9 @@ key</a>.</p>
 </ol>
 <p>When you now carry out an operation with GitHub on the remote machine
 you connected to via SSH, <strong>you shouldn't get asked for your password on
-that machine either<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></strong>.</p>
+that machine either<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></strong>.</p>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
 <p>I am aware that you do have the
@@ -187,12 +190,12 @@ option of using credential helper to <a href="https://help.github.com/articles/s
 password</a>,
 but you would need to do this both locally and remotely if you are
 working on different machines. Also, the default setting, though it can
-be changed, is to cache the password for just 15 minutes.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+be changed, is to cache the password for just 15 minutes.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>Again, the caveat regarding
 changing repository remote settings from HTTPS to SSH applies on remote
-machines too.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+machines too.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -204,74 +207,55 @@ machines too.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" ti
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush">
 
-
-
-            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/android">
-                            Android
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
-                            BitLocker
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/data">
-                            data
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
-                            encryption
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/linux">
-                            Linux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/music">
-                            music
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/python">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/windows">
-                            Windows
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-    </ul>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/music">music</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/review">review</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/wordpress">WordPress</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
 </section>
-            </aside>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
+<!-- End Content Container -->
+
 <footer>
    <div class="container">
       <hr class="content-author-separator">
@@ -296,7 +280,9 @@ machines too.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" ti
 <script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
+
     <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
 
 
 </body>

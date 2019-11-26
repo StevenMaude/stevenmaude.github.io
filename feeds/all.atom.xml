@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-12-10T21:16:00+00:00</updated><entry><title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10</title><link href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10" rel="alternate"></link><published>2018-12-10T21:16:00+00:00</published><updated>2018-12-10T21:16:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-12-10:posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10</id><summary type="html">&lt;p&gt;(NB: There's some background here just by way of introduction. If you encounter
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-12-10T21:16:00+00:00</updated><entry><title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10</title><link href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10" rel="alternate"></link><published>2018-12-10T21:16:00+00:00</published><updated>2018-12-10T21:16:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-12-10:/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10</id><summary type="html">&lt;p&gt;Preventing Fujitsu's Battery Charging Control Update from
+making Windows 10 crash with a blue screen error caused by
+tdklib64.sys.&lt;/p&gt;</summary><content type="html">&lt;p&gt;(NB: There's some background here just by way of introduction. If you encounter
 this problem and don't want to endure my waffling, check the setting I &lt;a href="#the-fix"&gt;mention
 below&lt;/a&gt;.)&lt;/p&gt;
 &lt;p&gt;My Fujitsu laptop currently dual boots Windows and Ubuntu, but it's rare that I
@@ -41,7 +43,7 @@ to have encounter this failure yet?&lt;/p&gt;
 just re-enabled the Memory Integrity setting once again after the BIOS update
 completed. If you're having a similar problem, check this setting before
 attempting to update. Maybe this tip helps you avoid the hour I spent figuring
-this out.&lt;/p&gt;</summary><category term="fix"></category><category term="Windows"></category></entry><entry><title>git: nice and lease-y</title><link href="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y" rel="alternate"></link><published>2018-11-10T13:23:00+00:00</published><updated>2018-11-10T13:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-11-10:posts/git-nice-and-lease-y</id><summary type="html">&lt;h2 id="can-you-feel-the-force"&gt;Can you feel the &lt;code&gt;--force&lt;/code&gt;?&lt;/h2&gt;
+this out.&lt;/p&gt;</content><category term="fix"></category><category term="Windows"></category></entry><entry><title>git: nice and lease-y</title><link href="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y" rel="alternate"></link><published>2018-11-10T13:23:00+00:00</published><updated>2018-11-10T13:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-11-10:/posts/git-nice-and-lease-y</id><summary type="html">&lt;p&gt;Why generally using &lt;code&gt;git push --force-with-lease&lt;/code&gt; over &lt;code&gt;git push --force&lt;/code&gt; seems sensible.&lt;/p&gt;</summary><content type="html">&lt;h2 id="can-you-feel-the-force"&gt;Can you feel the &lt;code&gt;--force&lt;/code&gt;?&lt;/h2&gt;
 &lt;p&gt;Force pushing to a remote repository that others may be using should
 always be done with care. Even if it's a completely private repository
 that only you use, you maybe should double check your thinking before
@@ -86,7 +88,7 @@ developers, and potentially loss of work.&lt;/p&gt;
 highlights&lt;/a&gt;, if you have an editor
 or other scheduled task running &lt;code&gt;git fetch&lt;/code&gt; in the background,
 &lt;code&gt;--force-with-lease&lt;/code&gt; won't offer any protection as the remote tracking
-branches that would be stored locally are being periodically updated.&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
+branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:/posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;A quick look at Pipenv, a tool to manage Python packages.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
 remove the hassle of using
 &lt;a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under"&gt;virtualenvs&lt;/a&gt;
 (Python runtime environments to keep separate Python setups for
@@ -137,7 +139,7 @@ version of Python for you, if that version is not installed already.&lt;/p&gt;
    Docker Compose, but keeping their installations entirely independent
    of each other to avoid any conflicts. This isn't quite covered as
    well, because &lt;code&gt;pipenv run&lt;/code&gt; requires you to be in the directory or a
-   subdirectory of that directory&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; where you've already run Pipenv
+   subdirectory of that directory&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; where you've already run Pipenv
    and a Pipfile exists, as that's how I assume it figures out which
    virtualenv to use. Otherwise, running Pipenv creates a new
    virtualenv! I think &lt;code&gt;pipenv shell&lt;/code&gt; works around this dropping you
@@ -185,17 +187,17 @@ pip-tools has (pip-tools is the underlying package that pipenv actually
 uses for this task), and therefore may be another useful contender to
 keep in mind.&lt;/p&gt;
 &lt;div class="footnote"&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;ol&gt;
 &lt;li id="fn:1"&gt;
-&lt;p&gt;Confusingly, Pipenv's name is capitalised, while pip's is not.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Confusingly, Pipenv's name is capitalised, while pip's is not.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:2"&gt;
 &lt;p&gt;Caveat: it only looks a certain number of subdirectories deep by
-default, though &lt;a href="https://github.com/pypa/pipenv/issues/1634"&gt;this number is configurable&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+default, though &lt;a href="https://github.com/pypa/pipenv/issues/1634"&gt;this number is configurable&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Pipenv"></category><category term="Python"></category></entry><entry><title>Solve your problem with sloppy Python</title><link href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python" rel="alternate"></link><published>2018-05-20T17:24:00+01:00</published><updated>2018-05-20T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-05-20:posts/solve-your-problem-with-sloppy-python</id><summary type="html">&lt;h2 id="pycon-2018-a-quick-note"&gt;PyCon 2018: A quick note&lt;/h2&gt;
+&lt;/div&gt;</content><category term="Pipenv"></category><category term="Python"></category></entry><entry><title>Solve your problem with sloppy Python</title><link href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python" rel="alternate"></link><published>2018-05-20T17:24:00+01:00</published><updated>2018-05-20T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-05-20:/posts/solve-your-problem-with-sloppy-python</id><summary type="html">&lt;p&gt;A summary of a talk by Larry Hastings at PyCon 2018.&lt;/p&gt;</summary><content type="html">&lt;h2 id="pycon-2018-a-quick-note"&gt;PyCon 2018: A quick note&lt;/h2&gt;
 &lt;p&gt;As PyCon 2018 happened last week, I've been watching a few talks. It's
 sometimes difficult to keep up with changes to technology if you're not
 paying constant attention. These kinds of talks are a useful way of
@@ -275,7 +277,8 @@ spend the time to write code as a solution to the problem.&lt;/p&gt;
 presumably took a few minutes to write, find the exceptions (by hand)
 and verify (probably also by hand) the code is doing what it should.
 There are only actually a few shows to rename, and these themselves
-could be done by hand, as a one-off task.&lt;/p&gt;</summary><category term="PyCon"></category><category term="Python"></category></entry><entry><title>Upgrading Raspbian and rc.local failures</title><link href="https://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
+could be done by hand, as a one-off task.&lt;/p&gt;</content><category term="PyCon"></category><category term="Python"></category></entry><entry><title>Upgrading Raspbian and rc.local failures</title><link href="https://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:/posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;p&gt;Using a Raspberry Pi as a wireless bridge, in-place upgrading Raspbian
+and dealing with &lt;code&gt;rc.local&lt;/code&gt; not running tasks as planned.&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
 &lt;p&gt;This is something I did a couple of months back, but figure it's worth
 documenting, to maybe help anyone with a similar problem search for it.&lt;/p&gt;
 &lt;p&gt;One use for my Raspberry Pi is as a wireless bridge, and this is mainly
@@ -378,10 +381,11 @@ but I didn't bother testing this out, as the configuration above just
 seemed to work (with, I suppose, the possible cost of the bridged
 connection not being available until slightly later).&lt;/p&gt;
 &lt;p&gt;I also have the Xbox network settings as:&lt;/p&gt;
-&lt;p&gt;IP address: 192.168.1.2&lt;br /&gt;
-Subnet mask: 255.255.255.0&lt;br /&gt;
+&lt;p&gt;IP address: 192.168.1.2&lt;br&gt;
+Subnet mask: 255.255.255.0&lt;br&gt;
 Gateway: 192.168.1.1  &lt;/p&gt;
-&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry><entry><title>A digital piano buyers' guide for learners</title><link href="https://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;As I've &lt;a href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
+&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</content><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry><entry><title>A digital piano buyers' guide for learners</title><link href="https://www.stevenmaude.co.uk/posts/a-digital-piano-buyers-guide-for-learners" rel="alternate"></link><published>2017-10-22T17:10:00+01:00</published><updated>2017-10-22T17:10:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-10-22:/posts/a-digital-piano-buyers-guide-for-learners</id><summary type="html">&lt;p&gt;Why I chose a digital piano over an acoustic, what to look out
+for when buying a digital piano, and the advantages of buying used.&lt;/p&gt;</summary><content type="html">&lt;p&gt;As I've &lt;a href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano"&gt;documented earlier
 here&lt;/a&gt;, I've been
 taking piano lessons since the start of this year. There I also
 mentioned I'd been using a keyboard to learn. Since then, I've switched
@@ -634,7 +638,8 @@ previous keyboard initially, it didn't take that long to adjust. Since
 then, it has made a noticeable difference in my confidence going into
 piano lessons and being sat at an acoustic grand piano. It now feels
 much more a natural transition to go from playing at home to playing in
-lessons.&lt;/p&gt;</summary><category term="music"></category><category term="piano"></category></entry><entry><title>Full of heart: an Undertale review</title><link href="https://www.stevenmaude.co.uk/posts/full-of-heart-an-undertale-review" rel="alternate"></link><published>2017-08-20T15:47:00+01:00</published><updated>2017-08-20T15:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-08-20:posts/full-of-heart-an-undertale-review</id><summary type="html">&lt;h2 id="playing-undertale-fills-you-with-determination"&gt;Playing Undertale fills you with determination&lt;/h2&gt;
+lessons.&lt;/p&gt;</content><category term="music"></category><category term="piano"></category></entry><entry><title>Full of heart: an Undertale review</title><link href="https://www.stevenmaude.co.uk/posts/full-of-heart-an-undertale-review" rel="alternate"></link><published>2017-08-20T15:47:00+01:00</published><updated>2017-08-20T15:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-08-20:/posts/full-of-heart-an-undertale-review</id><summary type="html">&lt;p&gt;The world doesn't need another review of Undertale.
+Regardless, here's why I think you should play it.&lt;/p&gt;</summary><content type="html">&lt;h2 id="playing-undertale-fills-you-with-determination"&gt;Playing Undertale fills you with determination&lt;/h2&gt;
 &lt;p&gt;Undertale's almost two years old. Yet I only bothered to play it this
 year. If you have a PS4 and never got it on PC, it was released this
 week. While the PC version will have been much cheaper while on sale,
@@ -708,7 +713,7 @@ beating down your windows, a dull Tuesday where you're miserably plagued
 with cold, or maybe even a snowy Thursday where you have the luxury of
 being snowed in, unable to get to school or work, and are just warming
 up with hot chocolate after already having been out to play in the snow.&lt;/p&gt;
-&lt;p&gt;It's that kind of game.&lt;/p&gt;</summary><category term="game"></category><category term="review"></category></entry><entry><title>Flipping out over swimming turns</title><link href="https://www.stevenmaude.co.uk/posts/flipping-out-over-swimming-turns" rel="alternate"></link><published>2017-07-29T12:18:00+01:00</published><updated>2017-07-29T12:18:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-29:posts/flipping-out-over-swimming-turns</id><summary type="html">&lt;p&gt;Note that I actually learned how to flip (or tumble) turn a while ago,
+&lt;p&gt;It's that kind of game.&lt;/p&gt;</content><category term="game"></category><category term="review"></category></entry><entry><title>Flipping out over swimming turns</title><link href="https://www.stevenmaude.co.uk/posts/flipping-out-over-swimming-turns" rel="alternate"></link><published>2017-07-29T12:18:00+01:00</published><updated>2017-07-29T12:18:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-29:/posts/flipping-out-over-swimming-turns</id><summary type="html">&lt;p&gt;Some tips on how to learn to tumble (or flip) turn.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Note that I actually learned how to flip (or tumble) turn a while ago,
 drafted this back then and only just got round to posting it.&lt;/p&gt;
 &lt;h2 id="turn-down-for-what"&gt;Turn down for what?&lt;/h2&gt;
 &lt;p&gt;I have been swimming for probably the best part of twenty years. That is
@@ -777,7 +782,7 @@ While if you're too far, you'll either miss the wall completely, or have
 to stretch your legs out to reach the wall and get a weak push off as
 your legs can't spring you off the wall.&lt;/p&gt;
 &lt;p&gt;A counterintuitive thing that helped me was sometimes trying this with
-breaststroke, &lt;em&gt;not frontcrawl&lt;/em&gt;.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; This means you're approaching more
+breaststroke, &lt;em&gt;not frontcrawl&lt;/em&gt;.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; This means you're approaching more
 slowly, so less worried about hitting the wall. It's also easier to keep
 the wall in sight, instead of while you're rotating in frontcrawl.
 Related to this, I incorrectly assumed that you need to be going fast to
@@ -851,16 +856,18 @@ compare flip turning swimmers to those not when you're at the pool;
 you'll see it makes for a considerable drop in lap times once you get it
 right.&lt;/p&gt;
 &lt;div class="footnote"&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;ol&gt;
 &lt;li id="fn:1"&gt;
 &lt;p&gt;If you're racing breaststroke, then you don't actually flip turn,
   but touch the wall with both hands, and then push back off the
   wall with your feet, but using breaststroke is still a nice way
-  to learn.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  to learn.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="swimming"></category></entry><entry><title>Rinse FM's SoundCloud account takedown</title><link href="https://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown" rel="alternate"></link><published>2017-07-18T21:56:00+01:00</published><updated>2017-07-18T21:56:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-15:posts/rinse-fms-soundcloud-account-takedown</id><summary type="html">&lt;div class="admonition article-edit"&gt;
+&lt;/div&gt;</content><category term="swimming"></category></entry><entry><title>Rinse FM's SoundCloud account takedown</title><link href="https://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown" rel="alternate"></link><published>2017-07-15T23:11:00+01:00</published><updated>2017-07-18T21:56:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-07-15:/posts/rinse-fms-soundcloud-account-takedown</id><summary type="html">&lt;p&gt;What the deletion of Rinse FM's SoundCloud account for
+copyright infringement tells us both about music industry
+short-sightedness and hosting creative projects online.&lt;/p&gt;</summary><content type="html">&lt;div class="admonition article-edit"&gt;
 &lt;p&gt;Edit 2017-07-18: SoundCloud have now restored &lt;a href="https://twitter.com/geeneus/status/887050524067061760"&gt;Rinse FM's
 account&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Nonetheless, the points below still stand in relation to hosting
@@ -879,7 +886,7 @@ station was heavily instrumental in pushing grime, and later dubstep in
 the UK, and contributing to the massive spread of these genres outside
 of these shores. While much of the UK radio broadcast frequency space is
 pumped full of the same cloying pop music being endlessly
-recirculated,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; Rinse FM is a refreshing breath of fresh air.&lt;/p&gt;
+recirculated,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; Rinse FM is a refreshing breath of fresh air.&lt;/p&gt;
 &lt;p&gt;Rinse FM started life as a pirate station, &lt;a href="https://www.theguardian.com/media/2012/sep/30/rinse-fm-former-pirate-station-18-birthday"&gt;broadcasting illicitly via
 aerials perched on tower block
 rooftops&lt;/a&gt;,
@@ -950,7 +957,7 @@ having the project exist as a SoundCloud account, instead of creating a
 blog to go with it. After this week with the Rinse FM takedown, coupled
 with the possibility of SoundCloud disappearing, my thinking has shifted
 entirely.&lt;/p&gt;
-&lt;p&gt;Owners of accounts on online services, as I've written before,&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; have
+&lt;p&gt;Owners of accounts on online services, as I've written before,&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; have
 little real ownership of what happens with those accounts. If the site's
 owners or moderators don't like what you're doing for whatever reason,
 you're gone. Someone might complain about what you're doing on the
@@ -971,7 +978,7 @@ because the site itself is shutdown, the knock-on impact for getting
 visibility (or audibility) for creative projects can be a big blow.
 Hedging your bets seems the only viable solution.&lt;/p&gt;
 &lt;div class="footnote"&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;ol&gt;
 &lt;li id="fn:1"&gt;
 &lt;p&gt;Don't get me wrong. I'm very much not against pop music. The
@@ -981,14 +988,14 @@ Hedging your bets seems the only viable solution.&lt;/p&gt;
   commercial pop stations, could you tell them apart?&lt;/p&gt;
 &lt;p&gt;When there's so much music that I know I'll never have enough time
   to discover and hear, it's such a pity that show producers and
-  station bosses are often so unadventurous.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  station bosses are often so unadventurous.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:2"&gt;
 &lt;p&gt;Look &lt;a href="https://www.stevenmaude.co.uk/posts/what-happens-when-github-decides-youre-not-a-human"&gt;what happened to my GitHub account last year&lt;/a&gt;,
-  for example.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  for example.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry><entry><title>Do you even Liszt? Five months of learning piano</title><link href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano" rel="alternate"></link><published>2017-06-11T14:06:00+01:00</published><updated>2017-06-11T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-06-11:posts/do-you-even-liszt-five-months-of-learning-piano</id><summary type="html">&lt;h2 id="why-learn-now"&gt;Why learn now?&lt;/h2&gt;
+&lt;/div&gt;</content><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry><entry><title>Do you even Liszt? Five months of learning piano</title><link href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano" rel="alternate"></link><published>2017-06-11T14:06:00+01:00</published><updated>2017-06-11T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-06-11:/posts/do-you-even-liszt-five-months-of-learning-piano</id><summary type="html">&lt;p&gt;Taking piano lessons as a late learner.&lt;/p&gt;</summary><content type="html">&lt;h2 id="why-learn-now"&gt;Why learn now?&lt;/h2&gt;
 &lt;p&gt;Other posts on my blog highlight the small theme of me very, very slowly
 trying to get better at making music. When you're a novice, it's natural
 to ask what's the best way to improve? Some common advice I've found on
@@ -998,7 +1005,7 @@ skills first, and less on learning software or production itself.&lt;/p&gt;
 touch type would be a hindrance for writing and coding. You can still do
 these things regardless, but the lack of being able to express yourself
 quickly does slow your progress. Likewise with music, yes, you can
-painstakingly draw notes in software,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; but being able to play a
+painstakingly draw notes in software,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; but being able to play a
 melody or chord progression means that you can transcribe something in
 your head much more quickly and directly, as well as improvise
 effectively.&lt;/p&gt;
@@ -1096,10 +1103,10 @@ tackling a subset of these and adding the others on later does help.&lt;/p&gt;
 &lt;p&gt;Coordinating two hands is definitely a tricky aspect of piano. It takes
 considerable practice to be able to play two different things with your
 hands independently. That's very different from guitar (where I have a
-little past experience),&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; where left and right hand perform very
+little past experience),&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; where left and right hand perform very
 different tasks, and it's easier to isolate their movements. That said,
 as much as I find certain aspects of piano tricky, I found barre chords
-on guitar a real barrier (sorry) to cross.&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt; Piano feels difficult
+on guitar a real barrier (sorry) to cross.&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3"&gt;3&lt;/a&gt;&lt;/sup&gt; Piano feels difficult
 generally, but I've not yet encountered any single thing that is a
 comparable obstacle.&lt;/p&gt;
 &lt;p&gt;On the whole, learning piano been an enjoyable and rewarding experience.
@@ -1116,17 +1123,17 @@ also seems a simpler task, since I'm more familiar with keyboard layout.&lt;/p&g
 begun when much younger. I think it's important to keep your possible
 achievements realistic, so as not to stretch too far and give up in
 frustration. Nonetheless, for what I really want to do, create
-music,&lt;sup id="fnref:4"&gt;&lt;a class="footnote-ref" href="#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt; the skills being developed are valuable, and, importantly,
+music,&lt;sup id="fnref:4"&gt;&lt;a class="footnote-ref" href="#fn:4"&gt;4&lt;/a&gt;&lt;/sup&gt; the skills being developed are valuable, and, importantly,
 I've found learning piano enjoyable enough in itself to continue with
 it.&lt;/p&gt;
 &lt;div class="footnote"&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;ol&gt;
 &lt;li id="fn:1"&gt;
 &lt;p&gt;Some take this to
 &lt;a href="https://en.wikipedia.org/wiki/Black_MIDI"&gt;extremes&lt;/a&gt; too, treating a
 musical score as a canvas that must be filled and painting in an
-&lt;em&gt;inhuman&lt;/em&gt; number of notes.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;em&gt;inhuman&lt;/em&gt; number of notes.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:2"&gt;
 &lt;p&gt;One notable thing from learning guitar is that I only ever read
@@ -1136,7 +1143,7 @@ course&lt;/a&gt;). Because
 of that, I'm much less comfortable reading the bass clef. The best way I
 can describe this feeling is: imagine the confusion if you were reading
 a book where a mischievous publisher had turned every second line upside
-down.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+down.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:3"&gt;
 &lt;p&gt;If you've not picked up a guitar, &lt;a href="https://en.wikipedia.org/wiki/Barre_chord"&gt;barre
@@ -1145,7 +1152,7 @@ they require clamping some or all of the strings down at one fret
 position, usually with the index finger. Here, you need to strengthen
 and toughen up your finger to do this, as well as placing it correctly
 so the strings ring cleanly, instead of with an unsatisfying dull thunk.
-It can be tricky.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+It can be tricky.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:4"&gt;
 &lt;p&gt;It's certainly worthwhile and enjoyable to play other people's
@@ -1156,7 +1163,7 @@ that's really your own and couldn't be made by anyone else, even if
 your technical prowess is a hindrance. And sometimes that lack of
 competency, to a degree, can be a key part of what marks out what you
 create as &lt;a href="https://en.wikipedia.org/wiki/Outsider_music"&gt;distinct and
-unique&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+unique&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="learning"></category><category term="music"></category><category term="piano"></category></entry></feed>
+&lt;/div&gt;</content><category term="learning"></category><category term="music"></category><category term="piano"></category></entry></feed>

@@ -34,12 +34,14 @@
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -53,13 +55,11 @@
               title="stevenmaude.co.uk ATOM Feed"/>
 
 
-
-
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -83,8 +83,11 @@ stevenmaude.co.uk            </a>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 <!-- End Banner -->
+
+<!-- Content Container -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -103,7 +106,7 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2013-09-17T18:48:00+01:00"> 2013-09-17</time>
     </span>
-            <span class="label label-default">Modified</span>
+          <span class="label label-default">Modified</span>
             <span class="modified">
                 <time datetime="2015-10-26T17:17:00+00:00"> 2015-10-26</time>
             </span>
@@ -160,7 +163,7 @@ to follow them. (A note to anyone who kindly shares guides:
 <strong>step-by-step guides with screen grabs are invaluable</strong> when a reader is
 way out of their depth.)</p>
 <p>Here's details of the three approaches I tested.</p>
-<hr />
+<hr>
 <h2 id="approach-1-encrypt-windows-8-pro-with-bitlocker-encrypt-ubuntu-with-luks">Approach 1: Encrypt Windows 8 Pro with Bitlocker; encrypt Ubuntu with <a href="https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup">LUKS</a></h2>
 <p>I followed <a href="http://linuxtutorialscratchpad.blogspot.com/">this guide</a>
 with some success in that I was able to encrypt both systems.</p>
@@ -215,7 +218,7 @@ looked into them.</p>
 near smart enough to start understanding the internals of cryptographic
 software, but there are people out there who are. And I would certainly
 hope that they would raise the alarm if they spot anything
-suspicious.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
+suspicious.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>Unlike Bitlocker on Windows 7, TrueCrypt allows you to use a
 user-entered password to unlock the PC. However, at the moment, <a href="http://www.truecrypt.org/future">it
 doesn't work with a PC booting in UEFI
@@ -280,19 +283,19 @@ be
 changed</a>.
 This is all quite messy, but perhaps this will become more transparent
 from an end user perspective in future.</p>
-<hr />
+<hr>
 <p>Next time that I discuss encryption,
 I'll be posting about external storage and backup encryption.
 Thankfully, this is a far, far easier problem to solve than OS
 encryption. If you've got any other approaches or tips for encrypting
 dual boot systems, I'd be interested to hear them.</p>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
 <p>At the time of writing, <a href="http://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security">this is a
 particularly relevant
-concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -304,74 +307,55 @@ concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" tit
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush">
 
-
-
-            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/android">
-                            Android
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
-                            BitLocker
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/data">
-                            data
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
-                            encryption
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/linux">
-                            Linux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/music">
-                            music
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/python">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/windows">
-                            Windows
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-    </ul>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/music">music</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/review">review</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/wordpress">WordPress</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
 </section>
-            </aside>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
+<!-- End Content Container -->
+
 <footer>
    <div class="container">
       <hr class="content-author-separator">
@@ -396,7 +380,9 @@ concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" tit
 <script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
+
     <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
 
 
 </body>

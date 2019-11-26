@@ -37,12 +37,14 @@
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -56,13 +58,11 @@
               title="stevenmaude.co.uk ATOM Feed"/>
 
 
-
-
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -86,8 +86,11 @@ stevenmaude.co.uk            </a>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 <!-- End Banner -->
+
+<!-- Content Container -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -106,7 +109,7 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2013-12-24T00:04:00+00:00"> 2013-12-24</time>
     </span>
-            <span class="label label-default">Modified</span>
+          <span class="label label-default">Modified</span>
             <span class="modified">
                 <time datetime="2017-04-16T20:58:00+01:00"> 2017-04-16</time>
             </span>
@@ -146,7 +149,7 @@ stevenmaude.co.uk            </a>
 for autoremote: you can just <code>sudo apt autoremove</code> to ditch them.</p>
 <p>You can see how apt's behaviour is configured in <code>/etc/kernel/postinst.d/apt-auto-removal</code>.</p>
 </div>
-<p>Did a little quick maintenance to my Ubuntu install<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> today.</p>
+<p>Did a little quick maintenance to my Ubuntu install<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> today.</p>
 <p>First, I'd noticed that the boot partition was starting to get a little
 full, meaning that cleaning out old kernel images was overdue. If it
 gets completely full, you won't be able to upgrade to newer kernel
@@ -180,11 +183,11 @@ seems sensible.</p>
 </pre></div>
 
 
-<hr />
+<hr>
 <p>Second, I'd read a couple of days ago that <a href="http://news.ycombinator.com/item?id=6948536">Ubuntu 14.04
 LTS</a> is going to get <a href="https://en.wikipedia.org/wiki/Trim_%28computing%29">TRIM
 support</a>. If you use
-a solid state drive, TRIM<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> is a useful feature that stops the
+a solid state drive, TRIM<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> is a useful feature that stops the
 performance of your drive degrading over time.</p>
 <p><strong>Great, but hang on, 12.04 LTS never did?</strong></p>
 <p>Hmm, better fix that. If you're using an unencrypted file system, then
@@ -203,18 +206,18 @@ risk</a>.
 There are potential issues in terms of leaking file system information,
 which may be a concern if you have hidden volumes.</p>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
 <p>Incidentally, why have I not
 got some nice Ubuntu logo here to make this post look nicer? Incidents
 <a href="http://arstechnica.com/information-technology/2013/11/canonical-abused-trademark-law-to-target-a-site-critical-of-ubuntu-privacy/">like
 this</a>
-aren't exactly encouraging, even if later admission of mistakes are made...&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+aren't exactly encouraging, even if later admission of mistakes are made...&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>Reading "TRIM" so many times just meant I had to <a href="https://www.youtube.com/watch?v=dBcCXX0aWhc">listen to
-this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -226,74 +229,55 @@ this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" rev="fo
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush">
 
-
-
-            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/android">
-                            Android
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
-                            BitLocker
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/data">
-                            data
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
-                            encryption
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/linux">
-                            Linux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/music">
-                            music
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/python">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/windows">
-                            Windows
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-    </ul>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/music">music</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/review">review</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/wordpress">WordPress</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
 </section>
-            </aside>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
+<!-- End Content Container -->
+
 <footer>
    <div class="container">
       <hr class="content-author-separator">
@@ -318,7 +302,9 @@ this</a> while writing.&#160;<a class="footnote-backref" href="#fnref:2" rev="fo
 <script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
+
     <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
 
 
 </body>

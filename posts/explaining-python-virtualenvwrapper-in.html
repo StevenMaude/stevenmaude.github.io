@@ -30,12 +30,14 @@
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
@@ -49,13 +51,11 @@
               title="stevenmaude.co.uk ATOM Feed"/>
 
 
-
-
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -79,8 +79,11 @@ stevenmaude.co.uk            </a>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 <!-- End Banner -->
+
+<!-- Content Container -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -99,7 +102,7 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2013-09-19T17:53:00+01:00"> 2013-09-19</time>
     </span>
-            <span class="label label-default">Modified</span>
+          <span class="label label-default">Modified</span>
             <span class="modified">
                 <time datetime="2013-09-19T17:56:00+01:00"> 2013-09-19</time>
             </span>
@@ -131,7 +134,7 @@ previous post, I'll keep any exposition to the minimum.</p>
 <h2 id="how-do-you-install-virtualenvwrapper">How do you install virtualenvwrapper?</h2>
 <p>On my Ubuntu 12.04 LTS system, I installed it via the apt package
 manager. It was a little bit more of a pain since it sticks it in a
-non-standard location:<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> not the expected
+non-standard location:<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> not the expected
 <code>/usr/local/bin/virtualenvwrapper.sh</code>
 <a href="http://askubuntu.com/questions/251378/where-is-virtualenvwrapper-sh">but the unexpected <code>/etc/bash_completion_d/virtualenvwrapper</code></a>.</p>
 <p>Once installed, add the following two lines to
@@ -197,7 +200,7 @@ shortcut saves you a lot of typing <code>cd</code> and <code>activate</code> com
 documentation</a>, but these
 tricks alone make taking the time to install it worthwhile.</p>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
 <p>I also ran into a strange issue
@@ -207,7 +210,7 @@ had to <code>apt-get purge virtualenvwrapper</code> and then
 <code>sudo apt-get install virtualenvwrapper</code> to fix this. (Also note that if you
 have pip installed, you can do
 <code>sudo pip install virtualenvwrapper</code>, which presumably installs it to the
-standard location and should circumvent this problem entirely.)&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+standard location and should circumvent this problem entirely.)&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -219,74 +222,55 @@ standard location and should circumvent this problem entirely.)&#160;<a class="f
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush">
 
-
-
-            <li class="list-group-item"><a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/android">
-                            Android
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/bitlocker">
-                            BitLocker
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/data">
-                            data
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/encryption">
-                            encryption
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="https://www.stevenmaude.co.uk/tag/fix">
-                            fix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/linux">
-                            Linux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/music">
-                            music
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/python">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/ubuntu">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="https://www.stevenmaude.co.uk/tag/windows">
-                            Windows
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-    </ul>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://www.stevenmaude.co.uk/tags"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/bitlocker">BitLocker</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/fix">fix</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/music">music</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/review">review</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="https://www.stevenmaude.co.uk/tag/wordpress">WordPress</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
 </section>
-            </aside>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
+<!-- End Content Container -->
+
 <footer>
    <div class="container">
       <hr class="content-author-separator">
@@ -311,7 +295,9 @@ standard location and should circumvent this problem entirely.)&#160;<a class="f
 <script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
+
     <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
 
 
 </body>
