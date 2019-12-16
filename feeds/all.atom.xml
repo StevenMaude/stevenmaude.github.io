@@ -1,5 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2018-12-10T21:16:00+00:00</updated><entry><title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10</title><link href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10" rel="alternate"></link><published>2018-12-10T21:16:00+00:00</published><updated>2018-12-10T21:16:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-12-10:/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10</id><summary type="html">&lt;p&gt;Preventing Fujitsu's Battery Charging Control Update from
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2019-12-16T22:41:00+00:00</updated><entry><title>Learning from other projects: pelican-themes</title><link href="https://www.stevenmaude.co.uk/posts/learning-from-other-projects-pelican-themes" rel="alternate"></link><published>2019-12-16T22:41:00+00:00</published><updated>2019-12-16T22:41:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2019-12-16:/posts/learning-from-other-projects-pelican-themes</id><summary type="html">&lt;p&gt;Taking a look at pelican-themes — a project I currently use — to learn from it.&lt;/p&gt;</summary><content type="html">&lt;h2 id="lack-of-updates"&gt;Lack of updates&lt;/h2&gt;
+&lt;p&gt;At the time of writing, this blog uses Pelican to convert the Markdown
+blog content into publishable HTML. And, if you noticed from the dates
+on my posts, there has been just over a year between the last post and
+this one. This was mainly because there was considerable work needed to
+get this blog setup up-to-date: both in upgrading Pelican to the latest
+version, and pulling in updates to the theme.&lt;/p&gt;
+&lt;p&gt;Updating the theme was made slightly more complicated by the migration
+of the theme from its &lt;a href="https://github.com/DandyDev/pelican-bootstrap3"&gt;original
+repository&lt;/a&gt;. The new
+home became the
+&lt;a href="https://github.com/getpelican/pelican-themes"&gt;pelican-themes&lt;/a&gt;
+repository, not as a submodule but as the definitive repository for that
+theme.&lt;/p&gt;
+&lt;p&gt;In the past, it was simpler for me to simply pull request changes from
+the parent of my theme's fork directly into my fork. Instead, I had to
+restructure my repository slightly and start to &lt;code&gt;git cherry-pick&lt;/code&gt;
+individual commits that were applied to the theme within the repository.&lt;/p&gt;
+&lt;p&gt;Anyway, I've caught up on the maintenance. Bootstrap 3 is now
+&lt;a href="https://blog.getbootstrap.com/2019/07/24/lts-plan/"&gt;end-of-life&lt;/a&gt; so
+there is a longer term issue of this theme still being stuck on it. If I
+end up migrating to a new theme, it might be worth investigating using
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt; instead of Pelican at the same time. Hugo has
+increased in popularity considerably since I started using Pelican.&lt;/p&gt;
+&lt;h2 id="learning-from-other-projects"&gt;Learning from other projects&lt;/h2&gt;
+&lt;p&gt;While spending a fair amount of time updating my theme and working with
+the pelican-themes repository, I had chance to think about how the
+pelican-themes repository is structured and lessons I've learned just
+from having to work with it.&lt;/p&gt;
+&lt;p&gt;Reading and understanding — or at least attempting to understand —
+other people's source code is a way of picking up new ideas or concepts.
+What might also be useful for learning is looking at projects you use as
+a whole. How are they organised? How does that makes them easy or
+difficult to work with?&lt;/p&gt;
+&lt;p&gt;There is a caveat that even a public source code repository doesn't
+necessarily yield all the decision making that went on to get it to such
+a state. Some of that process may indeed be located with the source
+repository, e.g. pull request comment threads or issues. Some of that
+process may be separate to the source repository, but still public, e.g.
+public mailing lists. Some of that process may be entirely private, e.g.
+emails or private working documents. Some of it may be undocumented at
+all and reside entirely within maintainers' heads.&lt;/p&gt;
+&lt;h2 id="pelican-themes"&gt;pelican-themes&lt;/h2&gt;
+&lt;h3 id="a-note"&gt;A note&lt;/h3&gt;
+&lt;p&gt;The tone of this post shouldn't be considered as a ranting "why, oh why,
+is this project not doing things the way I suggest?" post, but primarily
+an exercise to just consider and note other ways it could have been
+structured.&lt;/p&gt;
+&lt;p&gt;It's an actively maintained project, and the maintainers are
+volunteering considerable amounts of their own time doing just that.&lt;/p&gt;
+&lt;p&gt;In many projects, whether by a single developer or a team, whether
+commercial and proprietary or open source, it's also entirely believable
+that there's no long-term maintenance plan from the outset. At the
+start, it's not even known whether the project will have a long-term
+future. The first commit of pelican-themes was in February 2011, making
+it nine years old in 2020. Often, things do just get worked out along
+the way.&lt;/p&gt;
+&lt;h3 id="the-current-state"&gt;The current state&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican-themes/"&gt;pelican-themes&lt;/a&gt; is a
+mixture of submodules and themes whose files exist entirely in the
+repository. The included non-submodule themes sometimes (if not often or
+even always) use the pelican-themes repository as their definitive home.
+There are a few problems I've seen with this approach, exemplified by
+the theme I am currently using my &lt;a href="https://github.com/StevenMaude/pelican-bootstrap3-sm"&gt;own
+fork&lt;/a&gt; of,
+pelican-bootstrap3.&lt;/p&gt;
+&lt;p&gt;Back when pelican-bootstrap3 was still maintained by its original
+developer, there were actually changes made to the version in
+&lt;a href="https://github.com/getpelican/pelican-themes/commit/c817f12a9f5034a05abec4d2515adabd003f9ac0#diff-32c97fb49ece91afc9f43c8405423109"&gt;pelican-themes&lt;/a&gt;
+that diverged from pelican-bootstrap3. pelican-bootstrap3 within
+&lt;a href="https://github.com/getpelican/pelican-themes/commit/faa85d6112a759767a4f327e35a07fa55d9e747e#diff-0eb6cb930365747af1fe070650593b8e"&gt;pelican-themes&lt;/a&gt;
+was then updated by simply a straight copy over of the then-current
+version of the upstream theme, losing the changes made to the
+pelican-themes version. Apart from losing work, this process can be
+potentially confusing for users not directly following the development
+process; you can have something that was fixed, then &lt;em&gt;unfixed&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Later, the official home of pelican-bootstrap3 became the pelican-themes
+repository as the original developer &lt;a href="https://github.com/getpelican/pelican-themes/pull/383"&gt;no longer wanted to support
+it&lt;/a&gt;. This had a
+couple of consequences.&lt;/p&gt;
+&lt;p&gt;First, it meant that the pelican-themes maintainers adopted the extra
+maintenance work of a popular theme. Those maintainers may not even
+&lt;em&gt;use&lt;/em&gt; the theme. This means that pull requests can languish, perhaps
+because the maintainers don't feel that comfortable merging substantial
+changes or don't have strong opinions on whether the proposed changes
+are worthwhile. For pelican-bootstrap3, at the time of writing in
+December 2019, there are several unmerged pull requests on
+pelican-themes right now, even as &lt;a href="https://github.com/getpelican/pelican-themes/pull/414"&gt;far back as
+2016&lt;/a&gt;.  Pull
+requests left unloved and unmerged are a deterrent to other developers
+who may be considering contributing other changes.&lt;/p&gt;
+&lt;p&gt;Second, even if pull requests are regularly merged, there may be less of
+a definitive direction taken than if maintainers have strong opinions
+about where that subproject is headed. It can also lead to a lack of
+quality assurance. For pelican-bootstrap3, an example is this
+&lt;a href="https://github.com/getpelican/pelican-themes/pull/441"&gt;translation
+feature&lt;/a&gt;. Such a
+feature is one that's useful to lots of people, but unfortunately it
+&lt;a href="https://github.com/getpelican/pelican-themes/issues/460"&gt;broke things&lt;/a&gt;
+for users who didn't have the same plugin configuration as the original
+author, affecting those users who did not intend to use the new feature.&lt;/p&gt;
+&lt;h3 id="how-else-might-pelican-themes-be-managed"&gt;How else might pelican-themes be managed?&lt;/h3&gt;
+&lt;p&gt;That's how things are structured in pelican-themes now. I did think
+about other ways the repository might have been structured taking the
+above features of how it works right now into account.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;pelican-themes could simply have been a list of links to themes,
+  solely a reference resource.&lt;/p&gt;
+&lt;p&gt;The advantage of this is no management on the part of the
+pelican-themes maintainers is required except to add new themes or
+remove themes that are no longer supported or unavailable. In many
+cases, once a theme is added, that would be as much as is ever
+required to be done for that theme. The big disadvantage is that you
+can't just clone the entire repository and have all the themes ready
+to use. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There could be a "more strongly" monorepo version of what there is
+  now, that is, pelican-themes could be a pure monorepo with no
+  submodules.  This now means that &lt;em&gt;every theme&lt;/em&gt; has to be
+  hand-maintained by copying from the upstream version repository, if
+  pelican-themes isn't the original repository for a theme. This
+  doesn't, however, solve the problem of having a mixture of maintained
+  and unmaintained themes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Going completely in the opposite direction is an option too: have
+  every theme in pelican-themes included as a submodule. This has the
+  advantage that pull requests into pelican-themes would be simple,
+  simply reflecting a submodule update to the parent repository's
+  current release.&lt;/p&gt;
+&lt;p&gt;It would mean that every theme in pelican-themes where
+pelican-themes is the definitive repository for that theme would
+need to be moved to its own individual repository. However, breaking
+out the themes in this way might make it easier for those themes to
+be managed by specific maintainers for each theme only (provided
+volunteers could be found), as opposed to the current agglomerate
+repository maintained by developers who may not use most of the
+themes present.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Of course, the problems described above are easy to spot when using a
+project that's been around a while, but perhaps subtle at a project's
+inception. I think this is symptomatic of software development. It is
+possible to build something that takes on a direction beyond that
+originally envisaged, especially projects that have many contributors or
+maintainers over time, each of which may have their own opinions as to
+how such a project should be nurtured.&lt;/p&gt;</content><category term="2019"></category><category term="git"></category><category term="project management"></category></entry><entry><title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10</title><link href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10" rel="alternate"></link><published>2018-12-10T21:16:00+00:00</published><updated>2018-12-10T21:16:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-12-10:/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10</id><summary type="html">&lt;p&gt;Preventing Fujitsu's Battery Charging Control Update from
 making Windows 10 crash with a blue screen error caused by
 tdklib64.sys.&lt;/p&gt;</summary><content type="html">&lt;p&gt;(NB: There's some background here just by way of introduction. If you encounter
 this problem and don't want to endure my waffling, check the setting I &lt;a href="#the-fix"&gt;mention
@@ -995,175 +1143,4 @@ Hedging your bets seems the only viable solution.&lt;/p&gt;
   for example.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content><category term="2017"></category><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry><entry><title>Do you even Liszt? Five months of learning piano</title><link href="https://www.stevenmaude.co.uk/posts/do-you-even-liszt-five-months-of-learning-piano" rel="alternate"></link><published>2017-06-11T14:06:00+01:00</published><updated>2017-06-11T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-06-11:/posts/do-you-even-liszt-five-months-of-learning-piano</id><summary type="html">&lt;p&gt;Taking piano lessons as a late learner.&lt;/p&gt;</summary><content type="html">&lt;h2 id="why-learn-now"&gt;Why learn now?&lt;/h2&gt;
-&lt;p&gt;Other posts on my blog highlight the small theme of me very, very slowly
-trying to get better at making music. When you're a novice, it's natural
-to ask what's the best way to improve? Some common advice I've found on
-music production forums goes like this: focus on develop piano playing
-skills first, and less on learning software or production itself.&lt;/p&gt;
-&lt;p&gt;I think that's for two big reasons. An analogy is that being unable to
-touch type would be a hindrance for writing and coding. You can still do
-these things regardless, but the lack of being able to express yourself
-quickly does slow your progress. Likewise with music, yes, you can
-painstakingly draw notes in software,&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; but being able to play a
-melody or chord progression means that you can transcribe something in
-your head much more quickly and directly, as well as improvise
-effectively.&lt;/p&gt;
-&lt;p&gt;Being able to play also gives you hard fought experience of both picking
-up music theory as you learn and seeing it constantly applied. When
-playing pieces of music that "work" while seeing how they are made, it's
-surprising sometimes just how some melodies can be pleasing, whether in
-spite of, or indeed, because of their simplicity.&lt;/p&gt;
-&lt;p&gt;With that motivation in mind, I've been taking piano lessons since the
-start of this year. And as I've just this week played a very small part
-in a concert, albeit a very simple accompaniment, it seemed as good a
-point as any to document how I've found this as an adult learner.&lt;/p&gt;
-&lt;h2 id="tuition-or-self-taught"&gt;Tuition or self-taught?&lt;/h2&gt;
-&lt;p&gt;Lessons can be expensive for what is a relatively short time with a
-teacher, so why would you bother paying? You're doing most of the
-learning by yourself.&lt;/p&gt;
-&lt;p&gt;Very true, but lessons have a lot to offer.&lt;/p&gt;
-&lt;p&gt;It makes a commitment to sit down and learn something for the next week,
-which is very important. Aside from the odd day when I've been ill or
-away, I've usually managed to get in at least a daily half-hour practice
-session. Having a scheduled lesson with a teacher really does act as a
-promise to ensure you keep time aside for practice. At times, I'd have
-the idea in my head that I'd not yet got enough done for the next
-lesson. That's usually enough motivation for me to sit down and work on
-piano. You have a deadline to meet.&lt;/p&gt;
-&lt;p&gt;Teachers can provide guidance of specific pointers, on technique, on how
-to play tricky sections, or on explaining notation. Particularly with
-piano, at least to me, it doesn't always seem obvious whether what I'm
-doing is "correct" or most efficient. If I was learning in isolation,
-things I find difficult could well contribute to me giving up. Knowing I
-can go and get advice at the next lesson is a really positive and
-powerful resource to have.&lt;/p&gt;
-&lt;p&gt;Having someone capable of competently observing and listening to you
-play, assessing that and pointing out things you're doing wrong (even
-when you think you've mastered something) is also a boon. Likewise, this
-means you should be encouraged with reasonably good habits, e.g. posture
-and finger positioning, instead of getting by for now, and struggling
-later.&lt;/p&gt;
-&lt;p&gt;A teacher can also tell you when you've got the most out of learning a
-piece. You could spend a long time playing something to near perfection,
-but is that practice time most usefully spent doing that? Importantly,
-it's not just having that feedback from someone else, but one who has
-taught others and knows what's reasonable to expect too. It also, again,
-takes this decision out of your hands. &lt;/p&gt;
-&lt;p&gt;Removing some of the decision making of learning is another benefit.
-Instead of having to figure out what books to get and which pieces to
-try next — is this too difficult? too easy? — they can set tasks for
-you. Again, a teacher should know what works well for other learners,
-and it means you don't have to concern yourself with that at all. &lt;/p&gt;
-&lt;p&gt;That said, for me, lessons work best with a two-way involvement. As time
-is short, I've found a good strategy is going in with a clear idea of
-things I've been struggling with or don't quite understand, to discuss
-and work on in the lesson.&lt;/p&gt;
-&lt;p&gt;Disregarding all those benefits, could you teach yourself? It's not
-impossible. There are musicians that have successfully done just that.
-But, it requires a lot of discipline and the persistence to battle
-through the tricky skills you'll need to learn. The only downside I can
-think of taking lessons is their financial cost.&lt;/p&gt;
-&lt;h2 id="starter-books"&gt;Starter books&lt;/h2&gt;
-&lt;p&gt;The first book I was using was The Classic Piano Course Book 1 by Carol
-Barratt. Beginning from basics, it introduces new ideas throughout every
-couple of pages, moving briskly, without being overwhelming. Progress
-feels regular and positive. Certainly, except towards the last third or
-so of the book, with a little practice each day, it was possible to get
-most of the simple pieces to a decent standard in a week or so.&lt;/p&gt;
-&lt;p&gt;Going back to tuition versus being self-taught, you could use it for
-self-teaching as it is mostly self-explanatory, although at times it's a
-light on details. For instance, it provides an exercise on hand
-extending and contracting, which, in the absence of helpful pictures, I
-had to check with my teacher that I'd understood it correctly.&lt;/p&gt;
-&lt;p&gt;From completing about three-quarters of that book, I've moved on to 2017
-&amp;amp; 2018 ABRSM Grade 1 assessment pieces. Not necessarily with a view to
-taking the exams, but to get to that standard. These are challenging,
-probably taking me maybe a couple of weeks to be able to play through
-from start to finish at all (i.e. stumbling through them with hands
-together), with another week or two to refine them. Even then, I'm aware
-of shortcomings that I could still improve on.&lt;/p&gt;
-&lt;p&gt;Popular books, such as these, are a good choice. You'll easily find
-competent performances on YouTube as a useful reference for what the
-music you're playing should sound like.&lt;/p&gt;
-&lt;h2 id="how-is-learning"&gt;How is learning?&lt;/h2&gt;
-&lt;p&gt;I usually enjoy practice. It can be frustrating, particularly when you
-first start out on something and struggle, which can be demoralising.
-What you have to do is retain the faith that you'll improve just like
-you have on previous pieces when you first encountered them.&lt;/p&gt;
-&lt;p&gt;Once you're a bit more comfortable that most new things you play could
-be the most difficult that you have tackled, the process starts to feel
-less daunting. Once you begin to get to grips with a piece, playing
-becomes a lot more fun to work on as it comes together, and you make
-fewer mistakes.&lt;/p&gt;
-&lt;p&gt;Picking out the correct notes, adding the correct rhythm, introducing
-dynamics and accents, and pedalling all feel almost like separate layers
-of complexity. This can feel overwhelming at times, although focusing on
-tackling a subset of these and adding the others on later does help.&lt;/p&gt;
-&lt;p&gt;Coordinating two hands is definitely a tricky aspect of piano. It takes
-considerable practice to be able to play two different things with your
-hands independently. That's very different from guitar (where I have a
-little past experience),&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; where left and right hand perform very
-different tasks, and it's easier to isolate their movements. That said,
-as much as I find certain aspects of piano tricky, I found barre chords
-on guitar a real barrier (sorry) to cross.&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3"&gt;3&lt;/a&gt;&lt;/sup&gt; Piano feels difficult
-generally, but I've not yet encountered any single thing that is a
-comparable obstacle.&lt;/p&gt;
-&lt;p&gt;On the whole, learning piano been an enjoyable and rewarding experience.
-To go from almost no experience to being able to stumble through Grade 1
-pieces, which sound pleasant (if played well), and really feel like
-you're playing piano, has been an interesting journey.&lt;/p&gt;
-&lt;p&gt;I'm now feeling a bit more confident when I'm attempting to make music.
-Knowing that my hands are likely in the correct position, or being able
-to noodle around on the keyboard with a more decisive feeling of what
-I'm doing as being musical, are some of the early benefits I've gained
-from studying piano. Recalling little melodies or chord progressions
-also seems a simpler task, since I'm more familiar with keyboard layout.&lt;/p&gt;
-&lt;p&gt;As a late starter, there's no way I'm going to be ever as good as if I'd
-begun when much younger. I think it's important to keep your possible
-achievements realistic, so as not to stretch too far and give up in
-frustration. Nonetheless, for what I really want to do, create
-music,&lt;sup id="fnref:4"&gt;&lt;a class="footnote-ref" href="#fn:4"&gt;4&lt;/a&gt;&lt;/sup&gt; the skills being developed are valuable, and, importantly,
-I've found learning piano enjoyable enough in itself to continue with
-it.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;Some take this to
-&lt;a href="https://en.wikipedia.org/wiki/Black_MIDI"&gt;extremes&lt;/a&gt; too, treating a
-musical score as a canvas that must be filled and painting in an
-&lt;em&gt;inhuman&lt;/em&gt; number of notes.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;One notable thing from learning guitar is that I only ever read
-treble clef, but not bass clef (although I did see it and struggle
-through with it a while back in a &lt;a href="https://www.coursera.org/learn/edinburgh-music-theory"&gt;Coursera music theory
-course&lt;/a&gt;). Because
-of that, I'm much less comfortable reading the bass clef. The best way I
-can describe this feeling is: imagine the confusion if you were reading
-a book where a mischievous publisher had turned every second line upside
-down.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:3"&gt;
-&lt;p&gt;If you've not picked up a guitar, &lt;a href="https://en.wikipedia.org/wiki/Barre_chord"&gt;barre
-chords&lt;/a&gt; are difficult because
-they require clamping some or all of the strings down at one fret
-position, usually with the index finger. Here, you need to strengthen
-and toughen up your finger to do this, as well as placing it correctly
-so the strings ring cleanly, instead of with an unsatisfying dull thunk.
-It can be tricky.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:4"&gt;
-&lt;p&gt;It's certainly worthwhile and enjoyable to play other people's
-music well. But I think there's something about the possibility of being
-able to create something as an individual. There's no-one else that is
-you, or can ever be you. Therefore it is possible to create something
-that's really your own and couldn't be made by anyone else, even if
-your technical prowess is a hindrance. And sometimes that lack of
-competency, to a degree, can be a key part of what marks out what you
-create as &lt;a href="https://en.wikipedia.org/wiki/Outsider_music"&gt;distinct and
-unique&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content><category term="2017"></category><category term="learning"></category><category term="music"></category><category term="piano"></category></entry></feed>
+&lt;/div&gt;</content><category term="2017"></category><category term="music"></category><category term="radio"></category><category term="Rinse FM"></category><category term="SoundCloud"></category></entry></feed>
