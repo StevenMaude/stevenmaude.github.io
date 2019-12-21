@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>2019 - stevenmaude.co.uk</title>
+    <title>A ULPS take: Windows 10 black screens and slow boot - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,21 @@
 
 
 
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/a-ulps-take-windows-10-black-screens-and-slow-boot">
 
-    <meta name="author" content="Steven Maude" />
-    <meta name="keywords" content="2019" />
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Windows" />
+        <meta name="description" content="Disabling ULPS on laptops that Windows 10 doesn&#39;t play nicely with." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="stevenmaude.co.uk" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="stevenmaude.co.uk"/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk"/>
-        <meta property="og:description" content="stevenmaude.co.uk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="A ULPS take: Windows 10 black screens and slow boot"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/a-ulps-take-windows-10-black-screens-and-slow-boot"/>
+        <meta property="og:description" content="Disabling ULPS on laptops that Windows 10 doesn&#39;t play nicely with."/>
+        <meta property="article:published_time" content="2019-12-21" />
+            <meta property="article:section" content="2019" />
+            <meta property="article:tag" content="Windows" />
+            <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
@@ -27,6 +32,8 @@
         <meta name="twitter:site" content="@StevenMaude">
         <meta name="twitter:creator" content="@StevenMaude">
     <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
 
     <!-- Bootstrap -->
@@ -78,9 +85,16 @@ stevenmaude.co.uk            </a>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <article>
-                <h2 class="article-link"><a class="article-link" href="https://www.stevenmaude.co.uk/posts/a-ulps-take-windows-10-black-screens-and-slow-boot">A ULPS take: Windows 10 black screens and slow boot</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                A ULPS take: Windows 10 black screens and slow boot
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
@@ -95,33 +109,56 @@ stevenmaude.co.uk            </a>
 	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Disabling ULPS on laptops that Windows 10 doesn't play nicely with.</p>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2 class="article-link"><a class="article-link" href="https://www.stevenmaude.co.uk/posts/learning-from-other-projects-pelican-themes">Learning from other projects: pelican-themes</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Published</span>
-    <span class="published">
-        <time datetime="2019-12-16T22:41:00+00:00"> 2019-12-16</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/git">git</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/project-management">project management</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Taking a look at pelican-themes — a project I currently use — to learn from it.</p>
-                </div>
-            </article>
-            <hr/>
+                <h1 id="a-slow-boot-problem">A slow boot problem</h1>
+<p>Recently I was helping a friend with an older laptop running Windows 10
+that seemed unusually slow to start.</p>
+<p>Though Windows seemed nimble once it started, the boot and shutdown
+times felt excessively slow: minutes instead of the seconds it should
+take. And it wasn't like Windows itself was doing anything in this state
+either: the machine was silent, instead of the fans powering up, and
+there was just a black screen following the Windows logo.</p>
+<p>Fortunately, with some frantic searching, I stumbled on a potential
+solution: the cause might be a particular AMD graphics problem,
+especially with two graphics cards, integrated and discrete. And the
+laptop I was looking at did indeed have AMD Radeon hardware.</p>
+<h1 id="ulps">ULPS</h1>
+<p>ULPS is an initialism used by AMD to refer to Ultra Low Power State, and
+is the feature that can lead to this slow boot problem. As the name
+suggests, this is a power saving feature.</p>
+<p>With the particular Windows install I was looking at, I didn't try
+updating drivers beyond those that were automatically found by Windows
+itself. However, reading around, the drivers may never have been fixed
+for legacy hardware anyway.</p>
+<h1 id="the-fix">The fix</h1>
+<p>The fix I found was to disable this ULPS feature in the registry.</p>
+<p>First, open the Windows Registry Editor. (In the Windows 10 search box,
+search for "regedit" and then run "Registry Editor"; I can't remember,
+but these edits may require you to be running the Registry Editor as
+administrator, so you may need to right-click on "Registry Editor" and
+then choose to run it as administrator.)</p>
+<p>Search for <code>EnableULPS</code>, set any <code>1</code> values to <code>0</code>. There are also
+<code>EnableULPS_NA</code> settings but I read conflicting reports of whether to
+set these to <code>0</code> or not; in the end, only changing the <code>EnableULPS</code>
+settings was sufficient to resolve this issue for the laptop I was
+working with.</p>
+<p>Hopefully, that should cure the problem. It's certainly a possibility
+that subsequently installed graphics drivers could reset these overrides
+and cause the symptom to recur, but, if that's the case, the problem is
+easy to spot.</p>
+<p>After disabling ULPS, both booting and shutdown were much, <em>much</em>
+faster. The downside is that disabling ULPS may make the battery deplete
+more rapidly than if it were enabled. But the boot up and shutdown times
+were so slow without this fix that I think it's a necessary trade-off
+to make your PC usable day-to-day, should you require it.</p>
+<p>There are other causes of a slow booting Windows installation, but if
+you are dealing with a slow starting PC with Radeon graphics,
+particularly with two display adapters, it's worth trying to update the
+drivers and, failing that, seeing if this fix works.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
     </div>
