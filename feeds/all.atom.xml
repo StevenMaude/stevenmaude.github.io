@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-05-09T21:35:00+01:00</updated><entry><title>Strange symptoms of hard drive enclosure failure</title><link href="https://www.stevenmaude.co.uk/posts/strange-symptoms-of-hard-drive-enclosure-failure" rel="alternate"></link><published>2020-05-09T21:35:00+01:00</published><updated>2020-05-09T21:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-05-09:/posts/strange-symptoms-of-hard-drive-enclosure-failure</id><summary type="html">&lt;p&gt;Describing some symptoms of a wonky hard drive enclosure on
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-06-07T20:55:00+01:00</updated><entry><title>"The Missing Semester of Your CS Education": a course review</title><link href="https://www.stevenmaude.co.uk/posts/the-missing-semester-of-your-cs-education-a-course-review" rel="alternate"></link><published>2020-06-07T20:55:00+01:00</published><updated>2020-06-07T20:55:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-07:/posts/the-missing-semester-of-your-cs-education-a-course-review</id><summary type="html">&lt;p&gt;A quick review and recommendation of a useful computer science
+course&lt;/p&gt;</summary><content type="html">&lt;h2 id="missing-semester-singular"&gt;Missing semester: singular?&lt;/h2&gt;
+&lt;p&gt;Though I have a science background, I don't have a formal computer
+science education at all. In that sense then, a course entitled &lt;a href="https://missing.csail.mit.edu/"&gt;"The
+Missing Semester of Your CS Education"&lt;/a&gt;
+is an underestimation.&lt;/p&gt;
+&lt;p&gt;In my case, they're &lt;em&gt;all&lt;/em&gt; missing semesters. (I'd love to learn more and
+I do keep trying to learn what I can at work, and pick up new things in
+my spare time.)&lt;/p&gt;
+&lt;p&gt;But, looking over the course syllabus, I realised that, actually, I'd
+already covered a fair amount of what it covers. Much of this had been
+via learning at work, often from colleagues telling me about particular
+tools. That actually sold the course to me: I was already aware that
+some of the chosen topics were particularly useful. So, I figured, what
+I didn't know might be worth knowing too.&lt;/p&gt;
+&lt;p&gt;The central theme of the course is around the tooling that developers,
+especially on Linux, might use while developing software, or working at
+the command-line. The course covers: working with the command-line shell
+and shell scripting, text editors, version control with Git, using
+debugging and profiling tools, and a little introduction to
+cryptographic tools.&lt;/p&gt;
+&lt;h2 id="course-format"&gt;Course format&lt;/h2&gt;
+&lt;p&gt;With eleven lectures of about an hour each, the course is well presented
+and not too lengthy. The lecture notes available on the &lt;a href="https://missing.csail.mit.edu/"&gt;course
+site&lt;/a&gt; are a useful reference and usually
+fairly comprehensive. The notes don't always cover everything in the
+lectures, particularly where there are worked examples. But, a skim
+through the notes should give you a good impression of what's discussed,
+if you prefer reading to videos.&lt;/p&gt;
+&lt;h2 id="what-i-liked-about-the-course"&gt;What I liked about the course&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Many of the lectures are self-contained. There are a few that are
+  easier to follow with some basic command-line shell knowledge, but
+  that too is covered in the first couple of lectures.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consequently, this means the course works well as a survey of topics.
+  There is a little detail imparted to give you some deeper background,
+  and sometimes other recommended readings. However, the level of
+  presentation and the rate at which the material is worked through is
+  very approachable without being overwhelming.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The exercises for each lecture apply the ideas covered in a very
+  direct and practical way. Despite the problems being artificial, it is
+  possible to envisage that you might solve real problems with similar
+  approaches.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="do-i-recommend-it"&gt;Do I recommend it?&lt;/h2&gt;
+&lt;p&gt;Yes, definitely. It will probably take about ten to twenty hours
+covering this material, depending on whether you watch all the videos or
+just read the notes. I should emphasise again that, even if you don't
+want to go through the entire course, you can easily pick out the few
+lectures that might interest you.&lt;/p&gt;
+&lt;p&gt;I did learn a few things that I didn't know. And the exercises allowed
+me to try working with some tools I hadn't used before (e.g. Linux
+kernel cgroups).&lt;/p&gt;
+&lt;p&gt;If you're an experienced Linux developer and constantly keep up-to-date
+with tools, there may not be much new here. However, for developers
+starting out, those who are starting to use Linux, those who are still
+in education or those, like me, who think they might have some knowledge
+gaps, this course is a nice compliment to other learning resources.&lt;/p&gt;</content><category term="2020"></category><category term="computer science"></category><category term="course"></category><category term="Linux"></category></entry><entry><title>Strange symptoms of hard drive enclosure failure</title><link href="https://www.stevenmaude.co.uk/posts/strange-symptoms-of-hard-drive-enclosure-failure" rel="alternate"></link><published>2020-05-09T21:35:00+01:00</published><updated>2020-05-09T21:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-05-09:/posts/strange-symptoms-of-hard-drive-enclosure-failure</id><summary type="html">&lt;p&gt;Describing some symptoms of a wonky hard drive enclosure on
 Windows&lt;/p&gt;</summary><content type="html">&lt;h1 id="reliable-failure"&gt;Reliable failure&lt;/h1&gt;
 &lt;p&gt;It's sometimes a reassuring comfort to know that computers and
 computer-related things are entirely reliable. In that they are anything
@@ -905,79 +968,4 @@ previous keyboard initially, it didn't take that long to adjust. Since
 then, it has made a noticeable difference in my confidence going into
 piano lessons and being sat at an acoustic grand piano. It now feels
 much more a natural transition to go from playing at home to playing in
-lessons.&lt;/p&gt;</content><category term="2017"></category><category term="music"></category><category term="piano"></category></entry><entry><title>Full of heart: an Undertale review</title><link href="https://www.stevenmaude.co.uk/posts/full-of-heart-an-undertale-review" rel="alternate"></link><published>2017-08-20T15:47:00+01:00</published><updated>2017-08-20T15:47:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-08-20:/posts/full-of-heart-an-undertale-review</id><summary type="html">&lt;p&gt;The world doesn't need another review of Undertale.
-Regardless, here's why I think you should play it.&lt;/p&gt;</summary><content type="html">&lt;h2 id="playing-undertale-fills-you-with-determination"&gt;Playing Undertale fills you with determination&lt;/h2&gt;
-&lt;p&gt;Undertale's almost two years old. Yet I only bothered to play it this
-year. If you have a PS4 and never got it on PC, it was released this
-week. While the PC version will have been much cheaper while on sale,
-and runs on just about any hardware, if you really must play it on a
-console, now you can.&lt;/p&gt;
-&lt;p&gt;Why didn't I bother sooner? Hype is one reason. When it's that vocal —
-and with Undertale, it's near deafening — I always tend to do as &lt;a href="https://en.wikipedia.org/wiki/Don%27t_Believe_the_Hype"&gt;Public
-Enemy
-instructed&lt;/a&gt;.
-The other is its resemblance to 16-bit Japanese RPGs (JRPGs). While I
-appreciate those games are much loved, I've never really shared that
-affection.&lt;/p&gt;
-&lt;p&gt;When I did actually get round to Undertale on PC, it happened to be on
-sale. I figured it was cheap enough to see if they hype was warranted
-and I wanted an escapist diversion from real world events. It seemed as
-good a game to try out.&lt;/p&gt;
-&lt;p&gt;Without spoiling too much, you're a human that finds yourself fallen
-down a mountain, and lost somewhere in the underground world of
-monsters. The rest of the game sees you journeying through to try and
-find some route home. Mostly this is done by exploration, although there
-are a few puzzles dotted along the way that need solving before you can
-progress, and monsters that you can fight. So much, so familiar.&lt;/p&gt;
-&lt;p&gt;But it's a wonderful game.&lt;/p&gt;
-&lt;p&gt;Those aspects of JRPGs that I never got on with are kept to a minimum.
-There's a minimum of backtracking. The random battles, a staple of that
-genre, that prevent you from walking more than a couple of footsteps —
-because &lt;em&gt;swoosh swoosh swoosh&lt;/em&gt; TWO SLIGHTLY SURLY ENEMIES IN MATCHING
-OUTFITS APPEAR, and &lt;em&gt;cue battle music&lt;/em&gt; — are thankfully omitted too.&lt;/p&gt;
-&lt;p&gt;When you actually battle, the system is novel: a mixture of strategy and
-shmup bullet dodging. Battles can even be avoided, and these options are
-left open to the player to decide. Both in and out of battle mode, the
-dialogue is predominantly witty and charming, and avoiding lazy
-territory, instead of prolonged and awkwardly translated.&lt;/p&gt;
-&lt;p&gt;Another thing that the game does well is, without any spoilers, is
-continually confronting you and challenging your expectations of the
-situations you're placed in, at times akin to what something like The
-Stanley Parable does in trying to break the fourth wall.&lt;/p&gt;
-&lt;p&gt;Without playing and without spoiling it, it's hard to convey that
-without being anything other than handwavingly effusive. Characters and
-combatants that only appear briefly don't just feel like they've been
-arbitrarily placed there, but like they have a real back story, even if
-that's not ever entirely revealed. And while the game has this rich
-assortment of characters, it also has character itself, full of soul and
-heart.&lt;/p&gt;
-&lt;h2 id="fantastic-mr-fox"&gt;Fantastic Mr. Fox&lt;/h2&gt;
-&lt;p&gt;Undertale's singular cohesion is likely because it was largely the
-product of one person's imagination, Toby Fox. And while its graphics
-are simple, but functional, it is a polished game, backed by an
-incredibly &lt;a href="https://www.youtube.com/watch?v=SxNcKXjfaQo"&gt;strong
-soundtrack&lt;/a&gt; also composed
-by the developer.&lt;/p&gt;
-&lt;p&gt;I've been fairly lucky that the few games that I've played through in
-recent years have been particularly good choices for one reason or
-another. Undertale's another, and one of the more memorable. It
-genuinely feels like an experience that would only work as a game, not a
-book or film. True, you could describe a similar journey with similar
-characters in print or on screen. But it's the act of playing through
-and having to make decisions on how you play through that's intrinsic to
-how it works and how it makes you feel; that's very different to a more
-passive experience.&lt;/p&gt;
-&lt;p&gt;Where many otherwise good games fail is extending their gameplay through
-repetition and tedium, churning out more of the same. Undertale avoids
-this, keeping the core game short and sweet, but giving you the
-opportunity to play through in a very different play style. I'll
-definitely look forward to revisiting that world in a few months.
-(That's a really strong compliment from me. I have so little time to
-play games these days that there are very few that I'd ever return to
-once I've played through.)&lt;/p&gt;
-&lt;p&gt;Undertale is the perfect game for a Sunday afternoon where rain is
-beating down your windows, a dull Tuesday where you're miserably plagued
-with cold, or maybe even a snowy Thursday where you have the luxury of
-being snowed in, unable to get to school or work, and are just warming
-up with hot chocolate after already having been out to play in the snow.&lt;/p&gt;
-&lt;p&gt;It's that kind of game.&lt;/p&gt;</content><category term="2017"></category><category term="game"></category><category term="review"></category></entry></feed>
+lessons.&lt;/p&gt;</content><category term="2017"></category><category term="music"></category><category term="piano"></category></entry></feed>
