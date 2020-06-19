@@ -471,7 +471,16 @@ developers, and potentially loss of work.&lt;/p&gt;
 highlights&lt;/a&gt;, if you have an editor
 or other scheduled task running &lt;code&gt;git fetch&lt;/code&gt; in the background,
 &lt;code&gt;--force-with-lease&lt;/code&gt; won't offer any protection as the remote tracking
-branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="2018"></category><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2018-08-26T14:06:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:/posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;A quick look at Pipenv, a tool to manage Python packages.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
+branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="2018"></category><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2020-06-19T12:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:/posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;A quick look at Pipenv, a tool to manage Python packages.&lt;/p&gt;</summary><content type="html">&lt;div class="admonition article-edit"&gt;
+&lt;p&gt;Edit 2020-06-19: These days, I just tend to use a manually created
+virtualenv when working on Python, and a bash one-liner to activate
+the appropriate virtualenv.&lt;/p&gt;
+&lt;p&gt;As mentioned below, &lt;a href="https://github.com/python-poetry/poetry"&gt;poetry&lt;/a&gt; is
+another option for managing dependencies and I've seen a lot of
+positive things written about poetry since I originally wrote this
+post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
 remove the hassle of using
 &lt;a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under"&gt;virtualenvs&lt;/a&gt;
 (Python runtime environments to keep separate Python setups for
@@ -563,7 +572,7 @@ decade and is only just &lt;a href="https://blog.golang.org/versioning-proposal"
 there&lt;/a&gt;. Python's had
 considerably longer than Go to get it right though.)&lt;/p&gt;
 &lt;p&gt;Finally, it is worth noting that there are other alternatives too.
-&lt;a href="https://github.com/sdispater/poetry"&gt;Poetry&lt;/a&gt; is a newer, and perhaps
+&lt;a href="https://github.com/python-poetry/poetry"&gt;Poetry&lt;/a&gt; is a newer, and perhaps
 less well known, tool whose goals intersect with those of Pipenv. It
 fixes some of the existing issues of dependency resolution that
 pip-tools has (pip-tools is the underlying package that pipenv actually

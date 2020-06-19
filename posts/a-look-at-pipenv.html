@@ -100,6 +100,10 @@ stevenmaude.co.uk            </a>
     <span class="published">
         <time datetime="2018-08-26T14:06:00+01:00"> 2018-08-26</time>
     </span>
+          <span class="label label-default">Modified</span>
+            <span class="modified">
+                <time datetime="2020-06-19T12:39:00+01:00"> 2020-06-19</time>
+            </span>
 
 
 
@@ -112,7 +116,16 @@ stevenmaude.co.uk            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="https://github.com/pypa/pipenv">Pipenv</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> is a tool that aims to
+                <div class="admonition article-edit">
+<p>Edit 2020-06-19: These days, I just tend to use a manually created
+virtualenv when working on Python, and a bash one-liner to activate
+the appropriate virtualenv.</p>
+<p>As mentioned below, <a href="https://github.com/python-poetry/poetry">poetry</a> is
+another option for managing dependencies and I've seen a lot of
+positive things written about poetry since I originally wrote this
+post.</p>
+</div>
+<p><a href="https://github.com/pypa/pipenv">Pipenv</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> is a tool that aims to
 remove the hassle of using
 <a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under">virtualenvs</a>
 (Python runtime environments to keep separate Python setups for
@@ -204,7 +217,7 @@ decade and is only just <a href="https://blog.golang.org/versioning-proposal">ge
 there</a>. Python's had
 considerably longer than Go to get it right though.)</p>
 <p>Finally, it is worth noting that there are other alternatives too.
-<a href="https://github.com/sdispater/poetry">Poetry</a> is a newer, and perhaps
+<a href="https://github.com/python-poetry/poetry">Poetry</a> is a newer, and perhaps
 less well known, tool whose goals intersect with those of Pipenv. It
 fixes some of the existing issues of dependency resolution that
 pip-tools has (pip-tools is the underlying package that pipenv actually
