@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-06-19T21:35:00+01:00</updated><entry><title>Oh, fork it</title><link href="https://www.stevenmaude.co.uk/posts/oh-fork-it" rel="alternate"></link><published>2020-06-19T21:35:00+01:00</published><updated>2020-06-19T21:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-19:/posts/oh-fork-it</id><summary type="html">&lt;p&gt;Why you should fork obscure, interesting repositories&lt;/p&gt;</summary><content type="html">&lt;h2 id="lost"&gt;Lost…&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-06-19T20:39:00+01:00</updated><entry><title>Oh, fork it</title><link href="https://www.stevenmaude.co.uk/posts/oh-fork-it" rel="alternate"></link><published>2020-06-19T12:35:00+01:00</published><updated>2020-06-19T20:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-19:/posts/oh-fork-it</id><summary type="html">&lt;p&gt;Why you should fork obscure, interesting repositories&lt;/p&gt;</summary><content type="html">&lt;h2 id="lost"&gt;Lost…&lt;/h2&gt;
 &lt;p&gt;At work recently, I was trying to find a GitHub repository that I knew I
 had previously seen a while back.&lt;/p&gt;
 &lt;p&gt;But I couldn't find it.&lt;/p&gt;
@@ -19,8 +19,8 @@ subject to the whims either of service providers either disappearing
 entirely, or &lt;a href="https://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown"&gt;removing a user and all their
 content&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Users themselves may also delete things they've previously shared.
-Especially in a post-GDPR world, where people are likely far aware of
-their ability and rights to do just that.&lt;/p&gt;
+Especially in a post-GDPR world, where people are likely far more aware
+of their ability and rights to do just that.&lt;/p&gt;
 &lt;p&gt;Even if I had starred the elusive repository, that would not have helped
 if the user deleted the repository or the user's account disappeared.
 For popular repositories, there is no likely threat of them vanishing
