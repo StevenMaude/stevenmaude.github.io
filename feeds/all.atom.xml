@@ -1,5 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-06-19T20:39:00+01:00</updated><entry><title>Oh, fork it</title><link href="https://www.stevenmaude.co.uk/posts/oh-fork-it" rel="alternate"></link><published>2020-06-19T12:35:00+01:00</published><updated>2020-06-19T20:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-19:/posts/oh-fork-it</id><summary type="html">&lt;p&gt;Why you should fork obscure, interesting repositories&lt;/p&gt;</summary><content type="html">&lt;h2 id="lost"&gt;Lost…&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-08-02T14:38:00+01:00</updated><entry><title>Continuous integration with GitHub Actions</title><link href="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions" rel="alternate"></link><published>2020-08-02T14:38:00+01:00</published><updated>2020-08-02T14:38:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-08-02:/posts/continuous-integration-with-github-actions</id><summary type="html">&lt;p&gt;A look at GitHub Actions, and the good and bad of coupling automation
+to a remote repository provider&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-quick-review-of-github-actions"&gt;A quick review of GitHub Actions&lt;/h2&gt;
+&lt;p&gt;I've been using &lt;a href="https://github.com/features/actions"&gt;GitHub Actions&lt;/a&gt; a
+lot recently. It's a continuous integration and continuous
+delivery/deployment (CI/CD) tool that's, unsurprisingly, part of GitHub.&lt;/p&gt;
+&lt;p&gt;As the vagueness of the "D" in "CD" might indicate, different people
+have different interpretations of how you actually define these terms.
+For this discussion, let's just take it that these tools encourage
+developers to automate many software development processes that don't
+involve writing code. There's an aim of frequently getting changes into
+the main development branch, with minimal manual labour and aiming for a
+good level of quality control, trying to avoid broken code getting
+deployed.&lt;/p&gt;
+&lt;p&gt;So, I've been using GitHub Actions a lot, both for personal projects and
+at work. And I've enjoyed using it. It's reasonably easy to use, and
+there's a quick feedback loop from you pushing a workflow to seeing it
+run. This in turn makes it fun to work with; it puts you in a frame of
+mind where you ponder what development tasks you could automate.&lt;/p&gt;
+&lt;p&gt;Where GitHub Actions lacks is often for want of a little polish and
+refinement are needed. I'll mention three examples. First, the
+&lt;a href="https://docs.github.com/en/actions"&gt;documentation&lt;/a&gt; occasionally lacks
+simple concrete examples for some of the features. The early parts of
+the documentation are actually example-focused. But then many of the
+features are simply all piled into a reference section at the end.
+Additionally, I don't know what exactly it is about the page design or
+the structuring of the documentation, but I did find it difficult to
+find precisely what I was looking for. That was the case even when I'd
+actually read some information before and knew it was hidden there,
+somewhere.&lt;/p&gt;
+&lt;p&gt;Often I've found more useful information elsewhere. Other helpful places
+I've found have included: GitHub's Architecture Decision Records in the
+&lt;a href="https://github.com/actions/runner"&gt;GitHub Actions Runner&lt;/a&gt; repository,
+Stack Overflow, other people's GitHub Actions workflows, and
+documentation for third-party actions.&lt;/p&gt;
+&lt;p&gt;Second, at time of writing, there is no simple way to remove repetition
+within workflows and between workflows. For instance, you might want to
+run tests before you merge pull requests, and might want to do the same
+when you build and publish a new release. At the moment, this means
+duplicating part of one workflow in another, or creating a custom
+action. GitHub are planning to add &lt;a href="https://github.com/actions/runner/issues/438"&gt;"composite"
+actions&lt;/a&gt; soon which should
+help simplify this type of common reuse.&lt;/p&gt;
+&lt;p&gt;Finally, workflow steps do not have a non-failing "neutral" outcome.
+(Apparently, this did use to be a feature during the GitHub Actions
+beta.) You might design a workflow with a step that could determine
+whether subsequent steps should run or not. Without a neutral outcome,
+there is no easy way to indicate "no error, but we have stopped the
+workflow early". The only way to directly exit the workflow at that
+point is to fail. But this isn't semantically what is intended: this
+type of exit may be an expected valid state and not a workflow failure.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can continue without failing by specifying
+&lt;code&gt;continue-on-error: true&lt;/code&gt; for a step. But now all subsequent steps will
+run, which we don't want: maybe those steps will waste a sizable chunk
+of our Actions minutes quota and/or maybe those steps will fail too. To
+skip the rest of the steps when they're not needed, conditional checks
+on "success" of steps can be threaded through the subsequent steps of
+your workflow. But this complicates the workflow, a "neutral" outcome
+would simplify this entirely by allowing us to exit, without failure, at
+the point where we really do want the workflow to stop.&lt;/p&gt;
+&lt;h3 id="competitive-pricing-and-features"&gt;Competitive pricing and features&lt;/h3&gt;
+&lt;p&gt;GitHub Actions does well on bundling free usage minutes, even for
+private projects. For something like, say &lt;a href="https://travis-ci.com/"&gt;Travis
+CI&lt;/a&gt;, you have to pay a hefty fixed price per
+month to get that option. Though it should be noted that Travis CI
+pricing includes unlimited minutes, whereas you have to pay if you
+exceed your GitHub Actions monthly quota.&lt;/p&gt;
+&lt;p&gt;However, at current pricing, you could get almost 10,000 monthly minutes
+on GitHub Actions using a Linux runner — $0.008 per minute, with 2000
+included in a GitHub Free plan — for the cost of the cheapest Travis
+plan ($63). So, unless you're using a lot of minutes, when comparing on
+price alone, there's no contest.&lt;/p&gt;
+&lt;p&gt;The other big advantage of GitHub Actions is that it permits far more
+concurrent jobs than Travis CI: at the time of writing, a GitHub Free
+account has twenty concurrent (non-macOS) jobs. Travis CI offers only
+ten concurrent jobs even at the highest "Premium" plan, and just one on
+their lowest priced plan. This is important as, particularly if you're
+collaborating in a team, your request for a CI job may be blocked by
+other outstanding jobs, possibly delaying the completion of your
+requested job.&lt;/p&gt;
+&lt;p&gt;Both Travis CI and GitHub Actions offer free usage in some cases. GitHub
+Actions pricing refers to "free for public repositories". Travis CI's
+own site mentions "free for open source". I suspect by that this Travis
+CI really just mean "your code must be public". And not that anyone
+actually checks that your code is published under some kind of valid
+open source license.&lt;/p&gt;
+&lt;h3 id="coupling-automation-to-the-remote-repository-host"&gt;Coupling automation to the remote repository host&lt;/h3&gt;
+&lt;p&gt;Price and concurrency aside, what might be consequences of using the
+same service — here GitHub — for hosting the repository's code and that
+repository's automation?&lt;/p&gt;
+&lt;p&gt;From a quick search around, there doesn't appear any standard format for
+specifying these types of automation workflows. That's not too
+surprising. One reason might be that every provider implements their own
+features and therefore wants to be able to flexibly specify the
+configuration to incorporate those features. There aren't any
+transpilers for different formats: I can't take an existing
+&lt;code&gt;.travis.yml&lt;/code&gt; and automatically convert it to a GitHub Actions
+&lt;code&gt;workflow.yml&lt;/code&gt;. (However, there is &lt;a href="https://github.com/ropensci/tic"&gt;an R
+project&lt;/a&gt; that aims to specify workflow
+configurations for R packages agnostically, outputting configuration for
+different providers.)&lt;/p&gt;
+&lt;p&gt;The consequence is that using GitHub Actions means that you now have a
+coupling of your code's organisation to GitHub, and adds work should you
+migrate to another Git repository host. To be fair, this is likely true
+already, even without using GitHub Actions. If you move to a different
+host, say GitLab, at the least, you'll also probably want to move the
+existing issues from GitHub to the new host. In mitigation of this,
+there are often tools or automatic imports for migrating these other
+non-code features, like issues.&lt;/p&gt;
+&lt;p&gt;But, as we've seen, any GitHub Actions workflows will probably need a
+manual rewrite to use a similar process elsewhere. This, then, is
+probably where using an external automation tool like Travis CI offers a
+benefit. If you migrate to a new remote repository host, to get your
+automation running, you just need to connect your new host to your
+existing automation system. No rewrite required.&lt;/p&gt;
+&lt;p&gt;On the other hand, it's reasonable to think that external tools are more
+awkward to configure and monitor as opposed to comparable tooling that
+is a key part of your existing repository host. With an external
+service, there will also be some requirement for developers to create an
+account there, and then allow the external application to access their
+GitHub account. With GitHub Actions, it's just another tab on your
+GitHub repository. (Travis CI certainly didn't help themselves here by
+previously having &lt;a href="https://blog.travis-ci.com/2018-05-02-open-source-projects-on-travis-ci-com-with-github-apps"&gt;&lt;em&gt;two&lt;/em&gt; separate
+domains&lt;/a&gt;,
+to independently handle free and paid services.)&lt;/p&gt;
+&lt;p&gt;And an external tool is an additional point of failure. It's possible
+GitHub is up and running, while Travis CI is unavailable, or vice versa.
+Either service failing can block active development.&lt;/p&gt;
+&lt;h2 id="so-whats-best"&gt;So what's best?&lt;/h2&gt;
+&lt;p&gt;Like many choices, there's no definitive answer. If the CI services have
+roughly equivalent features, then it comes down to what other aspects
+you prioritise. Is tight integration of your software development
+processes a positive — making for potentially easier configuration — or
+a hindrance to migration? Is pricing the most critical aspect?&lt;/p&gt;
+&lt;p&gt;For funded development teams, the pricing issue is perhaps less
+important since it will likely still be a small part of an
+organisation's budget. Where GitHub Actions is particularly well placed
+is in the giving of individual developers an allocation of free
+automation job time for their private projects. Together with that
+allocation being easily used as part of the service developers are
+already likely using, it is challenging for external automation services
+to compete.&lt;/p&gt;
+&lt;p&gt;And that's where my personal view is. I'm still sticking with GitHub
+Actions, notwithstanding the slight risk of getting too tied into
+GitHub. GitHub is incredibly popular right now, it's where open source
+projects are developed, and that network effect is an important one.&lt;/p&gt;</content><category term="2020"></category><category term="automation"></category><category term="continuous delivery"></category><category term="continuous integration"></category><category term="GitHub"></category><category term="GitHub Actions"></category></entry><entry><title>Oh, fork it</title><link href="https://www.stevenmaude.co.uk/posts/oh-fork-it" rel="alternate"></link><published>2020-06-19T12:35:00+01:00</published><updated>2020-06-19T20:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-19:/posts/oh-fork-it</id><summary type="html">&lt;p&gt;Why you should fork obscure, interesting repositories&lt;/p&gt;</summary><content type="html">&lt;h2 id="lost"&gt;Lost…&lt;/h2&gt;
 &lt;p&gt;At work recently, I was trying to find a GitHub repository that I knew I
 had previously seen a while back.&lt;/p&gt;
 &lt;p&gt;But I couldn't find it.&lt;/p&gt;
@@ -669,111 +813,4 @@ spend the time to write code as a solution to the problem.&lt;/p&gt;
 presumably took a few minutes to write, find the exceptions (by hand)
 and verify (probably also by hand) the code is doing what it should.
 There are only actually a few shows to rename, and these themselves
-could be done by hand, as a one-off task.&lt;/p&gt;</content><category term="2018"></category><category term="PyCon"></category><category term="Python"></category></entry><entry><title>Upgrading Raspbian and rc.local failures</title><link href="https://www.stevenmaude.co.uk/posts/upgrading-raspbian-and-rclocal-failures" rel="alternate"></link><published>2017-12-10T20:13:00+00:00</published><updated>2017-12-10T20:13:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2017-12-10:/posts/upgrading-raspbian-and-rclocal-failures</id><summary type="html">&lt;p&gt;Using a Raspberry Pi as a wireless bridge, in-place upgrading Raspbian
-and dealing with &lt;code&gt;rc.local&lt;/code&gt; not running tasks as planned.&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-raspberry-pi-as-a-wireless-bridge-for-old-hardware"&gt;A Raspberry Pi as a wireless bridge for old hardware&lt;/h2&gt;
-&lt;p&gt;This is something I did a couple of months back, but figure it's worth
-documenting, to maybe help anyone with a similar problem search for it.&lt;/p&gt;
-&lt;p&gt;One use for my Raspberry Pi is as a wireless bridge, and this is mainly
-for a now ancient Xbox 360. Yes, the one without built-in wifi, it just
-has an Ethernet port for networking; not much good when your router is
-nowhere near a TV.&lt;/p&gt;
-&lt;p&gt;Originally, and as is often customary when solving technology problems,
-I used &lt;a href="https://unix.stackexchange.com/a/64353/32125"&gt;instructions that I cobbled
-together&lt;/a&gt; from various
-places.&lt;/p&gt;
-&lt;p&gt;I'd been slack on upgrading my Raspberry Pi's Raspbian. It was working
-perfectly fine for what it was doing, so there was no immediate need to
-touch it. Because of this, it has languished on a distribution based on
-the now aging Debian Wheezy.&lt;/p&gt;
-&lt;p&gt;More recently, with the &lt;a href="https://www.ncsc.gov.uk/krack"&gt;recent WPA2
-exploit&lt;/a&gt; in October, and the then lack of
-any as-yet patch even for Debian Wheezy (which has since been patched,
-not sure about Raspbian itself), I thought I should finally upgrade, so
-the Pi was patched against this and any other future security issues.&lt;/p&gt;
-&lt;p&gt;I didn't particularly want to go to the trouble of doing a fresh
-install, so I tried an in-place operating system upgrade, deciding that
-the worst that could happen is the upgrade fails and I'd have to do a
-fresh install anyway.&lt;/p&gt;
-&lt;h2 id="the-upgrade-process"&gt;The upgrade process&lt;/h2&gt;
-&lt;p&gt;I actually upgraded in two stages. First from Wheezy to Jessie, and then
-I figured if that went OK, I could try upgrading again, from Jessie to
-Stretch too.&lt;/p&gt;
-&lt;p&gt;Upgrading the distribution actually worked well. With my Raspbian Wheezy
-install, I upgraded to Jessie as described on the &lt;a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;amp;t=121880"&gt;Raspberry Pi
-forum&lt;/a&gt;.
-Everything seemed to work, including the Xbox's internet connection.&lt;/p&gt;
-&lt;p&gt;Since I was feeling brave, I decided to upgrade again. However, I didn't
-feel so brave that I would do that without first backing up the working
-system, so I &lt;a href="https://raspberrypi.stackexchange.com/a/312/12370"&gt;backed up the SD card with
-&lt;code&gt;dd&lt;/code&gt;&lt;/a&gt; to a gzipped
-image in case something went wrong and I could recover a working system
-quickly.&lt;/p&gt;
-&lt;p&gt;Next, I upgraded from Jessie to Stretch. This is the same process as for
-Wheezy to Jessie, just with &lt;a href="https://www.raspberrypi.org/blog/raspbian-stretch/"&gt;different repository sources
-used&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Once again, the upgrade worked fine, the Pi booted up, and I could
-connect to it wirelessly.&lt;/p&gt;
-&lt;h2 id="a-stretch-too-far"&gt;A stretch too far&lt;/h2&gt;
-&lt;p&gt;But, the Xbox's internet connection no longer worked. Checking the Pi, I
-spotted what looked like error messages appearing at boot time.&lt;/p&gt;
-&lt;p&gt;The first problem is checking the boot log messages that quickly
-disappear from the screen. Since Debian now uses systemd, you need &lt;code&gt;sudo
-systemctl&lt;/code&gt; to review those messages.&lt;/p&gt;
-&lt;p&gt;What I spotted there is that there was an error that indicated that
-commands I had in &lt;code&gt;rc.local&lt;/code&gt; were not running correctly. As mentioned,
-in my &lt;a href="https://unix.stackexchange.com/a/64353/32125"&gt;description of my Xbox and Pi
-configuration&lt;/a&gt;, I was
-using &lt;code&gt;rc.local&lt;/code&gt; to run the commands on boot that ensured the bridge
-worked, instead of having to run anything by hand every boot.&lt;/p&gt;
-&lt;p&gt;That seemed strange. More so when running the script by hand caused it
-to work as normal, which allowed the Xbox to once again connect to the
-internet as it did on Raspbian Jessie.&lt;/p&gt;
-&lt;p&gt;Why did this script fail on boot via &lt;code&gt;rc.local&lt;/code&gt;? As &lt;a href="https://www.raspberrypi.org/forums/viewtopic.php?f=66&amp;amp;t=122207"&gt;mentioned on the
-Raspberry Pi
-forums&lt;/a&gt;,
-the difference presumably is that the Pi's networking isn't configured
-at the time of the script trying to run. Trying to then change this
-configuration when it's not ready will then fail.&lt;/p&gt;
-&lt;p&gt;So there are no guarantees about when &lt;code&gt;rc.local&lt;/code&gt; is run. If you have
-dependencies on other things, the moral of this longish story is that
-you should create a systemd service and have systemd launch it after
-everything else; this fixed the problem and everything finally was
-working again.&lt;/p&gt;
-&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
-&lt;p&gt;For reference, here's what I have configured:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;wireless_bridge.sh&lt;/code&gt; is saved in &lt;code&gt;/usr/local/sbin&lt;/code&gt;, with 755 file
-permissions, root as owner and group, and contains:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh -e&lt;/span&gt;
-/usr/sbin/ifplugd eth0 --kill
-/sbin/sysctl -w net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
-/sbin/ifconfig eth0 &lt;span class="m"&gt;192&lt;/span&gt;.168.1.1
-/sbin/iptables -t nat -A POSTROUTING -o wlan0 -s &lt;span class="m"&gt;192&lt;/span&gt;.168.1.0/24 -j MASQUERADE
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;code&gt;wireless-bridge.service&lt;/code&gt; is saved in &lt;code&gt;/etc/systemd/system&lt;/code&gt;, with 644
-file permissions, root as owner and group, and contains:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Unit]&lt;/span&gt;
-&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Wireless Bridge Service&lt;/span&gt;
-&lt;span class="na"&gt;After&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
-
-&lt;span class="k"&gt;[Service]&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;idle&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/sbin/wireless_bridge.sh&lt;/span&gt;
-
-&lt;span class="k"&gt;[Install]&lt;/span&gt;
-&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;You could possibly change &lt;code&gt;multi-user.target&lt;/code&gt; to one of systemd's
-&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/"&gt;network
-targets&lt;/a&gt;,
-but I didn't bother testing this out, as the configuration above just
-seemed to work (with, I suppose, the possible cost of the bridged
-connection not being available until slightly later).&lt;/p&gt;
-&lt;p&gt;I also have the Xbox network settings as:&lt;/p&gt;
-&lt;p&gt;IP address: 192.168.1.2&lt;br&gt;
-Subnet mask: 255.255.255.0&lt;br&gt;
-Gateway: 192.168.1.1  &lt;/p&gt;
-&lt;p&gt;and the primary DNS server set to my router's IP address.&lt;/p&gt;</content><category term="2017"></category><category term="Raspberry Pi"></category><category term="Raspbian"></category><category term="Linux"></category></entry></feed>
+could be done by hand, as a one-off task.&lt;/p&gt;</content><category term="2018"></category><category term="PyCon"></category><category term="Python"></category></entry></feed>
