@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Continuous integration with GitHub Actions - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="automation,continuous delivery,continuous integration,GitHub,GitHub Actions" />
+        <meta name="description" content="A look at GitHub Actions, and the good and bad of coupling automation to a remote repository provider" />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Continuous integration with GitHub Actions"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions"/>
+        <meta property="og:description" content="A look at GitHub Actions, and the good and bad of coupling automation to a remote repository provider"/>
+        <meta property="article:published_time" content="2020-08-02" />
+            <meta property="article:section" content="2020" />
+            <meta property="article:tag" content="automation" />
+            <meta property="article:tag" content="continuous delivery" />
+            <meta property="article:tag" content="continuous integration" />
+            <meta property="article:tag" content="GitHub" />
+            <meta property="article:tag" content="GitHub Actions" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:dnt" content="on">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@StevenMaude">
+        <meta name="twitter:creator" content="@StevenMaude">
+    <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="https://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="https://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="https://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Continuous integration with GitHub Actions
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2020-08-02T14:38:00+01:00"> 2020-08-02</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.stevenmaude.co.uk/tag/automation">automation</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/continuous-delivery">continuous delivery</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/continuous-integration">continuous integration</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/github">GitHub</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/github-actions">GitHub Actions</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2 id="a-quick-review-of-github-actions">A quick review of GitHub Actions</h2>
+<p>I've been using <a href="https://github.com/features/actions">GitHub Actions</a> a
+lot recently. It's a continuous integration and continuous
+delivery/deployment (CI/CD) tool that's, unsurprisingly, part of GitHub.</p>
+<p>As the vagueness of the "D" in "CD" might indicate, different people
+have different interpretations of how you actually define these terms.
+For this discussion, let's just take it that these tools encourage
+developers to automate many software development processes that don't
+involve writing code. There's an aim of frequently getting changes into
+the main development branch, with minimal manual labour and aiming for a
+good level of quality control, trying to avoid broken code getting
+deployed.</p>
+<p>So, I've been using GitHub Actions a lot, both for personal projects and
+at work. And I've enjoyed using it. It's reasonably easy to use, and
+there's a quick feedback loop from you pushing a workflow to seeing it
+run. This in turn makes it fun to work with; it puts you in a frame of
+mind where you ponder what development tasks you could automate.</p>
+<p>Where GitHub Actions lacks is often for want of a little polish and
+refinement are needed. I'll mention three examples. First, the
+<a href="https://docs.github.com/en/actions">documentation</a> occasionally lacks
+simple concrete examples for some of the features. The early parts of
+the documentation are actually example-focused. But then many of the
+features are simply all piled into a reference section at the end.
+Additionally, I don't know what exactly it is about the page design or
+the structuring of the documentation, but I did find it difficult to
+find precisely what I was looking for. That was the case even when I'd
+actually read some information before and knew it was hidden there,
+somewhere.</p>
+<p>Often I've found more useful information elsewhere. Other helpful places
+I've found have included: GitHub's Architecture Decision Records in the
+<a href="https://github.com/actions/runner">GitHub Actions Runner</a> repository,
+Stack Overflow, other people's GitHub Actions workflows, and
+documentation for third-party actions.</p>
+<p>Second, at time of writing, there is no simple way to remove repetition
+within workflows and between workflows. For instance, you might want to
+run tests before you merge pull requests, and might want to do the same
+when you build and publish a new release. At the moment, this means
+duplicating part of one workflow in another, or creating a custom
+action. GitHub are planning to add <a href="https://github.com/actions/runner/issues/438">"composite"
+actions</a> soon which should
+help simplify this type of common reuse.</p>
+<p>Finally, workflow steps do not have a non-failing "neutral" outcome.
+(Apparently, this did use to be a feature during the GitHub Actions
+beta.) You might design a workflow with a step that could determine
+whether subsequent steps should run or not. Without a neutral outcome,
+there is no easy way to indicate "no error, but we have stopped the
+workflow early". The only way to directly exit the workflow at that
+point is to fail. But this isn't semantically what is intended: this
+type of exit may be an expected valid state and not a workflow failure.</p>
+<p>Alternatively, you can continue without failing by specifying
+<code>continue-on-error: true</code> for a step. But now all subsequent steps will
+run, which we don't want: maybe those steps will waste a sizable chunk
+of our Actions minutes quota and/or maybe those steps will fail too. To
+skip the rest of the steps when they're not needed, conditional checks
+on "success" of steps can be threaded through the subsequent steps of
+your workflow. But this complicates the workflow, a "neutral" outcome
+would simplify this entirely by allowing us to exit, without failure, at
+the point where we really do want the workflow to stop.</p>
+<h3 id="competitive-pricing-and-features">Competitive pricing and features</h3>
+<p>GitHub Actions does well on bundling free usage minutes, even for
+private projects. For something like, say <a href="https://travis-ci.com/">Travis
+CI</a>, you have to pay a hefty fixed price per
+month to get that option. Though it should be noted that Travis CI
+pricing includes unlimited minutes, whereas you have to pay if you
+exceed your GitHub Actions monthly quota.</p>
+<p>However, at current pricing, you could get almost 10,000 monthly minutes
+on GitHub Actions using a Linux runner — $0.008 per minute, with 2000
+included in a GitHub Free plan — for the cost of the cheapest Travis
+plan ($63). So, unless you're using a lot of minutes, when comparing on
+price alone, there's no contest.</p>
+<p>The other big advantage of GitHub Actions is that it permits far more
+concurrent jobs than Travis CI: at the time of writing, a GitHub Free
+account has twenty concurrent (non-macOS) jobs. Travis CI offers only
+ten concurrent jobs even at the highest "Premium" plan, and just one on
+their lowest priced plan. This is important as, particularly if you're
+collaborating in a team, your request for a CI job may be blocked by
+other outstanding jobs, possibly delaying the completion of your
+requested job.</p>
+<p>Both Travis CI and GitHub Actions offer free usage in some cases. GitHub
+Actions pricing refers to "free for public repositories". Travis CI's
+own site mentions "free for open source". I suspect by that this Travis
+CI really just mean "your code must be public". And not that anyone
+actually checks that your code is published under some kind of valid
+open source license.</p>
+<h3 id="coupling-automation-to-the-remote-repository-host">Coupling automation to the remote repository host</h3>
+<p>Price and concurrency aside, what might be consequences of using the
+same service — here GitHub — for hosting the repository's code and that
+repository's automation?</p>
+<p>From a quick search around, there doesn't appear any standard format for
+specifying these types of automation workflows. That's not too
+surprising. One reason might be that every provider implements their own
+features and therefore wants to be able to flexibly specify the
+configuration to incorporate those features. There aren't any
+transpilers for different formats: I can't take an existing
+<code>.travis.yml</code> and automatically convert it to a GitHub Actions
+<code>workflow.yml</code>. (However, there is <a href="https://github.com/ropensci/tic">an R
+project</a> that aims to specify workflow
+configurations for R packages agnostically, outputting configuration for
+different providers.)</p>
+<p>The consequence is that using GitHub Actions means that you now have a
+coupling of your code's organisation to GitHub, and adds work should you
+migrate to another Git repository host. To be fair, this is likely true
+already, even without using GitHub Actions. If you move to a different
+host, say GitLab, at the least, you'll also probably want to move the
+existing issues from GitHub to the new host. In mitigation of this,
+there are often tools or automatic imports for migrating these other
+non-code features, like issues.</p>
+<p>But, as we've seen, any GitHub Actions workflows will probably need a
+manual rewrite to use a similar process elsewhere. This, then, is
+probably where using an external automation tool like Travis CI offers a
+benefit. If you migrate to a new remote repository host, to get your
+automation running, you just need to connect your new host to your
+existing automation system. No rewrite required.</p>
+<p>On the other hand, it's reasonable to think that external tools are more
+awkward to configure and monitor as opposed to comparable tooling that
+is a key part of your existing repository host. With an external
+service, there will also be some requirement for developers to create an
+account there, and then allow the external application to access their
+GitHub account. With GitHub Actions, it's just another tab on your
+GitHub repository. (Travis CI certainly didn't help themselves here by
+previously having <a href="https://blog.travis-ci.com/2018-05-02-open-source-projects-on-travis-ci-com-with-github-apps"><em>two</em> separate
+domains</a>,
+to independently handle free and paid services.)</p>
+<p>And an external tool is an additional point of failure. It's possible
+GitHub is up and running, while Travis CI is unavailable, or vice versa.
+Either service failing can block active development.</p>
+<h2 id="so-whats-best">So what's best?</h2>
+<p>Like many choices, there's no definitive answer. If the CI services have
+roughly equivalent features, then it comes down to what other aspects
+you prioritise. Is tight integration of your software development
+processes a positive — making for potentially easier configuration — or
+a hindrance to migration? Is pricing the most critical aspect?</p>
+<p>For funded development teams, the pricing issue is perhaps less
+important since it will likely still be a small part of an
+organisation's budget. Where GitHub Actions is particularly well placed
+is in the giving of individual developers an allocation of free
+automation job time for their private projects. Together with that
+allocation being easily used as part of the service developers are
+already likely using, it is challenging for external automation services
+to compete.</p>
+<p>And that's where my personal view is. I'm still sticking with GitHub
+Actions, notwithstanding the slight risk of getting too tied into
+GitHub. GitHub is incredibly popular right now, it's where open source
+projects are developed, and that network effect is an important one.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 Steven Maude
+            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+
+    <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+
+
+</body>
+</html>
