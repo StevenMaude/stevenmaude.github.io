@@ -150,7 +150,7 @@ one</a>; just run
 database caches. Looking more closely, I found that a <code>mandb</code>
 job was actually in cron.daily which means that it should run daily.
 However, when I checked the syslog with:</p>
-<div class="highlight"><pre><span></span><span class="err">grep cron.daily /var/log/syslog</span>
+<div class="highlight"><pre><span></span><span class="n">grep</span> <span class="n">cron</span><span class="o">.</span><span class="n">daily</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">syslog</span>
 </pre></div>
 
 
@@ -212,7 +212,6 @@ gave a very clear and helpful explanation of how the two interoperate.</p>
       <hr class="content-author-separator">
       <div class="row">
          <div class="col-xs-10">&copy; 2020 Steven Maude
-            <a href="https://twitter.com/StevenMaude"><i class="fa fa-twitter"></i></a></li>
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             <a href="https://linkedin.com/in/StevenMaude"><i class="fa fa-linkedin"></i></a></li>
             &middot; Built with
