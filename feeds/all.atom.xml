@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-08-02T14:38:00+01:00</updated><entry><title>Continuous integration with GitHub Actions</title><link href="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions" rel="alternate"></link><published>2020-08-02T14:38:00+01:00</published><updated>2020-08-02T14:38:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-08-02:/posts/continuous-integration-with-github-actions</id><summary type="html">&lt;p&gt;A look at GitHub Actions, and the good and bad of coupling automation
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-11-13T22:35:00+00:00</updated><entry><title>Garmin Forerunner 35: a competent budget running watch</title><link href="https://www.stevenmaude.co.uk/posts/garmin-forerunner-35-a-competent-budget-running-watch" rel="alternate"></link><published>2020-11-13T22:35:00+00:00</published><updated>2020-11-13T22:35:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-11-13:/posts/garmin-forerunner-35-a-competent-budget-running-watch</id><summary type="html">&lt;p&gt;A review of the Garmin Forerunner 35 after using for several months,
+comparing with the Forerunner 15.&lt;/p&gt;</summary><content type="html">&lt;h2 id="replacing-a-garmin-forerunner-15-watch"&gt;Replacing a Garmin Forerunner 15 watch&lt;/h2&gt;
+&lt;p&gt;Unsurprisingly, I've been doing a lot more exercise outdoors this year
+than last, including a lot more running. So I've had a lot more time to
+try out the Garmin Forerunner 35 GPS watch I've had since the end of
+2019.&lt;/p&gt;
+&lt;p&gt;I have owned a &lt;a href="https://www.stevenmaude.co.uk/posts/a-year-of-garmin-a-forerunner-15-review"&gt;Garmin Forerunner
+15&lt;/a&gt; watch for a few years and,
+especially considering what it cost, it served me well. The main issue
+with it was that the battery life seemed to have deteriorated over its
+lifetime. Changing the battery isn't too complex a procedure — there are
+YouTube videos that show you how — but since the battery life was never
+that great from new, it seemed worthwhile looking into getting a
+different watch. And late last year, I saw an offer on a Garmin
+Forerunner 35. The Forerunner 35, like the Forerunner 15, is again an
+entry-level GPS watch, but it's a considerable upgrade from the
+Forerunner 15.&lt;/p&gt;
+&lt;h2 id="comparing-the-forerunner-35-to-the-forerunner-15"&gt;Comparing the Forerunner 35 to the Forerunner 15&lt;/h2&gt;
+&lt;p&gt;Though the Forerunner 35 is comparably priced to what the Forerunner 15
+cost when I bought it, there are a number of improvements and extra
+features of the Forerunner 35 over the Forerunner 15.&lt;/p&gt;
+&lt;p&gt;The Forerunner 35 is a less chunky, and more subdued design than the
+Forerunner 15 — looking around, there's a Forerunner 25 that looks like
+an odd hybrid of the 15 and 35 designs — and has walking and outdoor
+cycling modes. The screen on the 35 is also higher resolution. There's a
+built-in wrist heart rate monitor. I'm not entirely sure the heart rate
+measurement is always that accurate, but it removes the need for an
+external sensor, if a rough idea of heart rate is what you want. The
+backlight is also an improvement over the Forerunner 15. There's also
+the option to pair a phone via Bluetooth, though that's not something
+I've bothered to use.&lt;/p&gt;
+&lt;p&gt;On using the 35, the battery life does seem much improved over the 15. I
+never wore the Forerunner 15 daily, only for runs. By contrast, I'm
+wearing the Forerunner 35 I've used daily: it does need a charge every
+week or so, but that doesn't usually take long. Even if low on power,
+you can give it a quick boost before you head out and it will probably
+tide you over for your run. With the Forerunner 15, there were numerous
+times where I found it would run out of battery on longer runs. &lt;/p&gt;
+&lt;h2 id="using-the-forerunner-35-on-linux"&gt;Using the Forerunner 35 on Linux&lt;/h2&gt;
+&lt;p&gt;Much like the old Forerunner 15, this watch still works fairly well even
+if you're not using Garmin's own software. That might be because you're
+not keen on sharing your data or because you're on Linux and can't
+easily run the software; the Windows version may run with WINE, however.&lt;/p&gt;
+&lt;p&gt;Even if you don't use Garmin Connect, the watch gives you access to
+everything you need as it appears as a USB storage device. You can
+retrieve and apply GPS updates by &lt;a href="https://github.com/StevenMaude/armstrong"&gt;other
+means&lt;/a&gt;; without a regular
+update, GPS locking can be slow and take several minutes, as it did with
+the Forerunner 15. It's also straightforward to copy the Garmin &lt;code&gt;.FIT&lt;/code&gt;
+files from the watch and convert them to &lt;code&gt;.gpx&lt;/code&gt; with GPSBabel or
+similar.&lt;/p&gt;
+&lt;h2 id="maintenance"&gt;Maintenance&lt;/h2&gt;
+&lt;p&gt;The two things that usually fail on digital watches are the strap and
+the battery. The Forerunner 35 has a reasonably durable strap. And the
+strap's replaceable: you can at least buy third-party replacements. The
+battery is another matter: Garmin don't want you to replace the battery
+in any of their watches at all — and I can't find any posts or videos on
+doing so for the 35. However, if the Forerunner 35 is built like the
+Forerunner 15, a battery replacement could be possible if you're willing
+to take the watch apart.&lt;/p&gt;
+&lt;p&gt;The battery replacement issue is one reason why I'm not inclined to
+spend much more on specialist watches. You can easily spend two to four
+times as much as the Forerunner 35 costs on more expensive Garmin
+watches. I'm not sure how much value you get for spending more. For me,
+the only significant features missing from this watch are directions to
+follow a GPX route, and a swim mode. (That said, the Forerunner 35, like
+the Forerunner 15, is waterproof). Neither of those omissions are enough
+for me to spend considerably more. My primary use is tracking pacing and
+distance while running, and the Forerunner 35 does well here.&lt;/p&gt;
+&lt;h2 id="overall"&gt;Overall?&lt;/h2&gt;
+&lt;p&gt;Whether you're looking at replacing an older, budget running watch, or
+you've not ever had such a watch and want to try one out without
+spending too much, the Forerunner 35 is a quietly competent choice. It's
+been a substantial upgrade from the Forerunner 15, which I also liked a
+lot.&lt;/p&gt;</content><category term="2020"></category><category term="Forerunner"></category><category term="Garmin"></category><category term="review"></category><category term="running"></category></entry><entry><title>Continuous integration with GitHub Actions</title><link href="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions" rel="alternate"></link><published>2020-08-02T14:38:00+01:00</published><updated>2020-08-02T14:38:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-08-02:/posts/continuous-integration-with-github-actions</id><summary type="html">&lt;p&gt;A look at GitHub Actions, and the good and bad of coupling automation
 to a remote repository provider&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-quick-review-of-github-actions"&gt;A quick review of GitHub Actions&lt;/h2&gt;
 &lt;p&gt;I've been using &lt;a href="https://github.com/features/actions"&gt;GitHub Actions&lt;/a&gt; a
 lot recently. It's a continuous integration and continuous
@@ -733,84 +807,4 @@ keep in mind.&lt;/p&gt;
 default, though &lt;a href="https://github.com/pypa/pipenv/issues/1634"&gt;this number is configurable&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content><category term="2018"></category><category term="Pipenv"></category><category term="Python"></category></entry><entry><title>Solve your problem with sloppy Python</title><link href="https://www.stevenmaude.co.uk/posts/solve-your-problem-with-sloppy-python" rel="alternate"></link><published>2018-05-20T17:24:00+01:00</published><updated>2018-05-20T17:24:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-05-20:/posts/solve-your-problem-with-sloppy-python</id><summary type="html">&lt;p&gt;A summary of a talk by Larry Hastings at PyCon 2018.&lt;/p&gt;</summary><content type="html">&lt;h2 id="pycon-2018-a-quick-note"&gt;PyCon 2018: A quick note&lt;/h2&gt;
-&lt;p&gt;As PyCon 2018 happened last week, I've been watching a few talks. It's
-sometimes difficult to keep up with changes to technology if you're not
-paying constant attention. These kinds of talks are a useful way of
-trying to catch up a little. With that in mind, I'm writing up summaries
-of a few talks here.&lt;/p&gt;
-&lt;h2 id="solve-your-problem-with-sloppy-python"&gt;Solve your problem with sloppy Python&lt;/h2&gt;
-&lt;p&gt;The talk is available to &lt;a href="https://www.youtube.com/watch?v=Jd8ulMb6_ls"&gt;watch
-here&lt;/a&gt;, and an easy watch.
-This was a pragmatic and enjoyable talk that would be easy for beginners
-in Python to follow.&lt;/p&gt;
-&lt;p&gt;It's a nice contrast from other programming talks too. Often,
-presenters, quite reasonably, focus on telling or teaching an audience
-what they believe to be best practice on a topic. Concentrating on a
-more practical side made for a light and refreshing approach.&lt;/p&gt;
-&lt;h3 id="code-being-discussed-is-for-personal-automation"&gt;Code being discussed is for personal automation&lt;/h3&gt;
-&lt;p&gt;Writing code to solve your problem.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Not writing code in a professional context.&lt;/li&gt;
-&lt;li&gt;These are throwaway scripts.&lt;/li&gt;
-&lt;li&gt;You're the only person writing it and likely to see it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id="rules"&gt;Rules&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Fail early and noisily.&lt;/li&gt;
-&lt;li&gt;Use Python instead of shell scripts.&lt;/li&gt;
-&lt;li&gt;Have fun!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id="guidelines"&gt;Guidelines&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Use latest Python version to take advantage of new features.&lt;/li&gt;
-&lt;li&gt;Try automating even more, push as far as you can go, but may have some
-  human intervention too.&lt;/li&gt;
-&lt;li&gt;These projects are an excuse to try or learn new libraries/technologies.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It doesn't matter if the code's hacky; you may not bother with tests.
-Quick and dirty code to get a job done. A couple of examples of this
-from the renaming files problem in the talk:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;using &lt;code&gt;ls&lt;/code&gt; to generate a list of filenames in Python; add triple
-  quotes around string, &lt;code&gt;strip()&lt;/code&gt; and &lt;code&gt;split()&lt;/code&gt; on newlines gives a
-  list.&lt;/li&gt;
-&lt;li&gt;using exceptions lists in renaming files (e.g. to add apostrophes to
-  words), run through each check for each filename. Most won't trigger,
-  so you're doing lots of unnecessary checks, and could refine that, but
-  performance unlikely to be an issue for these kinds of tasks.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Cutting corners is OK in this context, if it gets the job done.&lt;/p&gt;
-&lt;h3 id="example-uses"&gt;Example uses&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Renaming files. A general tip for file renaming tasks — in this case,
-  downloaded radio shows — back these up via creating hard links with
-  the same filenames in a backup directory. That way you can always
-  revert to the original names, without having to backup the files.
-  Could use Python's &lt;code&gt;os.link()&lt;/code&gt; but also possible via a simple shell
-  loop: &lt;code&gt;mkdir backup &amp;amp;&amp;amp; for a in * ; do ln $a backup/$a ; done&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Provisioning new machines, e.g. running &lt;code&gt;apt install&lt;/code&gt; and configuring
-  programs, e.g. copying license keys.&lt;/li&gt;
-&lt;li&gt;Tidying audio files, creating playlists etc.; possibly with human
-  intervention here.&lt;/li&gt;
-&lt;li&gt;Ripping CDs, using simple metadata format that can be parsed easily.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="a-final-note"&gt;A final note&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Sometimes Python was used to call out to the shell. &lt;code&gt;subprocess.run(s,
-  check=True, shell=True)&lt;/code&gt; is better than &lt;code&gt;os.system()&lt;/code&gt; because
-  &lt;code&gt;os.system()&lt;/code&gt; does not fail noisily, but &lt;code&gt;subprocess.run()&lt;/code&gt; does.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="a-thought"&gt;A thought&lt;/h3&gt;
-&lt;p&gt;One thing that didn't get asked in the Q&amp;amp;A at the end: how should you
-estimate whether the automation is actually costing you time? xkcd
-has covered this well in these &lt;a href="https://xkcd.com/1205/"&gt;two&lt;/a&gt;
-&lt;a href="https://xkcd.com/1319/"&gt;comics&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In some cases, it can be reasonably predicted that, if the process is
-either time consuming or will be repeated often, it's worthwhile to
-spend the time to write code as a solution to the problem.&lt;/p&gt;
-&lt;p&gt;But, the "Rogue's Gallery" radio show renaming given as the main example
-presumably took a few minutes to write, find the exceptions (by hand)
-and verify (probably also by hand) the code is doing what it should.
-There are only actually a few shows to rename, and these themselves
-could be done by hand, as a one-off task.&lt;/p&gt;</content><category term="2018"></category><category term="PyCon"></category><category term="Python"></category></entry></feed>
+&lt;/div&gt;</content><category term="2018"></category><category term="Pipenv"></category><category term="Python"></category></entry></feed>
