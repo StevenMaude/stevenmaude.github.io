@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2020-11-13T22:35:00+00:00</updated><entry><title>Garmin Forerunner 35: a competent budget running watch</title><link href="https://www.stevenmaude.co.uk/posts/garmin-forerunner-35-a-competent-budget-running-watch" rel="alternate"></link><published>2020-11-13T22:35:00+00:00</published><updated>2020-11-13T22:35:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-11-13:/posts/garmin-forerunner-35-a-competent-budget-running-watch</id><summary type="html">&lt;p&gt;A review of the Garmin Forerunner 35 after using for several months,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-01-25T20:50:00+00:00</updated><entry><title>Copying large iPhone videos to a Windows PC</title><link href="https://www.stevenmaude.co.uk/posts/copying-large-iphone-videos-to-a-windows-pc" rel="alternate"></link><published>2021-01-25T20:50:00+00:00</published><updated>2021-01-25T20:50:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-01-25:/posts/copying-large-iphone-videos-to-a-windows-pc</id><summary type="html">&lt;p&gt;How to copy iPhone videos that don't appear in Windows File Explorer&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-simple-task-made-complicated"&gt;A simple task made complicated&lt;/h2&gt;
+&lt;p&gt;This isn't a particularly interesting post. That is, unless you reading
+this now, like me at the time of writing this, have spent the best part
+of an hour trying to solve the same issue. Like a few other posts I've
+made in the past, the purpose is really to make this easier to search
+for, if others encounter the same problem.&lt;/p&gt;
+&lt;p&gt;Someone had recorded a video on an iPhone that they wanted to transfer
+to a Windows PC. Naturally, they connected the phone via a USB cable to
+the computer, navigated through the existing &lt;code&gt;DCIM&lt;/code&gt; directories to copy
+the files across and found, well, nothing. So they asked me about it.&lt;/p&gt;
+&lt;p&gt;What was going on? They used the same process before and it worked fine.
+And the videos were definitely still on the phone: you could play them
+there. As these videos had large file sizes, I suspected there was some
+limit being encountered.&lt;/p&gt;
+&lt;h2 id="no-easy-answers"&gt;No easy answers&lt;/h2&gt;
+&lt;p&gt;Many of the workarounds posted online seem to fit one of the following
+categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Moving the video via iCloud, or some other uploading route. (Too slow
+  and too tedious.)&lt;/li&gt;
+&lt;li&gt;Using some other app to get the video to a PC. (May involve spending
+  money and requires auditing the app to ensure it and the developers
+  are reputable.)&lt;/li&gt;
+&lt;li&gt;Re-encoding the video on the phone to a smaller size somehow, possibly
+  via iMovie? (Didn't try this and may have been slow. This would have
+  been the next thing I suggested if the solution below had not worked.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Apple documentation itself suggests making sure iTunes is installed,
+using the Windows Photos app and then importing from there. This didn't
+work.&lt;/p&gt;
+&lt;h3 id="the-fix"&gt;The fix&lt;/h3&gt;
+&lt;p&gt;I found someone posted a fix on a forum. On the iPhone's Settings,
+select Photos, and then under "Transfer to Mac or PC" setting for the
+Photos app, change "Automatic" to "Keep Originals". That was it. Much
+simpler than any of the other suggestions.&lt;/p&gt;
+&lt;p&gt;The import actually worked through the Photos app then. In fact, you did
+not need Photos at all: checking the &lt;code&gt;DCIM&lt;/code&gt; directory listed the file.&lt;/p&gt;
+&lt;p&gt;What "Keep Originals" does is take a direct copy of the photos and
+videos, instead of doing some unspecified magic and converting them on
+copy.&lt;/p&gt;
+&lt;p&gt;(Though not tested, iPadOS has the same setting and presumably behaves
+in the same way.)&lt;/p&gt;
+&lt;p&gt;As someone unfamiliar with iOS, I'm not entirely sure how you would
+connect the setting to the behaviour. But the main thing is that it
+resolved a very frustrating and very badly documented issue very, very
+quickly.&lt;/p&gt;</content><category term="2021"></category><category term="iOS"></category><category term="iPad"></category><category term="iPadOS"></category><category term="iPhone"></category><category term="Windows"></category></entry><entry><title>Garmin Forerunner 35: a competent budget running watch</title><link href="https://www.stevenmaude.co.uk/posts/garmin-forerunner-35-a-competent-budget-running-watch" rel="alternate"></link><published>2020-11-13T22:35:00+00:00</published><updated>2020-11-13T22:35:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-11-13:/posts/garmin-forerunner-35-a-competent-budget-running-watch</id><summary type="html">&lt;p&gt;A review of the Garmin Forerunner 35 after using for several months,
 comparing with the Forerunner 15.&lt;/p&gt;</summary><content type="html">&lt;h2 id="replacing-a-garmin-forerunner-15-watch"&gt;Replacing a Garmin Forerunner 15 watch&lt;/h2&gt;
 &lt;p&gt;Unsurprisingly, I've been doing a lot more exercise outdoors this year
 than last, including a lot more running. So I've had a lot more time to
@@ -689,122 +734,4 @@ developers, and potentially loss of work.&lt;/p&gt;
 highlights&lt;/a&gt;, if you have an editor
 or other scheduled task running &lt;code&gt;git fetch&lt;/code&gt; in the background,
 &lt;code&gt;--force-with-lease&lt;/code&gt; won't offer any protection as the remote tracking
-branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="2018"></category><category term="git"></category></entry><entry><title>A look at Pipenv</title><link href="https://www.stevenmaude.co.uk/posts/a-look-at-pipenv" rel="alternate"></link><published>2018-08-26T14:06:00+01:00</published><updated>2020-06-19T12:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-08-26:/posts/a-look-at-pipenv</id><summary type="html">&lt;p&gt;A quick look at Pipenv, a tool to manage Python packages.&lt;/p&gt;</summary><content type="html">&lt;div class="admonition article-edit"&gt;
-&lt;p&gt;Edit 2020-06-19: These days, I just tend to use a manually created
-virtualenv when working on Python, and a bash one-liner to activate
-the appropriate virtualenv.&lt;/p&gt;
-&lt;p&gt;As mentioned below, &lt;a href="https://github.com/python-poetry/poetry"&gt;poetry&lt;/a&gt; is
-another option for managing dependencies and I've seen a lot of
-positive things written about poetry since I originally wrote this
-post.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href="https://github.com/pypa/pipenv"&gt;Pipenv&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt; is a tool that aims to
-remove the hassle of using
-&lt;a href="https://www.stevenmaude.co.uk/posts/explaining-python-virtualenv-in-under"&gt;virtualenvs&lt;/a&gt;
-(Python runtime environments to keep separate Python setups for
-different projects independent), and also help manage requirements. It
-also aims to help provide deterministic builds of software.&lt;/p&gt;
-&lt;p&gt;I had read about Pipenv previously, but couldn't ever really understand
-how it worked from just reading about it. So I switched from my existing
-virtualenv setup to this to try it out and figure out whether I can
-replicate the same behaviour I had with virtualenv and
-virtualenvwrapper.&lt;/p&gt;
-&lt;h2 id="differences"&gt;Differences&lt;/h2&gt;
-&lt;p&gt;The main difference of Pipenv to the way you might work with virtualenvs
-— which, for me, is switch to a particular virtualenv for a project, then
-run commands in the shell as normal, just with a self-contained Python
-setup — is that Pipenv is more contextual.&lt;/p&gt;
-&lt;p&gt;With Pipenv, you change to the appropriate project directory and then
-run commands directly in that virtualenv by preceding them with &lt;code&gt;pipenv
-run&lt;/code&gt;, e.g. &lt;code&gt;pipenv run myscript.py&lt;/code&gt;. Pipenv knows which virtualenv to
-use based on the location you're in.&lt;/p&gt;
-&lt;p&gt;(You can also get more virtualenv-like behaviour by going to a project
-directory and doing &lt;code&gt;pipenv shell&lt;/code&gt; where it effectively activates the
-virtualenv in the shell. However, one downside with this is that the
-subshell command history there only exists within that subshell; it is
-not stored in your main shell.)&lt;/p&gt;
-&lt;p&gt;Another difference is that you would also tend to favour using &lt;code&gt;pipenv&lt;/code&gt;
-over &lt;code&gt;pip&lt;/code&gt; for installing packages; &lt;code&gt;pipenv install &amp;lt;SOME_PACKAGE&amp;gt;&lt;/code&gt; also
-adds packages to your project's
-&lt;a href="https://github.com/pypa/pipfile"&gt;&lt;code&gt;Pipfile&lt;/code&gt;&lt;/a&gt;, which replaces the older
-&lt;code&gt;requirements.txt&lt;/code&gt; file of specifying dependencies.&lt;/p&gt;
-&lt;h2 id="usage"&gt;Usage&lt;/h2&gt;
-&lt;p&gt;You can create a new Pipenv either implicitly by &lt;code&gt;pipenv install --dev&lt;/code&gt;
-which installs dependencies for that project (including dev
-dependencies) in a new virtualenv it creates, or more explicitly by:
-&lt;code&gt;pipenv --two&lt;/code&gt; or &lt;code&gt;pipenv --three&lt;/code&gt; which gets you a new virtualenv with
-that version of Python.&lt;/p&gt;
-&lt;p&gt;You can also use &lt;code&gt;--python &amp;lt;VERSION_NUMBER&amp;gt;&lt;/code&gt; to use a specific point
-release of Python of your choice you have installed, e.g. 3.7.
-Furthermore, if you have pyenv installed, it will install the requested
-version of Python for you, if that version is not installed already.&lt;/p&gt;
-&lt;p&gt;There are two broad uses of virtualenvs I had:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;for Python development to avoid any clash of package versions, which
-   is covered quite well by the default behaviour of Pipenv.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;for running standalone Python software I want to run, e.g.
-   Docker Compose, but keeping their installations entirely independent
-   of each other to avoid any conflicts. This isn't quite covered as
-   well, because &lt;code&gt;pipenv run&lt;/code&gt; requires you to be in the directory or a
-   subdirectory of that directory&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; where you've already run Pipenv
-   and a Pipfile exists, as that's how I assume it figures out which
-   virtualenv to use. Otherwise, running Pipenv creates a new
-   virtualenv! I think &lt;code&gt;pipenv shell&lt;/code&gt; works around this dropping you
-   into a new subshell where the virtualenv is activated.&lt;/p&gt;
-&lt;p&gt;Alternatively, in bash, you can do &lt;code&gt;source $(pipenv
---venv)/bin/activate&lt;/code&gt; in the directory with the virtualenv, to work
-at a slightly lower level, with the virtualenv directly, without
-&lt;code&gt;pipenv shell&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;These use cases are both handled reasonably well by Pipenv.&lt;/p&gt;
-&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Pipenv seems to work well enough if you want to simplify using
-virtualenvs and management of dependencies. I think there are two groups
-of users that it might particularly suit: those who are newer to
-managing Python packaging and virtualenvs — as a means of abstracting
-away virtualenv management — and those who are more experienced but want
-to have a tool that integrates other features, e.g. checking for
-dependency vulnerabilities via &lt;code&gt;pipenv check&lt;/code&gt; (which is provided by the
-&lt;a href="https://github.com/pyupio/safety"&gt;safety&lt;/a&gt; package).&lt;/p&gt;
-&lt;p&gt;However, if you read around, there is still some contention about Pipenv
-being &lt;a href="https://packaging.python.org/guides/tool-recommendations/"&gt;recommended by the
-PyPA&lt;/a&gt;.
-Certainly, there are a considerable number of small issues that remove
-some of Pipenv's sheen; &lt;a href="https://github.com/pypa/pipenv/issues/2753"&gt;I encountered a small one already
-reported&lt;/a&gt; within just a
-short time of using Pipenv. There are also several issues relating to
-dependency resolution, which seem a little more critical seeing as
-dependency management is one of the tool's core goals.&lt;/p&gt;
-&lt;p&gt;Pipenv then is no panacea for Python's still byzantine dependency
-management. &lt;a href="https://www.python.org/dev/peps/pep-0020/"&gt;PEP 20&lt;/a&gt;'s call
-for "one obvious way to do it" is not yet fully heeded. But maybe it's a
-step roughly in the right direction, even if there's still some
-meandering to do before there's a really simple and transparent workflow
-for Python. (However, I don't think it's uncommon for dependency
-management being tricky to get right either; Go has been around for a
-decade and is only just &lt;a href="https://blog.golang.org/versioning-proposal"&gt;getting
-there&lt;/a&gt;. Python's had
-considerably longer than Go to get it right though.)&lt;/p&gt;
-&lt;p&gt;Finally, it is worth noting that there are other alternatives too.
-&lt;a href="https://github.com/python-poetry/poetry"&gt;Poetry&lt;/a&gt; is a newer, and perhaps
-less well known, tool whose goals intersect with those of Pipenv. It
-fixes some of the existing issues of dependency resolution that
-pip-tools has (pip-tools is the underlying package that pipenv actually
-uses for this task), and therefore may be another useful contender to
-keep in mind.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;Confusingly, Pipenv's name is capitalised, while pip's is not.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;Caveat: it only looks a certain number of subdirectories deep by
-default, though &lt;a href="https://github.com/pypa/pipenv/issues/1634"&gt;this number is configurable&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content><category term="2018"></category><category term="Pipenv"></category><category term="Python"></category></entry></feed>
+branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="2018"></category><category term="git"></category></entry></feed>
