@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Android device encryption is (mostly) good - stevenmaude.co.uk</title>
+    <title>Copying large iPhone videos to a Windows PC - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,21 +9,24 @@
 
 
 
-<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/android-device-encryption-is-mostly-good">
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/copying-large-iphone-videos-to-a-windows-pc">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="encryption,Android" />
-        <meta name="description" content="Encrypting Android and the usability issues that arise." />
+        <meta name="keywords" content="iOS,iPad,iPadOS,iPhone,Windows" />
+        <meta name="description" content="How to copy iPhone videos that don&#39;t appear in Windows File Explorer" />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Android device encryption is (mostly) good"/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/android-device-encryption-is-mostly-good"/>
-        <meta property="og:description" content="Encrypting Android and the usability issues that arise."/>
-        <meta property="article:published_time" content="2014-04-05" />
-            <meta property="article:section" content="2014" />
-            <meta property="article:tag" content="encryption" />
-            <meta property="article:tag" content="Android" />
+        <meta property="og:title" content="Copying large iPhone videos to a Windows PC"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/copying-large-iphone-videos-to-a-windows-pc"/>
+        <meta property="og:description" content="How to copy iPhone videos that don&#39;t appear in Windows File Explorer"/>
+        <meta property="article:published_time" content="2021-01-25" />
+            <meta property="article:section" content="2021" />
+            <meta property="article:tag" content="iOS" />
+            <meta property="article:tag" content="iPad" />
+            <meta property="article:tag" content="iPadOS" />
+            <meta property="article:tag" content="iPhone" />
+            <meta property="article:tag" content="Windows" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -87,7 +90,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Android device encryption is (mostly) good
+                Copying large iPhone videos to a Windows PC
                 </h1>
             </header>
             <div class="entry-content">
@@ -96,66 +99,72 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2014-04-05T10:21:00+01:00"> 2014-04-05</time>
+        <time datetime="2021-01-25T20:50:00+00:00"> 2021-01-25</time>
     </span>
-          <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="2014-04-05T10:32:00+01:00"> 2014-04-05</time>
-            </span>
 
 
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
+	<a href="https://www.stevenmaude.co.uk/tag/ios">iOS</a>
         /
-	<a href="https://www.stevenmaude.co.uk/tag/android">Android</a>
+	<a href="https://www.stevenmaude.co.uk/tag/ipad">iPad</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/ipados">iPadOS</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/iphone">iPhone</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>If you've read other posts here, you might notice that I've gone through
-a phase of
-<a href="https://www.stevenmaude.co.uk/posts/how-to-secure-your-storage-and-backup">encrypting</a>
-<a href="https://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual">new</a>
-devices I have.</p>
-<p>My <a href="https://www.stevenmaude.co.uk/posts/phone-upgrades-and-privacy-downgrades">new
-phone</a>
-is now no different.</p>
-<p>In trying to research what problems can arise if you encrypt Android, it
-did seem like encryption isn't a widely used feature. But, as I was
-starting afresh with my phone anyway, it seemed a good time to test it
-out.</p>
-<p>On my phone, out of the box, it encrypted in just a few minutes. I
-didn't bother running any before and after benchmarks, but it doesn't
-<em>feel</em> like there's any impact on the responsiveness of the phone.</p>
-<p>There are two downsides though.</p>
-<p>One is the irritating
-<a href="https://code.google.com/p/android/issues/detail?id=29468">feature</a> that
-<strong>the encryption password is just the screen unlock password you use</strong>.
-This isn't great. It either means you need a painfully complicated
-screen lock passphrase, everytime you want to unlock your phone, or it
-means you'll have a simple encryption password.</p>
-<p>That issue discussion highlights that it is possible to change the
-encryption password, but this requires you to enter a shell command as
-root. There's an
-<a href="https://github.com/nelenkov/cryptfs-password-manager">app</a> that adds a
-convenient frontend to this process, though it still requires root. As
-the README there points out, watch out: <strong>changing your screen unlock
-code will change your encryption password to this too!</strong></p>
-<p>The second problem is that encryption can impact on your use of
-recovery. ClockworkModRecovery doesn't support encrypted devices. TWRP
-apparently does, but didn't seem to work with my Moto G; it should
-prompt for an encryption password, but doesn't and just fails to mount
-the phone's partitions.</p>
-<p>That's not a huge problem for me, but I expect that this is going to
-prevent my phone from receiving official updates. Perhaps reflashing a
-manufacturer recovery and updating will work? In the (only slightly
-inconvenient) worst case, I'll just have to backup everything, do a
-fresh install, re-root and restore everything.</p>
-<p>It would be nice if encryption on Android was more user-friendly, though
-as the problems aren't particularly onerous, the extra security is
-definitely welcome.</p>
+                <h2 id="a-simple-task-made-complicated">A simple task made complicated</h2>
+<p>This isn't a particularly interesting post. That is, unless you reading
+this now, like me at the time of writing this, have spent the best part
+of an hour trying to solve the same issue. Like a few other posts I've
+made in the past, the purpose is really to make this easier to search
+for, if others encounter the same problem.</p>
+<p>Someone had recorded a video on an iPhone that they wanted to transfer
+to a Windows PC. Naturally, they connected the phone via a USB cable to
+the computer, navigated through the existing <code>DCIM</code> directories to copy
+the files across and found, well, nothing. So they asked me about it.</p>
+<p>What was going on? They used the same process before and it worked fine.
+And the videos were definitely still on the phone: you could play them
+there. As these videos had large file sizes, I suspected there was some
+limit being encountered.</p>
+<h2 id="no-easy-answers">No easy answers</h2>
+<p>Many of the workarounds posted online seem to fit one of the following
+categories:</p>
+<ul>
+<li>Moving the video via iCloud, or some other uploading route. (Too slow
+  and too tedious.)</li>
+<li>Using some other app to get the video to a PC. (May involve spending
+  money and requires auditing the app to ensure it and the developers
+  are reputable.)</li>
+<li>Re-encoding the video on the phone to a smaller size somehow, possibly
+  via iMovie? (Didn't try this and may have been slow. This would have
+  been the next thing I suggested if the solution below had not worked.)</li>
+</ul>
+<p>The Apple documentation itself suggests making sure iTunes is installed,
+using the Windows Photos app and then importing from there. This didn't
+work.</p>
+<h3 id="the-fix">The fix</h3>
+<p>I found someone posted a fix on a forum. On the iPhone's Settings,
+select Photos, and then under "Transfer to Mac or PC" setting for the
+Photos app, change "Automatic" to "Keep Originals". That was it. Much
+simpler than any of the other suggestions.</p>
+<p>The import actually worked through the Photos app then. In fact, you did
+not need Photos at all: checking the <code>DCIM</code> directory listed the file.</p>
+<p>What "Keep Originals" does is take a direct copy of the photos and
+videos, instead of doing some unspecified magic and converting them on
+copy.</p>
+<p>(Though not tested, iPadOS has the same setting and presumably behaves
+in the same way.)</p>
+<p>As someone unfamiliar with iOS, I'm not entirely sure how you would
+connect the setting to the behaviour. But the main thing is that it
+resolved a very frustrating and very badly documented issue very, very
+quickly.</p>
             </div>
             <!-- /.entry-content -->
         </article>
