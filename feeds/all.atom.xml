@@ -1,5 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-01-25T20:50:00+00:00</updated><entry><title>Copying large iPhone videos to a Windows PC</title><link href="https://www.stevenmaude.co.uk/posts/copying-large-iphone-videos-to-a-windows-pc" rel="alternate"></link><published>2021-01-25T20:50:00+00:00</published><updated>2021-01-25T20:50:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-01-25:/posts/copying-large-iphone-videos-to-a-windows-pc</id><summary type="html">&lt;p&gt;How to copy iPhone videos that don't appear in Windows File Explorer&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-simple-task-made-complicated"&gt;A simple task made complicated&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-02-26T14:02:00+00:00</updated><entry><title>Things I have learned from rebuilding a PC in 2021</title><link href="https://www.stevenmaude.co.uk/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021" rel="alternate"></link><published>2021-02-26T14:02:00+00:00</published><updated>2021-02-26T14:02:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-02-26:/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021</id><summary type="html">&lt;p&gt;What are you buying? What are you selling?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Despite working with computers (supposedly) professionally, I don't
+often build PCs or upgrade PC hardware. A few years ago, I learned a few
+lessons from &lt;a href="https://www.stevenmaude.co.uk/posts/things-ive-learned-from-building-and"&gt;building a PC&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Over the 2020 Christmas holidays, I was upgrading someone's PC for them,
+so here are my lessons I've thought about in 2021.&lt;/p&gt;
+&lt;h2 id="buying-pc-parts-is-not-easy"&gt;Buying PC parts is &lt;em&gt;not&lt;/em&gt; easy&lt;/h2&gt;
+&lt;p&gt;In the UK at least, the latest processors (CPUs) and graphics cards
+(GPUs) were out of stock at the time of buying. That is probably due to
+some or all of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COVID-19 related supply chain issues;&lt;/li&gt;
+&lt;li&gt;releases of hardware in the run up to the holiday period;&lt;/li&gt;
+&lt;li&gt;the current trend for people to buy coveted, in-demand trinkets
+  (fashion, new generation video game consoles, hand sanitiser) and
+  resell at higher than retail price;&lt;/li&gt;
+&lt;li&gt;demand from people stuck at home and spending money on PC hardware
+  instead of other things.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Adding to all that, the 2021 changes in UK trade due to Brexit may not
+help either. However, the fundamental issue of shortages applies
+globally from what I've read.&lt;/p&gt;
+&lt;p&gt;Pent-up demand then drove up prices of older kit. By chance, I managed
+to spot AMD's new Ryzen 5 5600x CPUs available just before Christmas
+from a retailer at slightly higher than the billed retail price. Somehow
+I also managed to order while holding my nose at the inflated cost. I
+wasn't actually intending to buy the latest CPU, but the previous
+generation Ryzen 5 3600x was being priced at around 75-80% of the cost
+of the newer kit anyway.&lt;/p&gt;
+&lt;p&gt;This might all resolve itself in time. I could do with a new desktop
+build myself, but not really inclined to do so right now. Reading
+around, it seems like stock shortages, particularly for GPUs, will
+continuing well into 2021.&lt;/p&gt;
+&lt;h2 id="buying-from-a-retailer-with-good-returns-policies-can-save-time"&gt;Buying from a retailer with good returns policies can save time&lt;/h2&gt;
+&lt;p&gt;Here's a long and dull story; feel free to skip to the lessons below.
+As part of the same build, and after a lot of research, I ordered a
+mainboard that was on offer, as researching it showed it to be a good
+buy. As lots of mainboards are, it seemed to be one with lots of RGB
+LEDs — nice if you want that, but unnecessary to me — and I figured you
+could disable the LEDs easily.&lt;/p&gt;
+&lt;p&gt;Shortly after ordering, I discovered that you couldn't simply toggle the
+LEDs off in the BIOS. Instead, you had to have the mainboard's
+manufacturer's clunky software — nice if you want that, but unnecessary
+to me — running constantly on Windows to control the LEDs.&lt;/p&gt;
+&lt;p&gt;I tried to cancel the board order. The order hadn't yet moved to the
+stage of being prepared for shipping and was temporarily out of stock
+anyway. So I sent a message via the website and hoped they would cancel
+on the next working day. This was almost out of office hours, and I
+figured that everything would be OK.&lt;/p&gt;
+&lt;p&gt;About an hour later, I got another email saying the order was
+dispatched. From there, things became more of a mess. The next morning,
+the courier shipping the order sent me a message with delivery options
+including delaying the delivery. I delayed it, the courier still arrived
+with the parcel and I explained that I'd deferred delivery.&lt;/p&gt;
+&lt;p&gt;After a phone call to the company I ordered from, confirming I could
+refuse delivery and they would create an returns number, I waited a
+week, and heard nothing at all. There was no repeat delivery and I
+assumed the parcel was in limbo somewhere.&lt;/p&gt;
+&lt;p&gt;In the end, it took over a week for the company to get the parcel back
+from the courier, it then took a further two written requests to
+customer support to finally receive my money back.&lt;/p&gt;
+&lt;p&gt;I told you it was a long and dull story. No refunds.&lt;/p&gt;
+&lt;h3 id="a-long-and-dull-story-with-two-lessons-learned"&gt;A long and dull story with two lessons learned&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ordering from a company that has an automated online system for
+  cancelling orders is useful for sudden onset of buyer's remorse.&lt;/li&gt;
+&lt;li&gt;Ordering from a company that has a good and simple returns process is
+  useful if you find the hardware isn't right after you've received it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is one obvious market-leading online retailer that has these
+attributes, but may not be everyone's first choice for various reasons.
+Nonetheless, on customer service, these attributes are fantastic from a
+buyer's perspective.&lt;/p&gt;
+&lt;p&gt;I don't frequently make regrettable purchases. But you can do all the
+reading of specifications, manuals, reviews and opinions that you like,
+and still find two PC components just will not get along for whatever
+reason.&lt;/p&gt;
+&lt;p&gt;Having no-fuss returns can save you a lot of time and frustration
+chasing up customer support. In the UK, there is &lt;a href="https://www.legislation.gov.uk/ukpga/2015/15/contents"&gt;substantial current
+legislation regarding consumer
+rights&lt;/a&gt;. However,
+it's far simpler as a customer if the vendor already provides better
+than the minimum customer service.&lt;/p&gt;
+&lt;h2 id="selling-pc-parts-is-easy"&gt;Selling PC parts &lt;em&gt;is&lt;/em&gt; easy…&lt;/h2&gt;
+&lt;p&gt;After the upgrade, we advertised the old removed parts online. They all
+sold within a week, and the proceeds could be spent on a new graphics
+card, if you could buy one (see above). I was surprised at both how
+quickly these old components sold and for what we sold them for. Some
+parts sold for not much less than they cost at retail. It's possible
+that people are looking for budget builds, or upgrading/repairing
+existing builds.&lt;/p&gt;
+&lt;h3 id="but-make-sure-you-upgrade-any-firmware-before-selling"&gt;…but make sure you upgrade any firmware before selling&lt;/h3&gt;
+&lt;p&gt;After the mainboard sold, the buyer asked about what CPU was used with
+it; it wasn't working for them and they were trying to diagnose it. When
+they booted up the PC, nothing happened.&lt;/p&gt;
+&lt;p&gt;Between the details the buyer gave and reading around the BIOS release
+notes for the mainboard, we concluded that it was probably a combination
+of the mainboard BIOS never being updated, and the buyer using a newer
+CPU than had previously been installed.&lt;/p&gt;
+&lt;p&gt;It was lucky that there was a route to flashing the BIOS without a CPU
+via one of the USB ports. Decent mainboards often feature this recovery
+option. That meant the buyer could solve this problem without borrowing
+or buying another CPU to upgrade the BIOS, or, worse for us, returning
+the item.&lt;/p&gt;
+&lt;p&gt;The wise thing to do is to upgrade the firmware, if there is any, before
+removing components.&lt;/p&gt;
+&lt;h2 id="what-tedious-cpu-cooler-installations-should-tell-hardware-manufacturers-about-marketing"&gt;What tedious CPU cooler installations should tell hardware manufacturers about marketing&lt;/h2&gt;
+&lt;p&gt;Two very disparate ideas in the heading there; let's see if there's
+anything like a cohesive argument here.&lt;/p&gt;
+&lt;p&gt;Last time I wrote about &lt;a href="https://www.stevenmaude.co.uk/posts/things-ive-learned-from-building-and"&gt;building a
+PC&lt;/a&gt;, I had
+lots of fun installing Intel's push pins. This time I had fun with
+fitting a cooler to an AMD setup. It didn't use screws. Instead the
+cooler used long metal tweezer-like clips to fit over the tabs on the
+AM4 socket on the mainboard.&lt;/p&gt;
+&lt;p&gt;How this all was assembled to secure the cooler was not obvious at all.
+The lack of clear instructions did not help one bit. The text basically
+said "build the thing and look at the diagram". The diagram wasn't
+clear.&lt;/p&gt;
+&lt;p&gt;Nor were there many decent YouTube tutorials on this. Eventually I
+managed to piece together what to do from looking collectively at
+several installation videos in several different languages. Even then,
+it was a delicate task to keep the assembly together, while placing the
+cooler contact directly on the CPU package and not smudging thermal
+paste everywhere.&lt;/p&gt;
+&lt;p&gt;As an esteemed non-influencer, hardware manufacturers are doing whatever
+the opposite is of queuing up to ask me what I think. But if there ever
+did suddenly appear an itinerant queue of manufacturers on my doorstep,
+what I'd advise them is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instead of relying on buyers of the hardware to provide tutorials,
+  manufacturers should create or commission their own videos.&lt;/li&gt;
+&lt;li&gt;Make sure these videos have appropriate metadata (title and
+  description) to make them easy to find by those who need them.&lt;/li&gt;
+&lt;li&gt;Provide videos in multiple languages, whether by audio, subtitles or
+  both.&lt;/li&gt;
+&lt;li&gt;Show less obvious steps from multiple angles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It's probably justifiable to spend a relatively small portion of a
+marketing and/or support budget to ensure that there is a decent
+installation video available. This is marketing and brand awareness:
+you're demonstrating, hopefully, that your kit is easy to use, and,
+importantly, providing support for users.&lt;/p&gt;
+&lt;p&gt;I think it's a wider lesson for anyone selling anything — whether
+hardware or software — that might require some tricky user installation.
+Whether a prospective buyer seeing how to install something and deciding
+to buy based on that, or an actual buyer not complaining online or
+requesting a refund, there's a benefit for the vendor too.&lt;/p&gt;</content><category term="2021"></category><category term="PC"></category><category term="build"></category></entry><entry><title>Copying large iPhone videos to a Windows PC</title><link href="https://www.stevenmaude.co.uk/posts/copying-large-iphone-videos-to-a-windows-pc" rel="alternate"></link><published>2021-01-25T20:50:00+00:00</published><updated>2021-01-25T20:50:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-01-25:/posts/copying-large-iphone-videos-to-a-windows-pc</id><summary type="html">&lt;p&gt;How to copy iPhone videos that don't appear in Windows File Explorer&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-simple-task-made-complicated"&gt;A simple task made complicated&lt;/h2&gt;
 &lt;p&gt;This isn't a particularly interesting post. That is, unless you reading
 this now, like me at the time of writing this, have spent the best part
 of an hour trying to solve the same issue. Like a few other posts I've
@@ -689,49 +835,4 @@ to have encounter this failure yet?&lt;/p&gt;
 just re-enabled the Memory Integrity setting once again after the BIOS update
 completed. If you're having a similar problem, check this setting before
 attempting to update. Maybe this tip helps you avoid the hour I spent figuring
-this out.&lt;/p&gt;</content><category term="2018"></category><category term="fix"></category><category term="Windows"></category></entry><entry><title>git: nice and lease-y</title><link href="https://www.stevenmaude.co.uk/posts/git-nice-and-lease-y" rel="alternate"></link><published>2018-11-10T13:23:00+00:00</published><updated>2018-11-10T13:23:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-11-10:/posts/git-nice-and-lease-y</id><summary type="html">&lt;p&gt;Why generally using &lt;code&gt;git push --force-with-lease&lt;/code&gt; over &lt;code&gt;git push --force&lt;/code&gt; seems sensible.&lt;/p&gt;</summary><content type="html">&lt;h2 id="can-you-feel-the-force"&gt;Can you feel the &lt;code&gt;--force&lt;/code&gt;?&lt;/h2&gt;
-&lt;p&gt;Force pushing to a remote repository that others may be using should
-always be done with care. Even if it's a completely private repository
-that only you use, you maybe should double check your thinking before
-going ahead.&lt;/p&gt;
-&lt;p&gt;The double edged sword of a force push is that you're changing the state
-of the remote repository history irrevocably.&lt;/p&gt;
-&lt;p&gt;This can be good, for instance, if you're working on a non-master
-repository branch that you "own" and have perhaps cleaned it up:
-rebasing it, removing or squashing unneeded separate commits.&lt;/p&gt;
-&lt;p&gt;It can be bad if you force push to master on a repository, and cause, at
-minimum, considerable inconvenience for other developers. Those
-developesr may now face working out what exactly has happened to the
-repository, when they try and integrate their future changes, or may be
-baffled that a previously existing commit has now mysteriously
-disappeared.&lt;/p&gt;
-&lt;p&gt;If you're working on a non-master development branch, you may be a
-little bit more lax in how you force push. Certainly, the way I've used
-branches with other people is that generally a branch is owned by one
-particular person, and those are free to be amended by that branch owner
-(usually the creator of that branch, although ownership may be passed
-from person to person). Then, as the agreed owner of such a branch,
-provided I know that I'm happy with the local changes, I can just force
-push to that development branch.&lt;/p&gt;
-&lt;p&gt;However, that's not always the case. Perhaps two people are working on
-the same branch, maybe working on slightly different things, e.g. one
-could be working on frontend changes for the site, while another works
-on backend changes, but these changes are part of the same feature, and
-therefore need to be part of the same branch. &lt;/p&gt;
-&lt;h2 id="what-force-with-lease-offers-over-vanilla-force"&gt;What &lt;code&gt;--force-with-lease&lt;/code&gt; offers over vanilla &lt;code&gt;--force&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;What I discovered recently, although it's been around for ages, is that
-git has another option for forcing push: &lt;code&gt;--force-with-lease&lt;/code&gt;. What this
-option does is checks that the remote branch is still in the same state
-it was when you last pulled it, and refuses to force push if not, i.e.
-there have been no other changes to the branch in the intervening time.&lt;/p&gt;
-&lt;p&gt;Of course, you can always still override this check by just using plain
-old &lt;code&gt;--force&lt;/code&gt;. But &lt;code&gt;--force-with-lease&lt;/code&gt; at least gives you another
-safety check before force pushing, just in case someone else has altered
-the remote branch (giving you chance, for example, to pull that branch,
-and rebase your changes on it), and avoiding any confusion between
-developers, and potentially loss of work.&lt;/p&gt;
-&lt;p&gt;Note though, &lt;a href="https://stackoverflow.com/a/43726130"&gt;as this answer
-highlights&lt;/a&gt;, if you have an editor
-or other scheduled task running &lt;code&gt;git fetch&lt;/code&gt; in the background,
-&lt;code&gt;--force-with-lease&lt;/code&gt; won't offer any protection as the remote tracking
-branches that would be stored locally are being periodically updated.&lt;/p&gt;</content><category term="2018"></category><category term="git"></category></entry></feed>
+this out.&lt;/p&gt;</content><category term="2018"></category><category term="fix"></category><category term="Windows"></category></entry></feed>
