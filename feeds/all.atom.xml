@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-02-26T14:02:00+00:00</updated><entry><title>Things I have learned from rebuilding a PC in 2021</title><link href="https://www.stevenmaude.co.uk/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021" rel="alternate"></link><published>2021-02-26T14:02:00+00:00</published><updated>2021-02-26T14:02:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-02-26:/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021</id><summary type="html">&lt;p&gt;What are you buying? What are you selling?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Despite working with computers (supposedly) professionally, I don't
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-04-24T22:45:00+01:00</updated><entry><title>Tracking down tracks</title><link href="https://www.stevenmaude.co.uk/posts/tracking-down-tracks" rel="alternate"></link><published>2021-04-24T22:45:00+01:00</published><updated>2021-04-24T22:45:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-04-24:/posts/tracking-down-tracks</id><summary type="html">&lt;p&gt;Strategies for finding details on elusive pieces of music.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having recently gone through an extensive process — well, thirty minutes
+or so of searching — to find a piece of music, I wanted to document the
+approaches I know of for this process.&lt;/p&gt;
+&lt;p&gt;Here, for "music", I'm primarily thinking about relatively modern
+Western dance music from the 1970s to the present day — disco to
+dubstep, and beyond. Some ideas detailed here may well apply to other
+genres and time periods.&lt;/p&gt;
+&lt;h2 id="take-a-recording"&gt;Take a recording&lt;/h2&gt;
+&lt;p&gt;What if you're listening to something right now and want to track it
+down? Record it. There's a lot to be said about the ubiquity of phones.
+Here though, having a portable recording device in your pocket is really
+useful. Someone you want to ask or some tool you want to use will have a
+much easier time with a real recording, even if imperfect, over merely a
+description or your best guess at humming or singing the music.&lt;/p&gt;
+&lt;p&gt;There are several music recognition applications that are very effective
+and well-known these days. These typically work by submitting an audio
+fingerprint to the application owner's servers and searching for that in
+their databases. I don't personally use these applications, though I
+have tried them occasionally in the past.&lt;/p&gt;
+&lt;p&gt;It is possible to use these applications live while the music is
+playing. But you still might favour taking a recording first so that you
+can easily share that elsewhere. Audio recognition applications may not
+cover every piece of music ever recorded, but they are potentially a
+useful first look. As these applications often run on mobile devices,
+there is a privacy-related caveat&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;, however.&lt;/p&gt;
+&lt;p&gt;With an audio clip of interest — whether by recording it yourself, or
+snipping it from an existing piece of digital audio — an alternative is
+to upload the audio to a site that detects content, e.g. SoundCloud,
+Mixcloud, YouTube etc. Primarily the reason is for these services to
+detect copyrighted content and either block your submission, or at least
+monetise it for the copyright owner. But you can repurpose this to
+identify the audio for you.&lt;/p&gt;
+&lt;p&gt;This is also useful if you want to identify lots of tracks from one
+source, e.g. a DJ mix, in one go. Often, I've listened to things on
+YouTube and spotted the video description details several of the tracks
+in there.&lt;/p&gt;
+&lt;p&gt;And what to do if recording isn't possible, the recording fails or is
+not clear enough to be useful? If there are lyrics or a vocal sample,
+then remembering the most frequent lyric and/or distinctive lyrics is
+helpful. A frequently repeated lyric, or a modification of it, may well
+be the music's title. Lyric fragments are easily searched for.&lt;/p&gt;
+&lt;h2 id="narrowing-down"&gt;Narrowing down&lt;/h2&gt;
+&lt;p&gt;Searching for the text used in lyrics or repeated vocal samples can be a
+good start. Because vocals are often sampled from elsewhere, you may end
+up first locating the original sample source. If you do, that's a lead:
+you can next try and search for which tracks sampled that vocal.
+Especially in early 90s tracks, certain acapellas that were used many,
+many times.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;You can also search for the name of the genre, along with the lyric
+snippet. This might also help get you to some place on the web. That
+might be where the release is indexed in some kind of database, e.g.
+Discogs. It might occasionally be some place where someone else is
+asking the same question as you, possibly with a helpful reply.&lt;/p&gt;
+&lt;p&gt;Try restricting a search to some of the bigger music-related databases
+online. You can try using the &lt;code&gt;site:&lt;/code&gt; operator on search engines that
+support it to narrow your search. Looking for a combination of the
+artist and name of original track, optionally with a genre on Discogs,
+&lt;code&gt;site:discogs.com&lt;/code&gt;, might help.&lt;/p&gt;
+&lt;p&gt;If it's a mix with a dated year, you can probably narrow down your
+search to a year or two; the release may well be from that same year or
+previous years. It does roughly narrow it down, but not precisely. If
+the recording is from towards the end of a year, the release might have
+been the next year (or even later) if it has been shared with DJs ahead
+of release. If there are commercial issues, e.g. trouble with sample
+clearance or labels, it might never have been officially released, or
+may have been released considerably later.&lt;/p&gt;
+&lt;p&gt;If it's a genre you know well and particularly for Western electronic
+dance music, especially historically, you can probably have some kind of
+guess as to when a piece of music was produced to the nearest couple of
+years. Even for today's dance music, where there might not be the same
+huge difference in recording techniques as there was from the 1980s to
+2000s, there may certainly be trends, common production styles or
+popular sounds or samples. That said, there's also a fashion for making
+things sound like they used to — producers can use the same techniques
+and equipment that were popular during a certain period to replicate it
+— so don't always assume your guess is correct.&lt;/p&gt;
+&lt;p&gt;Another approach that might work if others don't and the track was in a
+DJ set is finding more sets by the same DJ from around the same time
+period. Narrow down by looking for sets with tracklistings and then skim
+through to see if the same track appears. This requires some luck, but
+might just work.&lt;/p&gt;
+&lt;h2 id="getting-help-from-others"&gt;Getting help from others&lt;/h2&gt;
+&lt;p&gt;If you hear the music at an event you're actually attending and a DJ is
+playing, or played the track, well, you can try asking them either at
+the event, or after the fact online. This is more likely to be
+successful at small events. You can always try this if it's a bigger
+show or the DJ in question is a bigger name, though that may be less
+successful.&lt;/p&gt;
+&lt;p&gt;If it's a recorded DJ mix, there may well be a tracklisting somewhere.
+That goes especially if it's a commercial mix, or if it was a radio
+broadcast (where stations often list show details on their websites).&lt;/p&gt;
+&lt;p&gt;If the mix is on SoundCloud or YouTube, you can look at the description
+or the comments. Sometimes, particularly on SoundCloud, you might get
+the DJ themselves, the artist or someone else who follows that DJ or
+genre naming some or all of the tracks.&lt;/p&gt;
+&lt;p&gt;If all that fails, you could always try asking somewhere online. If it's
+a mix that's already posted online, you could ask in the comments of
+that mix. If it's audio that you've recorded elsewhere, you can upload
+it somewhere, or describe it as best you can. Find a suitable place to
+then post that question. That could be somewhere more general, like the
+Discogs forums, or more specific where certain music genres are the
+focus.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The caveat is that there are possible privacy issues with using
+  these types of applications. These applications may request
+  permissions to record audio, as well as locating you via GPS or to a
+  lesser extent, IP address. Incidentally, Shazam were bought by Apple,
+  and Apple seem to place some priority on user privacy. Having not used
+  Shazam much, if at all, I'm not necessarily advocating it though.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;A good question, that I can't answer right now, is &lt;em&gt;why&lt;/em&gt; certain
+  vocals were reused so much. Was it because of the availability of the
+  original acapella? Was it because the vocal has a particular sound?
+  Was it a deliberate reference to the existing popular reuse?&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="2021"></category><category term="DJ"></category><category term="music"></category></entry><entry><title>Things I have learned from rebuilding a PC in 2021</title><link href="https://www.stevenmaude.co.uk/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021" rel="alternate"></link><published>2021-02-26T14:02:00+00:00</published><updated>2021-02-26T14:02:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-02-26:/posts/things-i-have-learned-from-rebuilding-a-pc-in-2021</id><summary type="html">&lt;p&gt;What are you buying? What are you selling?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Despite working with computers (supposedly) professionally, I don't
 often build PCs or upgrade PC hardware. A few years ago, I learned a few
 lessons from &lt;a href="https://www.stevenmaude.co.uk/posts/things-ive-learned-from-building-and"&gt;building a PC&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Over the 2020 Christmas holidays, I was upgrading someone's PC for them,
@@ -791,48 +911,4 @@ inception. I think this is symptomatic of software development. It is
 possible to build something that takes on a direction beyond that
 originally envisaged, especially projects that have many contributors or
 maintainers over time, each of which may have their own opinions as to
-how such a project should be nurtured.&lt;/p&gt;</content><category term="2019"></category><category term="git"></category><category term="project management"></category></entry><entry><title>Stopping Fujitsu's Battery Charging Control Update Tool from crashing Windows 10</title><link href="https://www.stevenmaude.co.uk/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10" rel="alternate"></link><published>2018-12-10T21:16:00+00:00</published><updated>2018-12-10T21:16:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2018-12-10:/posts/stopping-fujitsus-battery-charging-control-update-tool-from-crashing-windows-10</id><summary type="html">&lt;p&gt;Preventing Fujitsu's Battery Charging Control Update from
-making Windows 10 crash with a blue screen error caused by
-tdklib64.sys.&lt;/p&gt;</summary><content type="html">&lt;p&gt;(NB: There's some background here just by way of introduction. If you encounter
-this problem and don't want to endure my waffling, check the setting I &lt;a href="#the-fix"&gt;mention
-below&lt;/a&gt;.)&lt;/p&gt;
-&lt;p&gt;My Fujitsu laptop currently dual boots Windows and Ubuntu, but it's rare that I
-boot into Windows. Nonetheless, I had a little time spare last week, I figured
-I might as well catch up on things everywhere and update the Windows install.&lt;/p&gt;
-&lt;p&gt;Dropping into that did update Windows, and all well and good. Or so I thought.&lt;/p&gt;
-&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;On restarting, I noticed there was a Fujitsu prompt that appeared, and was a
-little unexpected. What I was being asked to install was the very precisely
-named "Battery Charging Control Update Tool". It seems &lt;a href="https://www.fujitsu.com/global/about/resources/news/notices/2018/1031-01.html"&gt;Fujitsu have had some
-issues with battery
-quality&lt;/a&gt;,
-leading to a potential fire risk; this tool is supposed to mitigate that.&lt;/p&gt;
-&lt;p&gt;It seems that, at least for my model of laptop, the tool was attempting to
-update the BIOS. And you can see how the &lt;a href="https://www.fujitsu.com/hk/support/products/computing/pc/ap/announcements/battery-control-update-tool.html"&gt;tool &lt;em&gt;should&lt;/em&gt; work on Fujitsu's Hong
-Kong site&lt;/a&gt;
-(and that page I could only find on the Hong Kong site for some reason).&lt;/p&gt;
-&lt;p&gt;In the previous paragraph, I say &lt;em&gt;attempting&lt;/em&gt; to update the BIOS, because what
-happened, after the initial preparation stage occurred with the "Continue to
-update BIOS?" prompt, was that shortly after I clicked "Yes", I saw a lovely
-Windows 10 blue screen which I think mentioned tdklib64.sys as the cause.&lt;/p&gt;
-&lt;p&gt;There's nothing I could find relating to this failed BIOS update and these blue
-screens — although there were mentions of BIOS update failures and tdklib64.sys
-relating to other manufacturers machines. Finding nothing struck me as strange:
-it's a fair bet that you'll find at least one person's already complained
-loudly somewhere about a problem you've encountered too. &lt;/p&gt;
-&lt;p&gt;Anyway, I rebooted and tried the update again. Same result. Blue screen.&lt;/p&gt;
-&lt;p&gt;OK then. Third time lucky, maybe? No. Just the same (reliably) unreliable
-result.&lt;/p&gt;
-&lt;h2 id="the-fix"&gt;The fix&lt;/h2&gt;
-&lt;p&gt;In a moment of fortunate (and rare) inspiration, I remembered that I'd turned on a
-relatively new security feature — &lt;a href="https://support.microsoft.com/en-us/help/4096339/windows-10-device-protection-in-windows-defender-security-center"&gt;Memory
-Integrity&lt;/a&gt;
-— in Windows Defender Security Center as I'd spotted it as a setting I'd not
-enabled already. Perhaps that was the culprit, especially as no-one else seemed
-to have encounter this failure yet?&lt;/p&gt;
-&lt;p&gt;Yes. Yes, it was.&lt;/p&gt;
-&lt;p&gt;Disabling that again meant the update proceeded without a problem, and then I
-just re-enabled the Memory Integrity setting once again after the BIOS update
-completed. If you're having a similar problem, check this setting before
-attempting to update. Maybe this tip helps you avoid the hour I spent figuring
-this out.&lt;/p&gt;</content><category term="2018"></category><category term="fix"></category><category term="Windows"></category></entry></feed>
+how such a project should be nurtured.&lt;/p&gt;</content><category term="2019"></category><category term="git"></category><category term="project management"></category></entry></feed>
