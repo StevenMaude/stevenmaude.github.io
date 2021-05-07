@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-04-24T22:45:00+01:00</updated><entry><title>Tracking down tracks</title><link href="https://www.stevenmaude.co.uk/posts/tracking-down-tracks" rel="alternate"></link><published>2021-04-24T22:45:00+01:00</published><updated>2021-04-24T22:45:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-04-24:/posts/tracking-down-tracks</id><summary type="html">&lt;p&gt;Strategies for finding details on elusive pieces of music.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having recently gone through an extensive process — well, thirty minutes
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-05-08T00:12:00+01:00</updated><entry><title>A review of "UNIX: A History and a Memoir"</title><link href="https://www.stevenmaude.co.uk/posts/a-review-of-unix-a-history-and-a-memoir" rel="alternate"></link><published>2021-05-08T00:12:00+01:00</published><updated>2021-05-08T00:12:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-05-08:/posts/a-review-of-unix-a-history-and-a-memoir</id><summary type="html">&lt;p&gt;A quick recommendation of an easy-to-read and brisk summary of the development of UNIX.&lt;/p&gt;</summary><content type="html">&lt;p&gt;"UNIX: A History and a Memoir" is from the perspective of Brian
+Kernighan, who was around at the inception of UNIX, and is well-known in
+computing himself as one of the three authors of the AWK language and
+the author of a number of other influential books (e.g. "The C
+Programming Language" by Kernighan and Ritchie). The title covers most
+of what the book deals with: the formative years of UNIX, with
+explanation of the key software that was developed as part of it.&lt;/p&gt;
+&lt;p&gt;It explains where, and from who, UNIX was developed. Initially, UNIX was
+one of Ken Thompson's side projects, quickly capturing wider interest
+and sparking collaboration within Bell Labs. This was all amid a milieu
+of Bell Labs having considerable operating system development experience
+as a collective, yet having no operating system to work on. (Bell Labs
+had been working on the Multics project, but eventually withdrew its
+support.) Eventually, management managed to gather funding for UNIX,
+initially with a view to improving how patent applications within Bell
+Labs were prepared.&lt;/p&gt;
+&lt;p&gt;From there, UNIX developed sufficiently that it found wider use within
+Bell Labs, within AT&amp;amp;T — Bell Labs' then parent company — and within
+many universities. Eventually UNIX was sold commercially. Later, while
+various commercial UNIX vendors expended much efforts in commercial
+wrangling of various parties, the appearance of the free Linux kernel in
+the early 1990s paved the way for Linux distributions to render the
+commercial squabbles largely obsolete.&lt;/p&gt;
+&lt;p&gt;Kernighan's rundown of the features that made UNIX distinct from many of
+the competitors at the time explains why UNIX was a key development that
+transformed computing at the time, offering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a hierarchical file system;&lt;/li&gt;
+&lt;li&gt;accessible system calls;&lt;/li&gt;
+&lt;li&gt;abstraction of other concepts, such as hardware devices, that they
+  could be worked with much as regular files;&lt;/li&gt;
+&lt;li&gt;a command-line shell that could be used composably, along with a suite
+  of programs as useful tools, pipes and scripting to connect those
+  programs together to effectively create new commands or programs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Half a century on and these features are still evident in Linux and
+other descendants that are still being developed today.&lt;/p&gt;
+&lt;p&gt;Kernighan closes the book by describing factors that made Bell Labs such
+a successful research institution. That in itself is an interesting
+story that entwines with the development of UNIX. My distillation is
+that Bell Labs had an extended period where the organisation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;had interesting and challenging problems to solve;&lt;/li&gt;
+&lt;li&gt;hired very talented staff to solve those problems;&lt;/li&gt;
+&lt;li&gt;had sufficient resources that the staff weren't worrying about
+  funding, while management could take a longer view on projects without
+  demanding immediate results;&lt;/li&gt;
+&lt;li&gt;had a technically competent management;&lt;/li&gt;
+&lt;li&gt;offered a collaborative and fun environment for this research.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All easier written than done, of course. If it were so simple, that
+research model would be simply replicated everywhere given the
+resources. Nonetheless, this goes some way to summarise why Bell Labs
+were so extraordinarily influential and tremendously prolific in 20th
+century technology developments.&lt;/p&gt;
+&lt;p&gt;Finally, the book also puts the development of UNIX into context in
+modern-day computing. Many computing devices today run operating systems
+that have some connection back to UNIX. Even Microsoft has adopted
+several of the ideas made popular by UNIX, and has, at times, veered
+closer to UNIX and its descendants, offering Windows Services for UNIX
+in the past, Windows Subsystem for Linux in the present and, long ago,
+even distributing XENIX, Microsoft's very own UNIX distribution! While
+UNIX is over 50 years old, it continues to influence today's computing:
+this well-written book certainly helps to understand why that is so.&lt;/p&gt;</content><category term="2021"></category><category term="book"></category><category term="computing"></category><category term="history"></category><category term="Linux"></category><category term="review"></category><category term="UNIX"></category></entry><entry><title>Tracking down tracks</title><link href="https://www.stevenmaude.co.uk/posts/tracking-down-tracks" rel="alternate"></link><published>2021-04-24T22:45:00+01:00</published><updated>2021-04-24T22:45:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-04-24:/posts/tracking-down-tracks</id><summary type="html">&lt;p&gt;Strategies for finding details on elusive pieces of music.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having recently gone through an extensive process — well, thirty minutes
 or so of searching — to find a piece of music, I wanted to document the
 approaches I know of for this process.&lt;/p&gt;
 &lt;p&gt;Here, for "music", I'm primarily thinking about relatively modern
@@ -763,152 +826,4 @@ to make your PC usable day-to-day, should you require it.&lt;/p&gt;
 &lt;p&gt;There are other causes of a slow booting Windows installation, but if
 you are dealing with a slow starting PC with Radeon graphics,
 particularly with two display adapters, it's worth trying to update the
-drivers and, failing that, seeing if this fix works.&lt;/p&gt;</content><category term="2019"></category><category term="Windows"></category></entry><entry><title>Learning from other projects: pelican-themes</title><link href="https://www.stevenmaude.co.uk/posts/learning-from-other-projects-pelican-themes" rel="alternate"></link><published>2019-12-16T22:41:00+00:00</published><updated>2019-12-16T22:41:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2019-12-16:/posts/learning-from-other-projects-pelican-themes</id><summary type="html">&lt;p&gt;Taking a look at pelican-themes — a project I currently use — to learn from it.&lt;/p&gt;</summary><content type="html">&lt;h2 id="lack-of-updates"&gt;Lack of updates&lt;/h2&gt;
-&lt;p&gt;At the time of writing, this blog uses Pelican to convert the Markdown
-blog content into publishable HTML. And, if you noticed from the dates
-on my posts, there has been just over a year between the last post and
-this one. This was mainly because there was considerable work needed to
-get this blog setup up-to-date: both in upgrading Pelican to the latest
-version, and pulling in updates to the theme.&lt;/p&gt;
-&lt;p&gt;Updating the theme was made slightly more complicated by the migration
-of the theme from its &lt;a href="https://github.com/DandyDev/pelican-bootstrap3"&gt;original
-repository&lt;/a&gt;. The new
-home became the
-&lt;a href="https://github.com/getpelican/pelican-themes"&gt;pelican-themes&lt;/a&gt;
-repository, not as a submodule but as the definitive repository for that
-theme.&lt;/p&gt;
-&lt;p&gt;In the past, it was simpler for me to simply pull request changes from
-the parent of my theme's fork directly into my fork. Instead, I had to
-restructure my repository slightly and start to &lt;code&gt;git cherry-pick&lt;/code&gt;
-individual commits that were applied to the theme within the repository.&lt;/p&gt;
-&lt;p&gt;Anyway, I've caught up on the maintenance. Bootstrap 3 is now
-&lt;a href="https://blog.getbootstrap.com/2019/07/24/lts-plan/"&gt;end-of-life&lt;/a&gt; so
-there is a longer term issue of this theme still being stuck on it. If I
-end up migrating to a new theme, it might be worth investigating using
-&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt; instead of Pelican at the same time. Hugo has
-increased in popularity considerably since I started using Pelican.&lt;/p&gt;
-&lt;h2 id="learning-from-other-projects"&gt;Learning from other projects&lt;/h2&gt;
-&lt;p&gt;While spending a fair amount of time updating my theme and working with
-the pelican-themes repository, I had chance to think about how the
-pelican-themes repository is structured and lessons I've learned just
-from having to work with it.&lt;/p&gt;
-&lt;p&gt;Reading and understanding — or at least attempting to understand —
-other people's source code is a way of picking up new ideas or concepts.
-What might also be useful for learning is looking at projects you use as
-a whole. How are they organised? How does that makes them easy or
-difficult to work with?&lt;/p&gt;
-&lt;p&gt;There is a caveat that even a public source code repository doesn't
-necessarily yield all the decision making that went on to get it to such
-a state. Some of that process may indeed be located with the source
-repository, e.g. pull request comment threads or issues. Some of that
-process may be separate to the source repository, but still public, e.g.
-public mailing lists. Some of that process may be entirely private, e.g.
-emails or private working documents. Some of it may be undocumented at
-all and reside entirely within maintainers' heads.&lt;/p&gt;
-&lt;h2 id="pelican-themes"&gt;pelican-themes&lt;/h2&gt;
-&lt;h3 id="a-note"&gt;A note&lt;/h3&gt;
-&lt;p&gt;The tone of this post shouldn't be considered as a ranting "why, oh why,
-is this project not doing things the way I suggest?" post, but primarily
-an exercise to just consider and note other ways it could have been
-structured.&lt;/p&gt;
-&lt;p&gt;It's an actively maintained project, and the maintainers are
-volunteering considerable amounts of their own time doing just that.&lt;/p&gt;
-&lt;p&gt;In many projects, whether by a single developer or a team, whether
-commercial and proprietary or open source, it's also entirely believable
-that there's no long-term maintenance plan from the outset. At the
-start, it's not even known whether the project will have a long-term
-future. The first commit of pelican-themes was in February 2011, making
-it nine years old in 2020. Often, things do just get worked out along
-the way.&lt;/p&gt;
-&lt;h3 id="the-current-state"&gt;The current state&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican-themes/"&gt;pelican-themes&lt;/a&gt; is a
-mixture of submodules and themes whose files exist entirely in the
-repository. The included non-submodule themes sometimes (if not often or
-even always) use the pelican-themes repository as their definitive home.
-There are a few problems I've seen with this approach, exemplified by
-the theme I am currently using my &lt;a href="https://github.com/StevenMaude/pelican-bootstrap3-sm"&gt;own
-fork&lt;/a&gt; of,
-pelican-bootstrap3.&lt;/p&gt;
-&lt;p&gt;Back when pelican-bootstrap3 was still maintained by its original
-developer, there were actually changes made to the version in
-&lt;a href="https://github.com/getpelican/pelican-themes/commit/c817f12a9f5034a05abec4d2515adabd003f9ac0#diff-32c97fb49ece91afc9f43c8405423109"&gt;pelican-themes&lt;/a&gt;
-that diverged from pelican-bootstrap3. pelican-bootstrap3 within
-&lt;a href="https://github.com/getpelican/pelican-themes/commit/faa85d6112a759767a4f327e35a07fa55d9e747e#diff-0eb6cb930365747af1fe070650593b8e"&gt;pelican-themes&lt;/a&gt;
-was then updated by simply a straight copy over of the then-current
-version of the upstream theme, losing the changes made to the
-pelican-themes version. Apart from losing work, this process can be
-potentially confusing for users not directly following the development
-process; you can have something that was fixed, then &lt;em&gt;unfixed&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Later, the official home of pelican-bootstrap3 became the pelican-themes
-repository as the original developer &lt;a href="https://github.com/getpelican/pelican-themes/pull/383"&gt;no longer wanted to support
-it&lt;/a&gt;. This had a
-couple of consequences.&lt;/p&gt;
-&lt;p&gt;First, it meant that the pelican-themes maintainers adopted the extra
-maintenance work of a popular theme. Those maintainers may not even
-&lt;em&gt;use&lt;/em&gt; the theme. This means that pull requests can languish, perhaps
-because the maintainers don't feel that comfortable merging substantial
-changes or don't have strong opinions on whether the proposed changes
-are worthwhile. For pelican-bootstrap3, at the time of writing in
-December 2019, there are several unmerged pull requests on
-pelican-themes right now, even as &lt;a href="https://github.com/getpelican/pelican-themes/pull/414"&gt;far back as
-2016&lt;/a&gt;.  Pull
-requests left unloved and unmerged are a deterrent to other developers
-who may be considering contributing other changes.&lt;/p&gt;
-&lt;p&gt;Second, even if pull requests are regularly merged, there may be less of
-a definitive direction taken than if maintainers have strong opinions
-about where that subproject is headed. It can also lead to a lack of
-quality assurance. For pelican-bootstrap3, an example is this
-&lt;a href="https://github.com/getpelican/pelican-themes/pull/441"&gt;translation
-feature&lt;/a&gt;. Such a
-feature is one that's useful to lots of people, but unfortunately it
-&lt;a href="https://github.com/getpelican/pelican-themes/issues/460"&gt;broke things&lt;/a&gt;
-for users who didn't have the same plugin configuration as the original
-author, affecting those users who did not intend to use the new feature.&lt;/p&gt;
-&lt;h3 id="how-else-might-pelican-themes-be-managed"&gt;How else might pelican-themes be managed?&lt;/h3&gt;
-&lt;p&gt;That's how things are structured in pelican-themes now. I did think
-about other ways the repository might have been structured taking the
-above features of how it works right now into account.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;pelican-themes could simply have been a list of links to themes,
-  solely a reference resource.&lt;/p&gt;
-&lt;p&gt;The advantage of this is no management on the part of the
-pelican-themes maintainers is required except to add new themes or
-remove themes that are no longer supported or unavailable. In many
-cases, once a theme is added, that would be as much as is ever
-required to be done for that theme. The big disadvantage is that you
-can't just clone the entire repository and have all the themes ready
-to use. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;There could be a "more strongly" monorepo version of what there is
-  now, that is, pelican-themes could be a pure monorepo with no
-  submodules.  This now means that &lt;em&gt;every theme&lt;/em&gt; has to be
-  hand-maintained by copying from the upstream version repository, if
-  pelican-themes isn't the original repository for a theme. This
-  doesn't, however, solve the problem of having a mixture of maintained
-  and unmaintained themes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Going completely in the opposite direction is an option too: have
-  every theme in pelican-themes included as a submodule. This has the
-  advantage that pull requests into pelican-themes would be simple,
-  simply reflecting a submodule update to the parent repository's
-  current release.&lt;/p&gt;
-&lt;p&gt;It would mean that every theme in pelican-themes where
-pelican-themes is the definitive repository for that theme would
-need to be moved to its own individual repository. However, breaking
-out the themes in this way might make it easier for those themes to
-be managed by specific maintainers for each theme only (provided
-volunteers could be found), as opposed to the current agglomerate
-repository maintained by developers who may not use most of the
-themes present.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Of course, the problems described above are easy to spot when using a
-project that's been around a while, but perhaps subtle at a project's
-inception. I think this is symptomatic of software development. It is
-possible to build something that takes on a direction beyond that
-originally envisaged, especially projects that have many contributors or
-maintainers over time, each of which may have their own opinions as to
-how such a project should be nurtured.&lt;/p&gt;</content><category term="2019"></category><category term="git"></category><category term="project management"></category></entry></feed>
+drivers and, failing that, seeing if this fix works.&lt;/p&gt;</content><category term="2019"></category><category term="Windows"></category></entry></feed>
