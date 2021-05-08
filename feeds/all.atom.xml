@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-05-08T00:12:00+01:00</updated><entry><title>A review of "UNIX: A History and a Memoir"</title><link href="https://www.stevenmaude.co.uk/posts/a-review-of-unix-a-history-and-a-memoir" rel="alternate"></link><published>2021-05-08T00:12:00+01:00</published><updated>2021-05-08T00:12:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-05-08:/posts/a-review-of-unix-a-history-and-a-memoir</id><summary type="html">&lt;p&gt;A quick recommendation of an easy-to-read and brisk summary of the development of UNIX.&lt;/p&gt;</summary><content type="html">&lt;p&gt;"UNIX: A History and a Memoir" is from the perspective of Brian
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-05-08T12:16:00+01:00</updated><entry><title>A review of "UNIX: A History and a Memoir"</title><link href="https://www.stevenmaude.co.uk/posts/a-review-of-unix-a-history-and-a-memoir" rel="alternate"></link><published>2021-05-08T00:12:00+01:00</published><updated>2021-05-08T12:16:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-05-08:/posts/a-review-of-unix-a-history-and-a-memoir</id><summary type="html">&lt;p&gt;A quick recommendation of an easy-to-read and brisk summary of the development of UNIX.&lt;/p&gt;</summary><content type="html">&lt;p&gt;"UNIX: A History and a Memoir" is from the perspective of Brian
 Kernighan, who was around at the inception of UNIX, and is well-known in
 computing himself as one of the three authors of the AWK language and
 the author of a number of other influential books (e.g. "The C
 Programming Language" by Kernighan and Ritchie). The title covers most
 of what the book deals with: the formative years of UNIX, with
 explanation of the key software that was developed as part of it.&lt;/p&gt;
-&lt;p&gt;It explains where, and from who, UNIX was developed. Initially, UNIX was
-one of Ken Thompson's side projects, quickly capturing wider interest
-and sparking collaboration within Bell Labs. This was all amid a milieu
-of Bell Labs having considerable operating system development experience
-as a collective, yet having no operating system to work on. (Bell Labs
-had been working on the Multics project, but eventually withdrew its
-support.) Eventually, management managed to gather funding for UNIX,
-initially with a view to improving how patent applications within Bell
-Labs were prepared.&lt;/p&gt;
+&lt;p&gt;It explains where UNIX was developed and who did that work. Initially,
+UNIX was one of Ken Thompson's side projects, quickly capturing wider
+interest and sparking collaboration within Bell Labs. This was all amid
+a milieu of Bell Labs having considerable operating system development
+experience as a collective, yet having no operating system to work on.
+(Bell Labs had been working on the Multics project, but eventually
+withdrew its support.) Eventually, management managed to gather funding
+for UNIX, initially with a view to improving how patent applications
+within Bell Labs were prepared.&lt;/p&gt;
 &lt;p&gt;From there, UNIX developed sufficiently that it found wider use within
 Bell Labs, within AT&amp;amp;T — Bell Labs' then parent company — and within
 many universities. Eventually UNIX was sold commercially. Later, while
@@ -43,7 +43,7 @@ that Bell Labs had an extended period where the organisation:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;had interesting and challenging problems to solve;&lt;/li&gt;
 &lt;li&gt;hired very talented staff to solve those problems;&lt;/li&gt;
-&lt;li&gt;had sufficient resources that the staff weren't worrying about
+&lt;li&gt;had sufficient resources that the staff did not need to worry about
   funding, while management could take a longer view on projects without
   demanding immediate results;&lt;/li&gt;
 &lt;li&gt;had a technically competent management;&lt;/li&gt;
