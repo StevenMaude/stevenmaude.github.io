@@ -137,10 +137,9 @@ non-standard location:<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</
 <a href="http://askubuntu.com/questions/251378/where-is-virtualenvwrapper-sh">but the unexpected <code>/etc/bash_completion_d/virtualenvwrapper</code></a>.</p>
 <p>Once installed, add the following two lines to
 your shell startup file e.g. <code>.bashrc</code></p>
-<div class="highlight"><pre><span></span><span class="nb">source</span> /etc/bash_completion_d/virtualenvwrapper
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /etc/bash_completion_d/virtualenvwrapper
 <span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span>~/path/to/your/virtualenvs
-</pre></div>
-
+</code></pre></div>
 
 <p>(Replace <code>/etc/bash_completion_d/virtualenvwrapper</code> in the source line with
 <code>/usr/local/bin/virtualenvwrapper.sh</code>
@@ -167,10 +166,9 @@ want to switch to the virtualenv without working on that project.</p>
 <code>cd $VIRTUALENVWRAPPER_HOOK_DIR</code></p>
 <p>You'll find the <code>postactivate</code>
 file in there. Add the following two lines to it:</p>
-<div class="highlight"><pre><span></span><span class="nv">proj_name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$VIRTUAL_ENV</span><span class="p">|</span>awk -F<span class="s1">&#39;/&#39;</span> <span class="s1">&#39;{print $NF}&#39;</span><span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">proj_name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$VIRTUAL_ENV</span><span class="p">|</span>awk -F<span class="s1">&#39;/&#39;</span> <span class="s1">&#39;{print $NF}&#39;</span><span class="k">)</span>
 <span class="nb">cd</span> ~/project_dir_name/<span class="nv">$proj_name</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>(taken from
 <a href="http://pynash.org/2013/02/18/quick-hit-virtualenvwrapper-auto-dir.html">http://pynash.org/2013/02/18/quick-hit-virtualenvwrapper-auto-dir.html</a>)</p>

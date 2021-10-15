@@ -161,15 +161,14 @@ $HOME/.virtualenvs/virtualenvwrapper/bin/activate</code> and did <code>pip insta
 virtualenvwrapper</code>.</p>
 <p>If you modify your shell startup files as suggested in the
 virtualenvwrapper documentation, you'll find you get an error:</p>
-<div class="highlight"><pre><span></span>virtualenvwrapper.sh: There was a problem running the initialization
+<div class="highlight"><pre><span></span><code>virtualenvwrapper.sh: There was a problem running the initialization
 hooks.     
 
 If Python could not import the module virtualenvwrapper.hook_loader,
 check that virtualenvwrapper has been installed for
 VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON and that PATH is
 set properly.
-</pre></div>
-
+</code></pre></div>
 
 <p>As virtualenvwrapper isn't installed in the default Python, the script
 looks for it and understandably can't find it. It's a simple fix: just
@@ -181,13 +180,12 @@ in your shell environment.</p>
 <p>So what I first tried was doing what the virtualenvwrapper documentation
 suggests, and modifying shell startup files, but with extra activate and
 deactivate steps:</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
 <span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.local/src 
 <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/activate
 <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
 deactivate                                                          
-</pre></div>
-
+</code></pre></div>
 
 <p>You will need to switch to some virtualenv first with the virtualenv
 package installed, before commands that require the Python virtualenv
@@ -222,13 +220,12 @@ investigation, this is principally due to virtualenvwrapper.sh itself,
 not the activate/deactivate step. You can check this by running <code>time</code>
 on each of the commands, <code>source bin/activate</code> and <code>deactivate</code> are
 basically instant, whereas this script slows things down considerably.</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">time</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/virtualenvwrapper/bin/virtualenvwrapper.sh
 
 real    0m0.304s
 user    0m0.248s
 sys     0m0.032s
-</pre></div>
-
+</code></pre></div>
 
 <p>A 0.3 s delay isn't particularly long. But, for me, it makes bash feel
 slightly less snappy on opening a new terminal.</p>
@@ -244,14 +241,13 @@ hacked the script.</p>
 <p>Instead, my preferred option to work around the slightly slow loading
 was to create another script that I can <code>source</code> whenever wanting to
 work with Python virtualenvs:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -e</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -e</span>
 <span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
 <span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.local/src
 <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/venvwrapper/bin/activate
 <span class="nb">source</span> <span class="nv">$HOME</span>/.virtualenvs/venvwrapper/bin/virtualenvwrapper.sh
 deactivate
-</pre></div>
-
+</code></pre></div>
 
 <p>This is less direct. You can't just directly access virtualenvs.
 Insteaad, you must source this script first so that you can then

@@ -155,31 +155,27 @@ versions.</p>
 <p><a href="http://askubuntu.com/a/153193">This is a fairly simple way from the command line; I'll summarise it
 here.</a></p>
 <p>Check which kernel is currently in use:</p>
-<div class="highlight"><pre><span></span>uname -r
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>uname -r
+</code></pre></div>
 
 <p><strong>Do not remove the kernel image that uname returns!</strong></p>
 <p>List the other kernels that are installed:</p>
-<div class="highlight"><pre><span></span>dpkg --list <span class="p">|</span> grep linux-image
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>dpkg --list <span class="p">|</span> grep linux-image
+</code></pre></div>
 
 <p>You'll see a list that includes the kernel image in use, along with
 others that aren't. These are safe to remove.</p>
 <p>To remove a kernel image, <strong>not the one listed from the
 <code>uname</code> command:</strong></p>
-<div class="highlight"><pre><span></span>sudo apt-get purge linux-image-x.x.x.x-generic
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo apt-get purge linux-image-x.x.x.x-generic
+</code></pre></div>
 
 <p>I've seen it recommended that you keep one or two older images installed
 in case you need to revert to an older version for any reason, which
 seems sensible.</p>
 <p>You can also remove the corresponding kernel headers too:</p>
-<div class="highlight"><pre><span></span>sudo apt-get purge linux-headers-x.x.x.x-generic
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo apt-get purge linux-headers-x.x.x.x-generic
+</code></pre></div>
 
 <hr>
 <p>Second, I'd read a couple of days ago that <a href="http://news.ycombinator.com/item?id=6948536">Ubuntu 14.04

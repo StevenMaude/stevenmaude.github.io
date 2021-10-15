@@ -128,9 +128,8 @@ could avoid it. (HTML5 in Firefox was working fine.) All I got in
 Chromium was a black screen with a spinner going endlessly,.</p>
 <p>In the end, <a href="http://askubuntu.com/questions/331769/youtube-is-not-working">the solution was as simple as missing
 codecs</a>:</p>
-<div class="highlight"><pre><span></span>sudo apt-get install chromium-codecs-ffmpeg-extra
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo apt-get install chromium-codecs-ffmpeg-extra
+</code></pre></div>
 
 <p>It'll uninstall the currently installed chromium-codecs package and
 replace it with this one. You might also have to restart Chromium if

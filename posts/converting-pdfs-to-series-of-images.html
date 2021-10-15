@@ -128,9 +128,8 @@ cropping the copied image. But, since I already had
 <a href="http://www.imagemagick.org/">ImageMagick</a> installed, I thought I should
 try automatically converting the PDF slides to individual images.</p>
 <p>A command like:</p>
-<div class="highlight"><pre><span></span>convert -density <span class="m">300</span> input.pdf outputname_%0d.png
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>convert -density <span class="m">300</span> input.pdf outputname_%0d.png
+</code></pre></div>
 
 <p>works pretty well to convert to PNGs.</p>
 <p>(If using the

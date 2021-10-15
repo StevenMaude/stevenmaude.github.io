@@ -163,7 +163,7 @@ message telling you that the version already exists and only then increase the
 version number.</p>
 <p>The details in the guide show the structure of the <code>.pypirc</code> configuration.
 However, they don't point out that you can also add the PyPI test site too:</p>
-<div class="highlight"><pre><span></span>[distutils]
+<div class="highlight"><pre><span></span><code>[distutils]
 index-servers=
     pypi
     testpypi
@@ -173,8 +173,7 @@ repository = https://testpypi.python.org/pypi
 
 [pypi]
 repository = https://pypi.python.org/pypi
-</pre></div>
-
+</code></pre></div>
 
 <p>You can also add your username and password to each entry too, although you may
 not want it lying around in plain text in a configuration file. If you don't
@@ -190,14 +189,12 @@ be released.  </p>
 which arguments you should use with <code>setup.py</code> to build your package.</p>
 <p>If you're trying to build Python wheels, one hiccup is that you likely need the
 <code>wheel</code> package installed. Otherwise, you may find with a command like:</p>
-<div class="highlight"><pre><span></span>python setup.py sdist bdist_wheel
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>python setup.py sdist bdist_wheel
+</code></pre></div>
 
 <p>you get the error:</p>
-<div class="highlight"><pre><span></span>error: invalid command &#39;bdist_wheel&#39;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>error: invalid command &#39;bdist_wheel&#39;
+</code></pre></div>
 
 <h3 id="registering-the-project">Registering the project</h3>
 <p>Since <code>twine</code> is recommended, it seemed sensible to use that. As my
@@ -208,21 +205,19 @@ Python 2.7.</p>
 register the project. Note that you need to specify the repository using <code>-r</code>
 if you want to use something other than the default, and the name is taken from
 your <code>.pypirc</code>.</p>
-<div class="highlight"><pre><span></span>Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
+<div class="highlight"><pre><span></span><code>Registering bbc-radio-tracklisting-downloader-0.0.1.tar.gz
 UnicodeDecodeError: &#39;ascii&#39; codec can&#39;t decode byte 0xc2 in position 27:
 ordinal not in range(128)
-</pre></div>
-
+</code></pre></div>
 
 <p>That's the entirety of the error message from the <code>register</code> command. There was
 nothing to indicate where the problem lay at all, making it very difficult to
 start fixing it.</p>
 <p>Switching to Python 3.4 for the upload avoided the Unicode error, but instead
 gave me:</p>
-<div class="highlight"><pre><span></span>HTTPError: 401 Client Error: You must login to access this feature for
+<div class="highlight"><pre><span></span><code>HTTPError: 401 Client Error: You must login to access this feature for
 url: https://pypi.python.org/pypi
-</pre></div>
-
+</code></pre></div>
 
 <p>It still could have been a problem with the way I was inputting my password.
 I'd tried both typing it at the command line <code>-p PASSWORD</code> and pasting it into
@@ -253,9 +248,8 @@ whether read in from a file, or included in full in the <code>setup.py</code> it
 </ul>
 <p>I went for the latter for simplicity.</p>
 <p>Using <code>pandoc</code>, it's pretty simple to convert an existing Markdown file:</p>
-<div class="highlight"><pre><span></span>pandoc --from<span class="o">=</span>markdown --to<span class="o">=</span>rst --output<span class="o">=</span>README.rst README.md
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>pandoc --from<span class="o">=</span>markdown --to<span class="o">=</span>rst --output<span class="o">=</span>README.rst README.md
+</code></pre></div>
 
 <p>On checking the output from <code>pandoc</code> in an online viewer, everything
 looked the same as it did when using Markdown. I also edited the README
@@ -264,9 +258,8 @@ generated. </p>
 <h3 id="uploading">Uploading</h3>
 <p>Whew! Back to <code>twine</code>, and now the project's registered, let's try uploading it
 via:</p>
-<div class="highlight"><pre><span></span>twine upload dist/* -r testpypi
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>twine upload dist/* -r testpypi
+</code></pre></div>
 
 <p>I was still having the same problem as before: the 401 error. Systematically
 removing unusual characters from my password until the upload worked fixed

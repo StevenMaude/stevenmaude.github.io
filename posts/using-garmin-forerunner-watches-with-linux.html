@@ -170,34 +170,30 @@ changelog</a>.</p>
 to compile it from source. In Ubuntu, it was reasonably straightforward
 to clone it from <a href="https://github.com/gpsbabel/gpsbabel">GitHub</a> and then
 do the following:</p>
-<div class="highlight"><pre><span></span>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+<div class="highlight"><pre><span></span><code>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
 make
 make install
-</pre></div>
-
+</code></pre></div>
 
 <p>Using <code>prefix</code> in <code>configure</code> allows you to <a href="https://unix.stackexchange.com/a/42569">install to a local
 directory</a> and avoids the need
 for <code>sudo</code> in <code>make install</code>.</p>
 <p>The only hiccup was that the <code>configure</code> step gave the error message:</p>
-<div class="highlight"><pre><span></span><span class="go">configure: error: Qt4 or Qt5 is required, but neither was found</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">configure: error: Qt4 or Qt5 is required, but neither was found</span>
+</code></pre></div>
 
 <p><a href="https://stackoverflow.com/questions/16607003/qmake-could-not-find-a-qt-installation-of">The fix</a>
 was to do the following:</p>
-<div class="highlight"><pre><span></span>sudo apt-get install qtcreator
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo apt-get install qtcreator
+</code></pre></div>
 
 <p>which was probably overkill as it installed a lot of packages, but
 compiling then worked. (I then removed <code>qtcreator</code> via <code>apt-get
 remove</code>.)</p>
 <h3 id="converting-garmins-fit-data-to-gpx">Converting Garmin's FIT data to GPX</h3>
 <p>An example use of GPSBabel is:</p>
-<div class="highlight"><pre><span></span>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>gpsbabel -i garmin_fit -f input.FIT -o gpx -F output.gpx
+</code></pre></div>
 
 <p>This gives you a GPX file which can be loaded into far more software. </p>
 <p>As a quick test, I loaded the output GPX file into

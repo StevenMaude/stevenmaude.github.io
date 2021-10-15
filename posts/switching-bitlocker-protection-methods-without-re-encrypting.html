@@ -149,9 +149,8 @@ terms them "protectors". Also, here we are looking at removing a TPM and
 PIN protector, but you can use manage-bde to handle any BitLocker
 protector.</p>
 <p>Specifically, you want to remove the existing TPM and PIN protector:</p>
-<div class="highlight"><pre><span></span><span class="gp">manage-bde -protectors -delete &lt;Drive&gt;</span> -tpmandpin
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="gp">manage-bde -protectors -delete &lt;Drive&gt;</span> -tpmandpin
+</code></pre></div>
 
 <p>You have to do this first, as it's not possible to have both TPM and PIN
 protector, and a password protector.</p>
@@ -165,18 +164,16 @@ numerical recovery code, or <code>-recoverykey</code> for an external key in the
 <code>manage-bde -protectors -enable</code>, including new recovery keys should you
 wish to have them.)</p>
 <p>Next, add a new protector, e.g. a password:</p>
-<div class="highlight"><pre><span></span><span class="gp">manage-bde -protectors -add &lt;Drive&gt;</span> -password
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="gp">manage-bde -protectors -add &lt;Drive&gt;</span> -password
+</code></pre></div>
 
 <p>(<code>C:</code> is the most likely <code>&lt;Drive&gt;</code> value here.)</p>
 <p>You'll be prompted to enter, and then confirm, the new password. Now,
 you'll have a password protector, which won't be subject to a TPM
 lockout, as we wanted.</p>
 <p>Finally, you can also check BitLocker status:</p>
-<div class="highlight"><pre><span></span><span class="go">manage-bde -protectors -status</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">manage-bde -protectors -status</span>
+</code></pre></div>
 
 <p>to confirm that the drive is encrypted, and which key protectors are
 active.</p>

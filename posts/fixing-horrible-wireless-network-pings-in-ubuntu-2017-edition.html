@@ -127,10 +127,9 @@ hadn't disabled wifi power management since I reinstalled Ubuntu in
 late 2016. With power management enabled for wifi, I find I get laggy
 internet on battery power, and pings are noticeably higher.</p>
 <p>If you suspect this is affecting you, it's easy to check:</p>
-<div class="highlight"><pre><span></span>$ iwconfig <span class="m">2</span>&gt; /dev/null <span class="p">|</span> grep <span class="s2">&quot;Power Management&quot;</span>
+<div class="highlight"><pre><span></span><code>$ iwconfig <span class="m">2</span>&gt; /dev/null <span class="p">|</span> grep <span class="s2">&quot;Power Management&quot;</span>
 Power Management:on
-</pre></div>
-
+</code></pre></div>
 
 <p>Unfortunately, the <a href="https://www.stevenmaude.co.uk/posts/horrible-wireless-network-pings-in">method I wrote about
 previously to disable wifi power
@@ -140,12 +139,11 @@ systemd in 2015.</p>
 <p>Instead, you need to use an alternative approach as <a href="https://gist.github.com/jcberthon/ea8cfe278998968ba7c5a95344bc8b55">suggested in this
 post</a>.</p>
 <p>First, look at your existing configuration:</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /etc/NetworkManager/conf.d/
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /etc/NetworkManager/conf.d/
 $ ls
 default-wifi-powersave-on.conf
 $ sudo cp default-wifi-powersave-on.conf wifi-powersave-off.conf
-</pre></div>
-
+</code></pre></div>
 
 <p>The new .conf filename must follow any other files alphabetically, in
 this case the filename must be one that's alphabetically later than
@@ -155,25 +153,23 @@ modified setting overrides the default. If we named this file, e.g.
 since the filename would then be ahead of
 <code>default-wifi-powersave-on.conf</code> alphabetically.</p>
 <p>Now, edit the new file:</p>
-<div class="highlight"><pre><span></span>$ sudoedit wifi-powersave-off.conf
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ sudoedit wifi-powersave-off.conf
+</code></pre></div>
 
 <p>Change what is likely a 3 in the <code>wifi.powersave</code> line to 2. This
 disables wireless power management.</p>
 <p>It likely will look like this when you've edited it:</p>
-<div class="highlight"><pre><span></span>[connection]
+<div class="highlight"><pre><span></span><code>[connection]
 wifi.powersave = 2
-</pre></div>
-
+</code></pre></div>
 
 <p>Now, restart NetworkManager and you should see that this change is now
 in effect. It should also persist across reboots. You can confirm this
 again with <code>iwconfig</code>:</p>
-<div class="highlight"><pre><span></span>$ sudo systemctl restart NetworkManager
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart NetworkManager
 $ iwconfig <span class="m">2</span>&gt; /dev/null <span class="p">|</span> grep <span class="s2">&quot;Power Management&quot;</span>
 Power Management:off
-</pre></div>
+</code></pre></div>
             </div>
             <!-- /.entry-content -->
         </article>
