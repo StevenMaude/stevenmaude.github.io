@@ -155,12 +155,11 @@ modprobe option that disables the wireless N feature of the Intel
 wireless adapter. (<code>lshw -C network</code> states the model is "Centrino
 Wireless-N 2230".)</p>
 <p>By running the commands</p>
-<div class="highlight"><pre><span></span>sudo rmmod iwldvm
+<div class="highlight"><pre><span></span><code>sudo rmmod iwldvm
 sudo rmmod iwlwifi
 sudo modprobe iwlwifi <span class="nv">11n_disable</span><span class="o">=</span><span class="m">1</span>
 sudo modprobe iwldvm
-</pre></div>
-
+</code></pre></div>
 
 <p>I got normal wireless access back (minus wireless N speeds, but the
 choice between fast, but no wifi and slow wifi is not a difficult one to
@@ -176,9 +175,8 @@ sensible to use it when there was an alternative.)</p>
 new <code>.conf</code> file:</p>
 <p><code>/etc/modprobe.d/wireless-n-fix-iwlwifi.conf</code>, adding just this line to
 the file:</p>
-<div class="highlight"><pre><span></span>options iwlwifi <span class="nv">11n_disable</span><span class="o">=</span><span class="m">1</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>options iwlwifi <span class="nv">11n_disable</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
 
 <p>(Thanks to this <a href="http://askubuntu.com/questions/119578/how-to-fix-slow-wireless-on-machines-with-intel-wireless-cards">nice
 summary</a>.)</p>

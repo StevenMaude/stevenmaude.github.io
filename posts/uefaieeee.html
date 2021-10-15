@@ -182,9 +182,8 @@ offer this option. In that case — and even if your PC does have an
 option to add boot entries directly) — you can use efibootmgr to add the
 entry back. See <a href="https://superuser.com/a/697012">the answer here</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> which
 shows that you'll want something along the lines of:</p>
-<div class="highlight"><pre><span></span>efibootmgr -c -d /dev/sda -p 1 -l &#39;\EFI\ubuntu\shimx64.efi&#39; -L &quot;Ubuntu&quot;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>efibootmgr -c -d /dev/sda -p 1 -l &#39;\EFI\ubuntu\shimx64.efi&#39; -L &quot;Ubuntu&quot;
+</code></pre></div>
 
 <p>As the post says, you can equally use Microsoft's <code>bcdedit</code> to do the
 same, but that requires you to have Windows. You can always run

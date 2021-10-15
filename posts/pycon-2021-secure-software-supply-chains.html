@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Getting an official Windows 10 disk image - stevenmaude.co.uk</title>
+    <title>PyCon 2021: Secure software supply chains - stevenmaude.co.uk</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,22 +9,21 @@
 
 
 
-<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image">
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/pycon-2021-secure-software-supply-chains">
 
         <meta name="author" content="Steven Maude" />
-        <meta name="keywords" content="Windows,ISO,disk" />
-        <meta name="description" content="How to get a Windows 10 ISO directly from Microsoft. No install required." />
+        <meta name="keywords" content="PyCon,Python" />
+        <meta name="description" content="A summary of a talk by Dustin Ingram at PyCon 2021." />
 
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Getting an official Windows 10 disk image"/>
-        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/getting-an-official-windows-10-disk-image"/>
-        <meta property="og:description" content="How to get a Windows 10 ISO directly from Microsoft. No install required."/>
-        <meta property="article:published_time" content="2015-10-26" />
-            <meta property="article:section" content="2015" />
-            <meta property="article:tag" content="Windows" />
-            <meta property="article:tag" content="ISO" />
-            <meta property="article:tag" content="disk" />
+        <meta property="og:title" content="PyCon 2021: Secure software supply chains"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/pycon-2021-secure-software-supply-chains"/>
+        <meta property="og:description" content="A summary of a talk by Dustin Ingram at PyCon 2021."/>
+        <meta property="article:published_time" content="2021-10-15" />
+            <meta property="article:section" content="2021" />
+            <meta property="article:tag" content="PyCon" />
+            <meta property="article:tag" content="Python" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
                   content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
@@ -88,7 +87,7 @@ stevenmaude.co.uk            </a>
         <article>
             <header class="page-header">
                 <h1>
-                Getting an official Windows 10 disk image
+                PyCon 2021: Secure software supply chains
                 </h1>
             </header>
             <div class="entry-content">
@@ -97,7 +96,7 @@ stevenmaude.co.uk            </a>
 <footer class="post-info">
     <span class="label label-default">Published</span>
     <span class="published">
-        <time datetime="2015-10-26T17:00:00+00:00"> 2015-10-26</time>
+        <time datetime="2021-10-15T17:27:00+01:00"> 2021-10-15</time>
     </span>
 
 
@@ -105,54 +104,86 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+	<a href="https://www.stevenmaude.co.uk/tag/pycon">PyCon</a>
         /
-	<a href="https://www.stevenmaude.co.uk/tag/iso">ISO</a>
-        /
-	<a href="https://www.stevenmaude.co.uk/tag/disk">disk</a>
+	<a href="https://www.stevenmaude.co.uk/tag/python">Python</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Currently looking to test out installing Windows 10 and one stumbling block was
-just getting hold of an official disk image. (I'm cautious these days and want
-to see how setting up a dual boot encrypted Windows 10/Ubuntu goes on a spare
-drive prior to actually committing to an upgrade.)</p>
-<h2 id="start-me-up">Start me up</h2>
-<p>The obvious searches for installing Windows 10 inevitably lead you to <a href="https://www.microsoft.com/en-gb/software-download/windows10">this
-page</a> where it
-tells you to install the Media Creation tool and use that.</p>
-<p>Critically, that's not an option if you don't have access to a current Windows
-install. (Yes, it should be easy enough to find a Windows PC <em>somewhere</em>
-around, but there might not be one to hand.) The other drawback is that, as far
-as I can see without testing, is that it only creates media for one particular
-version of Windows, so you'd have to run through the process twice for Home and
-Pro.  The actual ISO disk image is buried on the site under <a href="https://www.microsoft.com/en-us/software-download/techbench">"Tech
-Bench"</a>.</p>
-<p>Though the filename differed, the 64-bit download from that page <em>did</em> match
-the SHA1 as listed on the MSDN site as of 2015-10-23:</p>
-<div class="highlight"><pre><span></span><code>File Name: en_windows_10_multiple_editions_x64_dvd_6846432.iso
-Languages: English
-SHA1: 60CCE9E9C6557335B4F7B18D02CFE2B438A8B3E2
-</code></pre></div>
-
-<p>Note that there's a 90-day Win10 Enterprise
-<a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise">trial</a>,
-but there was no checksum at all to verify that download, and you need a
-Microsoft account just to get to the download. It also had the following
-ambiguous information:</p>
-<blockquote>
-<p>In order to use Windows 10 Enterprise, you must sign in to your PC with a
-Microsoft account. The option to create a local account will be made available
-at the time of the final release.</p>
-</blockquote>
-<p>which was unclear as to whether this still applies or not.</p>
-<h2 id="clean-installing-windows-10">Clean installing Windows 10</h2>
-<p>The other question I had was which version, Home or Pro, gets installed from
-this single ISO. If it's a clean install, how is the version to install (Home
-or Pro) determined? From what I remember reading, the answer should be that if
-you skip entering a product key on request by the installer (which would
-automatically install the appropriate version if you provide a key), the
-installer prompts you to choose the version to install.</p>
+                <h2 id="modern-python-less-modern-me">Modern Python, less modern me</h2>
+<p>I've been working for the past few months at The DataLab — now Bennett
+Institute for Applied Data Science. There, Python is the main language
+for development and collectively the developers have a lot of Python
+experience.</p>
+<p>Because of that, I've seen a lot more modern Python than I was
+accustomed to seeing or writing. What I've found is what I knew about
+Python is a little outdated. Certainly there have been a lot of new
+Python features introduced that I didn't know about or only vaguely had
+heard of, e.g.:</p>
+<ul>
+<li>dataclasses </li>
+<li>assignment expressions, i.e. <code>:=</code></li>
+<li><code>breakpoint()</code> instead of having to import and use the <code>pdb</code> package
+  directly</li>
+</ul>
+<p>It seemed wise to me then to watch some recent conference talks. I may
+write up notes on them. All that said, let's look at the first one.</p>
+<h2 id="secure-software-supply-chains-for-python">Secure Software Supply Chains for Python</h2>
+<p>This is a summary of <a href="https://www.youtube.com/watch?v=VWWgkF-0cDQ">this
+talk</a> by Dustin Ingram, a
+PyPI maintainer.</p>
+<p>The talk describes:</p>
+<ul>
+<li>What software supply chain attacks are.</li>
+<li>The current best Python practice for developes.</li>
+<li>What improvements could be made to <code>pip</code> and PyPI in future.</li>
+</ul>
+<h3 id="supply-chain-attacks">Supply chain attacks</h3>
+<ul>
+<li>They are a thing.<ul>
+<li>Involve a compromise of your dependencies, where they are
+  distributed and everything used to build them.</li>
+<li>This applies recursively to your dependencies' dependencies and so
+  on.</li>
+</ul>
+</li>
+</ul>
+<h3 id="types-of-supply-chain-attack">Types of supply chain attack</h3>
+<ul>
+<li>MITM attack: intercepting a package download and replacing it with
+  something malicious.</li>
+<li>Typosquatting: uploading malicious packages with names similar to
+  well-known packages.</li>
+<li>Dependency confusion: where internal, non-public packages are used,
+  but <code>pip</code> is misconfigured to check PyPI first and someone registers a
+  malicious public package with the same name as the internal package.</li>
+<li>"Research": people deliberately introducing vulnerabilities into code.</li>
+<li>SolarWinds was mentioned as an example: compromise of build system.</li>
+<li>Compromised maintainers.</li>
+<li>Compromised source control.</li>
+<li>Leaked passwords/API tokens.</li>
+<li>Social engineering.</li>
+</ul>
+<h3 id="python-best-practices">Python best practices</h3>
+<ul>
+<li>For Python, best current practices are:<ul>
+<li>Use pinned requirements and with hashes, e.g. via <code>pipenv lock</code>,
+  or <code>pip-compile --generate-hashes</code>.</li>
+<li>Use some notification service that monitors dependencies in your
+  source, e.g. Dependabot (this is convenient, but is an extra
+  component in the supply chain: you have to trust that Dependabot
+  isn't creating malicious pull requests).</li>
+</ul>
+</li>
+<li>There are other possible future improvements to PyPI and <code>pip</code>:<ul>
+<li>Removal of <code>setup.py</code> support to stop arbitrary code being run at
+  install time. That might save you if you realise you've installed
+  a compromised package, before importing and using the package.</li>
+<li>Signed repository metadata (<a href="https://www.python.org/dev/peps/pep-0458/">PEP 458</a>).</li>
+<li>Having namespaces on PyPI.</li>
+</ul>
+</li>
+</ul>
             </div>
             <!-- /.entry-content -->
         </article>

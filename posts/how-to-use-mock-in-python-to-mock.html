@@ -168,7 +168,7 @@ to do something similar. In this case, I wanted to test a method of an
 object, but wasn't sure how to do that using a mock.</p>
 <p>This is a really cut-down version of what my code was doing, but
 features the main thing I was testing:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlite3</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -179,8 +179,7 @@ features the main thing I was testing:</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>As what the database saves depends on some input that the user supplies
 (fixed here), I wanted to ensure that the table is wiped before we add
@@ -202,7 +201,7 @@ of accessing the call via the <code>mock_sqlite3_connect</code>. What it took me
 ages to realise is that I had to mock out what <code>sqlite3.connect()</code>
 returns; you can't (unless I'm mistaken) access calls on the object it
 returns otherwise.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">code_to_test</span>
 <span class="kn">import</span> <span class="nn">mock</span>
 
@@ -214,8 +213,7 @@ returns otherwise.</p>
         <span class="n">code_to_test</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
         <span class="n">call</span> <span class="o">=</span> <span class="s1">&#39;drop table if exists some_table;&#39;</span>
         <span class="n">sqlite_execute_mock</span><span class="o">.</span><span class="n">execute</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">call</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>What's happening here? First, we're using a decorator, <code>@mock.patch</code>
 which replaces <code>sqlite3.connect()</code> in <code>code_to_test</code> with a mock,

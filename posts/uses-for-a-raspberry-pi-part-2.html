@@ -178,24 +178,21 @@ periodically and download on any suitable matches.</p>
 guide</a>.
 Since then however, it's now much easier to install and maintain<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>,
 apparently you only need to enter this terminal command now:</p>
-<div class="highlight"><pre><span></span><span class="go">sudo apt-get install get-iplayer ffmpeg atomicparsley libmp3-info-perl</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">sudo apt-get install get-iplayer ffmpeg atomicparsley libmp3-info-perl</span>
+</code></pre></div>
 
 <p>For convenience, I changed the default directory that <code>get_iplayer</code> saves
 in so that it was within a directory that was publically shared via
 Samba, using a command like</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer –-prefs-add –output=/home/shares/public/iPlayer</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer –-prefs-add –output=/home/shares/public/iPlayer</span>
+</code></pre></div>
 
 <p>(Note that for all these commands, I'm assuming that you have changed
 directory to whichever one <code>get_iplayer</code> is installed.)</p>
 <p><code>--prefs-add</code>, unsurprisingly, adds settings to the
 <code>get_iplayer</code> defaults. I also used this command:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --prefs-add --modes=best -–subtitles --subdir --nopurge</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --prefs-add --modes=best -–subtitles --subdir --nopurge</span>
+</code></pre></div>
 
 <ul>
 <li><code>--modes=best</code> <a href="https://github.com/dinkypumpkin/get_iplayer/wiki/modes">downloads the HD versions of a TV programme if it is
@@ -211,9 +208,8 @@ examples</a>
 in the documentation which is definitely worth a read and explains all
 the available options. A simple usage case would be to download all TV
 programmes that have "Top Gear" in the title or episode info:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --get &quot;Top Gear&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --get &quot;Top Gear&quot;</span>
+</code></pre></div>
 
 <p>By default, the type of programme is set to TV. This is equivalent to
 using the command line option <code>--type=tv</code>. If you are looking
@@ -222,31 +218,27 @@ Alternatively, you could use <code>--type=tv,radio</code> and
 <code>get_iplayer</code> will search both the TV and radio programme lists.</p>
 <p>If there are several programmes with the same title (e.g. Newsnight),
 you can search for all programmes first by:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer &quot;Newsnight&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer &quot;Newsnight&quot;</span>
+</code></pre></div>
 
 <p>It shows a list of matching programmes and programme numbers. When I ran
 this just now, it gave me several matches, but say that I wanted the
 broadcast from 01/07/2013. Among the nine matches this command gave me,
 it showed:</p>
-<div class="highlight"><pre><span></span>611: Newsnight - 01/07/2013, BBC Two, News, TV, default
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>611: Newsnight - 01/07/2013, BBC Two, News, TV, default
+</code></pre></div>
 
 <p>I can then get that specific programme by just <code>--get</code>ting a
 programme number instead of a title:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --get 611</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --get 611</span>
+</code></pre></div>
 
 <h3 id="adding-searches-to-the-pvr">Adding searches to the PVR</h3>
 <p>Adding searches to the PVR is very similar to downloading available
 shows. As the documentation shows, instead of the <code>--get</code>
 option, you use <code>--pvr-add</code>:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --pvr-add=Top_Gear &quot;Top Gear&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --pvr-add=Top_Gear &quot;Top Gear&quot;</span>
+</code></pre></div>
 
 <p>This adds a search named <code>Top_Gear</code> which looks for programmes with Top
 Gear in the title or episode info. This doesn't actually do anything
@@ -254,9 +246,8 @@ until the PVR searches are executed by the command:
 <code>./get_iplayer --pvr</code></p>
 <p>Supposing that we grew tired of Clarkson, Hammond and May's shenanigans,
 we can remove the PVR search entirely by <code>--pvr-del</code>:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --pvr-del=Top_Gear</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --pvr-del=Top_Gear</span>
+</code></pre></div>
 
 <p>or if we weren't so sure, we could use <code>--pvr-disable="Top
 Gear"</code> to disable the search and <code>--pvr-enable="Top
@@ -276,9 +267,8 @@ task scheduler</a>. Scheduling tasks by
 cron is carried out by entering <code>crontab -e</code> and then editing the file
 to start the job.`</p>
 <p>I had a problem where I could run the command</p>
-<div class="highlight"><pre><span></span><span class="go">get_iplayer --pvr</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">get_iplayer --pvr</span>
+</code></pre></div>
 
 <p>and the PVR would work fine from a terminal window, but it failed
 when running via cron. This was fixed by finding the contents of my
@@ -315,18 +305,16 @@ the same directory.</p>
 <p>All the bbc_tracklist.py script needs to know is the programme id,
 which <code>get_iplayer</code> can pass through to it as <code>&lt;pid&gt;</code>. For
 example:</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --get &quot;Gilles Peterson&quot; --type=radio --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --get &quot;Gilles Peterson&quot; --type=radio --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;&quot;</span>
+</code></pre></div>
 
 <p>My script optionally takes arguments of the directory (to store the
 tracklisting with the downloaded show) and a filename (to give the text
 file the same base filename). These are provided by <code>get_iplayer</code> via
 <code>&lt;dir&gt;</code> and <code>&lt;fileprefix&gt;</code>.</p>
 <p>It also works in the same way with PVR searches.</p>
-<div class="highlight"><pre><span></span><span class="go">./get_iplayer --pvr-add=Benji_B --type=radio &quot;Benji B&quot; --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="go">./get_iplayer --pvr-add=Benji_B --type=radio &quot;Benji B&quot; --command &quot;/home/get_iplayer/bbc_tracklist.py &lt;pid&gt; &lt;dir&gt; &lt;fileprefix&gt;</span>
+</code></pre></div>
 
 <p>Once this has been setup in a radio PVR search, you can forget about the
 script entirely. It should execute automatically everytime a show has

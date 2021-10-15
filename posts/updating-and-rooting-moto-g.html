@@ -183,7 +183,7 @@ useful reference.</p>
 <p>Boot into the bootloader using power on and volume down key (or enable
 USB debugging mode when the phone's on normally and do
 <code>adb reboot-bootloader</code>).</p>
-<div class="highlight"><pre><span></span>sudo fastboot flash partition gpt.bin
+<div class="highlight"><pre><span></span><code>sudo fastboot flash partition gpt.bin
 sudo fastboot flash motoboot motoboot.img
 sudo fastboot flash logo logo.bin
 sudo fastboot flash boot boot.img
@@ -198,8 +198,7 @@ sudo fastboot flash fsg fsg.mbn
 sudo fastboot erase cache
 sudo fastboot erase userdata
 sudo fastboot reboot
-</pre></div>
-
+</code></pre></div>
 
 <p>(sparsechunk files may have numbers 0, 1, 2 - just flash them in
 ascending order.)</p>
@@ -217,19 +216,16 @@ version before the latest 4.4.4 update.)</p>
 firmware and upgrading, this didn't get relocked. </strong></p>
 <p>You need a bootloader unlock code from Motorola's
 <a href="https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-a">site</a>.</p>
-<div class="highlight"><pre><span></span>fastboot oem unlock
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>fastboot oem unlock
+</code></pre></div>
 
 <p>Boot into fastboot mode: Enable developer mode again in settings:</p>
-<div class="highlight"><pre><span></span>adb reboot bootloader
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>adb reboot bootloader
+</code></pre></div>
 
 <p>Optional: get a copy of the original Motorola logo and do:</p>
-<div class="highlight"><pre><span></span>sudo fastboot flash logo original_logo.bin
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo fastboot flash logo original_logo.bin
+</code></pre></div>
 
 <p>to remove the annoying "bootloader is unlocked" warning at boot.</p>
 <p>See <a href="http://wiki.cyanogenmod.org/w/Template:Unlock_Bootloader">CyanogenMod's
@@ -240,9 +236,8 @@ details.</p>
 <p>Get a recent fastboot .img; at the time of writing, 2.7.1.1 was the
 latest, but didn't work. 2.7.1.0 worked fine.</p>
 <p>Install through bootloader using fastboot:</p>
-<div class="highlight"><pre><span></span>sudo fastboot flash recovery modified_recovery.img
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo fastboot flash recovery modified_recovery.img
+</code></pre></div>
 
 <h2 id="root-the-phone-by-installing-supersu">Root the phone by installing SuperSU</h2>
 <p>Boot from bootloader into TWRP recovery. Reboot system, say yes to

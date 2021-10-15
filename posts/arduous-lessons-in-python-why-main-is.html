@@ -137,7 +137,7 @@ That is, I wasn't seeing any pass/fail indicators, which was strange.</p>
 <p>Something was running that evidently wasn't what I intended.</p>
 <p>On inspection, one of the import statements in the test code had a
 structure somewhat like:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
     <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
 
 <span class="k">def</span> <span class="nf">another_function</span><span class="p">():</span>
@@ -147,8 +147,7 @@ structure somewhat like:</p>
     <span class="n">do</span> <span class="n">lots</span> <span class="n">of</span> <span class="n">things</span>
 
 <span class="n">really_long_winded_scraping_function</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Bear in mind that when you import a module, the statements are actually
 executed. If you've just got function and class definitions in there,
@@ -162,10 +161,9 @@ eventually, the tests would have run, but they'd run <em>after</em> the code in
 the <code>import</code> had finished, which would have taken <strong>hours</strong>.</p>
 <h2 id="fixing-the-problem">Fixing the problem</h2>
 <p>Normally, I routinely use:</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>in Python code that I start writing.</p>
 <p>From the <a href="https://docs.python.org/2/tutorial/modules.html">official

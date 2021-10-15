@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-05-08T12:16:00+01:00</updated><entry><title>A review of "UNIX: A History and a Memoir"</title><link href="https://www.stevenmaude.co.uk/posts/a-review-of-unix-a-history-and-a-memoir" rel="alternate"></link><published>2021-05-08T00:12:00+01:00</published><updated>2021-05-08T12:16:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-05-08:/posts/a-review-of-unix-a-history-and-a-memoir</id><summary type="html">&lt;p&gt;A quick recommendation of an easy-to-read and brisk summary of the development of UNIX.&lt;/p&gt;</summary><content type="html">&lt;p&gt;"UNIX: A History and a Memoir" is from the perspective of Brian
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-10-15T17:27:00+01:00</updated><entry><title>PyCon 2021: Secure software supply chains</title><link href="https://www.stevenmaude.co.uk/posts/pycon-2021-secure-software-supply-chains" rel="alternate"></link><published>2021-10-15T17:27:00+01:00</published><updated>2021-10-15T17:27:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-10-15:/posts/pycon-2021-secure-software-supply-chains</id><summary type="html">&lt;p&gt;A summary of a talk by Dustin Ingram at PyCon 2021.&lt;/p&gt;</summary><content type="html">&lt;h2 id="modern-python-less-modern-me"&gt;Modern Python, less modern me&lt;/h2&gt;
+&lt;p&gt;I've been working for the past few months at The DataLab — now Bennett
+Institute for Applied Data Science. There, Python is the main language
+for development and collectively the developers have a lot of Python
+experience.&lt;/p&gt;
+&lt;p&gt;Because of that, I've seen a lot more modern Python than I was
+accustomed to seeing or writing. What I've found is what I knew about
+Python is a little outdated. Certainly there have been a lot of new
+Python features introduced that I didn't know about or only vaguely had
+heard of, e.g.:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dataclasses &lt;/li&gt;
+&lt;li&gt;assignment expressions, i.e. &lt;code&gt;:=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;breakpoint()&lt;/code&gt; instead of having to import and use the &lt;code&gt;pdb&lt;/code&gt; package
+  directly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It seemed wise to me then to watch some recent conference talks. I may
+write up notes on them. All that said, let's look at the first one.&lt;/p&gt;
+&lt;h2 id="secure-software-supply-chains-for-python"&gt;Secure Software Supply Chains for Python&lt;/h2&gt;
+&lt;p&gt;This is a summary of &lt;a href="https://www.youtube.com/watch?v=VWWgkF-0cDQ"&gt;this
+talk&lt;/a&gt; by Dustin Ingram, a
+PyPI maintainer.&lt;/p&gt;
+&lt;p&gt;The talk describes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What software supply chain attacks are.&lt;/li&gt;
+&lt;li&gt;The current best Python practice for developes.&lt;/li&gt;
+&lt;li&gt;What improvements could be made to &lt;code&gt;pip&lt;/code&gt; and PyPI in future.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="supply-chain-attacks"&gt;Supply chain attacks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;They are a thing.&lt;ul&gt;
+&lt;li&gt;Involve a compromise of your dependencies, where they are
+  distributed and everything used to build them.&lt;/li&gt;
+&lt;li&gt;This applies recursively to your dependencies' dependencies and so
+  on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="types-of-supply-chain-attack"&gt;Types of supply chain attack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;MITM attack: intercepting a package download and replacing it with
+  something malicious.&lt;/li&gt;
+&lt;li&gt;Typosquatting: uploading malicious packages with names similar to
+  well-known packages.&lt;/li&gt;
+&lt;li&gt;Dependency confusion: where internal, non-public packages are used,
+  but &lt;code&gt;pip&lt;/code&gt; is misconfigured to check PyPI first and someone registers a
+  malicious public package with the same name as the internal package.&lt;/li&gt;
+&lt;li&gt;"Research": people deliberately introducing vulnerabilities into code.&lt;/li&gt;
+&lt;li&gt;SolarWinds was mentioned as an example: compromise of build system.&lt;/li&gt;
+&lt;li&gt;Compromised maintainers.&lt;/li&gt;
+&lt;li&gt;Compromised source control.&lt;/li&gt;
+&lt;li&gt;Leaked passwords/API tokens.&lt;/li&gt;
+&lt;li&gt;Social engineering.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="python-best-practices"&gt;Python best practices&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;For Python, best current practices are:&lt;ul&gt;
+&lt;li&gt;Use pinned requirements and with hashes, e.g. via &lt;code&gt;pipenv lock&lt;/code&gt;,
+  or &lt;code&gt;pip-compile --generate-hashes&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Use some notification service that monitors dependencies in your
+  source, e.g. Dependabot (this is convenient, but is an extra
+  component in the supply chain: you have to trust that Dependabot
+  isn't creating malicious pull requests).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;There are other possible future improvements to PyPI and &lt;code&gt;pip&lt;/code&gt;:&lt;ul&gt;
+&lt;li&gt;Removal of &lt;code&gt;setup.py&lt;/code&gt; support to stop arbitrary code being run at
+  install time. That might save you if you realise you've installed
+  a compromised package, before importing and using the package.&lt;/li&gt;
+&lt;li&gt;Signed repository metadata (&lt;a href="https://www.python.org/dev/peps/pep-0458/"&gt;PEP 458&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Having namespaces on PyPI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="2021"></category><category term="PyCon"></category><category term="Python"></category></entry><entry><title>A review of "UNIX: A History and a Memoir"</title><link href="https://www.stevenmaude.co.uk/posts/a-review-of-unix-a-history-and-a-memoir" rel="alternate"></link><published>2021-05-08T00:12:00+01:00</published><updated>2021-05-08T12:16:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-05-08:/posts/a-review-of-unix-a-history-and-a-memoir</id><summary type="html">&lt;p&gt;A quick recommendation of an easy-to-read and brisk summary of the development of UNIX.&lt;/p&gt;</summary><content type="html">&lt;p&gt;"UNIX: A History and a Memoir" is from the perspective of Brian
 Kernighan, who was around at the inception of UNIX, and is well-known in
 computing himself as one of the three authors of the AWK language and
 the author of a number of other influential books (e.g. "The C
@@ -782,48 +855,4 @@ some corruption of the file system?&lt;/p&gt;
 &lt;p&gt;In the end, formatting the drive, encrypting the drive again and then
 backing up finally resolved the — by-now very tedious — problem. So, not
 all that exciting, but if you are witnessing similar symptoms, you can
-probably fix it with a new enclosure.&lt;/p&gt;</content><category term="2020"></category><category term="hard drive"></category><category term="hardware"></category><category term="Windows"></category></entry><entry><title>A ULPS take: Windows 10 black screens and slow boot</title><link href="https://www.stevenmaude.co.uk/posts/a-ulps-take-windows-10-black-screens-and-slow-boot" rel="alternate"></link><published>2019-12-21T12:29:00+00:00</published><updated>2019-12-21T12:29:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2019-12-21:/posts/a-ulps-take-windows-10-black-screens-and-slow-boot</id><summary type="html">&lt;p&gt;Disabling ULPS on laptops that Windows 10 doesn't play nicely with.&lt;/p&gt;</summary><content type="html">&lt;h1 id="a-slow-boot-problem"&gt;A slow boot problem&lt;/h1&gt;
-&lt;p&gt;Recently I was helping a friend with an older laptop running Windows 10
-that seemed unusually slow to start.&lt;/p&gt;
-&lt;p&gt;Though Windows seemed nimble once it started, the boot and shutdown
-times felt excessively slow: minutes instead of the seconds it should
-take. And it wasn't like Windows itself was doing anything in this state
-either: the machine was silent, instead of the fans powering up, and
-there was just a black screen following the Windows logo.&lt;/p&gt;
-&lt;p&gt;Fortunately, with some frantic searching, I stumbled on a potential
-solution: the cause might be a particular AMD graphics problem,
-especially with two graphics cards, integrated and discrete. And the
-laptop I was looking at did indeed have AMD Radeon hardware.&lt;/p&gt;
-&lt;h1 id="ulps"&gt;ULPS&lt;/h1&gt;
-&lt;p&gt;ULPS is an initialism used by AMD to refer to Ultra Low Power State, and
-is the feature that can lead to this slow boot problem. As the name
-suggests, this is a power saving feature.&lt;/p&gt;
-&lt;p&gt;With the particular Windows install I was looking at, I didn't try
-updating drivers beyond those that were automatically found by Windows
-itself. However, reading around, the drivers may never have been fixed
-for legacy hardware anyway.&lt;/p&gt;
-&lt;h1 id="the-fix"&gt;The fix&lt;/h1&gt;
-&lt;p&gt;The fix I found was to disable this ULPS feature in the registry.&lt;/p&gt;
-&lt;p&gt;First, open the Windows Registry Editor. (In the Windows 10 search box,
-search for "regedit" and then run "Registry Editor"; I can't remember,
-but these edits may require you to be running the Registry Editor as
-administrator, so you may need to right-click on "Registry Editor" and
-then choose to run it as administrator.)&lt;/p&gt;
-&lt;p&gt;Search for &lt;code&gt;EnableULPS&lt;/code&gt;, set any &lt;code&gt;1&lt;/code&gt; values to &lt;code&gt;0&lt;/code&gt;. There are also
-&lt;code&gt;EnableULPS_NA&lt;/code&gt; settings but I read conflicting reports of whether to
-set these to &lt;code&gt;0&lt;/code&gt; or not; in the end, only changing the &lt;code&gt;EnableULPS&lt;/code&gt;
-settings was sufficient to resolve this issue for the laptop I was
-working with.&lt;/p&gt;
-&lt;p&gt;Hopefully, that should cure the problem. It's certainly a possibility
-that subsequently installed graphics drivers could reset these overrides
-and cause the symptom to recur, but, if that's the case, the problem is
-easy to spot.&lt;/p&gt;
-&lt;p&gt;After disabling ULPS, both booting and shutdown were much, &lt;em&gt;much&lt;/em&gt;
-faster. The downside is that disabling ULPS may make the battery deplete
-more rapidly than if it were enabled. But the boot up and shutdown times
-were so slow without this fix that I think it's a necessary trade-off
-to make your PC usable day-to-day, should you require it.&lt;/p&gt;
-&lt;p&gt;There are other causes of a slow booting Windows installation, but if
-you are dealing with a slow starting PC with Radeon graphics,
-particularly with two display adapters, it's worth trying to update the
-drivers and, failing that, seeing if this fix works.&lt;/p&gt;</content><category term="2019"></category><category term="Windows"></category></entry></feed>
+probably fix it with a new enclosure.&lt;/p&gt;</content><category term="2020"></category><category term="hard drive"></category><category term="hardware"></category><category term="Windows"></category></entry></feed>

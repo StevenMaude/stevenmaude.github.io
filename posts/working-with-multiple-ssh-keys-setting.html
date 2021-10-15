@@ -135,7 +135,7 @@ separate Bitbucket directory and I don't think that the <code>ssh-agent</code> w
 automatically pick it up there, so I moved it back to the <code>.ssh</code>
 directory.)</p>
 <p>Add the following to <code>~/.ssh/config</code>:</p>
-<div class="highlight"><pre><span></span>Host github.com
+<div class="highlight"><pre><span></span><code>Host github.com
 User git
 IdentityFile ~/.ssh/id_rsa
 IdentitiesOnly yes
@@ -144,8 +144,7 @@ Host bitbucket.org
 User git
 IdentityFile ~/.ssh/id_rsa.1
 IdentitiesOnly yes
-</pre></div>
-
+</code></pre></div>
 
 <p><code>IdentitiesOnly</code>
 ensures that only the specified key is used for that host; if you don't

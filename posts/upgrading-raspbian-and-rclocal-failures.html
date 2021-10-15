@@ -186,17 +186,16 @@ working again.</p>
 <p>For reference, here's what I have configured:</p>
 <p><code>wireless_bridge.sh</code> is saved in <code>/usr/local/sbin</code>, with 755 file
 permissions, root as owner and group, and contains:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -e</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -e</span>
 /usr/sbin/ifplugd eth0 --kill
 /sbin/sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
 /sbin/ifconfig eth0 <span class="m">192</span>.168.1.1
 /sbin/iptables -t nat -A POSTROUTING -o wlan0 -s <span class="m">192</span>.168.1.0/24 -j MASQUERADE
-</pre></div>
-
+</code></pre></div>
 
 <p><code>wireless-bridge.service</code> is saved in <code>/etc/systemd/system</code>, with 644
 file permissions, root as owner and group, and contains:</p>
-<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">Wireless Bridge Service</span>
 <span class="na">After</span><span class="o">=</span><span class="s">multi-user.target</span>
 
@@ -206,8 +205,7 @@ file permissions, root as owner and group, and contains:</p>
 
 <span class="k">[Install]</span>
 <span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>You could possibly change <code>multi-user.target</code> to one of systemd's
 <a href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/">network
