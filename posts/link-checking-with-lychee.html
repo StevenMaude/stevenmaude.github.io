@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Link checking with lychee - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/link-checking-with-lychee">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="blog,documentation,documentation as code,link,lychee,URL,research software engineering,writing" />
+        <meta name="description" content="A rundown of validating URLs with lychee" />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Link checking with lychee"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/link-checking-with-lychee"/>
+        <meta property="og:description" content="A rundown of validating URLs with lychee"/>
+        <meta property="article:published_time" content="2022-09-07" />
+            <meta property="article:section" content="2022" />
+            <meta property="article:tag" content="blog" />
+            <meta property="article:tag" content="documentation" />
+            <meta property="article:tag" content="documentation as code" />
+            <meta property="article:tag" content="link" />
+            <meta property="article:tag" content="lychee" />
+            <meta property="article:tag" content="URL" />
+            <meta property="article:tag" content="research software engineering" />
+            <meta property="article:tag" content="writing" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:dnt" content="on">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="https://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="https://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="https://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Link checking with lychee
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2022-09-07T21:11:00+01:00"> 2022-09-07</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.stevenmaude.co.uk/tag/blog">blog</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/documentation">documentation</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/documentation-as-code">documentation as code</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/link">link</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/lychee">lychee</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/url">URL</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/research-software-engineering">research software engineering</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/writing">writing</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2 id="the-use-of-urls-in-writing">The use of URLs in writing</h2>
+<p>Lots of information these days is on the web. Here, you're looking at
+some.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>And with that, this means that URLs, often in the form of links to web
+content, are also heavily used in all kinds of writing: other web pages,
+reports, papers, books.</p>
+<p>In some of those cases, writing is published and then largely "done",
+unless there's a revised edition. Writing on the web is, ideally for the
+reader, maintained, if that's appropriate. Even if you're not
+maintaining the links after you've published something, you might want,
+if you're writing over a long period of time, to at least assert that
+the links you may have added sometime ago are still valid at
+publication. Electronic formats at least offer this possibility, even if
+that possibility is often unfulfilled.</p>
+<p>Writing often becomes less relevant with time — particularly in the
+current climate of "content creation" (and it is difficult to see right
+now how this might ever slow down). But some ideas do have a more
+enduring relevance. Although, even if the ideas endure, the URLs linked
+as part of that work may not. Often, an author may link to sources they
+did not create and do not have any control over. If a resource you don't
+control disappears, then, well, it disappears.</p>
+<h2 id="validating-links">Validating links</h2>
+<p>So, let's assume what you've written is useful or relevant, at least, to
+readers present and future. How can you validate that the links you have
+in whatever documents you're dealing with are still functioning?</p>
+<p>You could hack together a shell script or similar that will do this and
+give you a good idea of which links are broken. It's often less work to
+choose existing software, should something suitable exist, for fairly
+common tasks. The authors have then done the work for you, including
+thinking about handling any awkward cases or behaviour.</p>
+<p><a href="https://github.com/lycheeverse/lychee">lychee</a> is one such program
+designed to check URLs in collections of text-based source files. You
+can also run it against a website, but I've found it most useful for
+"local"<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> files.</p>
+<p>A lychee link check runs <em>very</em> quickly. Each run gives you a summary of
+how many links were checked, how many were successful and reasons for
+failures. As a guide, the link checking step in a GitHub Actions lychee
+run takes about 10 seconds for a site with about 450 URLs.</p>
+<h3 id="whats-nice-about-lychee">What's nice about lychee</h3>
+<p>lychee is particularly useful in that it can check various plain text
+formats: whether HTML, Markdown, reStructuredText, or other text files.
+You can also point to an existing website and check the links there.</p>
+<p>On top of that, lychee is cross-platform. Since I have always run it via
+GitHub's hosted virtual machine runners, it's perhaps less important how
+it runs.</p>
+<p>As a quick summary, it's nice that it worked well from the start,
+without spending lots of times debugging. The results I initially got
+from it were, on the the whole, useful.</p>
+<h2 id="possible-applications">Possible applications</h2>
+<p>There are more uses than you might first think of:</p>
+<ul>
+<li>web content (the obvious use)</li>
+<li>"formal" documentation sources</li>
+<li>collections of less formal READMEs that act as documentation within a
+  coding project</li>
+<li>a research paper or thesis, to check the links before submission</li>
+<li>anywhere else you have a collection of text files (applied to
+  collections of notes, or digital
+  <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkästen</a> or similar)</li>
+</ul>
+<p>And checking links has the auxiliary benefit of checking your own
+content: if the links that relate to a particular point are defunct, it
+may be that the underlying information or situation has changed. That's
+particularly the case with computing where information can date rapidly,
+due to software or hardware developments or changes in best
+practice.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<h2 id="some-usage-notes">Some usage notes</h2>
+<h3 id="within-github">Within GitHub</h3>
+<p>It is possible to run lychee within a GitHub Actions runner. There is an
+existing <a href="https://github.com/lycheeverse/lychee-action">action</a> or you
+could write your own workflow to download and run the latest version.</p>
+<p>This way, you can run lychee automatically, either on a schedule or on a
+pull request. This works relatively well, with the additional benefit
+that the link checking isn't being done using your own internet
+connection.</p>
+<p>Other tips for running in GitHub Actions:</p>
+<ul>
+<li>For checking GitHub links, you may want to use <code>GITHUB_TOKEN</code> with
+  lychee or the action which avoids rate limiting. You may want to
+  restrict that token, to, for example, just <em>read</em> the contents of the
+  repository with the <code>permissions</code> key.</li>
+<li>GitHub Actions runners get blocked by various sites, so you may have
+  to exclude a few links. You can add a <code>.lycheeignore</code> file which
+  allows you to specify links via regular expressions.</li>
+<li>You cannot check email addresses within a GitHub-hosted runner, so you
+  need to use the <code>--exclude-mail</code> option.</li>
+</ul>
+<h3 id="outside-of-github">Outside of GitHub</h3>
+<p>Restrictions outside of GitHub might be less onerous, but at the risk of
+getting your IP address rate limited or even temporarily blocked. So I'd
+be very wary of running something like lychee using a personal internet
+connection.</p>
+<p>If you have access to cloud virtual machines, that might be another
+option. However, the IP address ranges that such a virtual machine might
+have could already be blocked by the sites (or their hosting providers)
+that you're trying to check.</p>
+<p>There are two things you could do to be careful:</p>
+<ul>
+<li>Set a maximum number of concurrent connections.</li>
+<li>Run the <code>--dump</code> option just to see which links would be checked; if
+  there are any in there which are important for you to access for and
+  might rate limit or block you, maybe consider adding them to the
+  <code>.lycheeignore</code></li>
+</ul>
+<h3 id="wherever-youre-running">Wherever you're running</h3>
+<p>Basic authentication is supported for logging into sites, but links that
+require some kind of two-factor authentication can't be checked. Whether
+you want to go to the trouble of creating an account, particularly if
+that account's credentials are solely for GitHub use, just for checking
+a few links is another question.</p>
+<h3 id="integrating-into-a-documents-build-process">Integrating into a document's build process</h3>
+<h4 id="a-rough-strategy">A rough strategy</h4>
+<p>Initially, particularly for a collection of files that may have not been
+written or reviewed recently, it's likely that there are several broken
+links.</p>
+<p>This is the approach I've taken:</p>
+<ol>
+<li>Run lychee.</li>
+<li>Review the error log.</li>
+<li>Check and classify the failures.</li>
+<li>Decide whether to fix up links, or ignore them by adding to a
+   <code>.lycheeignore</code> file.</li>
+<li>Repeat the previous steps until you have no errors.</li>
+</ol>
+<p>You can see a real-world example of this <a href="https://github.com/opensafely/documentation/issues/642">that I used at
+work</a>.</p>
+<h4 id="resolving-failures">Resolving failures</h4>
+<p>Failures tended to fall into one of these categories:</p>
+<ul>
+<li>Genuinely broken links.</li>
+<li>Links to resources that are restricted to authorised users: you need
+  to login first.</li>
+<li>Links that were inaccessible from within the GitHub Actions runner
+  virtual machines.</li>
+<li>Internal Markdown or HTML template links that were not getting
+  interpreted correctly, and, in some cases, could be corrected.</li>
+</ul>
+<p>My approach has been to skim through the errors by hand and classify
+them. You can also get JSON output if it's useful to have a directly
+machine-readable format.</p>
+<p>From the errors and your investigation, you can create a <code>.lycheeignore</code>
+file: an exclusion list of links. That file is used if it is in the
+working directory, or you can specify its path explicitly via lychee's
+options. Adding a <code>.lycheeignore</code> file at the top-level of your source
+repository, if you are using a version control repository, works well.</p>
+<p>You can specify exclusions by regular expressions: excluding subdomains
+works quite well when there are multiple links to that subdomain. You
+can just include the direct URL if there's just one specific URL for a
+specific domain you want to exclude. It's worth generalising the
+exclusion once you get more variations of a single URL or domain.</p>
+<p>For fixing up broken links, then either you need to find where the
+relevant URL has moved to, if it is still available, or review whether
+the <a href="https://web.archive.org">Internet Archive</a> has a copy saved. If
+it's for a blog post, you might want to pick a version that's close in
+date to when you added the link to that post: that version is possibly
+what you'll have been reading. Alternatively, you could review the most
+recent available version and use that version if suitable.</p>
+<p>For the couple of projects I've tried lychee with, it's able to check
+something like 80-90% of URLs. The checks have been useful and have
+flagged URLs and surrounding text that require updating. This will vary
+depending on where the URLs you are checking point to though.</p>
+<h3 id="miscellaneous-tips">Miscellaneous tips</h3>
+<ul>
+<li>If you are particularly finicky, it is possible to flag redirects by
+  setting the number of maximum redirects to 0. And it is possible to
+  check for non-HTTPS web URLs: these days most URLs should be available
+  via HTTPS.</li>
+<li>You can set another User-Agent. I've not tried this to see if it
+  improves the accessibility of some URLs.</li>
+<li>Excluding directories is, at time of writing, clunky; see the
+  <a href="https://github.com/lycheeverse/lychee/issues/470">associated GitHub
+  issue</a>. This is the
+  only finicky usability hurdle I've encountered.</li>
+<li>If your documents are not in a supported format, lychee is still
+  potentially useful. You would need to export your document to a plain
+  text format, either in whatever authoring tool you are using, or with
+  something like <a href="https://pandoc.org">pandoc</a>.</li>
+<li>There are lots of other options that you can use with lychee: take a
+  look at the documentation.</li>
+</ul>
+<h2 id="persistence-of-web-content">Persistence of web content</h2>
+<p>So, you can probably tell: I think lychee is a really useful tool.</p>
+<p>However, its usefulness comes with a caveat: <strong>all lychee can do is tell
+you whether a link is accessible or not</strong>. But, wait, you might argue:
+that's the whole point of this post that I'm reading — we <em>want</em> to
+check links, right?</p>
+<p>In a way, yes.</p>
+<p>All a valid link tells you is that the relevant resource provider has
+some resource available and accessible at that URL.</p>
+<p>It <strong>doesn't</strong> assure you that whatever you've linked to is in anything
+like the state it was when you read it. There are no guarantees that
+typical web URLs point to static or immutable content. They work more
+like pointers: it's up to the relevant server hosting the URL's domain
+and the people who put content on that server that decide what the
+content is.</p>
+<p>In many cases, this could be fine. In others, maybe less so:</p>
+<ul>
+<li>The original author may have updated their content in a way that might
+  change the relevance to whatever argument or citation you intended to
+  make.</li>
+<li>Another organisation could have taken over (perhaps legitimately,
+  perhaps not) the site and decided to post a contrary view, or
+  something entirely different at the same URL.</li>
+</ul>
+<p>Making HTTP requests and checking for a non-error response codes only
+tells you that a resource is available at that URL, whether directly or
+with redirection somewhere else. It doesn't guarantee that a resource is
+actually as you read it, when you read it.</p>
+<h3 id="preservation">Preservation</h3>
+<p>You may now be thinking: well, I could just take a copy and link to
+that, providing my own cache of the resource as it was when I reviewed
+it. That would work, but hosting that copy is probably a bad idea:</p>
+<ul>
+<li>There are potential copyright issues.</li>
+<li>If you're intending to host this copy on the web, then, if it is
+  public and discoverable, it's possible that search engine providers
+  think you're up to some kind of nefarious search engine optimisation
+  shenanigans.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+</ul>
+<p>Much simpler is linking to the <a href="https://web.archive.org">Internet
+Archive</a>: either finding a "good" copy there
+already, or using their page save feature to archive a copy of the page
+there and then.</p>
+<p>Wait, so why wouldn't we just always link to the Internet Archive?</p>
+<p>In some limited cases, this might be useful, where you want readers to
+have the information as you accessed it at the time. That is
+particularly useful if you are specifically citing a work and the
+version available at a given time. In many other cases, it is still
+useful to link to the "live" resource because:</p>
+<ul>
+<li>You may be pointing to an interactive service, and the Internet
+  Archive's more static version may not function correctly, without
+  access to the original host's backend servers.</li>
+<li>You may want your readers to always access the latest published
+  version of the information that you link.</li>
+</ul>
+<p>If we link to the original host instead of a third-party preservation
+service, this does pose the future risk of the resource being
+unavailable in future. But tools like lychee can definitely help with
+maintaining working URLs.</p>
+<p>And, finally, if you're now asking: "what guarantees are there on
+availability and integrity of the content the Internet Archive hosts".
+Or maybe more succinctly: "who archives the archivers?" Let's say that
+those are also good questions, but there are already enough words here
+not to worry about this here and now.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Unless you've tried to subvert that by printing this out. You
+  rascal.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The quote marks are because all my running of lychee has been via
+  GitHub Actions: a "local" checkout of my source files on a remote
+  virtual machine.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Indeed, Stack Overflow are finding this a problem. It turns out
+  that sifting through years of accumulated answers, some now
+  deprecated, is a <a href="https://meta.stackoverflow.com/questions/405302/introducing-outdated-answers-project">big spring cleaning
+  task</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>That said, there is less evidence from Google's search results
+  that this rule is actually <em>enforced</em>. Sites that are obviously
+  cloning contents from other sites do sometimes rank quite highly.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2022 Steven Maude
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+
+    <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+
+
+</body>
+</html>
