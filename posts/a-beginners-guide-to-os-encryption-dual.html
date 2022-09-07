@@ -9,7 +9,7 @@
 
 
 
-<link rel="canonical" href="../posts/a-beginners-guide-to-os-encryption-dual">
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual">
 
         <meta name="author" content="Steven Maude" />
         <meta name="keywords" content="disk,Bitlocker,Linux,Windows,encryption,TrueCrypt,drive,Ubuntu" />
@@ -18,7 +18,7 @@
         <meta property="og:site_name" content="stevenmaude.co.uk" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="A beginner&#39;s guide to OS encryption: dual booting and encrypting Windows and Ubuntu"/>
-        <meta property="og:url" content="../posts/a-beginners-guide-to-os-encryption-dual"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/a-beginners-guide-to-os-encryption-dual"/>
         <meta property="og:description" content="How to encrypt Windows and Ubuntu in a dual boot system."/>
         <meta property="article:published_time" content="2013-09-17" />
             <meta property="article:section" content="2013" />
@@ -32,23 +32,25 @@
             <meta property="article:tag" content="Ubuntu" />
             <meta property="article:author" content="Steven Maude" />
             <meta property="og:image"
-                  content="../images/extra/site_open_graph.png"/>
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
     <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:domain" content="..">
+    <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
             <meta property="twitter:image"
-                  content="../images/extra/site_open_graph.png"/>
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="../theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
-    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="https://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="../theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
-        <link href="../theme/css/custom.css" rel="stylesheet">
+    <link href="https://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="https://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
 
+        <link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
 
 
 </head>
@@ -63,17 +65,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="../" class="navbar-brand">
+            <a href="https://www.stevenmaude.co.uk/" class="navbar-brand">
 stevenmaude.co.uk            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="../pages/contact-me">
+                         <li><a href="https://www.stevenmaude.co.uk/pages/contact-me">
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><a href="https://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -112,25 +114,25 @@ stevenmaude.co.uk            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="../tag/disk">disk</a>
+	<a href="https://www.stevenmaude.co.uk/tag/disk">disk</a>
         /
-	<a href="../tag/bitlocker">Bitlocker</a>
+	<a href="https://www.stevenmaude.co.uk/tag/bitlocker">Bitlocker</a>
         /
-	<a href="../tag/linux">Linux</a>
+	<a href="https://www.stevenmaude.co.uk/tag/linux">Linux</a>
         /
-	<a href="../tag/windows">Windows</a>
+	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
         /
-	<a href="../tag/encryption">encryption</a>
+	<a href="https://www.stevenmaude.co.uk/tag/encryption">encryption</a>
         /
-	<a href="../tag/truecrypt">TrueCrypt</a>
+	<a href="https://www.stevenmaude.co.uk/tag/truecrypt">TrueCrypt</a>
         /
-	<a href="../tag/drive">drive</a>
+	<a href="https://www.stevenmaude.co.uk/tag/drive">drive</a>
         /
-	<a href="../tag/ubuntu">Ubuntu</a>
+	<a href="https://www.stevenmaude.co.uk/tag/ubuntu">Ubuntu</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><img class="article-image" src="../images/2013/Padlock_and_key.jpg" alt="A padlock with a key." width="320"></p>
+                <p><img class="article-image" src="https://www.stevenmaude.co.uk/images/2013/Padlock_and_key.jpg" alt="A padlock with a key." width="320"></p>
 <p>The beginner in the title of this post may or may not refer to you. It
 certainly describes me. Since I was about to setup a new PC, I decided
 it was about time to think a little more seriously about how to secure
@@ -182,7 +184,7 @@ getting these errors. I couldn't find much support for the problems I
 found, so perhaps it was some dual booting issue; if you have any ideas,
 please email or <a href="https://twitter.com/StevenMaude">let me know via Twitter</a>.</p>
 <h2 id="approach-2-encrypt-windows-7-enterpriseultimate-with-bitlocker-encrypt-ubuntu-with-luks">Approach 2: Encrypt Windows 7 Enterprise/Ultimate with Bitlocker; encrypt Ubuntu with LUKS</h2>
-<p><img class="article-image" src="../images/2013/Bitlocker.png" alt="Screengrab of Bitlocker's user interface in Windows 7."></p>
+<p><img class="article-image" src="https://www.stevenmaude.co.uk/images/2013/Bitlocker.png" alt="Screengrab of Bitlocker's user interface in Windows 7."></p>
 <p>The first issue here is that the only versions of Windows 7 that support
 Bitlocker are Enterprise and Ultimate. If you have Windows 7 Pro, you're
 out of luck. You may also find issues on trying to boot the Windows 7
@@ -201,7 +203,7 @@ and just left it plugged in the whole time, it could easily be stolen
 with the PC. So, it was best that I didn't spend any more time
 considering this option.</p>
 <h2 id="approach-3-encrypt-windows-7-any-version-with-truecrypt-encrypt-ubuntu-with-luks">Approach 3: Encrypt Windows 7 (any version) with TrueCrypt; encrypt Ubuntu with LUKS</h2>
-<p><img class="article-image" src="../images/2013/TrueCrypt.png" alt="TrueCrypt program window showing options to create a new encrypted volume."></p>
+<p><img class="article-image" src="https://www.stevenmaude.co.uk/images/2013/TrueCrypt.png" alt="TrueCrypt program window showing options to create a new encrypted volume."></p>
 <div class="admonition article-edit">
 <p>Edit October 2015: There are vulnerabilities in the Windows
 TrueCrypt driver (<a href="https://code.google.com/p/google-security-research/issues/detail?id=537">here</a>
@@ -309,7 +311,7 @@ concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back t
    <div class="container">
       <hr class="content-author-separator">
       <div class="row">
-         <div class="col-xs-10">&copy; 2021 Steven Maude
+         <div class="col-xs-10">&copy; 2022 Steven Maude
             <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
             &middot; Built with
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
@@ -318,17 +320,17 @@ concern</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back t
       </div>
    </div>
 </footer>
-<script src="../theme/js/jquery.min.js"></script>
+<script src="https://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../theme/js/bootstrap.min.js"></script>
+<script src="https://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="../theme/js/respond.min.js"></script>
+<script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
 
 
 
-    <script src ="../theme/js/disable_transitions.js"></script>
+    <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
 
 
 

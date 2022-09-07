@@ -1,5 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2021-10-15T17:27:00+01:00</updated><entry><title>PyCon 2021: Secure software supply chains</title><link href="https://www.stevenmaude.co.uk/posts/pycon-2021-secure-software-supply-chains" rel="alternate"></link><published>2021-10-15T17:27:00+01:00</published><updated>2021-10-15T17:27:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-10-15:/posts/pycon-2021-secure-software-supply-chains</id><summary type="html">&lt;p&gt;A summary of a talk by Dustin Ingram at PyCon 2021.&lt;/p&gt;</summary><content type="html">&lt;h2 id="modern-python-less-modern-me"&gt;Modern Python, less modern me&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2022-09-07T21:11:00+01:00</updated><entry><title>Link checking with lychee</title><link href="https://www.stevenmaude.co.uk/posts/link-checking-with-lychee" rel="alternate"></link><published>2022-09-07T21:11:00+01:00</published><updated>2022-09-07T21:11:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2022-09-07:/posts/link-checking-with-lychee</id><summary type="html">&lt;p&gt;A rundown of validating URLs with lychee&lt;/p&gt;</summary><content type="html">&lt;h2 id="the-use-of-urls-in-writing"&gt;The use of URLs in writing&lt;/h2&gt;
+&lt;p&gt;Lots of information these days is on the web. Here, you're looking at
+some.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;And with that, this means that URLs, often in the form of links to web
+content, are also heavily used in all kinds of writing: other web pages,
+reports, papers, books.&lt;/p&gt;
+&lt;p&gt;In some of those cases, writing is published and then largely "done",
+unless there's a revised edition. Writing on the web is, ideally for the
+reader, maintained, if that's appropriate. Even if you're not
+maintaining the links after you've published something, you might want,
+if you're writing over a long period of time, to at least assert that
+the links you may have added sometime ago are still valid at
+publication. Electronic formats at least offer this possibility, even if
+that possibility is often unfulfilled.&lt;/p&gt;
+&lt;p&gt;Writing often becomes less relevant with time — particularly in the
+current climate of "content creation" (and it is difficult to see right
+now how this might ever slow down). But some ideas do have a more
+enduring relevance. Although, even if the ideas endure, the URLs linked
+as part of that work may not. Often, an author may link to sources they
+did not create and do not have any control over. If a resource you don't
+control disappears, then, well, it disappears.&lt;/p&gt;
+&lt;h2 id="validating-links"&gt;Validating links&lt;/h2&gt;
+&lt;p&gt;So, let's assume what you've written is useful or relevant, at least, to
+readers present and future. How can you validate that the links you have
+in whatever documents you're dealing with are still functioning?&lt;/p&gt;
+&lt;p&gt;You could hack together a shell script or similar that will do this and
+give you a good idea of which links are broken. It's often less work to
+choose existing software, should something suitable exist, for fairly
+common tasks. The authors have then done the work for you, including
+thinking about handling any awkward cases or behaviour.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/lycheeverse/lychee"&gt;lychee&lt;/a&gt; is one such program
+designed to check URLs in collections of text-based source files. You
+can also run it against a website, but I've found it most useful for
+"local"&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; files.&lt;/p&gt;
+&lt;p&gt;A lychee link check runs &lt;em&gt;very&lt;/em&gt; quickly. Each run gives you a summary of
+how many links were checked, how many were successful and reasons for
+failures. As a guide, the link checking step in a GitHub Actions lychee
+run takes about 10 seconds for a site with about 450 URLs.&lt;/p&gt;
+&lt;h3 id="whats-nice-about-lychee"&gt;What's nice about lychee&lt;/h3&gt;
+&lt;p&gt;lychee is particularly useful in that it can check various plain text
+formats: whether HTML, Markdown, reStructuredText, or other text files.
+You can also point to an existing website and check the links there.&lt;/p&gt;
+&lt;p&gt;On top of that, lychee is cross-platform. Since I have always run it via
+GitHub's hosted virtual machine runners, it's perhaps less important how
+it runs.&lt;/p&gt;
+&lt;p&gt;As a quick summary, it's nice that it worked well from the start,
+without spending lots of times debugging. The results I initially got
+from it were, on the the whole, useful.&lt;/p&gt;
+&lt;h2 id="possible-applications"&gt;Possible applications&lt;/h2&gt;
+&lt;p&gt;There are more uses than you might first think of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;web content (the obvious use)&lt;/li&gt;
+&lt;li&gt;"formal" documentation sources&lt;/li&gt;
+&lt;li&gt;collections of less formal READMEs that act as documentation within a
+  coding project&lt;/li&gt;
+&lt;li&gt;a research paper or thesis, to check the links before submission&lt;/li&gt;
+&lt;li&gt;anywhere else you have a collection of text files (applied to
+  collections of notes, or digital
+  &lt;a href="https://en.wikipedia.org/wiki/Zettelkasten"&gt;Zettelkästen&lt;/a&gt; or similar)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And checking links has the auxiliary benefit of checking your own
+content: if the links that relate to a particular point are defunct, it
+may be that the underlying information or situation has changed. That's
+particularly the case with computing where information can date rapidly,
+due to software or hardware developments or changes in best
+practice.&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3"&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id="some-usage-notes"&gt;Some usage notes&lt;/h2&gt;
+&lt;h3 id="within-github"&gt;Within GitHub&lt;/h3&gt;
+&lt;p&gt;It is possible to run lychee within a GitHub Actions runner. There is an
+existing &lt;a href="https://github.com/lycheeverse/lychee-action"&gt;action&lt;/a&gt; or you
+could write your own workflow to download and run the latest version.&lt;/p&gt;
+&lt;p&gt;This way, you can run lychee automatically, either on a schedule or on a
+pull request. This works relatively well, with the additional benefit
+that the link checking isn't being done using your own internet
+connection.&lt;/p&gt;
+&lt;p&gt;Other tips for running in GitHub Actions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For checking GitHub links, you may want to use &lt;code&gt;GITHUB_TOKEN&lt;/code&gt; with
+  lychee or the action which avoids rate limiting. You may want to
+  restrict that token, to, for example, just &lt;em&gt;read&lt;/em&gt; the contents of the
+  repository with the &lt;code&gt;permissions&lt;/code&gt; key.&lt;/li&gt;
+&lt;li&gt;GitHub Actions runners get blocked by various sites, so you may have
+  to exclude a few links. You can add a &lt;code&gt;.lycheeignore&lt;/code&gt; file which
+  allows you to specify links via regular expressions.&lt;/li&gt;
+&lt;li&gt;You cannot check email addresses within a GitHub-hosted runner, so you
+  need to use the &lt;code&gt;--exclude-mail&lt;/code&gt; option.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="outside-of-github"&gt;Outside of GitHub&lt;/h3&gt;
+&lt;p&gt;Restrictions outside of GitHub might be less onerous, but at the risk of
+getting your IP address rate limited or even temporarily blocked. So I'd
+be very wary of running something like lychee using a personal internet
+connection.&lt;/p&gt;
+&lt;p&gt;If you have access to cloud virtual machines, that might be another
+option. However, the IP address ranges that such a virtual machine might
+have could already be blocked by the sites (or their hosting providers)
+that you're trying to check.&lt;/p&gt;
+&lt;p&gt;There are two things you could do to be careful:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set a maximum number of concurrent connections.&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;--dump&lt;/code&gt; option just to see which links would be checked; if
+  there are any in there which are important for you to access for and
+  might rate limit or block you, maybe consider adding them to the
+  &lt;code&gt;.lycheeignore&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="wherever-youre-running"&gt;Wherever you're running&lt;/h3&gt;
+&lt;p&gt;Basic authentication is supported for logging into sites, but links that
+require some kind of two-factor authentication can't be checked. Whether
+you want to go to the trouble of creating an account, particularly if
+that account's credentials are solely for GitHub use, just for checking
+a few links is another question.&lt;/p&gt;
+&lt;h3 id="integrating-into-a-documents-build-process"&gt;Integrating into a document's build process&lt;/h3&gt;
+&lt;h4 id="a-rough-strategy"&gt;A rough strategy&lt;/h4&gt;
+&lt;p&gt;Initially, particularly for a collection of files that may have not been
+written or reviewed recently, it's likely that there are several broken
+links.&lt;/p&gt;
+&lt;p&gt;This is the approach I've taken:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run lychee.&lt;/li&gt;
+&lt;li&gt;Review the error log.&lt;/li&gt;
+&lt;li&gt;Check and classify the failures.&lt;/li&gt;
+&lt;li&gt;Decide whether to fix up links, or ignore them by adding to a
+   &lt;code&gt;.lycheeignore&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Repeat the previous steps until you have no errors.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can see a real-world example of this &lt;a href="https://github.com/opensafely/documentation/issues/642"&gt;that I used at
+work&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="resolving-failures"&gt;Resolving failures&lt;/h4&gt;
+&lt;p&gt;Failures tended to fall into one of these categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Genuinely broken links.&lt;/li&gt;
+&lt;li&gt;Links to resources that are restricted to authorised users: you need
+  to login first.&lt;/li&gt;
+&lt;li&gt;Links that were inaccessible from within the GitHub Actions runner
+  virtual machines.&lt;/li&gt;
+&lt;li&gt;Internal Markdown or HTML template links that were not getting
+  interpreted correctly, and, in some cases, could be corrected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My approach has been to skim through the errors by hand and classify
+them. You can also get JSON output if it's useful to have a directly
+machine-readable format.&lt;/p&gt;
+&lt;p&gt;From the errors and your investigation, you can create a &lt;code&gt;.lycheeignore&lt;/code&gt;
+file: an exclusion list of links. That file is used if it is in the
+working directory, or you can specify its path explicitly via lychee's
+options. Adding a &lt;code&gt;.lycheeignore&lt;/code&gt; file at the top-level of your source
+repository, if you are using a version control repository, works well.&lt;/p&gt;
+&lt;p&gt;You can specify exclusions by regular expressions: excluding subdomains
+works quite well when there are multiple links to that subdomain. You
+can just include the direct URL if there's just one specific URL for a
+specific domain you want to exclude. It's worth generalising the
+exclusion once you get more variations of a single URL or domain.&lt;/p&gt;
+&lt;p&gt;For fixing up broken links, then either you need to find where the
+relevant URL has moved to, if it is still available, or review whether
+the &lt;a href="https://web.archive.org"&gt;Internet Archive&lt;/a&gt; has a copy saved. If
+it's for a blog post, you might want to pick a version that's close in
+date to when you added the link to that post: that version is possibly
+what you'll have been reading. Alternatively, you could review the most
+recent available version and use that version if suitable.&lt;/p&gt;
+&lt;p&gt;For the couple of projects I've tried lychee with, it's able to check
+something like 80-90% of URLs. The checks have been useful and have
+flagged URLs and surrounding text that require updating. This will vary
+depending on where the URLs you are checking point to though.&lt;/p&gt;
+&lt;h3 id="miscellaneous-tips"&gt;Miscellaneous tips&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you are particularly finicky, it is possible to flag redirects by
+  setting the number of maximum redirects to 0. And it is possible to
+  check for non-HTTPS web URLs: these days most URLs should be available
+  via HTTPS.&lt;/li&gt;
+&lt;li&gt;You can set another User-Agent. I've not tried this to see if it
+  improves the accessibility of some URLs.&lt;/li&gt;
+&lt;li&gt;Excluding directories is, at time of writing, clunky; see the
+  &lt;a href="https://github.com/lycheeverse/lychee/issues/470"&gt;associated GitHub
+  issue&lt;/a&gt;. This is the
+  only finicky usability hurdle I've encountered.&lt;/li&gt;
+&lt;li&gt;If your documents are not in a supported format, lychee is still
+  potentially useful. You would need to export your document to a plain
+  text format, either in whatever authoring tool you are using, or with
+  something like &lt;a href="https://pandoc.org"&gt;pandoc&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;There are lots of other options that you can use with lychee: take a
+  look at the documentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="persistence-of-web-content"&gt;Persistence of web content&lt;/h2&gt;
+&lt;p&gt;So, you can probably tell: I think lychee is a really useful tool.&lt;/p&gt;
+&lt;p&gt;However, its usefulness comes with a caveat: &lt;strong&gt;all lychee can do is tell
+you whether a link is accessible or not&lt;/strong&gt;. But, wait, you might argue:
+that's the whole point of this post that I'm reading — we &lt;em&gt;want&lt;/em&gt; to
+check links, right?&lt;/p&gt;
+&lt;p&gt;In a way, yes.&lt;/p&gt;
+&lt;p&gt;All a valid link tells you is that the relevant resource provider has
+some resource available and accessible at that URL.&lt;/p&gt;
+&lt;p&gt;It &lt;strong&gt;doesn't&lt;/strong&gt; assure you that whatever you've linked to is in anything
+like the state it was when you read it. There are no guarantees that
+typical web URLs point to static or immutable content. They work more
+like pointers: it's up to the relevant server hosting the URL's domain
+and the people who put content on that server that decide what the
+content is.&lt;/p&gt;
+&lt;p&gt;In many cases, this could be fine. In others, maybe less so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The original author may have updated their content in a way that might
+  change the relevance to whatever argument or citation you intended to
+  make.&lt;/li&gt;
+&lt;li&gt;Another organisation could have taken over (perhaps legitimately,
+  perhaps not) the site and decided to post a contrary view, or
+  something entirely different at the same URL.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Making HTTP requests and checking for a non-error response codes only
+tells you that a resource is available at that URL, whether directly or
+with redirection somewhere else. It doesn't guarantee that a resource is
+actually as you read it, when you read it.&lt;/p&gt;
+&lt;h3 id="preservation"&gt;Preservation&lt;/h3&gt;
+&lt;p&gt;You may now be thinking: well, I could just take a copy and link to
+that, providing my own cache of the resource as it was when I reviewed
+it. That would work, but hosting that copy is probably a bad idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are potential copyright issues.&lt;/li&gt;
+&lt;li&gt;If you're intending to host this copy on the web, then, if it is
+  public and discoverable, it's possible that search engine providers
+  think you're up to some kind of nefarious search engine optimisation
+  shenanigans.&lt;sup id="fnref:4"&gt;&lt;a class="footnote-ref" href="#fn:4"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Much simpler is linking to the &lt;a href="https://web.archive.org"&gt;Internet
+Archive&lt;/a&gt;: either finding a "good" copy there
+already, or using their page save feature to archive a copy of the page
+there and then.&lt;/p&gt;
+&lt;p&gt;Wait, so why wouldn't we just always link to the Internet Archive?&lt;/p&gt;
+&lt;p&gt;In some limited cases, this might be useful, where you want readers to
+have the information as you accessed it at the time. That is
+particularly useful if you are specifically citing a work and the
+version available at a given time. In many other cases, it is still
+useful to link to the "live" resource because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You may be pointing to an interactive service, and the Internet
+  Archive's more static version may not function correctly, without
+  access to the original host's backend servers.&lt;/li&gt;
+&lt;li&gt;You may want your readers to always access the latest published
+  version of the information that you link.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If we link to the original host instead of a third-party preservation
+service, this does pose the future risk of the resource being
+unavailable in future. But tools like lychee can definitely help with
+maintaining working URLs.&lt;/p&gt;
+&lt;p&gt;And, finally, if you're now asking: "what guarantees are there on
+availability and integrity of the content the Internet Archive hosts".
+Or maybe more succinctly: "who archives the archivers?" Let's say that
+those are also good questions, but there are already enough words here
+not to worry about this here and now.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Unless you've tried to subvert that by printing this out. You
+  rascal.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;The quote marks are because all my running of lychee has been via
+  GitHub Actions: a "local" checkout of my source files on a remote
+  virtual machine.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Indeed, Stack Overflow are finding this a problem. It turns out
+  that sifting through years of accumulated answers, some now
+  deprecated, is a &lt;a href="https://meta.stackoverflow.com/questions/405302/introducing-outdated-answers-project"&gt;big spring cleaning
+  task&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:4"&gt;
+&lt;p&gt;That said, there is less evidence from Google's search results
+  that this rule is actually &lt;em&gt;enforced&lt;/em&gt;. Sites that are obviously
+  cloning contents from other sites do sometimes rank quite highly.&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="2022"></category><category term="blog"></category><category term="documentation"></category><category term="documentation as code"></category><category term="link"></category><category term="lychee"></category><category term="URL"></category><category term="research software engineering"></category><category term="writing"></category></entry><entry><title>PyCon 2021: Secure software supply chains</title><link href="https://www.stevenmaude.co.uk/posts/pycon-2021-secure-software-supply-chains" rel="alternate"></link><published>2021-10-15T17:27:00+01:00</published><updated>2021-10-15T17:27:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2021-10-15:/posts/pycon-2021-secure-software-supply-chains</id><summary type="html">&lt;p&gt;A summary of a talk by Dustin Ingram at PyCon 2021.&lt;/p&gt;</summary><content type="html">&lt;h2 id="modern-python-less-modern-me"&gt;Modern Python, less modern me&lt;/h2&gt;
 &lt;p&gt;I've been working for the past few months at The DataLab — now Bennett
 Institute for Applied Data Science. There, Python is the main language
 for development and collectively the developers have a lot of Python
@@ -780,79 +1049,4 @@ kernel cgroups).&lt;/p&gt;
 with tools, there may not be much new here. However, for developers
 starting out, those who are starting to use Linux, those who are still
 in education or those, like me, who think they might have some knowledge
-gaps, this course is a nice compliment to other learning resources.&lt;/p&gt;</content><category term="2020"></category><category term="computer science"></category><category term="course"></category><category term="Linux"></category></entry><entry><title>Strange symptoms of hard drive enclosure failure</title><link href="https://www.stevenmaude.co.uk/posts/strange-symptoms-of-hard-drive-enclosure-failure" rel="alternate"></link><published>2020-05-09T21:35:00+01:00</published><updated>2020-05-09T21:35:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-05-09:/posts/strange-symptoms-of-hard-drive-enclosure-failure</id><summary type="html">&lt;p&gt;Describing some symptoms of a wonky hard drive enclosure on
-Windows&lt;/p&gt;</summary><content type="html">&lt;h1 id="reliable-failure"&gt;Reliable failure&lt;/h1&gt;
-&lt;p&gt;It's sometimes a reassuring comfort to know that computers and
-computer-related things are entirely reliable. In that they are anything
-but.&lt;/p&gt;
-&lt;p&gt;As I spent about an hour looking into this problem, and now think it has
-been fixed, perhaps it is helpful to document the symptoms such that
-anyone searching might find this page and save them some time.
-Especially if, like me, you don't have a spare enclosure to test with
-and are thinking whether to buy a new one or not.&lt;/p&gt;
-&lt;p&gt;(Yes, you probably should, is the answer, if you don't want to read
-further.)&lt;/p&gt;
-&lt;h1 id="some-background"&gt;Some background&lt;/h1&gt;
-&lt;p&gt;My enclosure was a cheap and cheerful once with USB and eSATA ports.
-eSATA is a bit dated these days, but is useful if you're working with
-old PCs that don't have USB 3 ports.&lt;/p&gt;
-&lt;h2 id="symptoms"&gt;Symptoms&lt;/h2&gt;
-&lt;p&gt;There were different failure modes depending on how the drive was
-connected:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;When connected by USB, the drive was not recognised by Windows. That
-  is, it did not show up in File Explorer when connected, as if it
-  wasn't attached at all.&lt;/p&gt;
-&lt;p&gt;In Disk Management, Windows was claiming the partition was a GPT
-Protective Partition, whereas it was a real GPT partition, and
-incorrectly had a size of 16,777,216 MB, i.e. the NTFS volume limit
-with default cluster size, which was also incorrect.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When connected by eSATA, the drive was correctly recognised by
-  Windows. Creating folders and, I think, copying moderate sized files
-  apparently worked OK, though I didn't try reading the files back from
-  the drive.&lt;/p&gt;
-&lt;p&gt;However, running the Windows 7 Backup and Restore tool reliably caused
-an error. Often, as soon as the backup process started to write to the
-drive in the enclosure, the drive acted as if it had been
-disconnected. That is, the backup failed, and the drive was no longer
-visible in File Explorer.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="possible-causes"&gt;Possible causes?&lt;/h2&gt;
-&lt;p&gt;As far as I could tell, there were three possibilities:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Something was wrong with Windows&lt;/strong&gt;. Not impossible, but this felt
-  like more of a hardware fault, especially with the strange difference
-  in behaviour between USB and eSATA, and with observed failures when
-  different parts of Windows were running. It wasn't just the Backup and
-  Restore tool that was failing, but Disk Cleanup had also caused the
-  drive to disconnect.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The hard drive itself was failing&lt;/strong&gt;. Not impossible either, but
-  unlikely. Though a magnetic disk, it is enterprise-grade and hadn't
-  had much usage. In fact, the drive's SMART readings indicated a few
-  hundred hours of time spent powered on.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Something was wrong with the enclosure&lt;/strong&gt;. Probably most likely,
-  given the enclosure was inexpensive.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A cabling issue was ruled out on the basis that both USB and eSATA
-weren't working, and had very different behaviour via the two
-connections.&lt;/p&gt;
-&lt;h2 id="closing-off-the-matter"&gt;Closing off the matter&lt;/h2&gt;
-&lt;p&gt;In the end, not having a spare enclosure to test with, I bought a new
-enclosure to try out. Out of curiosity, I chose one with both USB and
-eSATA to test both out, in case the problem recurred.&lt;/p&gt;
-&lt;p&gt;This did resolve part of the problem: the drive showed up both via eSATA
-and USB in the new enclosure. On the other hand, the Windows 7 Backup
-tool on Windows 10 was still failing. My hunch was that the faulty
-enclosure had somehow got the drive into an odd state. I never figured
-out what exactly the problem was here. A disk check did show errors,
-though I can't remember whether those were able to be repaired, or
-whether the drive disconnected while trying to do so. Maybe there was
-some corruption of the file system?&lt;/p&gt;
-&lt;p&gt;In the end, formatting the drive, encrypting the drive again and then
-backing up finally resolved the — by-now very tedious — problem. So, not
-all that exciting, but if you are witnessing similar symptoms, you can
-probably fix it with a new enclosure.&lt;/p&gt;</content><category term="2020"></category><category term="hard drive"></category><category term="hardware"></category><category term="Windows"></category></entry></feed>
+gaps, this course is a nice compliment to other learning resources.&lt;/p&gt;</content><category term="2020"></category><category term="computer science"></category><category term="course"></category><category term="Linux"></category></entry></feed>
