@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Migrating a Bitlocker Windows installation to a larger drive - stevenmaude.co.uk</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://www.stevenmaude.co.uk/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive">
+
+        <meta name="author" content="Steven Maude" />
+        <meta name="keywords" content="Bitlocker,Windows" />
+        <meta name="description" content="How to clone a Windows installation to another disk" />
+
+        <meta property="og:site_name" content="stevenmaude.co.uk" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Migrating a Bitlocker Windows installation to a larger drive"/>
+        <meta property="og:url" content="https://www.stevenmaude.co.uk/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive"/>
+        <meta property="og:description" content="How to clone a Windows installation to another disk"/>
+        <meta property="article:published_time" content="2023-01-02" />
+            <meta property="article:section" content="2023" />
+            <meta property="article:tag" content="Bitlocker" />
+            <meta property="article:tag" content="Windows" />
+            <meta property="article:author" content="Steven Maude" />
+            <meta property="og:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+    <meta name="twitter:dnt" content="on">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="https://www.stevenmaude.co.uk">
+            <meta property="twitter:image"
+                  content="https://www.stevenmaude.co.uk/images/extra/site_open_graph.png"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/bootstrap.cosmo-custom.min.css" type="text/css"/>
+    <link href="https://www.stevenmaude.co.uk/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.stevenmaude.co.uk/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.stevenmaude.co.uk/theme/css/style.css" type="text/css"/>
+        <link href="https://www.stevenmaude.co.uk/theme/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="stevenmaude.co.uk ATOM Feed"/>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.stevenmaude.co.uk/" class="navbar-brand">
+stevenmaude.co.uk            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="https://www.stevenmaude.co.uk/pages/contact-me">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://www.stevenmaude.co.uk/archives"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                Migrating a Bitlocker Windows installation to a larger drive
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Published</span>
+    <span class="published">
+        <time datetime="2023-01-02T23:33:00+00:00"> 2023-01-02</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.stevenmaude.co.uk/tag/bitlocker">Bitlocker</a>
+        /
+	<a href="https://www.stevenmaude.co.uk/tag/windows">Windows</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I recently cloned a Windows 10 installation's Bitlocker encrypted drive
+to upgrade a PC's solid state drive (SSD) from a smaller SATA drive to
+an NVMe drive. Here are thorough notes on what I did if you need to do
+the same.</p>
+<p>The Bitlocker aspect doesn't actually seem to make much difference here.
+This is the same process you could to clone an unencrypted Windows disk,
+but it's worth noting that this does work for Bitlocker-encrypted disks.</p>
+<h2 id="caveat">Caveat</h2>
+<p>This upgrade ostensibly seemed to work fine.</p>
+<p>However, with the cloned drive, the Windows Mail app required
+reinstallation as it wouldn't load. From reading around, there can be
+some weirdness around Universal Windows Platform (UWP) applications.
+Right now, I can't find any specific fix outside of reinstalling those
+affected apps. In this case, reinstalling the Mail app seemed to work,
+and had retained all the existing data. That aside, other UWP apps
+seemed to work on the machine, so I don't know. I love computers very
+much.</p>
+<p><strong>Do be prepared if you have lots of UWP apps</strong>: you might still need to
+reinstall them though. I couldn't find any other workaround, but only
+looked for a few minutes.</p>
+<h2 id="upgrade-process">Upgrade process</h2>
+<p>For this kind of installation, I typically write out step-by-step what I
+intend to do first, so I'm less likely to miss a step or forget
+something. Ultimately, the process as it turned out didn't differ that
+much from what I sketched out at first.</p>
+<p>Of course, there was one issue I didn't anticipate: there was a Windows
+recovery partition at the end of the original drive. This meant that the
+free space after upgrading was not contiguous with the existing Windows
+volume: the recovery partition was in the way, preventing the volume
+from expanding to fill the drive. To fix this, I had to move the Windows
+recovery partition to the end of the newer, larger drive, so that the
+existing Bitlocker volume could be expanded by the Windows Disk
+Management tool. <a href="https://superuser.com/questions/1453790/how-to-move-the-recovery-partition-on-windows-10">This Super User
+question</a>
+helped solve that problem, and <a href="https://superuser.com/a/1637944">this
+answer</a> is used as the basis for some
+of this guide.</p>
+<p>Below are my corrected notes after completing the upgrade, broken into
+four sections. It's worth reading through the whole set of instructions
+first. These aren't completely exhaustive, but should be enough to get
+you to what you need.</p>
+<h3 id="preparation">Preparation</h3>
+<ol>
+<li>Backup the old drive entirely first, before starting the upgrade. The
+   likelihood of disaster may be small, but the impact of that is high
+   if you have no backup. So, <strong>backup</strong>.</li>
+<li>Ensure you have the Bitlocker recovery key and it works. I don't
+   think you should need the recovery key for upgrading a drive in the
+   same PC, but, again, best to check this before you start.</li>
+<li>Shutdown the PC, entirely powering it off. (I actually forgot to do
+   this and hibernated, but this was also fine, provided the PC is
+   powered off.)</li>
+<li>Open up the PC, install the new drive into the expansion slot inside
+   the PC and close up the PC again.</li>
+<li>Update drive firmware if there is a update needed. You can try
+   searching the manufacturer's site to see if an upgrade is available.
+   Manufacturers don't always make this information easy to discover.
+   You may just want to install whatever utility the manufacturer offers
+   to check for firmware updates and update via that. (Most
+   manufacturers have some kind of tool; a few provide updates via a
+   bootable disk image.)</li>
+<li>Download a bootable Linux installation: <a href="https://ubuntu.com">Ubuntu</a>
+   works fine and has all the tools you need.</li>
+<li>(Optional) Verify the download; there is a <a href="https://ubuntu.com/tutorials/how-to-verify-ubuntu">guide for checking Ubuntu
+   downloads</a>.</li>
+<li>Write that Linux image to a USB drive or DVD as a "live installation.</li>
+<li>(Optional) Verify that the Linux image has been written correctly:
+   you can do this easily <a href="https://unix.stackexchange.com/a/84474">if you're already running
+   Linux</a>.</li>
+</ol>
+<h3 id="cloning-the-disk">Cloning the disk</h3>
+<ol>
+<li>Boot the live Ubuntu installation from a USB or DVD. You'll probably
+   need to enter the boot menu of your BIOS to select the USB or DVD to
+   boot from. For Ubuntu booting via a DVD, you may want to add the
+   custom boot parameter: <code>fsck.mode=skip</code> to skip the integrity check
+   as <a href="https://bugs.launchpad.net/ubuntu/+source/casper/+bug/1875548">it is often very slow via
+   DVD</a>.</li>
+<li>(Optional) Wipe the newly installed drive. This may not be strictly
+   be necessary if a new drive, but I tend to do this anyway. The Arch
+   Linux wiki has lots of information on using the <code>hdparm</code> (for SATA
+   drives) and <code>nvme-cli</code> (for NVMe drives) tools to do this. In the
+   current Ubuntu release (22.04.1), the <code>nvme-cli</code> tool is not
+   installed, so you'll need to open a terminal and install it via <code>sudo
+   apt update &amp;&amp; sudo apt install nvme-cli</code>. You will run these commands
+   in a terminal.</li>
+<li>
+<p>Run some command to clone the drive. I went with running in a
+   terminal: <code>sudo dd if=/dev/old-drive-device-name
+   of=/dev/new-drive-device-name status=progress bs=32M; sync</code></p>
+<p>Use the <code>lsblk</code> command to find the correct <code>old-drive-device-name</code>
+ and <code>new-drive-device-name</code>. <strong>Triple check that you have the input
+ (<code>if</code>) and output (<code>of</code>) files the correct way round</strong> before
+ running the command.</p>
+<p>The <code>bs</code> controls the block size. The default block size is small,
+ so we specify a larger one to speed up cloning the disk: the
+ transfer rate was about 500 MB/s transfer rate, probably limited by
+ the read speed of the SATA SSD drive.</p>
+<p>The final <code>sync</code> is to ensure anything cached is written to the
+ disk, although shutting Linux down via the shutdown option (as
+ opposed to just powering off) as we'll do next should also ensure
+ this.</p>
+</li>
+<li>
+<p>Shutdown Ubuntu entirely. Left click the mouse in the top-right of
+   the screen where the volume icon is, and you'll see the power
+   options.</p>
+</li>
+</ol>
+<h3 id="reorganising-the-disk-volumes">Reorganising the disk volumes</h3>
+<ol>
+<li>Check the boot order in the BIOS and reorder it if necessary to
+   prioritise the new drive over the old.</li>
+<li>Boot into Windows.</li>
+<li>In an command prompt as administrator, use Windows' <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options">REAgentC
+   command</a>
+   to disable the Windows Recovery Environment temporarily: <code>reagentc
+   /disable</code> — you could optimise this and save a reboot by doing this
+   in Windows before cloning.</li>
+<li>Shutdown Windows.</li>
+<li>Boot back into your Ubuntu live installation once again.</li>
+<li>Run the GParted graphical application. Move the Windows recovery
+   partition to end of drive. You'll be prompted to fix the incorrect
+   GPT record, which will be wrong due to the change in drive size. You
+   need to do this otherwise moving the partition will fail. Apply the
+   partition changes, which should now be successful.</li>
+<li>Shutdown Ubuntu again.</li>
+<li>Boot back into Windows.</li>
+<li>In an command prompt as administrator, run <code>reagentc /enable</code> to
+   enable the Windows Recovery Environment again.</li>
+<li>Run the Computer Management application as administrator, and go
+    to Disk Management.</li>
+<li>Right click on the Bitlocker Windows volume, and select "Extend
+    Volume" to fill the unused space.</li>
+<li>Check the properties of the newly expanded drive in Windows Explorer
+    and confirm that the drive has a larger size.</li>
+</ol>
+<h3 id="final-checks-and-cleaning-up">Final checks and cleaning up</h3>
+<ol>
+<li>Boot into the <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference">Windows Recovery
+   Environment</a>
+   to confirm that it works. It's also possible to boot to this directly
+   with ReAgentC via <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options"><code>reagentc
+   /boottore</code></a>
+   command.</li>
+<li>After you have checked the Windows recovery environment, reboot back
+   into Windows.</li>
+<li>Via the Activation settings, check that Windows is still activated if
+   it was activated previously. I didn't need to reactivate the PC in
+   this case.</li>
+<li>Shutdown Windows.</li>
+<li>Open the PC, disconnect the old drive, and then remove the old drive
+   from the PC.</li>
+</ol>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr class="content-author-separator">
+      <div class="row">
+         <div class="col-xs-10">&copy; 2023 Steven Maude
+            <a href="https://github.com/StevenMaude"><i class="fa fa-github"></i></a></li>
+            &middot; Built with
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and custom
+            <a href="https://github.com/StevenMaude/pelican-bootstrap3-sm" target="_blank">pelican-bootstrap3</a>.         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://www.stevenmaude.co.uk/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.stevenmaude.co.uk/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.stevenmaude.co.uk/theme/js/respond.min.js"></script>
+
+
+
+    <script src ="https://www.stevenmaude.co.uk/theme/js/disable_transitions.js"></script>
+
+
+
+</body>
+</html>
