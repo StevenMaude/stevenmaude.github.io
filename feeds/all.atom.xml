@@ -1,5 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2023-01-02T23:33:00+00:00</updated><entry><title>Migrating a Bitlocker Windows installation to a larger drive</title><link href="https://www.stevenmaude.co.uk/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive" rel="alternate"></link><published>2023-01-02T23:33:00+00:00</published><updated>2023-01-02T23:33:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-01-02:/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive</id><summary type="html">&lt;p&gt;How to clone a Windows installation to another disk&lt;/p&gt;</summary><content type="html">&lt;p&gt;I recently cloned a Windows 10 installation's Bitlocker encrypted drive
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2023-02-10T22:26:00+00:00</updated><entry><title>Adjustable height standing desks in small spaces</title><link href="https://www.stevenmaude.co.uk/posts/adjustable-height-standing-desks-in-small-spaces" rel="alternate"></link><published>2023-02-10T22:26:00+00:00</published><updated>2023-02-10T22:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-02-10:/posts/adjustable-height-standing-desks-in-small-spaces</id><summary type="html">&lt;p&gt;Notes on installing a Fully Jarvis desk in a small corner space.&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-new-desk"&gt;A new desk&lt;/h2&gt;
+&lt;p&gt;I am standing up while typing this with my computer and keyboard resting
+on a new desk. My previous desk — a cheap, but value for money, IKEA
+effort — has been swapped for a Fully Jarvis adjustable height frame
+with a custom desktop.&lt;/p&gt;
+&lt;p&gt;When I used to actually go into an office, there used to be rudimentary,
+but functional standing desk setups, based on an IKEA hack of using a
+side table placed on top of the standard office desks when you wanted to
+stand and work. I actually enjoyed doing that when I was in the office
+as I was in the office a couple of days a week. The Fully Jarvis goes
+further than that. It has height adjustment, so you can switch between
+sitting and standing at the desk.&lt;/p&gt;
+&lt;p&gt;I will discuss the Jarvis frame here. What I will not cover here are the
+pros and cons of standing versus sitting. But when using a computer for
+a lot of the working day, even not considering anything else, it seems a
+positive feature to be able to change posture and not just languish in
+the same working position for several hours of the day.&lt;/p&gt;
+&lt;h3 id="limited-space"&gt;Limited space&lt;/h3&gt;
+&lt;p&gt;One problem: I did not have too much space in the corner the desk is now
+sat. This made it trickier to ascertain whether a Jarvis desk would
+work. Lots of people with standing desk setups seem to be going for
+large desks. There was very little useful guidance online about what
+would work in a smaller space.&lt;/p&gt;
+&lt;p&gt;In this post, I will note some of the considerations I had, and what I
+found from the process of buying and installing the frame and desktop in
+a smaller space.&lt;/p&gt;
+&lt;h2 id="some-notes-on-standing-desks-for-small-spaces"&gt;Some notes on standing desks for small spaces&lt;/h2&gt;
+&lt;p&gt;Like just about everything else, there are a lot of opinions on standing
+desks out there. However, much like the limited range of desks that are
+out there to fit a small space, there are relatively few opinions on
+desks for small spaces.&lt;/p&gt;
+&lt;h3 id="what-is-out-there"&gt;What is out there?&lt;/h3&gt;
+&lt;p&gt;Many desks and separate desktops seem to start at a minimum of 120 cm by
+70 cm. 140 cm by 70 cm is another common size. Both of these were
+considerably bigger than the existing desk I was using: 100 cm by 60 cm.
+The desktops bundled by Fully with the Jarvis frame are even larger: 80
+cm deep.&lt;/p&gt;
+&lt;p&gt;There were occasionally standing desks that I found at a more suitable
+100 cm by 60 cm, but often they all looked like they were from the same
+or similar suppliers: frequently having a ridge in the middle of the
+desk. That did not look great, and I thought it might be fairly
+irritating if using the desk to rest on while writing.&lt;/p&gt;
+&lt;p&gt;So, given most desktops are too large, then the next step is to consider
+getting a custom size cut. If you have the tools and the competence,
+then you could do this yourself.&lt;/p&gt;
+&lt;p&gt;I have neither.&lt;/p&gt;
+&lt;p&gt;Even if I did, there is also the problem of getting a huge worktop home,
+which may well need you to pay an extra delivery cost, unless you happen
+to have a large van handy.&lt;/p&gt;
+&lt;p&gt;IKEA do offer custom sizes on some of their desktops, but these, from
+memory, may work out actually more expensive for less material than the
+fixed sizes they offer. The store I visited also had a lead time of
+about a month too, which was far from ideal. Fully have a fairly
+generous 30 day trial period, and I wanted to try out the frame in that
+time to be sure it was right. A month's wait for a desktop would have
+probably given insufficient time to actually build the desk up.&lt;/p&gt;
+&lt;p&gt;I also looked at local timber merchants but these were fairly expensive.&lt;/p&gt;
+&lt;p&gt;In the end, I read a suggestion from someone who said they had used a
+Kabsa kitchen worktop from &lt;a href="https://en.wikipedia.org/wiki/B%26Q"&gt;B&amp;amp;Q&lt;/a&gt; —
+a fairly common building materials supplier in the UK, and mentioned
+that B&amp;amp;Q cut the worktop to size, free of charge. I had also read that
+someone had used a kitchen worktop with a Jarvis frame and they said it
+was fine.&lt;/p&gt;
+&lt;h3 id="buying-from-bq"&gt;Buying from B&amp;amp;Q&lt;/h3&gt;
+&lt;p&gt;Before you start thinking, "are you doing paid promotions for niche UK
+retailers now?", &lt;em&gt;certainly not&lt;/em&gt;. What I will not into are the couple of
+problems I had in actually getting hold of a worktop from B&amp;amp;Q and
+getting it cut. In the end, after several visits, I did emerge,
+victorious with a laminate worktop (less held up as a winner's trophy,
+more pushed on a trolley to a car to load).&lt;/p&gt;
+&lt;p&gt;Aside from the problems that will remain unmentioned here, there are a
+few things to watch out for with B&amp;amp;Q:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check the store has a timber cutting service: not all do.&lt;/li&gt;
+&lt;li&gt;The laminate worktops have a variety of surfaces. Some are smoother,
+  while some have a rougher grain feeling to them. There are samples in
+  store that you can check first.&lt;/li&gt;
+&lt;li&gt;The worktops, at least in the store I visited, were simply only in
+  thick plastic film, without any decent protection. Yes, this meant you
+  could easily see the worktops, but also meant that almost half of the
+  worktops of the kind I wanted were already damaged.&lt;/li&gt;
+&lt;li&gt;B&amp;amp;Q sell edging tape that closely matches many of the worktops, but
+  perhaps it is best to check that they have it in stock before
+  committing to a worktop purchase.&lt;/li&gt;
+&lt;li&gt;There is a limit to the number of free timber cuts B&amp;amp;Q offer, but for
+  a worktop, you probably do not need more than one or two cuts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the positive side, and, no, this is still not a paid promotion, the
+staff cutting the worktop to size were helpful, and provided a tape
+measure for me to verify the cut size was correct before paying.&lt;/p&gt;
+&lt;p&gt;As well as being easier to get into a car. The other advantage of a
+smaller cut is that from a 3 metre long worktop, I got two pieces to use
+from it, in case the initial assembly was a disaster.&lt;/p&gt;
+&lt;h3 id="desktop-fit-on-the-jarvis-frame"&gt;Desktop fit on the Jarvis frame&lt;/h3&gt;
+&lt;p&gt;The Jarvis frame assembly is relatively simple, marred by the paper
+instructions being a little bit vague and the official assembly video
+being a little bit too brief, and not covering custom desktops. The
+bundled paper instructions did not cover custom desktops either. There
+is an &lt;a href="https://static.fully.com/image/upload/v1637081801/fully-website/product/jarvis-desk/AI/EU/fully-jarvis-wide-using-your-own-desktop-EU-d03.pdf"&gt;additional instruction guide supplement on the Fully
+website&lt;/a&gt;,
+but this is not especially obvious. I am not sure why Fully could not
+provide the extra few pages of instructions in the standard assembly
+guide.&lt;/p&gt;
+&lt;p&gt;There was one &lt;a href="https://www.youtube.com/watch?v=6NFmOZphHPM"&gt;YouTube
+guide&lt;/a&gt; that was
+particularly useful on assembling the frame with a custom desktop. It is
+definitely worth watching through once, and then unpacking the Jarvis
+boxes and then starting to figure out what you need to do.&lt;/p&gt;
+&lt;p&gt;The trickiest part was measuring the holes for the desktop screws. When
+placing the frame upside down on the underside of the desktop and
+holding it together, you will find that the frame tends to move around a
+little (which, &lt;em&gt;obviously&lt;/em&gt; it does, because nothing is screwed together
+yet). This makes it more difficult to mark the holes. I ended up
+measuring and re-checking the proposed hole positions several times.&lt;/p&gt;
+&lt;p&gt;From memory, I think that the holes did not need drilling first. The
+screws just went straight into the worktop with an electric screwdriver.&lt;/p&gt;
+&lt;p&gt;A couple of questions that I had during assembly, that luckily had the
+right answer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do Fully provide screws for custom worktops? &lt;em&gt;Yes.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Would the worktop I bought be the correct thickness for the frame and
+  the screws? &lt;em&gt;Yes.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After doubly checking everything was screwed together and turning the
+frame over, everything seemed to be just fine. A considerable relief
+considering the cost of the frame.&lt;/p&gt;
+&lt;p&gt;Once the desk was assembled, the unfinished three worktop edges were
+covered with the matching edging tape that I had bought. The edges were
+stuck to the desktop with EVO-STIK Impact Contact Adhesive from a tin: a
+frequent recommendation reading around responses to people working on
+finishing kitchen worktop installations.&lt;/p&gt;
+&lt;h4 id="desktop-specifications"&gt;Desktop specifications&lt;/h4&gt;
+&lt;h5 id="jarvis-frame"&gt;Jarvis frame&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;I chose the 3-stage frame, for the extra variation in height
+  adjustment, particularly for sitting.&lt;/li&gt;
+&lt;li&gt;The frame I have is the alloy colour, which actually looks a lighter
+  silver than the duller, colder looking image shown on the Fully site
+  when ordering.&lt;/li&gt;
+&lt;li&gt;I also paid the extra for the programmable memory control panel
+  upgrade. It is well worth it, as it does not add much to the cost, but
+  makes adjusting the desk much quicker.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id="worktop"&gt;Worktop&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;B&amp;amp;Q's kitchen worktops are typically around 62 cm deep, which is not
+  exactly a standard desk size. But, it does seem to be roughly the
+  standard size for kitchen worktops in the UK, though that can be as
+  small as 60 cm. In any case, the depth is a few centimetres less than
+  Fully's minimum recommended 69 cm for the Jarvis frame. But, when
+  assembled, the table feet do not particularly stick out, and the frame
+  does not seem less stable for the smaller desktop.&lt;/li&gt;
+&lt;li&gt;I went for a very slightly wider desktop (112 cm) than the minimum
+  suggested by Fully (108 cm). You could probably go all the way to the
+  minimum specified size, but it would be a tight fit. Having the couple
+  of extra centimetres leeway from the frame to the desktop edge was
+  useful.&lt;/li&gt;
+&lt;li&gt;As mentioned, a moderately thick desktop (38 mm) works fine, and can
+  have a nice sturdy and weighty feel to it. At least, my particle board
+  laminate worktop did.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="what-do-i-think"&gt;What do I think?&lt;/h2&gt;
+&lt;p&gt;Overall, I am pretty happy with the result, given that the top is a
+custom build. Someone who did not know that it was a kitchen worktop
+could easily mistake it for the desktop that is sold with the frame.&lt;/p&gt;
+&lt;p&gt;The frame is also reasonably wobble-free, even at standing height, which
+was my other concern. A concern that you cannot easily address without
+just building the desk in your own space and trying it. When typing, the
+desk does not move, which is what I wanted.&lt;/p&gt;
+&lt;p&gt;That positive impression is tempered very slightly by the sheer cost of
+the frame: the best part of £500. And then tempered back to positive
+again when I remember that I have not paid for the frame at all. No,
+this is not a paid promotion for Fully either. I was fortunate enough to
+get one of my &lt;a href="https://sensiblecode.io"&gt;employers&lt;/a&gt; to cover it in their
+homeworking equipment budget. Thanks also to &lt;a href="https://github.com/mikejamesthompson"&gt;my colleague
+Mike&lt;/a&gt; at Sensible Code, who
+recommended the frame when I asked about it.&lt;/p&gt;
+&lt;p&gt;Fully have been around for a while and do have generally positive
+feedback, from what I have read, for their customer service. I did
+interact with them briefly and they were very helpful. There are other,
+considerably cheaper brands of adjustable height standing desks, but
+some of these appeared to have mixed reviews, often with the complaint
+that support was non-existent when the desks became faulty. On that,
+Fully do also offer a decent length of warranty on their frames.&lt;/p&gt;
+&lt;p&gt;Finally, Fully do seem to have fairly regular discounts. If you are not
+buying in a hurry, it is worth watching the price and holding out.&lt;/p&gt;</content><category term="2023"></category><category term="standing desk"></category><category term="Fully"></category><category term="Jarvis"></category></entry><entry><title>Migrating a Bitlocker Windows installation to a larger drive</title><link href="https://www.stevenmaude.co.uk/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive" rel="alternate"></link><published>2023-01-02T23:33:00+00:00</published><updated>2023-01-02T23:33:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-01-02:/posts/migrating-a-bitlocker-windows-installation-to-a-larger-drive</id><summary type="html">&lt;p&gt;How to clone a Windows installation to another disk&lt;/p&gt;</summary><content type="html">&lt;p&gt;I recently cloned a Windows 10 installation's Bitlocker encrypted drive
 to upgrade a PC's solid state drive (SSD) from a smaller SATA drive to
 an NVMe drive. Here are thorough notes on what I did if you need to do
 the same.&lt;/p&gt;
@@ -1086,57 +1271,4 @@ to compete.&lt;/p&gt;
 &lt;p&gt;And that's where my personal view is. I'm still sticking with GitHub
 Actions, notwithstanding the slight risk of getting too tied into
 GitHub. GitHub is incredibly popular right now, it's where open source
-projects are developed, and that network effect is an important one.&lt;/p&gt;</content><category term="2020"></category><category term="automation"></category><category term="continuous delivery"></category><category term="continuous integration"></category><category term="GitHub"></category><category term="GitHub Actions"></category></entry><entry><title>Oh, fork it</title><link href="https://www.stevenmaude.co.uk/posts/oh-fork-it" rel="alternate"></link><published>2020-06-19T12:35:00+01:00</published><updated>2020-06-19T20:39:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-06-19:/posts/oh-fork-it</id><summary type="html">&lt;p&gt;Why you should fork obscure, interesting repositories&lt;/p&gt;</summary><content type="html">&lt;h2 id="lost"&gt;Lost…&lt;/h2&gt;
-&lt;p&gt;At work recently, I was trying to find a GitHub repository that I knew I
-had previously seen a while back.&lt;/p&gt;
-&lt;p&gt;But I couldn't find it.&lt;/p&gt;
-&lt;p&gt;Normally, I would "star" possibly useful repositories: it wasn't in that
-starred list. After spending a fair length of time trying to rediscover
-the repository by many searches on GitHub and on search engines, I
-concluded that maybe the author had simply deleted the repository or
-their account.&lt;/p&gt;
-&lt;p&gt;And so I gave up.&lt;/p&gt;
-&lt;h2 id="and-found"&gt;…and found&lt;/h2&gt;
-&lt;p&gt;Sometime later, while reading a related GitHub issue, I spotted I had
-written a comment linking to the repository. It was still there, just
-not easily discoverable.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h2 id="lessons"&gt;Lessons&lt;/h2&gt;
-&lt;p&gt;Things shared on the internet have no guarantee of longevity. You are
-subject to the whims either of service providers either disappearing
-entirely, or &lt;a href="https://www.stevenmaude.co.uk/posts/rinse-fms-soundcloud-account-takedown"&gt;removing a user and all their
-content&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Users themselves may also delete things they've previously shared.
-Especially in a post-GDPR world, where people are likely far more aware
-of their ability and rights to do just that.&lt;/p&gt;
-&lt;p&gt;Even if I had starred the elusive repository, that would not have helped
-if the user deleted the repository or the user's account disappeared.
-For popular repositories, there is no likely threat of them vanishing
-entirely overnight, because there are probably several existing forks.
-And users may well restore a copy of such a deleted repository from
-local clones.&lt;/p&gt;
-&lt;p&gt;But if a repository is obscure, then that published version may be the
-only source readily available.&lt;/p&gt;
-&lt;p&gt;So, if there is some GitHub — or other online Git remote — repository
-that looks interesting or useful, but is relatively obscure, then
-forking it is prudent, and a one click operation without requiring you
-to store a copy locally.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;It may not be that often when people or organisations decide to delete
-all their code, but it &lt;a href="https://www.theregister.com/2016/03/23/npm_left_pad_chaos/"&gt;does
-happen&lt;/a&gt;.
-Even if you may not necessarily have the final version before deletion,
-something may be better than a distant memory.&lt;/p&gt;
-&lt;div class="footnote"&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id="fn:1"&gt;
-&lt;p&gt;After all that effort, I actually decided to use a different
-  approach anyway.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id="fn:2"&gt;
-&lt;p&gt;Of course, cloning locally is another valid approach, but requires
-  you to store content that may just be clutter on your local storage.
-  I'd wager if GitHub was to end their service, then there would be
-  more than a day's notice.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content><category term="2020"></category><category term="GitHub"></category></entry></feed>
+projects are developed, and that network effect is an important one.&lt;/p&gt;</content><category term="2020"></category><category term="automation"></category><category term="continuous delivery"></category><category term="continuous integration"></category><category term="GitHub"></category><category term="GitHub Actions"></category></entry></feed>
