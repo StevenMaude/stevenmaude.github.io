@@ -1,5 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2023-02-10T22:26:00+00:00</updated><entry><title>Adjustable height standing desks in small spaces</title><link href="https://www.stevenmaude.co.uk/posts/adjustable-height-standing-desks-in-small-spaces" rel="alternate"></link><published>2023-02-10T22:26:00+00:00</published><updated>2023-02-10T22:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-02-10:/posts/adjustable-height-standing-desks-in-small-spaces</id><summary type="html">&lt;p&gt;Notes on installing a Fully Jarvis desk in a small corner space.&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-new-desk"&gt;A new desk&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stevenmaude.co.uk</title><link href="https://www.stevenmaude.co.uk/" rel="alternate"></link><link href="https://www.stevenmaude.co.uk/feeds/all.atom.xml" rel="self"></link><id>https://www.stevenmaude.co.uk/</id><updated>2023-04-02T14:23:00+01:00</updated><entry><title>"Docs Like Code": a book review</title><link href="https://www.stevenmaude.co.uk/posts/docs-like-code-a-book-review" rel="alternate"></link><published>2023-04-02T14:23:00+01:00</published><updated>2023-04-02T14:23:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-04-02:/posts/docs-like-code-a-book-review</id><summary type="html">&lt;p&gt;A review of "Docs Like Code" by Anne Gentle, and some thoughts on docs as code&lt;/p&gt;</summary><content type="html">&lt;h2 id="what-is-docs-as-code-anyway"&gt;What is "docs as code" anyway?&lt;/h2&gt;
+&lt;p&gt;The book "Docs Like Code" covers the approach of treating software
+documentation just as the code that it documents. This approach to often
+referred to as "documentation as code" or "docs as code".&lt;/p&gt;
+&lt;p&gt;It seems that "docs as code" is the more common description. But,
+whether intentional or not, the "like" in "docs like code" could also be
+considered a pun. That is, not just treating your documentation like
+code, but your documentation "liking" code, being handled in the same
+way and sometimes in the same repository.&lt;/p&gt;
+&lt;p&gt;What is meant by treating software documentation as code is that you use
+the same kinds of tools, processes and workflows to work on your
+documentation, as software developers do when working on code.&lt;/p&gt;
+&lt;p&gt;This might include some or all of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use of a version control system&lt;/li&gt;
+&lt;li&gt;collaboration via an online code hosting service&lt;/li&gt;
+&lt;li&gt;writing documentation in a markup language&lt;/li&gt;
+&lt;li&gt;using a static site generator to build the documentation&lt;/li&gt;
+&lt;li&gt;automated checks on the documentation before changes are included to
+  the main documentation version&lt;/li&gt;
+&lt;li&gt;manual review on changes proposed for inclusion in the main
+  documentation version&lt;/li&gt;
+&lt;li&gt;automatic documentation build and deployment once new changes are made
+  to the main documentation version&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes approaches to solving technical problems can be pushed with a
+very prescriptive, dogmatic approaches: do this, use that, do not do
+this, why are you using &lt;em&gt;that&lt;/em&gt;? From what I have seen, one refreshing,
+feature of docs as code is that it is not particularly prescriptive
+about the &lt;em&gt;specific&lt;/em&gt; tools that you use. Nor does docs as code say how
+much of the tooling you need to adopt.&lt;/p&gt;
+&lt;p&gt;In some cases, tooling choices might be almost predetermined by
+overwhelming popularity: for instance, you can use any version control
+system for docs as code, but it is likely that people right now will
+choose Git. But this is still left to you to decide for your own case.&lt;/p&gt;
+&lt;p&gt;Even if you do not intend to adopt a full docs as code approach for
+writing documentation, you might benefit adopting some of the closely
+associated tooling. For example, you could still run tools like link,
+style and spell checkers against your documentation source, even outside
+of using version control or automated checks.&lt;/p&gt;
+&lt;h2 id="edition-recognition"&gt;Edition recognition&lt;/h2&gt;
+&lt;p&gt;I actually bought the second edition of this book to read through prior
+to giving a talk in 2022 on documentation. I skimmed it, realised that
+some of it was understandably outdated seeing given it was published
+five years before. On looking again very recently, I found the third
+edition, and decided to revisit the book. As it turns out, &lt;em&gt;obviously&lt;/em&gt;,
+the third edition of course got published about a week after I bought
+the second edition.&lt;/p&gt;
+&lt;p&gt;Having just bought and read the third edition, it does generally seem
+up-to-date. There was nothing I read that felt like it was giving advice
+that was once appropriate, but no longer.&lt;/p&gt;
+&lt;p&gt;Skimming through the second edition for comparison, it seems like the
+main differences are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the book has generally been expanded a little; particularly on
+  building and testing documentation&lt;/li&gt;
+&lt;li&gt;there was a tutorial in the second edition that has been perhaps
+  sensibly removed for the third edition, given that tutorials can date
+  quite quickly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="what-the-book-covers"&gt;What the book covers&lt;/h2&gt;
+&lt;p&gt;The book has three core chapters and a final chapter summary. The first
+chapter describes the benefits of adopting a docs as code approach,
+summarising why the kinds of tools I listed above are useful.&lt;/p&gt;
+&lt;p&gt;The second chapter details what you might consider when deciding to
+apply docs as code to a project: from requirements, to thinking about
+the tools you might use, and how you might organise repositories.&lt;/p&gt;
+&lt;p&gt;The final core chapter describes some of the features of working on docs
+as code projects. You need to think about how to make it easy for
+contributors to work on the documentation, how changes are incorporated
+into the repository, how to review and approve those changes, how you
+will publish and release, and how you use automated tooling to help with
+tasks.&lt;/p&gt;
+&lt;p&gt;Although the book is written from the perspective of practitioners who
+have applied docs as code in enterprise projects, the book is not overly
+sanguine. Some of the challenges of docs as code are also described:
+getting adoption from a wider team, that is both from developers who may
+not feel like documentation is their responsibility, and writers who may
+be less comfortable using a different, and perhaps more complicated, set
+of authoring tools than they are used to.&lt;/p&gt;
+&lt;p&gt;Quite rightly, the authors highlight that working with Git and online
+code hosting platforms like GitHub has a considerable learning barrier
+to overcome for new users. Certainly, once you &lt;em&gt;do&lt;/em&gt; feel a little bit
+more comfortable with Git, it is easy to forget how much of a struggle
+it is when you start out, with several opaque and mysterious commands
+that you need to know.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id="a-few-small-criticisms"&gt;A few small criticisms&lt;/h2&gt;
+&lt;p&gt;While I did not generally disagree with anything I was reading, I did
+feel like the book could have done with another proofread. I probably
+would not be so picky, but the authors&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2"&gt;2&lt;/a&gt;&lt;/sup&gt; are technical writers by
+trade.&lt;/p&gt;
+&lt;p&gt;Some presentational examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;there is one particularly horrendous bit of word spacing over a couple
+  of sentences where all the words just run into each other&lt;/li&gt;
+&lt;li&gt;there are a few footnotes that are then immediately and pointlessly
+  duplicated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There were also a couple of small technical points that I queried as
+reading: for example, the claim that Ruby:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;predates Python by about four years&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Perhaps the authors just got the two mixed up. From reading around, it
+seems that this is the other way around, as I instinctively thought,
+with Python being older.&lt;/p&gt;
+&lt;p&gt;Finally, glossaries are included as part of the main text and this feel
+incongruous, particularly early on in the text. In the second edition,
+the glossary was included at the end, which feels less daunting than
+throwing lots of Git jargon at the reader, when the reader probably does
+not really need it to understand most of the book. The authors do remark
+that the book is not intended to teach the reader about Git or GitHub.&lt;/p&gt;
+&lt;p&gt;These are all relatively small complaints, however, and do not really
+detract from the book itself.&lt;/p&gt;
+&lt;h2 id="origins-of-docs-as-code"&gt;Origins of docs as code&lt;/h2&gt;
+&lt;p&gt;As mentioned, the authors seem to have a technical writing background.
+Without researching it, my hunch would be that some of where the push
+for docs as code has come from is more from technically skilled writers,
+more so than for developers, and some of those realising that they could
+use the same tools as developers. That is my personal guess: the book
+does not actually give much of a history of who actually originated the
+idea of docs as code. Instead, a timeline of major organisations
+proclaiming public support for the docs as code approach is given.&lt;/p&gt;
+&lt;p&gt;These origins might also explain the lack of dogmatism around what you
+should and should not do that I alluded to above.&lt;/p&gt;
+&lt;p&gt;Even without knowing that docs as code is a described concept, I suspect
+that developers would naturally favour a docs as code approach for
+documentation, if developers were given a choice in the isolation of any
+external considerations or requirements. It is a natural extension of
+how developers often work: developers routinely work in a repository,
+collaborate on code hosting platforms, and often implement automation of
+checks, builds and releases.&lt;/p&gt;
+&lt;p&gt;Personally, I even write collections of notes and writing in plain text
+markup and store in Git repositories, even when the intent is to just
+collate that text, without any further publication. Creating and working
+on Git repositories is a quick and powerful process, once you are
+accustomed to it.&lt;/p&gt;
+&lt;h2 id="where-next"&gt;Where next?&lt;/h2&gt;
+&lt;p&gt;The authors do also quite rightly point out that docs as code is an
+approach that can be at least considered at all scales. It is as valid
+to consider for single developers maintaining their own software, as it
+is for much larger organisations working on bigger collaborative
+projects. Because this is a flexible approach, and one that can gel well
+with developers working on code, it does seem likely that it will
+continue to persist and gain increased adoption and recognition.&lt;/p&gt;
+&lt;p&gt;Though I did not learn much new from the book, I am perhaps not the most
+appropriate audience — the authors recommend it for technical writers
+and ther managers. My reading was still useful to be reassured that lots
+of ideas that I have learned from various places, without much formal
+training, are not incongruent with those of people who do primarily work
+on documentation.&lt;/p&gt;
+&lt;p&gt;Though the book seems a good summary of where docs as code is right now,
+what is not mentioned is much of where the authors anticipate future
+trends. They do allude to artificial intelligence and machine learning
+tools being used as auxiliary supporting helpers when writing. With the
+rate that large language models are developing, and finding application,
+it does not seem unreasonable that this might be a considerable shift in
+the near future.&lt;/p&gt;
+&lt;p&gt;One of the barriers for the uses of large language models is that what
+they output does not always necessarily make sense, or may be
+inaccurate. But writing usually involves editing as a central part of
+the process. Adoption of automated tools here, when you anticipate
+editing regardless of where the author's material originate, seems a
+natural fit. One of the interesting conclusions from Hannah Fry's "Hello
+World" is that automated tools may be particularly valuable to do
+tedious work or heavy lifting, but are likely to be particularly useful
+when used in partnership with humans. This seems like it could be the
+case for future writing.&lt;/p&gt;
+&lt;p&gt;What that means for docs as code is that the integration of code with
+documentation — where code is actually aiding a considerable part of the
+authoring of documentation — may become even closer.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;I think the Git developers have made some efforts to make its
+  interface more consistent, but I suspect the initial barrier to
+  learning is still there. Whether tools like GitHub Desktop can help
+  here, I am not sure. Really, the problem is that having an
+  understanding of how Git functions is helpful to be able to use it,
+  and there are several concepts you need to learn at once.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Why "authors"? Strangely, there are three listed authors in the
+  third edition, including the named author. In the second edition, two
+  of the third edition's authors are listed as contributors. In any
+  case, I have used the plural.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="2023"></category><category term="documentation"></category><category term="docs as code"></category></entry><entry><title>Adjustable height standing desks in small spaces</title><link href="https://www.stevenmaude.co.uk/posts/adjustable-height-standing-desks-in-small-spaces" rel="alternate"></link><published>2023-02-10T22:26:00+00:00</published><updated>2023-02-10T22:26:00+00:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2023-02-10:/posts/adjustable-height-standing-desks-in-small-spaces</id><summary type="html">&lt;p&gt;Notes on installing a Fully Jarvis desk in a small corner space.&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-new-desk"&gt;A new desk&lt;/h2&gt;
 &lt;p&gt;I am standing up while typing this with my computer and keyboard resting
 on a new desk. My previous desk — a cheap, but value for money, IKEA
 effort — has been swapped for a Fully Jarvis adjustable height frame
@@ -1127,148 +1316,4 @@ distance while running, and the Forerunner 35 does well here.&lt;/p&gt;
 you've not ever had such a watch and want to try one out without
 spending too much, the Forerunner 35 is a quietly competent choice. It's
 been a substantial upgrade from the Forerunner 15, which I also liked a
-lot.&lt;/p&gt;</content><category term="2020"></category><category term="Forerunner"></category><category term="Garmin"></category><category term="review"></category><category term="running"></category></entry><entry><title>Continuous integration with GitHub Actions</title><link href="https://www.stevenmaude.co.uk/posts/continuous-integration-with-github-actions" rel="alternate"></link><published>2020-08-02T14:38:00+01:00</published><updated>2020-08-02T14:38:00+01:00</updated><author><name>Steven Maude</name></author><id>tag:www.stevenmaude.co.uk,2020-08-02:/posts/continuous-integration-with-github-actions</id><summary type="html">&lt;p&gt;A look at GitHub Actions, and the good and bad of coupling automation
-to a remote repository provider&lt;/p&gt;</summary><content type="html">&lt;h2 id="a-quick-review-of-github-actions"&gt;A quick review of GitHub Actions&lt;/h2&gt;
-&lt;p&gt;I've been using &lt;a href="https://github.com/features/actions"&gt;GitHub Actions&lt;/a&gt; a
-lot recently. It's a continuous integration and continuous
-delivery/deployment (CI/CD) tool that's, unsurprisingly, part of GitHub.&lt;/p&gt;
-&lt;p&gt;As the vagueness of the "D" in "CD" might indicate, different people
-have different interpretations of how you actually define these terms.
-For this discussion, let's just take it that these tools encourage
-developers to automate many software development processes that don't
-involve writing code. There's an aim of frequently getting changes into
-the main development branch, with minimal manual labour and aiming for a
-good level of quality control, trying to avoid broken code getting
-deployed.&lt;/p&gt;
-&lt;p&gt;So, I've been using GitHub Actions a lot, both for personal projects and
-at work. And I've enjoyed using it. It's reasonably easy to use, and
-there's a quick feedback loop from you pushing a workflow to seeing it
-run. This in turn makes it fun to work with; it puts you in a frame of
-mind where you ponder what development tasks you could automate.&lt;/p&gt;
-&lt;p&gt;Where GitHub Actions lacks is often for want of a little polish and
-refinement are needed. I'll mention three examples. First, the
-&lt;a href="https://docs.github.com/en/actions"&gt;documentation&lt;/a&gt; occasionally lacks
-simple concrete examples for some of the features. The early parts of
-the documentation are actually example-focused. But then many of the
-features are simply all piled into a reference section at the end.
-Additionally, I don't know what exactly it is about the page design or
-the structuring of the documentation, but I did find it difficult to
-find precisely what I was looking for. That was the case even when I'd
-actually read some information before and knew it was hidden there,
-somewhere.&lt;/p&gt;
-&lt;p&gt;Often I've found more useful information elsewhere. Other helpful places
-I've found have included: GitHub's Architecture Decision Records in the
-&lt;a href="https://github.com/actions/runner"&gt;GitHub Actions Runner&lt;/a&gt; repository,
-Stack Overflow, other people's GitHub Actions workflows, and
-documentation for third-party actions.&lt;/p&gt;
-&lt;p&gt;Second, at time of writing, there is no simple way to remove repetition
-within workflows and between workflows. For instance, you might want to
-run tests before you merge pull requests, and might want to do the same
-when you build and publish a new release. At the moment, this means
-duplicating part of one workflow in another, or creating a custom
-action. GitHub are planning to add &lt;a href="https://github.com/actions/runner/issues/438"&gt;"composite"
-actions&lt;/a&gt; soon which should
-help simplify this type of common reuse.&lt;/p&gt;
-&lt;p&gt;Finally, workflow steps do not have a non-failing "neutral" outcome.
-(Apparently, this did use to be a feature during the GitHub Actions
-beta.) You might design a workflow with a step that could determine
-whether subsequent steps should run or not. Without a neutral outcome,
-there is no easy way to indicate "no error, but we have stopped the
-workflow early". The only way to directly exit the workflow at that
-point is to fail. But this isn't semantically what is intended: this
-type of exit may be an expected valid state and not a workflow failure.&lt;/p&gt;
-&lt;p&gt;Alternatively, you can continue without failing by specifying
-&lt;code&gt;continue-on-error: true&lt;/code&gt; for a step. But now all subsequent steps will
-run, which we don't want: maybe those steps will waste a sizable chunk
-of our Actions minutes quota and/or maybe those steps will fail too. To
-skip the rest of the steps when they're not needed, conditional checks
-on "success" of steps can be threaded through the subsequent steps of
-your workflow. But this complicates the workflow, a "neutral" outcome
-would simplify this entirely by allowing us to exit, without failure, at
-the point where we really do want the workflow to stop.&lt;/p&gt;
-&lt;h3 id="competitive-pricing-and-features"&gt;Competitive pricing and features&lt;/h3&gt;
-&lt;p&gt;GitHub Actions does well on bundling free usage minutes, even for
-private projects. For something like, say &lt;a href="https://travis-ci.com/"&gt;Travis
-CI&lt;/a&gt;, you have to pay a hefty fixed price per
-month to get that option. Though it should be noted that Travis CI
-pricing includes unlimited minutes, whereas you have to pay if you
-exceed your GitHub Actions monthly quota.&lt;/p&gt;
-&lt;p&gt;However, at current pricing, you could get almost 10,000 monthly minutes
-on GitHub Actions using a Linux runner — $0.008 per minute, with 2000
-included in a GitHub Free plan — for the cost of the cheapest Travis
-plan ($63). So, unless you're using a lot of minutes, when comparing on
-price alone, there's no contest.&lt;/p&gt;
-&lt;p&gt;The other big advantage of GitHub Actions is that it permits far more
-concurrent jobs than Travis CI: at the time of writing, a GitHub Free
-account has twenty concurrent (non-macOS) jobs. Travis CI offers only
-ten concurrent jobs even at the highest "Premium" plan, and just one on
-their lowest priced plan. This is important as, particularly if you're
-collaborating in a team, your request for a CI job may be blocked by
-other outstanding jobs, possibly delaying the completion of your
-requested job.&lt;/p&gt;
-&lt;p&gt;Both Travis CI and GitHub Actions offer free usage in some cases. GitHub
-Actions pricing refers to "free for public repositories". Travis CI's
-own site mentions "free for open source". I suspect by that this Travis
-CI really just mean "your code must be public". And not that anyone
-actually checks that your code is published under some kind of valid
-open source license.&lt;/p&gt;
-&lt;h3 id="coupling-automation-to-the-remote-repository-host"&gt;Coupling automation to the remote repository host&lt;/h3&gt;
-&lt;p&gt;Price and concurrency aside, what might be consequences of using the
-same service — here GitHub — for hosting the repository's code and that
-repository's automation?&lt;/p&gt;
-&lt;p&gt;From a quick search around, there doesn't appear any standard format for
-specifying these types of automation workflows. That's not too
-surprising. One reason might be that every provider implements their own
-features and therefore wants to be able to flexibly specify the
-configuration to incorporate those features. There aren't any
-transpilers for different formats: I can't take an existing
-&lt;code&gt;.travis.yml&lt;/code&gt; and automatically convert it to a GitHub Actions
-&lt;code&gt;workflow.yml&lt;/code&gt;. (However, there is &lt;a href="https://github.com/ropensci/tic"&gt;an R
-project&lt;/a&gt; that aims to specify workflow
-configurations for R packages agnostically, outputting configuration for
-different providers.)&lt;/p&gt;
-&lt;p&gt;The consequence is that using GitHub Actions means that you now have a
-coupling of your code's organisation to GitHub, and adds work should you
-migrate to another Git repository host. To be fair, this is likely true
-already, even without using GitHub Actions. If you move to a different
-host, say GitLab, at the least, you'll also probably want to move the
-existing issues from GitHub to the new host. In mitigation of this,
-there are often tools or automatic imports for migrating these other
-non-code features, like issues.&lt;/p&gt;
-&lt;p&gt;But, as we've seen, any GitHub Actions workflows will probably need a
-manual rewrite to use a similar process elsewhere. This, then, is
-probably where using an external automation tool like Travis CI offers a
-benefit. If you migrate to a new remote repository host, to get your
-automation running, you just need to connect your new host to your
-existing automation system. No rewrite required.&lt;/p&gt;
-&lt;p&gt;On the other hand, it's reasonable to think that external tools are more
-awkward to configure and monitor as opposed to comparable tooling that
-is a key part of your existing repository host. With an external
-service, there will also be some requirement for developers to create an
-account there, and then allow the external application to access their
-GitHub account. With GitHub Actions, it's just another tab on your
-GitHub repository. (Travis CI certainly didn't help themselves here by
-previously having &lt;a href="https://blog.travis-ci.com/2018-05-02-open-source-projects-on-travis-ci-com-with-github-apps"&gt;&lt;em&gt;two&lt;/em&gt; separate
-domains&lt;/a&gt;,
-to independently handle free and paid services.)&lt;/p&gt;
-&lt;p&gt;And an external tool is an additional point of failure. It's possible
-GitHub is up and running, while Travis CI is unavailable, or vice versa.
-Either service failing can block active development.&lt;/p&gt;
-&lt;h2 id="so-whats-best"&gt;So what's best?&lt;/h2&gt;
-&lt;p&gt;Like many choices, there's no definitive answer. If the CI services have
-roughly equivalent features, then it comes down to what other aspects
-you prioritise. Is tight integration of your software development
-processes a positive — making for potentially easier configuration — or
-a hindrance to migration? Is pricing the most critical aspect?&lt;/p&gt;
-&lt;p&gt;For funded development teams, the pricing issue is perhaps less
-important since it will likely still be a small part of an
-organisation's budget. Where GitHub Actions is particularly well placed
-is in the giving of individual developers an allocation of free
-automation job time for their private projects. Together with that
-allocation being easily used as part of the service developers are
-already likely using, it is challenging for external automation services
-to compete.&lt;/p&gt;
-&lt;p&gt;And that's where my personal view is. I'm still sticking with GitHub
-Actions, notwithstanding the slight risk of getting too tied into
-GitHub. GitHub is incredibly popular right now, it's where open source
-projects are developed, and that network effect is an important one.&lt;/p&gt;</content><category term="2020"></category><category term="automation"></category><category term="continuous delivery"></category><category term="continuous integration"></category><category term="GitHub"></category><category term="GitHub Actions"></category></entry></feed>
+lot.&lt;/p&gt;</content><category term="2020"></category><category term="Forerunner"></category><category term="Garmin"></category><category term="review"></category><category term="running"></category></entry></feed>
